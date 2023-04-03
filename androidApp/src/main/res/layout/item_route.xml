@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="ru.z8.louttsev.cheaptripmobile.shared.model.data.DurationConverter" />
+
+        <variable
+            name="model"
+            type="ru.z8.louttsev.cheaptripmobile.shared.model.data.Route" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/route_main_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/route_item_background"
+        android:padding="8dp">
+
+        <HorizontalScrollView
+            android:id="@+id/transport_icon_container_scroll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fadeScrollbars="false"
+            android:scrollIndicators="start|end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_height="36dp">
+
+            <LinearLayout
+                android:id="@+id/transport_icon_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/route_plan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{model.routePlan}"
+            android:textColor="@color/colorTextPrimary"
+            app:layout_constraintEnd_toStartOf="@+id/open_indicator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/transport_icon_container_scroll"
+            tools:text="Muscat → Abu Dhabi" />
+
+        <TextView
+            android:id="@+id/duration"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{model.routeDuration}"
+            android:textColor="@color/colorTextSecondary"
+            app:layout_constraintBottom_toBottomOf="@+id/euro_price"
+            app:layout_constraintEnd_toStartOf="@+id/euro_price"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/euro_price"
+            tools:text="1 d 16 h 39 min" />
+
+        <TextView
+            android:id="@+id/euro_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/filled_field_background"
+            android:padding="2dp"
+            android:text="@{`€\u2009` + String.valueOf(model.euroPrice)}"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/open_indicator"
+            app:layout_constraintTop_toBottomOf="@+id/route_plan"
+            tools:text="€ 125.30" />
+
+        <CheckBox
+            android:id="@+id/open_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/route_item_opening_selector"
+            app:layout_constraintBottom_toBottomOf="@+id/duration"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/route_plan" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/path_list"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/duration"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

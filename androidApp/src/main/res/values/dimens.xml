@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="route_item_margin">8dp</dimen>
+    <dimen name="location_item_padding">4dp</dimen>
+    <dimen name="transport_icon_margin">2dp</dimen>
+</resources>

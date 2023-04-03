@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="ru.z8.louttsev.cheaptripmobile.shared.model.data.DurationConverter" />
+
+        <variable
+            name="model"
+            type="ru.z8.louttsev.cheaptripmobile.shared.model.data.Path" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/path_main_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/path_item_background"
+        android:paddingStart="8dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:id="@+id/path_plan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@{model.pathPlan}"
+            android:textColor="@color/colorTextPrimary"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/transport"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Muscat → Abu Dhabi" />
+
+        <TextView
+            android:id="@+id/transport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{model.transportationType.toString()}"
+            android:textColor="@color/colorTextPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Bus" />
+
+        <TextView
+            android:id="@+id/duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{model.pathDuration}"
+            android:textColor="@color/colorTextSecondary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/euro_price"
+            tools:text="1 d 16 h 39 min" />
+
+        <Button
+            android:id="@+id/action_button"
+            style="@android:style/Widget.Holo.Light.Button.Borderless.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@drawable/action_button_background"
+            android:text="@string/action_button_text"
+            app:layout_constraintBottom_toBottomOf="@+id/duration"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/duration"
+            tools:visibility="gone" />
+
+        <TextView
+            android:id="@+id/euro_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{String.valueOf(model.euroPrice) + `\u2009€`}"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/path_plan"
+            tools:text="125.30 €" />
+
+        <TextView
+            android:id="@+id/conditional_clause"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/colorTextPrimary"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/euro_price"
+            app:layout_constraintStart_toStartOf="@id/duration"
+            app:layout_constraintTop_toBottomOf="@id/euro_price"
+            tools:text="duration includes transfer to/from airport"
+            tools:visibility="visible" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

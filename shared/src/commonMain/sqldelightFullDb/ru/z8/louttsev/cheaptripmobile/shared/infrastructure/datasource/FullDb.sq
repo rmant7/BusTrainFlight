@@ -1,0 +1,317 @@
+﻿CREATE TABLE IF NOT EXISTS locations (
+  id INTEGER AS Int NOT NULL PRIMARY KEY,
+  name TEXT NOT NULL,
+  country_id INTEGER AS Int NOT NULL,
+  latitude REAL AS Float DEFAULT NULL,
+  longitude REAL AS Float DEFAULT NULL,
+  name_ru TEXT NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS
+    locations_country_id_index
+ON
+    locations(country_id);
+
+selectLocationsByName:
+SELECT
+    id, name, name_ru
+FROM
+    locations
+WHERE
+    name LIKE ('%' || :needle || '%')
+  OR
+    name_ru LIKE ('%' || :needle || '%');
+
+selectLocationNamesById:
+SELECT
+    name, name_ru
+FROM
+    locations
+WHERE
+    id = :id;
+
+CREATE TABLE IF NOT EXISTS travel_data (
+  id INTEGER AS Int NOT NULL PRIMARY KEY,
+  `from` INTEGER AS Int NOT NULL,
+  `to` INTEGER AS Int NOT NULL,
+  transportation_type INTEGER AS Int DEFAULT NULL,
+  euro_price REAL AS Float NOT NULL,
+  time_in_minutes INTEGER AS Int DEFAULT NULL,
+  FOREIGN KEY (`from`) REFERENCES locations(id),
+  FOREIGN KEY (`to`) REFERENCES locations(id)
+);
+
+CREATE INDEX IF NOT EXISTS
+    travel_data_ffk_idx
+ON
+    travel_data(`from`);
+
+CREATE INDEX IF NOT EXISTS
+    travel_data_tfk_idx
+ON
+    travel_data(`to`);
+
+selectDirectPaths:
+SELECT
+    *
+FROM
+    travel_data
+WHERE
+    `from` = :from
+  AND
+    `to` = :to;
+
+selectPathsByIds:
+SELECT
+    *
+FROM
+    travel_data
+WHERE
+    id IN :pathIds
+ORDER BY
+    id;
+
+CREATE TABLE IF NOT EXISTS routes (
+  id INTEGER AS Int NOT NULL PRIMARY KEY,
+  `from` INTEGER AS Int NOT NULL,
+  `to` INTEGER AS Int NOT NULL,
+  euro_price REAL AS Float NOT NULL,
+  travel_data TEXT NOT NULL,
+  FOREIGN KEY (`from`) REFERENCES locations(id),
+  FOREIGN KEY (`to`) REFERENCES locations(id)
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS
+    routes_route_from_to_index
+ON
+    routes(`from`, `to`);
+
+CREATE INDEX IF NOT EXISTS
+    routes_travel_data_ffk_idx
+ON
+    routes(`from`);
+
+CREATE INDEX IF NOT EXISTS
+    routes_travel_data_tfk_idx
+ON
+    routes(`to`);
+
+CREATE INDEX IF NOT EXISTS
+    routes_travel_data_rffk_idx
+ON
+    routes(`from`);
+
+CREATE INDEX IF NOT EXISTS
+    routes_travel_data_rtfk_idx
+ON
+    routes(`to`);
+
+selectFromIdsOfRoutes:
+SELECT DISTINCT
+    `from`
+FROM
+    routes;
+
+selectToIdsOfRoutes:
+SELECT DISTINCT
+    `to`
+FROM
+    routes;
+
+selectMixedRoutes:
+SELECT
+    *
+FROM
+    routes
+WHERE
+    `from` = :from
+  AND
+    `to` = :to;
+
+CREATE TABLE IF NOT EXISTS flying_routes (
+  id INTEGER AS Int NOT NULL PRIMARY KEY,
+  `from` INTEGER AS Int NOT NULL,
+  `to` INTEGER AS Int NOT NULL,
+  euro_price REAL AS Float NOT NULL,
+  travel_data TEXT NOT NULL,
+  FOREIGN KEY (`from`) REFERENCES locations(id),
+  FOREIGN KEY (`to`) REFERENCES locations(id)
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS
+    flying_routes_route_from_to_index
+ON
+    flying_routes(`from`, `to`);
+
+CREATE INDEX IF NOT EXISTS
+    flying_routes_travel_data_flrtfk
+ON
+    flying_routes(`to`);
+
+selectFlyingRoutes:
+SELECT
+    *
+FROM
+    flying_routes
+WHERE
+    `from` = :from
+  AND
+    `to` = :to;
+
+CREATE TABLE IF NOT EXISTS fixed_routes (
+  id INTEGER AS Int NOT NULL PRIMARY KEY,
+  `from` INTEGER AS Int NOT NULL,
+  `to` INTEGER AS Int NOT NULL,
+  euro_price REAL AS Float NOT NULL,
+  travel_data TEXT NOT NULL,
+  FOREIGN KEY (`from`) REFERENCES locations(id),
+  FOREIGN KEY (`to`) REFERENCES locations(id)
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS
+    fixed_routes_route_from_to_index
+ON
+    fixed_routes(`from`, `to`);
+
+CREATE INDEX IF NOT EXISTS
+    fixed_routes_travel_data_frffk_idx
+ON
+    fixed_routes(`from`);
+
+CREATE INDEX IF NOT EXISTS
+    fixed_routes_travel_data_frtfk_idx
+ON
+    fixed_routes(`to`);
+
+CREATE INDEX IF NOT EXISTS
+    fixed_routes_travel_data_flrffk_idx
+ON
+    fixed_routes(`from`);
+
+CREATE INDEX IF NOT EXISTS
+    fixed_routes_travel_data_flrtfk_idx
+ON
+    fixed_routes(`to`);
+
+selectFixedRoutes:
+SELECT
+    *
+FROM
+    fixed_routes
+WHERE
+    `from` = :from
+  AND
+    `to` = :to;
+
+CREATE TABLE IF NOT EXISTS routes_without_ride_share (
+  id INTEGER AS Int NOT NULL PRIMARY KEY,
+  `from` INTEGER AS Int NOT NULL,
+  `to` INTEGER AS Int NOT NULL,
+  euro_price REAL AS Float NOT NULL,
+  travel_data TEXT COLLATE BINARY NOT NULL
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS
+    routes_without_ride_share_route_from_to_index
+ON
+    routes_without_ride_share(`from`, `to`);
+
+CREATE INDEX IF NOT EXISTS
+    routes_without_ride_share_travel_data_ffk_idx
+ON
+    routes_without_ride_share(`from`);
+
+CREATE INDEX IF NOT EXISTS
+    routes_without_ride_share_travel_data_rffk_idx
+ON
+    routes_without_ride_share(`from`);
+
+CREATE INDEX IF NOT EXISTS
+    routes_without_ride_share_travel_data_rtfk_idx
+ON
+    routes_without_ride_share(`to`);
+CREATE INDEX IF NOT EXISTS
+    routes_without_ride_share_travel_data_tfk_idx
+ON
+    routes_without_ride_share(`to`);
+
+selectRoutesWithoutRideShare:
+SELECT
+    *
+FROM
+    routes_without_ride_share
+WHERE
+    `from` = :from
+  AND
+    `to` = :to;
+
+CREATE TABLE IF NOT EXISTS fixed_routes_without_ride_share (
+  id INTEGER AS Int NOT NULL PRIMARY KEY,
+  `from` INTEGER AS Int NOT NULL,
+  `to` INTEGER AS Int NOT NULL,
+  euro_price REAL AS Float NOT NULL,
+  travel_data TEXT COLLATE BINARY NOT NULL
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS
+    fixed_routes_without_ride_share_route_from_to_index
+ON
+    fixed_routes_without_ride_share(`from`, `to`);
+
+CREATE INDEX IF NOT EXISTS
+    fixed_routes_without_ride_share_travel_data_flrffk_idx
+ON
+    fixed_routes_without_ride_share(`from`);
+
+CREATE INDEX IF NOT EXISTS
+    fixed_routes_without_ride_share_travel_data_flrtfk_idx
+ON
+    fixed_routes_without_ride_share(`to`);
+
+CREATE INDEX IF NOT EXISTS
+    fixed_routes_without_ride_share_travel_data_frffk_idx
+ON
+    fixed_routes_without_ride_share(`from`);
+
+CREATE INDEX IF NOT EXISTS
+    fixed_routes_without_ride_share_travel_data_frtfk_idx
+ON
+    fixed_routes_without_ride_share(`to`);
+
+selectFixedRoutesWithoutRideShare:
+SELECT
+    *
+FROM
+    fixed_routes_without_ride_share
+WHERE
+    `from` = :from
+  AND
+    `to` = :to;
+
+CREATE TABLE IF NOT EXISTS transportation_types (
+  id INTEGER AS Int NOT NULL PRIMARY KEY,
+  name TEXT NOT NULL
+);
+
+selectTransportationTypeNameById:
+SELECT
+    name
+FROM
+    transportation_types
+WHERE
+    id = :id;
+
+CREATE TABLE IF NOT EXISTS countries (
+  country_name TEXT DEFAULT NULL,
+  country_id INTEGER AS Int NOT NULL PRIMARY KEY,
+  country_name_ru TEXT DEFAULT NULL
+);
+
+CREATE TABLE IF NOT EXISTS currencies (
+  id INTEGER AS Int NOT NULL PRIMARY KEY,
+  name TEXT NOT NULL,
+  code TEXT NOT NULL,
+  symbol TEXT NOT NULL,
+  one_euro_rate REAL AS Float DEFAULT NULL,
+  r2r_symbol TEXT DEFAULT NULL
+);
