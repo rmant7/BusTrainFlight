@@ -48,6 +48,6 @@ enum class TransportationType(
          * @param value Value of type
          * @return Appropriate transportation type
          */
-        fun fromValue(value: String) = values().find { it.value == value } ?: UNDEFINED
+        infix fun fromValue(value: String?) = values().find { it.value == value } ?: UNDEFINED
     }
 }

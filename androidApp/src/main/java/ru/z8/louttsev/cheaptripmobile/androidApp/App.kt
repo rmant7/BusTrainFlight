@@ -3,6 +3,8 @@ package ru.z8.louttsev.cheaptripmobile.androidApp
 import android.app.Application
 import com.yandex.metrica.YandexMetrica
 import com.yandex.metrica.YandexMetricaConfig
+import io.github.aakira.napier.DebugAntilog
+import io.github.aakira.napier.Napier
 import ru.z8.louttsev.cheaptripmobile.shared.DatabaseDriverFactory
 import ru.z8.louttsev.cheaptripmobile.shared.convertToString
 import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.datasource.FullDb
@@ -21,6 +23,8 @@ import ru.z8.louttsev.cheaptripmobile.shared.model.RouteRepository
 class App : Application() {
     override fun onCreate() {
         super.onCreate()
+
+        Napier.base(DebugAntilog())
 
         YandexMetrica.activate(
             applicationContext,

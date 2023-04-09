@@ -7,13 +7,16 @@ package ru.z8.louttsev.cheaptripmobile.shared.viewmodel
 import dev.icerock.moko.mvvm.livedata.LiveData
 import dev.icerock.moko.mvvm.livedata.MutableLiveData
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
+import io.github.aakira.napier.Napier
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import ru.z8.louttsev.cheaptripmobile.shared.currentLocale
 import ru.z8.louttsev.cheaptripmobile.shared.ioDispatcher
 import ru.z8.louttsev.cheaptripmobile.shared.model.LocationRepository
+import ru.z8.louttsev.cheaptripmobile.shared.model.LocationsRepositoryJson
 import ru.z8.louttsev.cheaptripmobile.shared.model.RouteRepository
+import ru.z8.louttsev.cheaptripmobile.shared.model.RoutesRepositoryJson
 import ru.z8.louttsev.cheaptripmobile.shared.model.data.Locale
 import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location
 import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location.Type
@@ -52,12 +55,20 @@ class MainViewModel(
         override fun onTextChanged(text: String, locale: Locale, emptyResultHandler: () -> Unit) {
             inputLocale = locale
             viewModelScope.launch(ioDispatcher) {
-                val result = locationRepository.searchLocationsByName(
+//                val result = locationRepository.searchLocationsByName(
+//                    needle = text,
+//                    type = Type.FROM,
+//                    limit = 4,
+//                    locale = inputLocale
+//                )
+
+                val result = LocationsRepositoryJson.searchLocationsByName(
                     needle = text,
                     type = Type.FROM,
                     limit = 4,
                     locale = inputLocale
                 )
+
 
                 withContext(uiDispatcher) {
                     if (result.isEmpty()) {
@@ -97,7 +108,14 @@ class MainViewModel(
         override fun onTextChanged(text: String, locale: Locale, emptyResultHandler: () -> Unit) {
             inputLocale = locale
             viewModelScope.launch(ioDispatcher) {
-                val result = locationRepository.searchLocationsByName(
+//                val result = locationRepository.searchLocationsByName(
+//                    needle = text,
+//                    type = Type.TO,
+//                    limit = 4,
+//                    locale = inputLocale
+//                )
+
+                val result = LocationsRepositoryJson.searchLocationsByName(
                     needle = text,
                     type = Type.TO,
                     limit = 4,
@@ -142,11 +160,19 @@ class MainViewModel(
             if (isBothPointsSelected()) {
                 viewModelScope.launch(ioDispatcher) {
                     // null-safety was checked
-                    val result = routeRepository.getRoutes(
+//                    val result = routeRepository.getRoutes(
+//                        from = selectedOrigin!!,
+//                        to = selectedDestination!!,
+//                        locale = inputLocale
+//                    )
+
+                    val result = RoutesRepositoryJson.getRoutes(
                         from = selectedOrigin!!,
                         to = selectedDestination!!,
                         locale = inputLocale
                     )
+
+                    Napier.d(result.toString())
 
                     withContext(uiDispatcher) {
                         if (result.isEmpty()) {

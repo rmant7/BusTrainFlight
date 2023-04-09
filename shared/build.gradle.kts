@@ -9,6 +9,7 @@ plugins {
     id("com.android.library")
     id("dev.icerock.mobile.multiplatform-resources")
     id("com.squareup.sqldelight")
+    kotlin("plugin.serialization") version "1.6.21"
 }
 
 kotlin {
@@ -24,10 +25,13 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0")
-                api("dev.icerock.moko:resources:0.17.0")
+                api("dev.icerock.moko:resources:0.21.1")
                 api("dev.icerock.moko:mvvm-core:0.11.0")
                 api("dev.icerock.moko:mvvm-livedata:0.11.0")
                 implementation("com.squareup.sqldelight:runtime:1.4.4")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
+
+                implementation("io.github.aakira:napier:2.6.1")
             }
         }
         val commonTest by getting {
@@ -96,6 +100,12 @@ fun getMd5EncryptedString(file: File): String = DigestInputStream(
 android {
     compileSdkVersion(33)
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    sourceSets["main"].resources.setSrcDirs(
+        listOf(
+            "src/androidMain/resources",
+            "src/commonMain/resources" // <-- add the commonMain Resources
+        )
+    )
     defaultConfig {
         minSdkVersion(21)
         targetSdkVersion(33)

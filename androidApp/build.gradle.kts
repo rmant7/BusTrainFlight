@@ -11,6 +11,8 @@ dependencies {
     implementation("androidx.activity:activity-ktx:1.3.1")
     implementation("androidx.recyclerview:recyclerview:1.2.1")
     implementation("com.yandex.android:mobmetricalib:3.21.0")
+
+    implementation("io.github.aakira:napier:2.6.1")
 }
 
 android {

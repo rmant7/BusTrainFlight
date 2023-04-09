@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.InputFilter
 import android.text.Spanned
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.inputmethod.EditorInfo
@@ -31,6 +32,8 @@ import ru.z8.louttsev.cheaptripmobile.androidApp.adapters.RouteListAdapter
 import ru.z8.louttsev.cheaptripmobile.androidApp.databinding.ActivityMainBinding
 import ru.z8.louttsev.cheaptripmobile.shared.model.data.Locale
 import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location
+import ru.z8.louttsev.cheaptripmobile.shared.model.LocationsRepositoryJson
+import ru.z8.louttsev.cheaptripmobile.shared.model.RoutesRepositoryJson
 import ru.z8.louttsev.cheaptripmobile.shared.viewmodel.AutoCompleteHandler
 import ru.z8.louttsev.cheaptripmobile.shared.viewmodel.MainViewModel
 import kotlin.text.RegexOption.*
@@ -46,6 +49,9 @@ class MainActivity : AppCompatActivity() {
         setTheme(R.style.AppTheme)
 
         super.onCreate(savedInstanceState)
+
+        Log.d("DATA", LocationsRepositoryJson.getLocations().toString())
+        Log.d("DATA", RoutesRepositoryJson.getDirectRoutes().toString())
 
         mInputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
@@ -144,7 +150,7 @@ class MainActivity : AppCompatActivity() {
     private fun createWithFactory(
         create: () -> ViewModel
     ): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
             @Suppress("UNCHECKED_CAST")
             return create.invoke() as T
         }
