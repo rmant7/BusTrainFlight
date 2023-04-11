@@ -11,6 +11,8 @@ import io.github.aakira.napier.Napier
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import ru.z8.louttsev.cheaptripmobile.shared.currentLocale
 import ru.z8.louttsev.cheaptripmobile.shared.ioDispatcher
 import ru.z8.louttsev.cheaptripmobile.shared.model.LocationRepository
@@ -33,9 +35,9 @@ import ru.z8.louttsev.cheaptripmobile.shared.uiDispatcher
  * @property routes Found routes
  */
 class MainViewModel(
-    private val locationRepository: LocationRepository,
-    private val routeRepository: RouteRepository
-) : ViewModel() {
+    private val locationRepository: LocationsRepositoryJson,
+    private val routeRepository: RoutesRepositoryJson
+) : ViewModel(), KoinComponent {
     private var inputLocale = currentLocale
 
     private var selectedOrigin: Location? = null
@@ -62,7 +64,7 @@ class MainViewModel(
 //                    locale = inputLocale
 //                )
 
-                val result = LocationsRepositoryJson.searchLocationsByName(
+                val result = locationRepository.searchLocationsByName(
                     needle = text,
                     type = Type.FROM,
                     limit = 4,
@@ -115,7 +117,7 @@ class MainViewModel(
 //                    locale = inputLocale
 //                )
 
-                val result = LocationsRepositoryJson.searchLocationsByName(
+                val result = locationRepository.searchLocationsByName(
                     needle = text,
                     type = Type.TO,
                     limit = 4,
@@ -166,7 +168,7 @@ class MainViewModel(
 //                        locale = inputLocale
 //                    )
 
-                    val result = RoutesRepositoryJson.getRoutes(
+                    val result = routeRepository.getRoutes(
                         from = selectedOrigin!!,
                         to = selectedDestination!!,
                         locale = inputLocale

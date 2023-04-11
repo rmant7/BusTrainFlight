@@ -7,9 +7,9 @@ import ru.z8.louttsev.cheaptripmobile.shared.model.data.Locale
 import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location
 import ru.z8.louttsev.cheaptripmobile.shared.model.data.LocationJson
 
-object LocationsRepositoryJson {
+class LocationsRepositoryJson (val db: LocationsDbJson) {
 
-    private val locations: Map<Int, LocationJson> = LocationsDbJson.locationsData
+    private val locations: Map<Int, LocationJson> = db.getLocations()
 
     fun getLocations() = locations
 

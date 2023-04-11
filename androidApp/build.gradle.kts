@@ -13,6 +13,9 @@ dependencies {
     implementation("com.yandex.android:mobmetricalib:3.21.0")
 
     implementation("io.github.aakira:napier:2.6.1")
+
+    implementation("io.insert-koin:koin-core:3.2.0")
+    implementation("io.insert-koin:koin-android:3.2.0")
 }
 
 android {

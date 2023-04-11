@@ -5,12 +5,13 @@ import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.Location
 import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.RoutesDbJson
 import ru.z8.louttsev.cheaptripmobile.shared.model.data.*
 
-object RoutesRepositoryJson {
+class RoutesRepositoryJson(val db: RoutesDbJson) {
 
-    private val routes = RoutesDbJson.directRoutesData
+    private val routes = db.getDirectRoutes()
     fun getDirectRoutes() = routes
 
-    private val transport: Map<Int, Transport> = RoutesDbJson.transport
+    private val transport = db.getTransport()
+    fun getTransport() = transport
 
     fun getRoutes(
         from: Location,

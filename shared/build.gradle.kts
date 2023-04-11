@@ -32,6 +32,7 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
 
                 implementation("io.github.aakira:napier:2.6.1")
+                implementation("io.insert-koin:koin-core:3.2.0")
             }
         }
         val commonTest by getting {
@@ -50,6 +51,7 @@ kotlin {
                 api("dev.icerock.moko:mvvm-databinding:0.11.0")
                 api("dev.icerock.moko:mvvm-viewbinding:0.11.0")
                 implementation("com.squareup.sqldelight:android-driver:1.4.4")
+                implementation("io.insert-koin:koin-android:3.2.0")
             }
         }
         val androidTest by getting {

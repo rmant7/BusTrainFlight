@@ -27,13 +27,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.textfield.TextInputLayout
 import dev.icerock.moko.mvvm.livedata.LiveData
+import org.koin.android.ext.android.inject
 import ru.z8.louttsev.cheaptripmobile.androidApp.adapters.AutoCompleteLocationsListAdapter
 import ru.z8.louttsev.cheaptripmobile.androidApp.adapters.RouteListAdapter
 import ru.z8.louttsev.cheaptripmobile.androidApp.databinding.ActivityMainBinding
 import ru.z8.louttsev.cheaptripmobile.shared.model.data.Locale
 import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location
-import ru.z8.louttsev.cheaptripmobile.shared.model.LocationsRepositoryJson
-import ru.z8.louttsev.cheaptripmobile.shared.model.RoutesRepositoryJson
 import ru.z8.louttsev.cheaptripmobile.shared.viewmodel.AutoCompleteHandler
 import ru.z8.louttsev.cheaptripmobile.shared.viewmodel.MainViewModel
 import kotlin.text.RegexOption.*
@@ -44,20 +43,19 @@ import kotlin.text.RegexOption.*
 class MainActivity : AppCompatActivity() {
     private lateinit var mInputMethodManager: InputMethodManager
 
+    private val model: MainViewModel by inject ()
+
     @SuppressLint("InflateParams", "SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
 
         super.onCreate(savedInstanceState)
 
-        Log.d("DATA", LocationsRepositoryJson.getLocations().toString())
-        Log.d("DATA", RoutesRepositoryJson.getDirectRoutes().toString())
-
         mInputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
-        val model by viewModels<MainViewModel> {
-            createWithFactory { MainViewModel(App.sLocationRepository, App.sRouteRepository) }
-        }
+//        val model by viewModels<MainViewModel> {
+//            createWithFactory { MainViewModel(App.sLocationRepository, App.sRouteRepository) }
+//        }
 
         val binding = ActivityMainBinding.inflate(layoutInflater).apply {
             lifecycleOwner = this@MainActivity
