@@ -10,5 +10,5 @@ val repositoryModule = module {
     single { LocationsDbJson() }
     single { RoutesDbJson() }
     single { LocationsRepositoryJson(get()) }
-    single { RoutesRepositoryJson(get()) }
+    single { RoutesRepositoryJson(get(), get()) }
 }

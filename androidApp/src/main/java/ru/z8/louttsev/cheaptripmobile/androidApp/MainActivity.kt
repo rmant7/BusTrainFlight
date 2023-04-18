@@ -61,6 +61,8 @@ class MainActivity : AppCompatActivity() {
             lifecycleOwner = this@MainActivity
             viewModel = model // ignore probably IDE error message "Cannot access class..."
         }
+//
+//        model.oldRouteRepository = App.sRouteRepository
 
         setContentView(binding.root)
 

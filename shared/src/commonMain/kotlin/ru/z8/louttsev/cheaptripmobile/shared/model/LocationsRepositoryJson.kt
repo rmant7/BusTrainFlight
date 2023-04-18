@@ -19,7 +19,6 @@ class LocationsRepositoryJson (val db: LocationsDbJson) {
         limit: Int = 10,
         locale: Locale = currentLocale
     ): List<Location> {
-        Napier.d(needle)
         val locationList = mutableListOf<Location>()
         for(location in locations.values){
             if (location.name.startsWith(needle, ignoreCase = true)){
@@ -29,5 +28,14 @@ class LocationsRepositoryJson (val db: LocationsDbJson) {
             }
         }
         return locationList
+    }
+
+    fun searchLocationById(id: Int): Location?{
+        for(location in locations.values){
+            if (location.id == id){
+                return Location(location.id, location.name)
+            }
+        }
+        return null
     }
 }

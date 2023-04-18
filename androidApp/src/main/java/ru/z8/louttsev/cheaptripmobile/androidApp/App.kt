@@ -53,33 +53,33 @@ class App : Application() {
 
         convertToString = { toString(this@App) }
 
-//        val fullDbDriver = DatabaseDriverFactory(this).getDriver(FullDb.Schema, "fullDb.sqlite3")
-//        val localDbDriver =
-//            DatabaseDriverFactory(this).createDriver(LocalDb.Schema, "localDb.sqlite3")
-//
-//        sLocationRepository = LocationRepository(
-//            // TODO change to network implementation, issue #1
-//            mainSource = LocationDataSourceFullDb(fullDbDriver),
-//            reserveSource = LocationDb(localDbDriver),
-//            strategy = DIRECT_READ
-//        )
-//
-//        sRouteRepository = RouteRepository(
-//            // TODO change to network implementation, issue #1
-//            mainSource = RouteDataSourceFullDb(fullDbDriver),
-//            reserveSource = RouteDb(localDbDriver),
-//            strategy = DIRECT_READ // TODO change to BACKUP, issue #1 (first solve issue #10)
-//        )
+        val fullDbDriver = DatabaseDriverFactory(this).getDriver(FullDb.Schema, "fullDb.sqlite3")
+        val localDbDriver =
+            DatabaseDriverFactory(this).createDriver(LocalDb.Schema, "localDb.sqlite3")
+
+        sLocationRepository = LocationRepository(
+            // TODO change to network implementation, issue #1
+            mainSource = LocationDataSourceFullDb(fullDbDriver),
+            reserveSource = LocationDb(localDbDriver),
+            strategy = DIRECT_READ
+        )
+
+        sRouteRepository = RouteRepository(
+            // TODO change to network implementation, issue #1
+            mainSource = RouteDataSourceFullDb(fullDbDriver),
+            reserveSource = RouteDb(localDbDriver),
+            strategy = DIRECT_READ // TODO change to BACKUP, issue #1 (first solve issue #10)
+        )
     }
 
-//    /**
-//     * Access point to initiated repositories.
-//     *
-//     * @property sLocationRepository Read-only storage of available locations.
-//     * @property sRouteRepository Read-only storage of available routes.
-//     */
-//    companion object {
-//        lateinit var sLocationRepository: LocationRepository
-//        lateinit var sRouteRepository: RouteRepository
-//    }
+    /**
+     * Access point to initiated repositories.
+     *
+     * @property sLocationRepository Read-only storage of available locations.
+     * @property sRouteRepository Read-only storage of available routes.
+     */
+    companion object {
+        lateinit var sLocationRepository: LocationRepository
+        lateinit var sRouteRepository: RouteRepository
+    }
 }

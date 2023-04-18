@@ -13,6 +13,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import ru.z8.louttsev.cheaptripmobile.shared.DatabaseDriverFactory
 import ru.z8.louttsev.cheaptripmobile.shared.currentLocale
 import ru.z8.louttsev.cheaptripmobile.shared.ioDispatcher
 import ru.z8.louttsev.cheaptripmobile.shared.model.LocationRepository
@@ -24,6 +25,7 @@ import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location
 import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location.Type
 import ru.z8.louttsev.cheaptripmobile.shared.model.data.Route
 import ru.z8.louttsev.cheaptripmobile.shared.uiDispatcher
+
 
 /**
  * Declares UX logic for managing the data and handling the UI actions.
@@ -43,6 +45,8 @@ class MainViewModel(
     private var selectedOrigin: Location? = null
     private var selectedDestination: Location? = null
 
+    lateinit var oldRouteRepository: RouteRepository
+
     private val routeBuildReadiness = MutableLiveData(isBothPointsSelected() && isPointsVarious())
 
     val origins = object : AutoCompleteHandler<Location> {
@@ -57,12 +61,6 @@ class MainViewModel(
         override fun onTextChanged(text: String, locale: Locale, emptyResultHandler: () -> Unit) {
             inputLocale = locale
             viewModelScope.launch(ioDispatcher) {
-//                val result = locationRepository.searchLocationsByName(
-//                    needle = text,
-//                    type = Type.FROM,
-//                    limit = 4,
-//                    locale = inputLocale
-//                )
 
                 val result = locationRepository.searchLocationsByName(
                     needle = text,
@@ -110,12 +108,6 @@ class MainViewModel(
         override fun onTextChanged(text: String, locale: Locale, emptyResultHandler: () -> Unit) {
             inputLocale = locale
             viewModelScope.launch(ioDispatcher) {
-//                val result = locationRepository.searchLocationsByName(
-//                    needle = text,
-//                    type = Type.TO,
-//                    limit = 4,
-//                    locale = inputLocale
-//                )
 
                 val result = locationRepository.searchLocationsByName(
                     needle = text,
@@ -159,10 +151,11 @@ class MainViewModel(
             get() = routeBuildReadiness
 
         override fun build(emptyResultHandler: () -> Unit, onUpdate: () -> Unit) {
+
             if (isBothPointsSelected()) {
                 viewModelScope.launch(ioDispatcher) {
                     // null-safety was checked
-//                    val result = routeRepository.getRoutes(
+//                    val result = oldRouteRepository.getRoutes(
 //                        from = selectedOrigin!!,
 //                        to = selectedDestination!!,
 //                        locale = inputLocale
