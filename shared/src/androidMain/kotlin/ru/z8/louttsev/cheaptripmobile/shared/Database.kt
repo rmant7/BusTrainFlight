@@ -23,18 +23,18 @@ actual class DatabaseDriverFactory(private val context: Context) {
     // TODO mark deprecate and/or remove, issue #1
     actual fun getDriver(schema: SqlDriver.Schema, fileName: String): SqlDriver {
         val database: File = context.getDatabasePath(fileName)
-        val checkCode = BuildConfig.DB_FILE_CHECK_CODE
-
-        if (!database.exists()) {
-            deployDatabase(database)
-            saveDbCheckCodePreference(checkCode)
-        } else {
-            if (checkCode != loadDbCheckCodePreference()) {
-                database.delete()
-                deployDatabase(database)
-                saveDbCheckCodePreference(checkCode)
-            }
-        }
+//        val checkCode = BuildConfig.DB_FILE_CHECK_CODE
+//
+//        if (!database.exists()) {
+//            deployDatabase(database)
+//            saveDbCheckCodePreference(checkCode)
+//        } else {
+//            if (checkCode != loadDbCheckCodePreference()) {
+//                database.delete()
+//                deployDatabase(database)
+//                saveDbCheckCodePreference(checkCode)
+//            }
+//        }
 
         return AndroidSqliteDriver(schema, context, fileName)
     }
@@ -49,16 +49,16 @@ actual class DatabaseDriverFactory(private val context: Context) {
             }
         }
 
-        val inputStream = context.resources.openRawResource(MR.files.fullDb.rawResId)
+//        val inputStream = context.resources.openRawResource(MR.files.fullDb.rawResId)
 
-        createDirectoryIfNotExist(database)
-        val outputStream = FileOutputStream(database.absolutePath)
-
-        inputStream.use { input: InputStream ->
-            outputStream.use { output: FileOutputStream ->
-                input.copyTo(output)
-            }
-        }
+//        createDirectoryIfNotExist(database)
+//        val outputStream = FileOutputStream(database.absolutePath)
+//
+//        inputStream.use { input: InputStream ->
+//            outputStream.use { output: FileOutputStream ->
+//                input.copyTo(output)
+//            }
+//        }
     }
 
     // TODO mark deprecate and/or remove, issue #1

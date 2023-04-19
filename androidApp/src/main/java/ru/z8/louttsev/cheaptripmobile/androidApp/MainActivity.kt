@@ -43,7 +43,7 @@ import kotlin.text.RegexOption.*
 class MainActivity : AppCompatActivity() {
     private lateinit var mInputMethodManager: InputMethodManager
 
-    private val model: MainViewModel by inject ()
+    private val model: MainViewModel by inject()
 
     @SuppressLint("InflateParams", "SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,8 +61,6 @@ class MainActivity : AppCompatActivity() {
             lifecycleOwner = this@MainActivity
             viewModel = model // ignore probably IDE error message "Cannot access class..."
         }
-//
-//        model.oldRouteRepository = App.sRouteRepository
 
         setContentView(binding.root)
 

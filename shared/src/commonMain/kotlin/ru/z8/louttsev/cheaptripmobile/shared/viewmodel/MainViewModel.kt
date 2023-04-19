@@ -45,8 +45,6 @@ class MainViewModel(
     private var selectedOrigin: Location? = null
     private var selectedDestination: Location? = null
 
-    lateinit var oldRouteRepository: RouteRepository
-
     private val routeBuildReadiness = MutableLiveData(isBothPointsSelected() && isPointsVarious())
 
     val origins = object : AutoCompleteHandler<Location> {
@@ -166,8 +164,6 @@ class MainViewModel(
                         to = selectedDestination!!,
                         locale = inputLocale
                     )
-
-                    Napier.d(result.toString())
 
                     withContext(uiDispatcher) {
                         if (result.isEmpty()) {

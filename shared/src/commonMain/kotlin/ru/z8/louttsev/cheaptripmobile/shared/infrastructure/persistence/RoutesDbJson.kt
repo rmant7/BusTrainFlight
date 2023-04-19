@@ -36,6 +36,14 @@ class RoutesDbJson {
 
     fun getFixedRoutes() = fixedRoutesData
 
+
+    private val mixedRoutesData: Map<Int, RouteJson> by lazy {
+        val jsonRoutesString = ResourceReader().readResource("MR/files/routes.json")
+        Json.decodeFromString<Map<Int, RouteJson>>(jsonRoutesString)
+    }
+
+    fun getMixedRoutes() = mixedRoutesData
+
     private val transportData: Map<Int, Transport> by lazy {
         val jsonTransportString = ResourceReader().readResource("MR/files/transport.json")
         Json.decodeFromString<Map<Int, Transport>>(jsonTransportString)

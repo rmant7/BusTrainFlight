@@ -112,9 +112,9 @@ android {
         minSdkVersion(21)
         targetSdkVersion(33)
 
-        val dbFile = File("shared/src/commonMain/resources/MR/files/fullDb.sqlite3")
-        val checkCode = getMd5EncryptedString(dbFile)
-        buildConfigField("String", "DB_FILE_CHECK_CODE", "\"$checkCode\"")
+//        val dbFile = File("shared/src/commonMain/resources/MR/files/fullDb.sqlite3")
+//        val checkCode = getMd5EncryptedString(dbFile)
+//        buildConfigField("String", "DB_FILE_CHECK_CODE", "\"$checkCode\"")
     }
     buildFeatures {
         viewBinding = true
