@@ -43,7 +43,7 @@ class PathListAdapter(
             model = currentPath // ignore probably IDE error message "Cannot access class..."
             executePendingBindings()
 
-            with(actionButton) {
+            with(buyTicketButton) {
                 // TODO change country stub to auto detected country, issue #3
                 val affiliateUrl = AffiliateProgram.getAffiliateUrl(currentPath, Country.INDEFINITE)
 
@@ -59,17 +59,17 @@ class PathListAdapter(
                 }
             }
 
-            with(conditionalClause) {
-                val clauses = ConditionalClause.getClausesFor(currentPath)
-
-                if (clauses.isNotEmpty()) {
-                    text = clauses.joinToString("\n")
-                    visibility = VISIBLE
-                } else {
-                    text = ""
-                    visibility = GONE
-                }
-            }
+//            with(conditionalClause) {
+//                val clauses = ConditionalClause.getClausesFor(currentPath)
+//
+//                if (clauses.isNotEmpty()) {
+//                    text = clauses.joinToString("\n")
+//                    visibility = VISIBLE
+//                } else {
+//                    text = ""
+//                    visibility = GONE
+//                }
+//            }
         }
     }
 

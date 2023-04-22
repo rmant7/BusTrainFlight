@@ -5,6 +5,8 @@
 package ru.z8.louttsev.cheaptripmobile.androidApp.adapters
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -65,8 +67,12 @@ class RouteListAdapter(
             openIndicator.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
                     pathList.visibility = View.VISIBLE
+                    euroPrice.visibility = View.GONE
+                    duration.visibility = View.GONE
                 } else {
                     pathList.visibility = View.GONE
+                    euroPrice.visibility = View.VISIBLE
+                    duration.visibility = View.VISIBLE
                 }
             }
             openIndicator.isChecked = false
@@ -82,6 +88,7 @@ class RouteListAdapter(
             addView(
                 ImageView(context).apply {
                     setImageResource(path.transportationType.imageResource.drawableResId)
+                    setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_ATOP)
                     val padding =
                         context.resources.getDimension(R.dimen.transport_icon_margin).toInt()
                     setPadding(padding)

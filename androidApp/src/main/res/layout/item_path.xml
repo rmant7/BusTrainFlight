@@ -16,20 +16,25 @@
         android:id="@+id/path_main_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/path_item_background"
-        android:paddingStart="8dp"
+        android:paddingStart="7dp"
         android:paddingTop="8dp"
-        android:paddingEnd="8dp"
+        android:paddingEnd="7dp"
         android:paddingBottom="8dp">
+
+        <View
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lightGray"/>
 
         <TextView
             android:id="@+id/path_plan"
             android:layout_width="0dp"
+            android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="@{model.pathPlan}"
             android:textColor="@color/colorTextPrimary"
-            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/transport"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -37,6 +42,7 @@
 
         <TextView
             android:id="@+id/transport"
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{model.transportationType.toString()}"
@@ -50,50 +56,66 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{model.pathDuration}"
-            android:textColor="@color/colorTextSecondary"
+            android:textColor="@android:color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/euro_price"
             tools:text="1 d 16 h 39 min" />
 
-        <Button
-            android:id="@+id/action_button"
-            style="@android:style/Widget.Holo.Light.Button.Borderless.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:background="@drawable/action_button_background"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bookingButton"
+            style="@style/ActionButtonStyle"
+            app:layout_constraintBottom_toBottomOf="@+id/buyTicketButton"
+            app:layout_constraintEnd_toStartOf="@+id/buyTicketButton"
+            app:layout_constraintTop_toTopOf="@+id/buyTicketButton"
+            android:layout_marginEnd="7dp"
+            android:text="Booking.com"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buyTicketButton"
+            style="@style/ActionButtonStyle"
             android:text="@string/action_button_text"
-            app:layout_constraintBottom_toBottomOf="@+id/duration"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/duration"
-            tools:visibility="gone" />
+            app:layout_constraintTop_toBottomOf="@+id/duration"
+            tools:visibility="visible"
+            android:textStyle="bold"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/hostelworldButton"
+            style="@style/ActionButtonStyle"
+            app:layout_constraintBottom_toBottomOf="@+id/buyTicketButton"
+            app:layout_constraintStart_toEndOf="@+id/buyTicketButton"
+            app:layout_constraintTop_toTopOf="@+id/buyTicketButton"
+            android:layout_marginStart="7dp"
+            android:text="Hostelworld"/>
 
         <TextView
             android:id="@+id/euro_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:textColor="@android:color/black"
             android:text="@{String.valueOf(model.euroPrice) + `\u2009€`}"
-            android:textColor="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/path_plan"
             tools:text="125.30 €" />
 
-        <TextView
-            android:id="@+id/conditional_clause"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:paddingTop="2dp"
-            android:paddingBottom="2dp"
-            android:text=""
-            android:textAlignment="center"
-            android:textColor="@color/colorTextPrimary"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="@id/euro_price"
-            app:layout_constraintStart_toStartOf="@id/duration"
-            app:layout_constraintTop_toBottomOf="@id/euro_price"
-            tools:text="duration includes transfer to/from airport"
-            tools:visibility="visible" />
+<!--        <TextView-->
+<!--            android:id="@+id/conditional_clause"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:paddingTop="2dp"-->
+<!--            android:paddingBottom="2dp"-->
+<!--            android:text=""-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/colorTextPrimary"-->
+<!--            android:visibility="gone"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/euro_price"-->
+<!--            app:layout_constraintStart_toStartOf="@id/duration"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/euro_price"-->
+<!--            tools:text="duration includes transfer to/from airport"-->
+<!--            tools:visibility="visible" />-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

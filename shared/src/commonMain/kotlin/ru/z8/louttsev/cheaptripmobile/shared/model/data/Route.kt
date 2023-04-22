@@ -45,7 +45,7 @@ data class Route(
         }
     }
 
-    private val pointsDelimiter = "\u2009\u2794\u2009"
+    private val pointsDelimiter = " \u2192 "
 
     /**
      * String representation of route plan, eg. 'Muscat → Toronto → Abu Dhabi'

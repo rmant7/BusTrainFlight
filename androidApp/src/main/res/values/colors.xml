@@ -8,4 +8,5 @@
     <color name="colorActiveViewBackground">#787878</color>
     <color name="colorInactiveViewBackground">#DCDCDC</color>
     <color name="colorBackground">@android:color/white</color>
+    <color name="lightGray">#CECECE</color>
 </resources>

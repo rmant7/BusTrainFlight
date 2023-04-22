@@ -25,6 +25,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 import dev.icerock.moko.mvvm.livedata.LiveData
 import org.koin.android.ext.android.inject
@@ -35,6 +36,7 @@ import ru.z8.louttsev.cheaptripmobile.shared.model.data.Locale
 import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location
 import ru.z8.louttsev.cheaptripmobile.shared.viewmodel.AutoCompleteHandler
 import ru.z8.louttsev.cheaptripmobile.shared.viewmodel.MainViewModel
+import java.util.*
 import kotlin.text.RegexOption.*
 
 /**
@@ -80,26 +82,26 @@ class MainActivity : AppCompatActivity() {
                 inputLayout = binding.originInputLayout
             )
 
-            originClearIcon.setOnClickListener {
-                model.origins.onItemReset()
-                originTextView.clearText()
-                originTextView.requestFocus()
-                mInputMethodManager.showSoftInput(originTextView, SHOW_IMPLICIT)
-            }
+//            originClearIcon.setOnClickListener {
+//                model.origins.onItemReset()
+//                originTextView.clearText()
+//                originTextView.requestFocus()
+//                mInputMethodManager.showSoftInput(originTextView, SHOW_IMPLICIT)
+//            }
 
             destinationTextView.setup(
                 handler = model.destinations,
                 inputLayout = binding.destinationInputLayout
             )
 
-            destinationClearIcon.setOnClickListener {
-                model.destinations.onItemReset()
-                destinationTextView.clearText()
-                destinationTextView.requestFocus()
-                mInputMethodManager.showSoftInput(destinationTextView, SHOW_IMPLICIT)
-            }
+//            destinationClearIcon.setOnClickListener {
+//                model.destinations.onItemReset()
+//                destinationTextView.clearText()
+//                destinationTextView.requestFocus()
+//                mInputMethodManager.showSoftInput(destinationTextView, SHOW_IMPLICIT)
+//            }
 
-            clearButton.setOnClickListener {
+            (clearButton as MaterialButton).setOnClickListener {
                 model.origins.onItemReset()
                 originTextView.clearText()
                 model.destinations.onItemReset()
@@ -108,7 +110,7 @@ class MainActivity : AppCompatActivity() {
                 mInputMethodManager.showSoftInput(originTextView, SHOW_IMPLICIT)
             }
 
-            goButton.setup(
+            (goButton as MaterialButton).setup(
                 isReady = model.routes.isReadyToBuild,
                 listener = {
                     model.routes.build(
@@ -116,12 +118,14 @@ class MainActivity : AppCompatActivity() {
                         onUpdate = {
                             routeList.smoothScrollToPosition(0)
                             logo?.visibility = View.GONE
+                            resultsTextView?.visibility = View.VISIBLE
                             routeList.visibility = View.VISIBLE
                         }
                     )
 
                     routeList.visibility = View.GONE
-                    logo?.visibility = View.VISIBLE
+                    logo?.visibility = View.INVISIBLE
+                    resultsTextView?.visibility = View.INVISIBLE
                     mInputMethodManager.hideSoftInputFromWindow(
                         it.windowToken,
                         HIDE_NOT_ALWAYS
@@ -305,18 +309,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun Button.setup(isReady: LiveData<Boolean>, listener: (View) -> Unit) {
+    private fun MaterialButton.setup(isReady: LiveData<Boolean>, listener: (View) -> Unit) {
         isReady.addObserver {
             if (it) {
                 setOnClickListener(listener)
-                setBackgroundColor(
-                    ContextCompat.getColor(this@MainActivity, R.color.colorAccent)
-                )
+//                setBackgroundColor(
+//                    ContextCompat.getColor(this@MainActivity, R.color.colorAccent)
+//                )
             } else {
                 setOnClickListener(null)
-                setBackgroundColor(
-                    ContextCompat.getColor(this@MainActivity, R.color.colorInactiveViewBackground)
-                )
+//                setBackgroundColor(
+//                    ContextCompat.getColor(this@MainActivity, R.color.colorInactiveViewBackground)
+//                )
             }
         }
 

@@ -1,14 +1,59 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="fontFamily">@font/roboto</item>
     </style>
 
     <!-- Application launcher theme. -->
     <style name="AppTheme.Launcher">
         <item name="android:windowBackground">@drawable/launch_screen</item>
     </style>
+
+    <style name="InputLocationLayoutStyle" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">15dp</item>
+        <item name="background">@android:color/white</item>
+        <item name="boxCornerRadiusBottomEnd">8dp</item>
+        <item name="boxCornerRadiusBottomStart">8dp</item>
+        <item name="boxCornerRadiusTopEnd">8dp</item>
+        <item name="boxCornerRadiusTopStart">8dp</item>
+        <item name="boxStrokeColor">@color/border_color_selector</item>
+        <item name="boxStrokeWidthFocused">1dp</item>
+        <item name="errorEnabled">true</item>
+        <item name="endIconMode">clear_text</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="InputLocationEditTextStyle">
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:inputType">textNoSuggestions</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="ActionButtonStyle">
+        <item name="background">@drawable/action_button_background</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_width">109dp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="maxLines">1</item>
+        <item name="singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="minWidth">0dp</item>
+        <item name="fontFamily">@font/roboto_condensed_regular</item>
+    </style>
+
 </resources>
