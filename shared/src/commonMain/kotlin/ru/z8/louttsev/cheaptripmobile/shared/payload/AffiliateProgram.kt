@@ -28,45 +28,29 @@ enum class AffiliateProgram(
     // TODO: implement new item for transferbuses.com affiliate program, issue #40
     // TODO: Eliminate conflicts with other items that have BUS as affiliateUrls key, isuue #40
 
-    SKYSCANNER(
-        applicableCountries = emptySet(),
-        applicableLocations = emptySet(),
-        affiliateUrls = mapOf(
-            FLIGHT to "https://skyscanner.com/"
-        )
-    ),
-    TUTU(
-        applicableCountries = setOf(RUSSIA, BELARUS, UKRAINE),
-        applicableLocations = emptySet(),
-        affiliateUrls = mapOf(
-            BUS to "https://bus.tutu.ru/",
-            TRAIN to "https://www.tutu.ru/poezda/"
-        )
-    ),
-    BUSTRAVEL_DN(
-        applicableCountries = emptySet(),
-        applicableLocations = setOf(
-            Location(545, "Донецк"),
-            Location(545, "Donetsk")
-        ),
-        affiliateUrls = mapOf(
-            BUS to "http://bustravel.dn.ua/"
-        )
-    ),
-    MAKEMYTRIP(
-        applicableCountries = setOf(INDIA),
-        applicableLocations = emptySet(),
-        affiliateUrls = mapOf(
-            BUS to "https://www.makemytrip.com/bus-tickets/",
-            TRAIN to "https://www.makemytrip.com/railways/"
-        )
-    ),
+//    TUTU(
+//        applicableCountries = setOf(RUSSIA, BELARUS, UKRAINE),
+//        applicableLocations = emptySet(),
+//        affiliateUrls = mapOf(
+//            BUS to "https://bus.tutu.ru/",
+//            TRAIN to "https://www.tutu.ru/poezda/"
+//        )
+//    ),
+//    MAKEMYTRIP(
+//        applicableCountries = setOf(INDIA),
+//        applicableLocations = emptySet(),
+//        affiliateUrls = mapOf(
+//            BUS to "https://www.makemytrip.com/bus-tickets/",
+//            TRAIN to "https://www.makemytrip.com/railways/"
+//        )
+//    ),
     OMIO(
         applicableCountries = emptySet(),
         applicableLocations = emptySet(),
         affiliateUrls = mapOf(
             BUS to "http://www.omio.com/",
-            TRAIN to "http://www.omio.com/"
+            TRAIN to "http://www.omio.com/",
+            FLIGHT to "http://www.omio.com/"
         )
     ),
     AFERRY(

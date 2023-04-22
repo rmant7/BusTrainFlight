@@ -10,9 +10,16 @@ class LocationsDbJson {
 
     private val locationsData: Map<Int, LocationJson> by lazy {
         val jsonString = ResourceReader().readResource("MR/files/locations.json")
-        Json.decodeFromString<Map<Int, LocationJson>>(jsonString)
+        Json.decodeFromString(jsonString)
     }
 
     fun getLocations() = locationsData
+
+    private val bookingIdsData: Map<Int, Int> by lazy {
+        val jsonString = ResourceReader().readResource("MR/files/booking_ids.json")
+        Json.decodeFromString(jsonString)
+    }
+
+    fun getBookingIds() = bookingIdsData
 
 }

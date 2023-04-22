@@ -8,19 +8,14 @@ import ru.z8.louttsev.cheaptripmobile.shared.model.data.*
 class RoutesRepositoryJson(val db: RoutesDbJson, val locationRepository: LocationsRepositoryJson) {
 
     private val directRoutes = db.getDirectRoutes()
-    fun getDirectRoutes() = directRoutes
 
     private val fixedRoutes = db.getFixedRoutes()
-    fun getFixedRoutes() = fixedRoutes
 
     private val flyingRoutes = db.getFlyingRoutes()
-    fun getFlyingRoutes() = flyingRoutes
 
     private val mixedRoutes = db.getMixedRoutes()
-    fun getMixedRoutes() = mixedRoutes
 
     private val transport = db.getTransport()
-    fun getTransport() = transport
 
     fun getRoutes(
         from: Location,
@@ -85,6 +80,7 @@ class RoutesRepositoryJson(val db: RoutesDbJson, val locationRepository: Locatio
 
         for (route in directRoutes.values) {
             if (route.from == from.id && route.to == to.id) {
+                addedPath.add(listOf(directRoutes.entries.find { it.value == route }!!.key))
                 Napier.d("Direct route: $route")
                 routeList.add(
                     Route(

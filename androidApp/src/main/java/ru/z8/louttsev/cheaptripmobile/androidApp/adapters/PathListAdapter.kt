@@ -12,11 +12,15 @@ import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import androidx.recyclerview.widget.RecyclerView
+import io.github.aakira.napier.Napier
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import ru.z8.louttsev.cheaptripmobile.androidApp.databinding.ItemPathBinding
 import ru.z8.louttsev.cheaptripmobile.shared.model.data.ConditionalClause
 import ru.z8.louttsev.cheaptripmobile.shared.model.data.Country
 import ru.z8.louttsev.cheaptripmobile.shared.model.data.Path
 import ru.z8.louttsev.cheaptripmobile.shared.payload.AffiliateProgram
+import ru.z8.louttsev.cheaptripmobile.shared.model.LocationsRepositoryJson
 
 /**
  * Declares adapter for path list as part of route view.
@@ -25,7 +29,10 @@ import ru.z8.louttsev.cheaptripmobile.shared.payload.AffiliateProgram
  */
 class PathListAdapter(
     private val mPaths: List<Path>
-) : RecyclerView.Adapter<PathListAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<PathListAdapter.ViewHolder>(), KoinComponent {
+
+    val locationRepository: LocationsRepositoryJson by inject()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemPathBinding.inflate(LayoutInflater.from(parent.context))
 
@@ -46,7 +53,7 @@ class PathListAdapter(
             with(buyTicketButton) {
                 // TODO change country stub to auto detected country, issue #3
                 val affiliateUrl = AffiliateProgram.getAffiliateUrl(currentPath, Country.INDEFINITE)
-
+                Napier.d(affiliateUrl)
                 if (affiliateUrl.isNotEmpty()) {
                     visibility = VISIBLE
                     setOnClickListener {
@@ -56,6 +63,29 @@ class PathListAdapter(
                 } else {
                     visibility = GONE
                     setOnClickListener(null)
+                }
+            }
+
+            with(hostelworldButton) {
+                val affiliateUrl =
+                    "https://hostelworld.prf.hn/click/camref:1101lmmsq/[p_id:1011l441771]"
+                setOnClickListener {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(affiliateUrl))
+                    root.context.startActivity(intent)
+                }
+            }
+            with(bookingButton) {
+                val affiliateUrl =
+                    "https://www.booking.com/searchresults.en.html?aid=7920152&city=" +
+                            locationRepository.getBookingId(
+                                locationRepository.searchLocationsByName(
+                                    currentPath.to
+                                )[0].id
+                            ) +
+                            "&lang=en&selected_currency=EUR"
+                setOnClickListener {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(affiliateUrl))
+                    root.context.startActivity(intent)
                 }
             }
 

@@ -11,7 +11,7 @@ class LocationsRepositoryJson (val db: LocationsDbJson) {
 
     private val locations: Map<Int, LocationJson> = db.getLocations()
 
-    fun getLocations() = locations
+    private val bookingIds: Map<Int, Int> = db.getBookingIds()
 
     fun searchLocationsByName(
         needle: String,
@@ -38,4 +38,6 @@ class LocationsRepositoryJson (val db: LocationsDbJson) {
         }
         return null
     }
+
+    fun getBookingId(locationId: Int) = bookingIds[locationId]
 }

@@ -67,7 +67,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/buyTicketButton"
             app:layout_constraintEnd_toStartOf="@+id/buyTicketButton"
             app:layout_constraintTop_toTopOf="@+id/buyTicketButton"
-            android:layout_marginEnd="7dp"
+            android:layout_marginEnd="6dp"
             android:text="Booking.com"/>
 
         <com.google.android.material.button.MaterialButton
@@ -88,7 +88,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/buyTicketButton"
             app:layout_constraintStart_toEndOf="@+id/buyTicketButton"
             app:layout_constraintTop_toTopOf="@+id/buyTicketButton"
-            android:layout_marginStart="7dp"
+            android:layout_marginStart="6dp"
             android:text="Hostelworld"/>
 
         <TextView

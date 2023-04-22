@@ -4,14 +4,17 @@
  */
 package ru.z8.louttsev.cheaptripmobile.androidApp.adapters
 
+import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.*
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import android.view.animation.ScaleAnimation
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.view.setPadding
@@ -32,6 +35,7 @@ class RouteListAdapter(
     liveData: LiveData<List<Route>>
 ) : RecyclerView.Adapter<RouteListAdapter.ViewHolder>() {
     private var mRoutes: List<Route>
+    private val animationDuration = 200L
 
     init {
         mRoutes = liveData.value
@@ -51,6 +55,34 @@ class RouteListAdapter(
         }
 
         return ViewHolder(binding)
+    }
+
+    private fun slideView(view: View, currentHeight: Int, newHeight: Int) {
+
+        val slideAnimator = ValueAnimator
+            .ofInt(currentHeight, newHeight)
+            .setDuration(animationDuration)
+
+
+        /* We use an update listener which listens to each tick
+         * and manually updates the height of the view  */
+
+        slideAnimator.addUpdateListener { animation1 ->
+            val value = animation1.animatedValue as Int
+            view.layoutParams.height = value
+            view.requestLayout()
+        }
+        slideAnimator.duration = animationDuration
+        slideAnimator.interpolator = AccelerateDecelerateInterpolator()
+        slideAnimator.start()
+
+        /*  We use an animationSet to play the animation  */
+
+//        AnimatorSet().apply {
+//            interpolator = AccelerateDecelerateInterpolator()
+//            play(slideAnimator)
+//            start()
+//        }
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
