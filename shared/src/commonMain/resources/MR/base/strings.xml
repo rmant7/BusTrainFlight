@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="action_bar_tagline">Pay less,­ visit more!</string>
+    <string name="transportation_type_flight">Flight</string>
+    <string name="transportation_type_bus">Bus</string>
+    <string name="transportation_type_train">Train</string>
+    <string name="transportation_type_car_drive">Car Drive</string>
+    <string name="transportation_type_taxi">Taxi</string>
+    <string name="transportation_type_walk">Walk</string>
+    <string name="transportation_type_town_car">Town Car</string>
+    <string name="transportation_type_ride_share">Ride Share</string>
+    <string name="transportation_type_shuttle">Shuttle</string>
+    <string name="transportation_type_ferry">Ferry</string>
+    <string name="transportation_type_subway">Subway</string>
+    <string name="transportation_type_undefined">Undefined</string>
+    <string name="route_type_ground">Ground</string>
+    <string name="route_type_mixed">Mixed</string>
+    <string name="route_type_flying">Flying</string>
+    <string name="route_type_fixed_without_ride_share">Ground (no ride share)</string>
+    <string name="route_type_without_ride_share">No ride share</string>
+    <string name="route_type_direct">Direct</string>
+    <string name="formatted_days_time_component">%d d</string>
+    <string name="formatted_hours_time_component">%d h</string>
+    <string name="formatted_minutes_time_component">%d m</string>
+    <string name="from_location_input_field_hint">From</string>
+    <string name="to_location_input_field_hint">To</string>
+    <string name="clear_button_text">Clear form</string>
+    <string name="go_button_text">Let\'s go</string>
+    <string name="no_data_error_message">Sorry, the data we have accumulated is not enough to build a route between the indicated cities. Try changing your request.</string>
+    <string name="invalid_selection_error_message">Destination and point of departure cannot be the same.</string>
+    <string name="not_allowable_character_error_message">Sorry, for now, we support only English and Russian input.</string>
+    <string name="action_button_text">Buy ticket</string>
+    <string name="clause_duration_included_airport_transfer_text">duration includes transfer to/from airport</string>
+</resources>

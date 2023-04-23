@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="action_bar_tagline">Плати меньше,­ посети больше!</string>
+    <string name="transportation_type_flight">Самолет</string>
+    <string name="transportation_type_bus">Автобус</string>
+    <string name="transportation_type_train">Поезд</string>
+    <string name="transportation_type_car_drive">Автомобиль</string>
+    <string name="transportation_type_taxi">Такси</string>
+    <string name="transportation_type_walk">Пешком</string>
+    <string name="transportation_type_town_car">Лимузин</string>
+    <string name="transportation_type_ride_share">Попутка</string>
+    <string name="transportation_type_shuttle">Маршрутка</string>
+    <string name="transportation_type_ferry">Паром</string>
+    <string name="transportation_type_subway">Метро</string>
+    <string name="transportation_type_undefined">Не известный</string>
+    <string name="route_type_ground">Наземный</string>
+    <string name="route_type_mixed">Смешанный</string>
+    <string name="route_type_flying">Воздушный</string>
+    <string name="route_type_fixed_without_ride_share">Наземный (без попуток)</string>
+    <string name="route_type_without_ride_share">Без попуток</string>
+    <string name="route_type_direct">Прямой</string>
+    <string name="formatted_days_time_component">%d дн.</string>
+    <string name="formatted_hours_time_component">%d ч.</string>
+    <string name="formatted_minutes_time_component">%d м.</string>
+    <string name="from_location_input_field_hint">Откуда</string>
+    <string name="to_location_input_field_hint">Куда</string>
+    <string name="clear_button_text">Очистить</string>
+    <string name="go_button_text">Поехали!</string>
+    <string name="no_data_error_message">Простите. У нас пока нет информации по этому маршруту. Мы работаем над ее получением.</string>
+    <string name="invalid_selection_error_message">Пункты отправления и назначения не могут совпадать.</string>
+    <string name="not_allowable_character_error_message">Простите! На данный момент мы поддерживаем только русский и английский языки ввода.</string>
+    <string name="action_button_text">Купить билет</string>
+    <string name="clause_duration_included_airport_transfer_text">продолжительность включает трансфер в/из аэропорта</string>
+</resources>
