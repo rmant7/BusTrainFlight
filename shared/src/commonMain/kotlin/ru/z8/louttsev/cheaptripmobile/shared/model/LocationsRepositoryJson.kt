@@ -27,6 +27,16 @@ class LocationsRepositoryJson (val db: LocationsDbJson) {
                     break
             }
         }
+
+        if (locationList.size < limit) {
+            for(location in locations.values){
+                if (location.name.contains(needle, ignoreCase = true)){
+                    locationList.add(Location(location.id, location.name))
+                    if (locationList.size == limit)
+                        break
+                }
+            }
+        }
         return locationList
     }
 

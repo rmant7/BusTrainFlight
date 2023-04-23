@@ -48,9 +48,9 @@ enum class AffiliateProgram(
         applicableCountries = emptySet(),
         applicableLocations = emptySet(),
         affiliateUrls = mapOf(
-            BUS to "http://www.omio.com/",
-            TRAIN to "http://www.omio.com/",
-            FLIGHT to "http://www.omio.com/"
+            BUS to "https://omio.sjv.io/XxEWmb",
+            TRAIN to "https://omio.sjv.io/XxEWmb",
+            FLIGHT to "https://omio.sjv.io/XxEWmb"
         )
     ),
     AFERRY(
