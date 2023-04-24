@@ -1,11 +1,11 @@
 package model
 
-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource
-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource.*
-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource.ParamsBundle.*
-import ru.z8.louttsev.cheaptripmobile.shared.model.DataStorage
-import ru.z8.louttsev.cheaptripmobile.shared.model.RepositoryStrategy
-import ru.z8.louttsev.cheaptripmobile.shared.model.RepositoryStrategy.*
+import ru.z8.louttsev.bustrainflight.shared.model.DataSource
+import ru.z8.louttsev.bustrainflight.shared.model.DataSource.*
+import ru.z8.louttsev.bustrainflight.shared.model.DataSource.ParamsBundle.*
+import ru.z8.louttsev.bustrainflight.shared.model.DataStorage
+import ru.z8.louttsev.bustrainflight.shared.model.RepositoryStrategy
+import ru.z8.louttsev.bustrainflight.shared.model.RepositoryStrategy.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue

@@ -5,11 +5,12 @@
 
     <data>
 
-        <import type="ru.z8.louttsev.cheaptripmobile.shared.model.data.DurationConverter" />
+        <import type="ru.z8.louttsev.bustrainflight.shared.model.data.DurationConverter" />
 
         <variable
             name="model"
-            type="ru.z8.louttsev.cheaptripmobile.shared.model.data.Path" />
+            type="ru.z8.louttsev.bustrainflight.shared.model.data.Path" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

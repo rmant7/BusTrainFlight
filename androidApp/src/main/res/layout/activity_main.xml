@@ -7,8 +7,8 @@
 
         <variable
             name="viewModel"
-            type="ru.z8.louttsev.cheaptripmobile.shared.viewmodel.MainViewModel" />
-    </data>
+            type="ru.z8.louttsev.bustrainflight.shared.viewmodel.MainViewModel" />
+ </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_view"

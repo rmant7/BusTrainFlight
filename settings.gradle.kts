@@ -6,6 +6,7 @@ pluginManagement {
     }
     
 }
+
 rootProject.name = "BusTrainFlightMobile"
 
 
