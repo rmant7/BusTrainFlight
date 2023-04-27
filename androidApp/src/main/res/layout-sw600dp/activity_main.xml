@@ -6,8 +6,7 @@
     <data>
         <variable
             name="viewModel"
-<<<<<<< HEAD
-            type="ru.z8.louttsev.bustrainflight.shared.viewmodel.MainViewModel" />
+            type="ru.z8.louttsev.bustrainflightmobile.shared.viewmodel.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -91,7 +90,7 @@
             app:srcCompat="@drawable/ic_clear" />
 
         <Button
-            android:id="@+id/clear_button"
+            android:id="@+id/clearButton"
             style="@android:style/Widget.Holo.Light.Button"
             android:layout_width="120dp"
             android:layout_height="36dp"

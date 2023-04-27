@@ -33,6 +33,9 @@ kotlin {
 
                 implementation("io.github.aakira:napier:2.6.1")
                 implementation("io.insert-koin:koin-core:3.2.0")
+                // temporary fix of https://youtrack.jetbrains.com/issue/KT-41083
+                implementation("dev.icerock.moko:parcelize:0.4.0")
+                implementation("dev.icerock.moko:graphics:0.4.0")
             }
         }
         val commonTest by getting {
@@ -102,13 +105,19 @@ fun getMd5EncryptedString(file: File): String = DigestInputStream(
 android {
     compileSdkVersion(33)
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    sourceSets["main"].resources.setSrcDirs(
+        listOf(
+            "src/androidMain/resources",
+            "src/commonMain/resources" // <-- add the commonMain Resources
+        )
+    )
     defaultConfig {
         minSdkVersion(21)
         targetSdkVersion(33)
 
-        val dbFile = File("shared/src/commonMain/resources/MR/files/fullDb.sqlite3")
-        val checkCode = getMd5EncryptedString(dbFile)
-        buildConfigField("String", "DB_FILE_CHECK_CODE", "\"$checkCode\"")
+//        val dbFile = File("shared/src/commonMain/resources/MR/files/fullDb.sqlite3")
+//        val checkCode = getMd5EncryptedString(dbFile)
+//        buildConfigField("String", "DB_FILE_CHECK_CODE", "\"$checkCode\"")
     }
     buildFeatures {
         viewBinding = true
@@ -123,16 +132,16 @@ android {
 }
 
 multiplatformResources {
-    multiplatformResourcesPackage = "ru.z8.louttsev.bustrainflight"
+    multiplatformResourcesPackage = "ru.z8.louttsev.bustrainflightmobile"
 }
 
 sqldelight {
     database("LocalDb") {
-        packageName = "ru.z8.louttsev.bustrainflight.shared.infrastructure.persistence"
+        packageName = "ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence"
         sourceFolders = listOf("sqldelightLocalDb")
     }
     database("FullDb") {
-        packageName = "ru.z8.louttsev.bustrainflight.shared.infrastructure.datasource"
+        packageName = "ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource"
         sourceFolders = listOf("sqldelightFullDb")
     }
 }
