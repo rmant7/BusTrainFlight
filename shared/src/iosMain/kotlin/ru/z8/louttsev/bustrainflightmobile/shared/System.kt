@@ -2,9 +2,9 @@
  * CheapTrip Mobile
  * This is mobile client for LowCostsTrip server.
  */
-package ru.z8.louttsev.bustrainflightmobile.shared
+package ru.z8.louttsev.bustrainflightmobile.androidApp
 
-import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Locale
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Locale
 
 /**
  * A platform-specific property implementation for default language.

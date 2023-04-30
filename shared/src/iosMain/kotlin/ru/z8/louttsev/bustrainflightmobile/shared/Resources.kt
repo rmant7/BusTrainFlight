@@ -2,7 +2,7 @@
  * CheapTrip Mobile
  * This is mobile client for LowCostsTrip server.
  */
-package ru.z8.louttsev.bustrainflightmobile.shared
+package ru.z8.louttsev.bustrainflightmobile.androidApp
 
 import dev.icerock.moko.resources.desc.StringDesc
 

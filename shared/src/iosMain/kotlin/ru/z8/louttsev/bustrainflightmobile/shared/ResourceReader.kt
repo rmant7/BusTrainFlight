@@ -1,4 +1,4 @@
-package ru.z8.louttsev.bustrainflightmobile.shared
+package ru.z8.louttsev.bustrainflightmobile.androidApp
 
 
 // TODO Implement

@@ -1,11 +1,11 @@
 package model
 
-import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource
-import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource.*
-import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource.ParamsBundle.*
-import ru.z8.louttsev.bustrainflightmobile.shared.model.DataStorage
-import ru.z8.louttsev.bustrainflightmobile.shared.model.RepositoryStrategy
-import ru.z8.louttsev.bustrainflightmobile.shared.model.RepositoryStrategy.*
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.DataSource
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.DataSource.*
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.DataSource.ParamsBundle.*
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.DataStorage
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.RepositoryStrategy
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.RepositoryStrategy.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue

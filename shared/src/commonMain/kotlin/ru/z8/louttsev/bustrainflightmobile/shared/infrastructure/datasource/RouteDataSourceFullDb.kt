@@ -11,6 +11,7 @@ import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Locale
 import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location
 import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Route
 import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Route.Type.*
+import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.FullDbDataSource
 
 // TODO mark deprecate and/or remove, issue #1
 /**
