@@ -16,10 +16,10 @@ import io.github.aakira.napier.Napier
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ItemPathBinding
-import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Country
-import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Path
-import ru.z8.louttsev.bustrainflightmobile.shared.payload.AffiliateProgram
-import ru.z8.louttsev.bustrainflightmobile.shared.model.LocationsRepositoryJson
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Country
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Path
+import ru.z8.louttsev.bustrainflightmobile.androidApp.payload.AffiliateProgram
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.LocationsRepositoryJson
 
 /**
  * Declares adapter for path list as part of route view.

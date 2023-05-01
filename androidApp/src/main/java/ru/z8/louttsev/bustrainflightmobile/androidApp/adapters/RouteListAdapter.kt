@@ -17,13 +17,13 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.view.setPadding
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import dev.icerock.moko.mvvm.livedata.LiveData
 import ru.z8.louttsev.bustrainflightmobile.androidApp.R
 import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ItemRouteBinding
-import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Path
-import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Route
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Path
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Route
 
 /**
  * Declares adapter for route list as result of searching.
@@ -37,8 +37,8 @@ class RouteListAdapter(
     private val animationDuration = 200L
 
     init {
-        mRoutes = liveData.value
-        liveData.addObserver {
+        mRoutes = liveData.value!!
+        liveData.observeForever {
             mRoutes = it
             notifyDataSetChanged()
         }
@@ -118,7 +118,7 @@ class RouteListAdapter(
         paths.forEach { path ->
             addView(
                 ImageView(context).apply {
-                    setImageResource(path.transportationType.imageResource.drawableResId)
+                    setImageResource(path.transportationType.imageResource)
                     setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_ATOP)
                     val padding =
                         context.resources.getDimension(R.dimen.transport_icon_margin).toInt()

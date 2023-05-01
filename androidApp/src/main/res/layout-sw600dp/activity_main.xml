@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="ru.z8.louttsev.bustrainflightmobile.shared.viewmodel.MainViewModel" />
+            type="ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

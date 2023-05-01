@@ -18,22 +18,23 @@ import androidx.appcompat.app.ActionBar.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doBeforeTextChanged
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
-import dev.icerock.moko.mvvm.livedata.LiveData
 import org.koin.android.ext.android.inject
 import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.AutoCompleteLocationsListAdapter
 import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.RouteListAdapter
 import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ActivityMainBinding
-import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location
-import ru.z8.louttsev.bustrainflightmobile.shared.viewmodel.AutoCompleteHandler
-import ru.z8.louttsev.bustrainflightmobile.shared.viewmodel.MainViewModel
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Location
+import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.AutoCompleteHandler
+import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.MainViewModel
 import java.util.*
 import kotlin.text.RegexOption.*
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Locale
 
 /**
  * Declares main UI controller.
@@ -293,8 +294,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun AutoCompleteTextView.selectSuitableLocation(handler: AutoCompleteHandler<Location>) {
-        if (handler.data.value.isNotEmpty()) {
-            val suitableLocation = handler.data.value.first()
+        if (handler.data.value!!.isNotEmpty()) {
+            val suitableLocation = handler.data.value!!.first()
 
             setText(suitableLocation.name)
             handler.onItemSelected(
@@ -306,7 +307,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun MaterialButton.setup(isReady: LiveData<Boolean>, listener: (View) -> Unit) {
-        isReady.addObserver {
+        isReady.observeForever {
             if (it) {
                 setOnClickListener(listener)
 //                setBackgroundColor(

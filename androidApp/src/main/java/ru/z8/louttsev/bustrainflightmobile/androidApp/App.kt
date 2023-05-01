@@ -7,11 +7,10 @@ import io.github.aakira.napier.DebugAntilog
 import io.github.aakira.napier.Napier
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
-import ru.z8.louttsev.bustrainflightmobile.shared.convertToString
-import ru.z8.louttsev.bustrainflightmobile.shared.model.RepositoryStrategy.*
 
-import ru.z8.louttsev.bustrainflightmobile.shared.di.repositoryModule
-import ru.z8.louttsev.bustrainflightmobile.shared.di.viewModelModule
+import ru.z8.louttsev.bustrainflightmobile.androidApp.di.repositoryModule
+import ru.z8.louttsev.bustrainflightmobile.androidApp.di.utilsModule
+import ru.z8.louttsev.bustrainflightmobile.androidApp.di.viewModelModule
 
 /**
  * Declares DI container.
@@ -25,7 +24,8 @@ class App : Application() {
             modules(
                 listOf(
                     repositoryModule,
-                    viewModelModule
+                    viewModelModule,
+                    utilsModule
                 )
             )
         }
@@ -35,12 +35,12 @@ class App : Application() {
         YandexMetrica.activate(
             applicationContext,
             YandexMetricaConfig
-                .newConfigBuilder("cfc4505a-fc5f-499d-abe1-e571d77f9d52")
+                .newConfigBuilder("40914165-705b-466c-aa95-f1f7ade0606d")
                 .build()
         )
         YandexMetrica.enableActivityAutoTracking(this)
 
-        convertToString = { toString(this@App) }
+//        convertToString = { toString(this@App) }
 
 //        val fullDbDriver = DatabaseDriverFactory(this).getDriver(FullDb.Schema, "fullDb.sqlite3")
 //        val localDbDriver =

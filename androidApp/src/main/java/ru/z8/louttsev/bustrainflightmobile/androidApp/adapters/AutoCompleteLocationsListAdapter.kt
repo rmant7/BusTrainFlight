@@ -10,9 +10,9 @@ import android.widget.BaseAdapter
 import android.widget.Filter
 import android.widget.Filterable
 import android.widget.TextView
-import dev.icerock.moko.mvvm.livedata.LiveData
+import androidx.lifecycle.LiveData
 import ru.z8.louttsev.bustrainflightmobile.androidApp.R
-import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Location
 
 /**
  * Declares adapter for location list as base for autocomplete input fields.
@@ -25,8 +25,8 @@ class AutoCompleteLocationsListAdapter(
     private var mLocations: List<Location>
 
     init {
-        mLocations = liveData.value
-        liveData.addObserver {
+        mLocations = liveData.value!!
+        liveData.observeForever {
             mLocations = it
             notifyDataSetChanged()
         }

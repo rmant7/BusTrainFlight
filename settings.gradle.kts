@@ -11,5 +11,5 @@ rootProject.name = "BusTrainFlightMobile"
 
 
 include(":androidApp")
-include(":shared")
+//include(":shared")
 

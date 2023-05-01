@@ -5,12 +5,8 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath ("xml-apis:xml-apis:1.4.01")
-        classpath("dev.icerock:mobile-multiplatform:0.12.0")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
         classpath("com.android.tools.build:gradle:4.2.2")
-        classpath("dev.icerock.moko:resources-generator:0.17.0")
-        classpath("com.squareup.sqldelight:gradle-plugin:1.4.4")
     }
 }
 
