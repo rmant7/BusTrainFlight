@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		490676EF29FAF34100836C1A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490676EE29FAF34100836C1A /* Model.swift */; };
 		490676F229FB065B00836C1A /* CheapTripDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490676F129FB065B00836C1A /* CheapTripDetailCell.swift */; };
-		490676FF29FBEA2F00836C1A /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = 490676F929FBEA2E00836C1A /* locations.json */; };
-		4906770029FBEA2F00836C1A /* transport.json in Resources */ = {isa = PBXBuildFile; fileRef = 490676FA29FBEA2E00836C1A /* transport.json */; };
-		4906770129FBEA2F00836C1A /* fixed_routes.json in Resources */ = {isa = PBXBuildFile; fileRef = 490676FB29FBEA2E00836C1A /* fixed_routes.json */; };
-		4906770229FBEA2F00836C1A /* routes.json in Resources */ = {isa = PBXBuildFile; fileRef = 490676FC29FBEA2E00836C1A /* routes.json */; };
-		4906770329FBEA2F00836C1A /* flying_routes.json in Resources */ = {isa = PBXBuildFile; fileRef = 490676FD29FBEA2F00836C1A /* flying_routes.json */; };
-		4906770429FBEA2F00836C1A /* direct_routes.json in Resources */ = {isa = PBXBuildFile; fileRef = 490676FE29FBEA2F00836C1A /* direct_routes.json */; };
+		490A628B2A014ABE002C3207 /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = 490A62852A014ABD002C3207 /* locations.json */; };
+		490A628C2A014ABE002C3207 /* direct_routes.json in Resources */ = {isa = PBXBuildFile; fileRef = 490A62862A014ABD002C3207 /* direct_routes.json */; };
+		490A628D2A014ABE002C3207 /* fixed_routes.json in Resources */ = {isa = PBXBuildFile; fileRef = 490A62872A014ABE002C3207 /* fixed_routes.json */; };
+		490A628E2A014ABE002C3207 /* routes.json in Resources */ = {isa = PBXBuildFile; fileRef = 490A62882A014ABE002C3207 /* routes.json */; };
+		490A628F2A014ABE002C3207 /* transport.json in Resources */ = {isa = PBXBuildFile; fileRef = 490A62892A014ABE002C3207 /* transport.json */; };
+		490A62902A014ABE002C3207 /* flying_routes.json in Resources */ = {isa = PBXBuildFile; fileRef = 490A628A2A014ABE002C3207 /* flying_routes.json */; };
+		490AC69D29FE9E080044B681 /* DirectRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490AC69C29FE9E080044B681 /* DirectRoutes.swift */; };
+		490AC6A029FEA3770044B681 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490AC69F29FEA3770044B681 /* Routes.swift */; };
+		490AC6A329FEB15D0044B681 /* LocationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490AC6A229FEB15D0044B681 /* LocationsController.swift */; };
+		490AC6A82A00E3E10044B681 /* Extension+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490AC6A72A00E3E10044B681 /* Extension+Int.swift */; };
 		494C05E729FA985700054FC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C05E629FA985700054FC5 /* AppDelegate.swift */; };
 		494C05E929FA985700054FC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C05E829FA985700054FC5 /* SceneDelegate.swift */; };
 		494C05EB29FA985700054FC5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C05EA29FA985700054FC5 /* MainViewController.swift */; };
@@ -35,17 +39,22 @@
 		494C062129FAB10E00054FC5 /* CheapTripHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C062029FAB10E00054FC5 /* CheapTripHeaderView.swift */; };
 		49BF27ED29FBEDD2005F53E8 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF27EC29FBEDD2005F53E8 /* DownloadManager.swift */; };
 		49BF27F429FC1B5C005F53E8 /* TransportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF27F329FC1B5C005F53E8 /* TransportType.swift */; };
+		49BF27FA29FE9098005F53E8 /* LocationsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF27F929FE9098005F53E8 /* LocationsType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		490676EE29FAF34100836C1A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		490676F129FB065B00836C1A /* CheapTripDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapTripDetailCell.swift; sourceTree = "<group>"; };
-		490676F929FBEA2E00836C1A /* locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locations.json; sourceTree = "<group>"; };
-		490676FA29FBEA2E00836C1A /* transport.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transport.json; sourceTree = "<group>"; };
-		490676FB29FBEA2E00836C1A /* fixed_routes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fixed_routes.json; sourceTree = "<group>"; };
-		490676FC29FBEA2E00836C1A /* routes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = routes.json; sourceTree = "<group>"; };
-		490676FD29FBEA2F00836C1A /* flying_routes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = flying_routes.json; sourceTree = "<group>"; };
-		490676FE29FBEA2F00836C1A /* direct_routes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = direct_routes.json; sourceTree = "<group>"; };
+		490A62852A014ABD002C3207 /* locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locations.json; sourceTree = "<group>"; };
+		490A62862A014ABD002C3207 /* direct_routes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = direct_routes.json; sourceTree = "<group>"; };
+		490A62872A014ABE002C3207 /* fixed_routes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fixed_routes.json; sourceTree = "<group>"; };
+		490A62882A014ABE002C3207 /* routes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = routes.json; sourceTree = "<group>"; };
+		490A62892A014ABE002C3207 /* transport.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transport.json; sourceTree = "<group>"; };
+		490A628A2A014ABE002C3207 /* flying_routes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = flying_routes.json; sourceTree = "<group>"; };
+		490AC69C29FE9E080044B681 /* DirectRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectRoutes.swift; sourceTree = "<group>"; };
+		490AC69F29FEA3770044B681 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		490AC6A229FEB15D0044B681 /* LocationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsController.swift; sourceTree = "<group>"; };
+		490AC6A72A00E3E10044B681 /* Extension+Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Int.swift"; sourceTree = "<group>"; };
 		494C05E329FA985700054FC5 /* CheapTrip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheapTrip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		494C05E629FA985700054FC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		494C05E829FA985700054FC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +77,7 @@
 		494C062029FAB10E00054FC5 /* CheapTripHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapTripHeaderView.swift; sourceTree = "<group>"; };
 		49BF27EC29FBEDD2005F53E8 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		49BF27F329FC1B5C005F53E8 /* TransportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportType.swift; sourceTree = "<group>"; };
+		49BF27F929FE9098005F53E8 /* LocationsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,19 +104,22 @@
 			children = (
 				490676EE29FAF34100836C1A /* Model.swift */,
 				49BF27F329FC1B5C005F53E8 /* TransportType.swift */,
+				49BF27F929FE9098005F53E8 /* LocationsType.swift */,
+				490AC69C29FE9E080044B681 /* DirectRoutes.swift */,
+				490AC69F29FEA3770044B681 /* Routes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		490676F829FBEA0200836C1A /* Json */ = {
+		490A62842A014A8C002C3207 /* Json */ = {
 			isa = PBXGroup;
 			children = (
-				490676FA29FBEA2E00836C1A /* transport.json */,
-				490676FE29FBEA2F00836C1A /* direct_routes.json */,
-				490676FB29FBEA2E00836C1A /* fixed_routes.json */,
-				490676FD29FBEA2F00836C1A /* flying_routes.json */,
-				490676F929FBEA2E00836C1A /* locations.json */,
-				490676FC29FBEA2E00836C1A /* routes.json */,
+				490A62862A014ABD002C3207 /* direct_routes.json */,
+				490A62872A014ABE002C3207 /* fixed_routes.json */,
+				490A628A2A014ABE002C3207 /* flying_routes.json */,
+				490A62852A014ABD002C3207 /* locations.json */,
+				490A62882A014ABE002C3207 /* routes.json */,
+				490A62892A014ABE002C3207 /* transport.json */,
 			);
 			path = Json;
 			sourceTree = "<group>";
@@ -130,8 +143,8 @@
 		494C05E529FA985700054FC5 /* CheapTrip */ = {
 			isa = PBXGroup;
 			children = (
+				490A62842A014A8C002C3207 /* Json */,
 				49BF27EB29FBEDAF005F53E8 /* NetworkService */,
-				490676F829FBEA0200836C1A /* Json */,
 				494C061F29FAB0D900054FC5 /* Cell */,
 				494C061329FA9B2C00054FC5 /* CustomElement */,
 				494C060529FA9B1400054FC5 /* Extension */,
@@ -140,6 +153,7 @@
 				490676F729FBE9C300836C1A /* Models */,
 				494C060229FA9A7500054FC5 /* Helper.swift */,
 				494C05FE29FA98D000054FC5 /* Other */,
+				490AC6A229FEB15D0044B681 /* LocationsController.swift */,
 			);
 			path = CheapTrip;
 			sourceTree = "<group>";
@@ -169,6 +183,7 @@
 				494C060629FA9B1400054FC5 /* Constants.swift */,
 				494C060729FA9B1400054FC5 /* Extension+UIViewController.swift */,
 				494C060829FA9B1400054FC5 /* Extension+String.swift */,
+				490AC6A72A00E3E10044B681 /* Extension+Int.swift */,
 				494C060929FA9B1400054FC5 /* Extension+UIColor.swift */,
 				494C060A29FA9B1400054FC5 /* Extension+UIButton.swift */,
 				494C060B29FA9B1400054FC5 /* Extension+UIView.swift */,
@@ -263,13 +278,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				494C05F329FA985C00054FC5 /* LaunchScreen.storyboard in Resources */,
-				490676FF29FBEA2F00836C1A /* locations.json in Resources */,
+				490A628B2A014ABE002C3207 /* locations.json in Resources */,
+				490A628C2A014ABE002C3207 /* direct_routes.json in Resources */,
+				490A628E2A014ABE002C3207 /* routes.json in Resources */,
+				490A62902A014ABE002C3207 /* flying_routes.json in Resources */,
+				490A628D2A014ABE002C3207 /* fixed_routes.json in Resources */,
 				494C05F029FA985C00054FC5 /* Assets.xcassets in Resources */,
-				4906770329FBEA2F00836C1A /* flying_routes.json in Resources */,
-				4906770229FBEA2F00836C1A /* routes.json in Resources */,
-				4906770129FBEA2F00836C1A /* fixed_routes.json in Resources */,
-				4906770429FBEA2F00836C1A /* direct_routes.json in Resources */,
-				4906770029FBEA2F00836C1A /* transport.json in Resources */,
+				490A628F2A014ABE002C3207 /* transport.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,9 +297,11 @@
 			files = (
 				494C061B29FA9B2C00054FC5 /* CustomTextField.swift in Sources */,
 				494C061D29FA9B2C00054FC5 /* CustomLabel.swift in Sources */,
+				490AC69D29FE9E080044B681 /* DirectRoutes.swift in Sources */,
 				494C060C29FA9B1400054FC5 /* Constants.swift in Sources */,
 				494C060E29FA9B1400054FC5 /* Extension+String.swift in Sources */,
 				494C061129FA9B1400054FC5 /* Extension+UIView.swift in Sources */,
+				49BF27FA29FE9098005F53E8 /* LocationsType.swift in Sources */,
 				494C05EB29FA985700054FC5 /* MainViewController.swift in Sources */,
 				494C061929FA9B2C00054FC5 /* CustomStackView.swift in Sources */,
 				494C060D29FA9B1400054FC5 /* Extension+UIViewController.swift in Sources */,
@@ -298,8 +315,11 @@
 				49BF27ED29FBEDD2005F53E8 /* DownloadManager.swift in Sources */,
 				494C060329FA9A7500054FC5 /* Helper.swift in Sources */,
 				490676F229FB065B00836C1A /* CheapTripDetailCell.swift in Sources */,
+				490AC6A329FEB15D0044B681 /* LocationsController.swift in Sources */,
 				494C060F29FA9B1400054FC5 /* Extension+UIColor.swift in Sources */,
+				490AC6A029FEA3770044B681 /* Routes.swift in Sources */,
 				494C061029FA9B1400054FC5 /* Extension+UIButton.swift in Sources */,
+				490AC6A82A00E3E10044B681 /* Extension+Int.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

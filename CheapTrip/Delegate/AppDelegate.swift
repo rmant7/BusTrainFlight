@@ -10,10 +10,13 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    let downloadManager = DownloadManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        downloadManager.getTransport { transport in
+            guard let transport = transport else {return}
+            Current.CurrentTransportType = transport
+        }
         return true
     }
 

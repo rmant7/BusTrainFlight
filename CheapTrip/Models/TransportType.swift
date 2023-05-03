@@ -9,16 +9,16 @@ import Foundation
 
 struct TransportType: Decodable {
     let name: String
-    let id: String
+    let uuid: String
     
     enum CodingKeys: CodingKey {
             case name
     }
     
-    init(from decoder: Decoder) throws {
+     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decode(String.self, forKey: CodingKeys.name)
-        id = container.codingPath.first!.stringValue
+        uuid = container.codingPath.first!.stringValue
     }
 }
 

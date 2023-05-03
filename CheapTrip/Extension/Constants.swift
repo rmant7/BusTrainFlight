@@ -63,7 +63,7 @@ func transliterate(nonLatin: String) -> String {
 }
 
 
-enum CurrentUser {
-    static var currentTable: IndexPath?
-    static var permitirNotificaciones = true
+enum Current {
+    static var CurrentTransportType = [TransportType]()
+    static var AllLocations = [LocationsType]()
 }

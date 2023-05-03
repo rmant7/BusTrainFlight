@@ -17,40 +17,43 @@ struct Model {
 }
 
 enum TypeTransfer: String, CaseIterable {
-    case airplane = "Flight"
-    case bus = "Bus"
-    case train = "Train"
-    case cardrive = "Car Drive"
-    case taxi = "Taxi"
-    case walk = "Walk"
-    case towncar = "Town Car"
-    case rideshare = "Ride Share"
-    case shuttle = "Shuttle"
-    case ferry = "Ferry"
-    case subway = "Subway"
+    case Flight = "Flight"
+    case Bus = "Bus"
+    case Train = "Train"
+    case Cardrive = "Car Drive"
+    case Taxi = "Taxi"
+    case Walk = "Walk"
+    case Towncar = "Town Car"
+    case Rideshare = "Ride Share"
+    case Shuttle = "Shuttle"
+    case Ferry = "Ferry"
+    case Subway = "Subway"
+    
+    
+    
     var imageName: String {
         switch self {
-        case .airplane:
+        case .Flight:
             return "airplane"
-        case .bus:
+        case .Bus:
             return "bus.fill"
-        case .train:
+        case .Train:
             return "bus.fill"
-        case .cardrive:
+        case .Cardrive:
             return "bus.fill"
-        case .taxi:
+        case .Taxi:
             return "bus.fill"
-        case .walk:
+        case .Walk:
             return "bus.fill"
-        case .towncar:
+        case .Towncar:
             return "bus.fill"
-        case .rideshare:
+        case .Rideshare:
             return "bus.fill"
-        case .shuttle:
+        case .Shuttle:
             return "bus.fill"
-        case .ferry:
+        case .Ferry:
             return "bus.fill"
-        case .subway:
+        case .Subway:
             return "bus.fill"
         }
     }
