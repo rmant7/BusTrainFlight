@@ -7,21 +7,21 @@
 
 import UIKit
 
-enum typeTextFiled {
+enum TypeTextFiled {
     case fromTextField
     case toTextField
 }
 
 final class MainViewController: UIViewController {
     
-    var typeTextFiled: typeTextFiled = .fromTextField
+    var typeTextFiled: TypeTextFiled = .fromTextField
     let downloadManager = DownloadManager()
     var locationsController = LocationsController()
     var startFromPoint:LocationsType?
     var endToPoint:LocationsType?
+    private var openSection: Int?
     
-    //var arrayTrip: [Model] = [Model]()
-    var shalopay: [Routess] = [Routess]()
+    var cheapTrip: [Routess] = [Routess]()
     
     private lazy var logoImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "logo"))
@@ -155,8 +155,6 @@ final class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //arrayTrip = Helper.trips
-        
     }
 
     override func viewDidLoad() {
@@ -164,6 +162,11 @@ final class MainViewController: UIViewController {
         setupView()
         locationsController.locationDelegate = self
     }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    
         
     private func setupView() {
         view.backgroundColor = Helper.Color.ViewController.whiteColor
@@ -255,8 +258,6 @@ final class MainViewController: UIViewController {
     
     @objc private func tapingButton(sender: CustomButton) {
         sender.animationPressButton()
-        print(startFromPoint?.name, startFromPoint?.uuid)
-        print(endToPoint?.name, endToPoint?.uuid)
         guard let startFromPoint = startFromPoint, let endToPoint = endToPoint else {return print("OPS")}
         if sender.tag == 0 {
             print("tap clear from")
@@ -269,14 +270,13 @@ final class MainViewController: UIViewController {
             logoImageView.isHidden = true
             downloadManager.getRoutes { [self] result in
                 guard let result = result else {return}
-                    //let allfromRoutes = result.filter({ $0.from == Int(startFromPoint.uuid) && $0.to == Int(endToPoint.uuid) })
                     let unicalTrip = self.removeDuplicates(array: result.filter({ $0.from == Int(startFromPoint.uuid) && $0.to == Int(endToPoint.uuid) }))
                     print(unicalTrip)
-                    shalopay = unicalTrip
+                    cheapTrip = unicalTrip
                     DispatchQueue.main.async {
                         cheapTripTableView.reloadData()
                     }
-                }
+            }
         }
     }
     
@@ -293,50 +293,51 @@ final class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        //arrayTrip.count
-        return shalopay.count
+        return cheapTrip.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if arrayTrip[section].isExpanded {
-//            return 0
-//        }
-//        return arrayTrip[section].transfer.count
-        0
+        if section == openSection {
+            return cheapTrip[section].directRoutes.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CheapTripDetailCell.identifier, for: indexPath) as? CheapTripDetailCell else { return UITableViewCell(frame: .zero)}
-        //let transfer = arrayTrip[indexPath.section].transfer[indexPath.row]
-        //cell.configureCell(transfer: transfer)
+        let directRoute = cheapTrip[indexPath.section].directRoutes[indexPath.row]
+        cell.configureCell(directRoute: directRoute)
+        cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: CheapTripHeaderView.identifier) as? CheapTripHeaderView else {return UIView()}
         header.delegate = self
-        //let trip = arrayTrip[section]
-        let trip = shalopay[section]
-        //header.configureHeader(trip: trip, section: section)
-//        header.rotateImage(trip.isExpanded)
-        header.configureShalopay(trip: trip, section: section)
-        
+        let trip = cheapTrip[section]
+        header.configureHeader(trip: trip, section: section)
+        //header.rotateImage()
         return header
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("SECTION: \(indexPath.section) - ROW: \(indexPath.row)")
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print("SECTION: \(indexPath.section) - ROW: \(indexPath.row)")
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
 }
 
 extension MainViewController: HeaderViewDelegate {
     func expandedSection(sender: UIButton) {
-//        let section = sender.tag
-//        let isExpanded = arrayTrip[section].isExpanded
-//        arrayTrip[section].isExpanded = !isExpanded
-//        cheapTripTableView.reloadSections(IndexSet(integer: section), with: .automatic)
+        let section = sender.tag
+            if section != openSection {
+                openSection = section
+                            cheapTripTableView.reloadSections(IndexSet(integer: section), with: .automatic)
+            } else {
+                openSection = nil
+                cheapTripTableView.reloadSections(IndexSet(integer: section), with: .automatic)
+            }
     }
 }
+
 
 extension MainViewController: UITextFieldDelegate {
     
@@ -375,6 +376,5 @@ extension MainViewController: LocationsDelegate {
             toTextField.text = type.name
             endToPoint = type
         }
-    
     }
 }

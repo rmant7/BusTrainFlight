@@ -61,3 +61,43 @@ enum Helper {
         }
     }
 }
+
+enum Current {
+    static var CurrentTransportType = [TransportType]()
+    static var AllLocations = [LocationsType]()
+    static var LocalDirectRoutes = [DirectRoutes]()
+}
+
+public func setupName(_ points: [String]) -> NSMutableAttributedString {
+    let completeText = NSMutableAttributedString(string: "")
+    points.forEach { point in
+        let attachmentString = NSAttributedString(string: point)
+        let emptyattachmentString = NSAttributedString(string: " > ")
+        completeText.append(attachmentString)
+        completeText.append(emptyattachmentString)
+    }
+    completeText.deleteCharacters(in: NSRange(location: (completeText.length) - 3, length: 3))
+   return completeText
+}
+
+public func removeDuplicates(array: [String]) -> [String] {
+    var result = [String]()
+    for value in array {
+        if !result.contains(where: { $0 == value }) {
+            result.append(value)
+        }
+    }
+    return result
+}
+
+public func getIconTrasport(type: Int) -> String {
+    guard let transport = Current.CurrentTransportType.first(where: {$0.uuid == String(type)}), let icon = TypeTransfer(rawValue: transport.name) else {return "ERROR :\(#function)"}
+    return icon.imageName
+}
+
+public func getNamePoint(_ id: Int) -> String {
+    guard let namePoint = Current.AllLocations.first(where:{ $0.uuid == String(id)
+    }) else {return "ERROR: \(#function)"}
+    return namePoint.name
+}
+

@@ -9,6 +9,7 @@ import UIKit
 
 class CheapTripDetailCell: UITableViewCell {
     static let identifier = "CheapTripDetailCell"
+    var downloadManager = DownloadManager()
     
     private lazy var namePointLabel: CustomLabel = {
         let label = CustomLabel(text: "Kyoto > Aizawl", fontName: Helper.Fonts.SemiBold(size: 13), colorText: Helper.Color.ViewController.blackColor, lineHeightMultiple: 0, kern: 0)
@@ -68,12 +69,31 @@ class CheapTripDetailCell: UITableViewCell {
         setupView()
     }
     
-    public func configureCell(transfer: Transfer) {
-        namePointLabel.attributedText = NSAttributedString(string: transfer.name)
-        timeLabel.attributedText = NSAttributedString(string: transfer.time)
-        priceButton.setAttributedTitle(NSAttributedString(string: transfer.price), for: .normal)
-        typeTransportLabel.attributedText = NSAttributedString(string: transfer.type.rawValue)
+//    public func configureCell(transfer: Transfer) {
+//        namePointLabel.attributedText = NSAttributedString(string: transfer.name)
+//        timeLabel.attributedText = NSAttributedString(string: transfer.time)
+//        priceButton.setAttributedTitle(NSAttributedString(string: transfer.price), for: .normal)
+//        typeTransportLabel.attributedText = NSAttributedString(string: transfer.type.rawValue)
+//    }
+    
+    public func configureCell(directRoute: String) {
+        var namePoints = [String]()
+        Current.LocalDirectRoutes.forEach { localDirectRoutes in
+            if localDirectRoutes.uuid == directRoute {
+                namePoints.append(getNamePoint(localDirectRoutes.from))
+                namePoints.append(getNamePoint(localDirectRoutes.to))
+                priceButton.setAttributedTitle(NSAttributedString(string: "\(localDirectRoutes.price)"), for: .normal)
+                timeLabel.attributedText = NSAttributedString(string: localDirectRoutes.duration.getDay())
+                priceButton.setAttributedTitle(NSAttributedString(string: "€ \(localDirectRoutes.price)"), for: .normal)
+                if let nameTransport = Current.CurrentTransportType.first(where: {$0.uuid == "\(localDirectRoutes.transport)"}) {
+                    typeTransportLabel.attributedText = NSAttributedString(string: nameTransport.name)
+                }
+            }
+        }
+        namePointLabel.attributedText = setupName(namePoints)
     }
+    
+   
     
     private func setupView() {
         contentView.addSubviews([

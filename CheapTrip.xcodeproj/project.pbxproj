@@ -25,7 +25,6 @@
 		494C05F029FA985C00054FC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 494C05EF29FA985C00054FC5 /* Assets.xcassets */; };
 		494C05F329FA985C00054FC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494C05F129FA985C00054FC5 /* LaunchScreen.storyboard */; };
 		494C060329FA9A7500054FC5 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C060229FA9A7500054FC5 /* Helper.swift */; };
-		494C060C29FA9B1400054FC5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C060629FA9B1400054FC5 /* Constants.swift */; };
 		494C060D29FA9B1400054FC5 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C060729FA9B1400054FC5 /* Extension+UIViewController.swift */; };
 		494C060E29FA9B1400054FC5 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C060829FA9B1400054FC5 /* Extension+String.swift */; };
 		494C060F29FA9B1400054FC5 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C060929FA9B1400054FC5 /* Extension+UIColor.swift */; };
@@ -63,7 +62,6 @@
 		494C05F229FA985C00054FC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		494C05F429FA985C00054FC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		494C060229FA9A7500054FC5 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		494C060629FA9B1400054FC5 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		494C060729FA9B1400054FC5 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		494C060829FA9B1400054FC5 /* Extension+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		494C060929FA9B1400054FC5 /* Extension+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
@@ -180,7 +178,6 @@
 		494C060529FA9B1400054FC5 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				494C060629FA9B1400054FC5 /* Constants.swift */,
 				494C060729FA9B1400054FC5 /* Extension+UIViewController.swift */,
 				494C060829FA9B1400054FC5 /* Extension+String.swift */,
 				490AC6A72A00E3E10044B681 /* Extension+Int.swift */,
@@ -298,7 +295,6 @@
 				494C061B29FA9B2C00054FC5 /* CustomTextField.swift in Sources */,
 				494C061D29FA9B2C00054FC5 /* CustomLabel.swift in Sources */,
 				490AC69D29FE9E080044B681 /* DirectRoutes.swift in Sources */,
-				494C060C29FA9B1400054FC5 /* Constants.swift in Sources */,
 				494C060E29FA9B1400054FC5 /* Extension+String.swift in Sources */,
 				494C061129FA9B1400054FC5 /* Extension+UIView.swift in Sources */,
 				49BF27FA29FE9098005F53E8 /* LocationsType.swift in Sources */,

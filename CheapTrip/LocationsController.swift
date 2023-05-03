@@ -55,6 +55,7 @@ final class LocationsController: UIView {
             locationTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
+   
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -74,7 +75,6 @@ extension LocationsController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let location = locations[indexPath.row]
         locationDelegate?.getLocation(type: location)
-        print(location)
         UIView.transition(with: locationTableView, duration: 0.4,
                           options: .transitionCrossDissolve,
                           animations: { [self] in

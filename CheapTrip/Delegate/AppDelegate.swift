@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             guard let transport = transport else {return}
             Current.CurrentTransportType = transport
         }
+        downloadManager.getDirectRoutes { directRoutes in
+            guard let directRoutes = directRoutes else {return}
+            Current.LocalDirectRoutes = directRoutes
+        }
         return true
     }
 
