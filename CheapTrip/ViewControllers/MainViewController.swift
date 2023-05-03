@@ -272,7 +272,9 @@ final class MainViewController: UIViewController {
                 guard let result = result else {return}
                     let unicalTrip = self.removeDuplicates(array: result.filter({ $0.from == Int(startFromPoint.uuid) && $0.to == Int(endToPoint.uuid) }))
                     print(unicalTrip)
-                    cheapTrip = unicalTrip
+                cheapTrip = unicalTrip.sorted(by: { (trip1, trip2) -> Bool in
+                    trip1.price < trip2.price
+                })
                     DispatchQueue.main.async {
                         cheapTripTableView.reloadData()
                     }

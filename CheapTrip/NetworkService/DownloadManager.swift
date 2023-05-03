@@ -56,16 +56,6 @@ class DownloadManager {
     //MARK: GetRoutes
     public func getRoutes(completionHandler: ((_ result: [Routess]?)-> Void)?) {
         var routes = [Routess]()
-        //guard let path = Bundle.main.url(forResource: "routes", withExtension: "json") else { return print("not found direct_routes.json") }
-//        do {
-//            let data = try Data(contentsOf: path)
-//            let result = try JSONDecoder().decode(RoutessArray.self, from: data)
-//            routes.append(contentsOf: result)
-//            completionHandler?(routes)
-//        } catch {
-//            print("ERORR :\(error)")
-//            completionHandler?(nil)
-//        }
         let paths = [
             Bundle.main.url(forResource: "routes", withExtension: "json"),
             Bundle.main.url(forResource: "fixed_routes", withExtension: "json"),
@@ -75,7 +65,6 @@ class DownloadManager {
         
         do {
             for path in paths {
-                //guard let path = path else { return}
                 let data =  try Data(contentsOf: path!)
                 let result = try JSONDecoder().decode(RoutessArray.self, from: data)
                 routes.append(contentsOf: result)
