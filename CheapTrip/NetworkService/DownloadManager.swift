@@ -52,23 +52,53 @@ class DownloadManager {
             completionHandler?(nil)
         }
     }
-    
+    /*
+     Bundle.main.url(forResource: "flying_routes", withExtension: "json"),
+     */
     //MARK: GetRoutes
     public func getRoutes(completionHandler: ((_ result: [Routess]?)-> Void)?) {
         var routes = [Routess]()
-        let paths = [
-            Bundle.main.url(forResource: "routes", withExtension: "json"),
-            Bundle.main.url(forResource: "fixed_routes", withExtension: "json"),
-            Bundle.main.url(forResource: "flying_routes", withExtension: "json"),
-            //Bundle.main.url(forResource: "direct_routes", withExtension: "json"),
-        ]
+        guard let path =
+                Bundle.main.url(forResource: "routes", withExtension: "json") else {return print("not found routes.json")}
         
         do {
-            for path in paths {
-                let data =  try Data(contentsOf: path!)
-                let result = try JSONDecoder().decode(RoutessArray.self, from: data)
-                routes.append(contentsOf: result)
-            }
+            let data =  try Data(contentsOf: path)
+            let result = try JSONDecoder().decode(RoutessArray.self, from: data)
+            routes.append(contentsOf: result)
+            completionHandler?(routes)
+        } catch {
+            print("ERORR :\(error)")
+            completionHandler?(nil)
+        }
+    }
+    
+    //MARK: GetFixedRoutes
+    public func getFixedRoutes(completionHandler: ((_ result: [Routess]?)-> Void)?) {
+        var routes = [Routess]()
+        guard let path =
+                Bundle.main.url(forResource: "fixed_routes", withExtension: "json") else {return print("not found fixed_routes.json")}
+        
+        do {
+            let data =  try Data(contentsOf: path)
+            let result = try JSONDecoder().decode(RoutessArray.self, from: data)
+            routes.append(contentsOf: result)
+            completionHandler?(routes)
+        } catch {
+            print("ERORR :\(error)")
+            completionHandler?(nil)
+        }
+    }
+    
+    //MARK: GetFlyingRoutes
+    public func getFlyingRoutes(completionHandler: ((_ result: [Routess]?)-> Void)?) {
+        var routes = [Routess]()
+        guard let path =
+                Bundle.main.url(forResource: "flying_routes", withExtension: "json") else {return print("not found flying_routes.json")}
+        
+        do {
+            let data =  try Data(contentsOf: path)
+            let result = try JSONDecoder().decode(RoutessArray.self, from: data)
+            routes.append(contentsOf: result)
             completionHandler?(routes)
         } catch {
             print("ERORR :\(error)")

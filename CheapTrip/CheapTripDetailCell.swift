@@ -78,7 +78,7 @@ class CheapTripDetailCell: UITableViewCell {
     
     public func configureCell(directRoute: String) {
         var namePoints = [String]()
-        Current.LocalDirectRoutes.forEach { localDirectRoutes in
+        Current.AllDirectRoutes.forEach { localDirectRoutes in
             if localDirectRoutes.uuid == directRoute {
                 namePoints.append(getNamePoint(localDirectRoutes.from))
                 namePoints.append(getNamePoint(localDirectRoutes.to))

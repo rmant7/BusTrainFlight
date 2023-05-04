@@ -263,6 +263,19 @@ final class MainViewController: UIViewController {
             print("tap clear from")
             cheapTripTableView.isHidden = true
             logoImageView.isHidden = false
+            let fixedRoutes = Current.AllFixedRoutes.filter {$0.from == Int(startFromPoint.uuid) && $0.to == Int(endToPoint.uuid)}
+            print("fixedRoutes: \(fixedRoutes), count: \(fixedRoutes.count)")
+            print("===================")
+            let flyingRoutes = Current.AllFlyingRoutes.filter {$0.from == Int(startFromPoint.uuid) && $0.to == Int(endToPoint.uuid)}
+            print("flyingRoutes: \(flyingRoutes), count: \(flyingRoutes.count)")
+            print("===================")
+            let routes = Current.AllRoutes.filter {$0.from == Int(startFromPoint.uuid) && $0.to == Int(endToPoint.uuid)}
+            print("routes: \(routes), count: \(routes.count)")
+            print("===================")
+            let directRoutes = Current.AllDirectRoutes.filter {$0.from == Int(startFromPoint.uuid) && $0.to == Int(endToPoint.uuid)}
+            print("directRoutes: \(directRoutes), count: \(directRoutes.count)")
+            print("===================")
+            // Paris Berlin
             
         } else {
             print("tap lets go")

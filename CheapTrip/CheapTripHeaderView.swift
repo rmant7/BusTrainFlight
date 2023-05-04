@@ -75,7 +75,7 @@ final class CheapTripHeaderView: UITableViewHeaderFooterView {
         var namePoints = [String]()
         var totalPrice = 0
         for route in trip.directRoutes {
-            Current.LocalDirectRoutes.forEach { directRoutes in
+            Current.AllDirectRoutes.forEach { directRoutes in
                 if directRoutes.uuid == route {
                     iconsTransport.append(getIconTrasport(type: directRoutes.transport))
                     namePoints.append(getNamePoint(directRoutes.from))

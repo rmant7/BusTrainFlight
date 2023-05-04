@@ -65,7 +65,10 @@ enum Helper {
 enum Current {
     static var CurrentTransportType = [TransportType]()
     static var AllLocations = [LocationsType]()
-    static var LocalDirectRoutes = [DirectRoutes]()
+    static var AllDirectRoutes = [DirectRoutes]()
+    static var AllRoutes = [Routess]()
+    static var AllFixedRoutes = [Routess]()
+    static var AllFlyingRoutes = [Routess]()
 }
 
 public func setupName(_ points: [String]) -> NSMutableAttributedString {

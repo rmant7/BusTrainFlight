@@ -19,7 +19,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         downloadManager.getDirectRoutes { directRoutes in
             guard let directRoutes = directRoutes else {return}
-            Current.LocalDirectRoutes = directRoutes
+            Current.AllDirectRoutes = directRoutes
+        }
+        downloadManager.getRoutes { routes in
+            guard let routes = routes else { return}
+            Current.AllRoutes = routes
+        }
+        downloadManager.getFixedRoutes { fixedRoutes in
+            guard let fixedRoutes = fixedRoutes else { return}
+            Current.AllFixedRoutes = fixedRoutes
+        }
+        downloadManager.getFlyingRoutes { flyingRoutes in
+            guard let flyingRoutes = flyingRoutes else { return}
+            Current.AllFlyingRoutes = flyingRoutes
         }
         return true
     }
