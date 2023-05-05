@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resources>
-    <string name="app_name">CheapTrip</string>
+    <string name="app_name">BusTrainFlight</string>
     <string name="action_bar_tagline">Плати меньше,­ посети больше!</string>
     <string name="transportation_type_flight">Самолет</string>
     <string name="transportation_type_bus">Автобус</string>

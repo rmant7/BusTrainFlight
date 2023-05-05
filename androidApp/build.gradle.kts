@@ -11,15 +11,15 @@ dependencies {
     implementation("androidx.activity:activity-ktx:1.3.1")
     implementation("androidx.recyclerview:recyclerview:1.2.1")
     implementation("com.yandex.android:mobmetricalib:3.21.0")
-    implementation(project(mapOf("path" to ":shared")))
+//    implementation(project(mapOf("path" to ":shared")))
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdkVersion(31)
     defaultConfig {
         applicationId = "ru.z8.louttsev.bustrainflight.androidApp"
         minSdkVersion(21)
-        targetSdkVersion(30)
+        targetSdkVersion(31)
         versionCode = 1
         versionName = "1.0.0"
     }
@@ -27,8 +27,8 @@ android {
         getByName("release") {
             isDebuggable = false
             isMinifyEnabled = true
-            isShrinkResources = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+//            isShrinkResources = true
+//            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
         getByName("debug") {
             isDebuggable = true
