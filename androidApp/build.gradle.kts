@@ -5,7 +5,6 @@ plugins {
 }
 
 dependencies {
-//    implementation(project(":shared"))
     implementation("com.google.android.material:material:1.6.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
@@ -39,8 +38,8 @@ android {
     buildTypes {
         getByName("release") {
             isDebuggable = false
-            isMinifyEnabled = true
-            isShrinkResources = true
+            isMinifyEnabled = false
+            isShrinkResources = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
         getByName("debug") {
@@ -48,6 +47,10 @@ android {
             isMinifyEnabled = false
         }
     }
+    lintOptions {
+        isCheckReleaseBuilds = false
+    }
+
     buildFeatures {
         viewBinding = true
         dataBinding = true

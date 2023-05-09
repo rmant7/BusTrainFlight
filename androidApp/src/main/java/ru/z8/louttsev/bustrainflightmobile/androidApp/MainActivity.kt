@@ -16,6 +16,7 @@ import android.view.inputmethod.InputMethodManager.*
 import android.widget.*
 import androidx.appcompat.app.ActionBar.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doBeforeTextChanged
 import androidx.lifecycle.LiveData
@@ -210,6 +211,11 @@ class MainActivity : AppCompatActivity() {
                         showNoResultsMessage()
                         selectSuitableLocation(handler)
                     } else {
+                        Toast.makeText(
+                            this@MainActivity,
+                            "Sorry, for now, we support only English input",
+                            Toast.LENGTH_SHORT
+                        ).apply { show() }
                         clearText()
                     }
                 }
@@ -309,15 +315,13 @@ class MainActivity : AppCompatActivity() {
     private fun MaterialButton.setup(isReady: LiveData<Boolean>, listener: (View) -> Unit) {
         isReady.observeForever {
             if (it) {
+                isClickable = true
                 setOnClickListener(listener)
-//                setBackgroundColor(
-//                    ContextCompat.getColor(this@MainActivity, R.color.colorAccent)
-//                )
+                background = ContextCompat.getDrawable(this@MainActivity, R.drawable.orange_button_background)
             } else {
                 setOnClickListener(null)
-//                setBackgroundColor(
-//                    ContextCompat.getColor(this@MainActivity, R.color.colorInactiveViewBackground)
-//                )
+                background = ContextCompat.getDrawable(this@MainActivity, R.drawable.inactive_button_background)
+                isClickable = false
             }
         }
 
