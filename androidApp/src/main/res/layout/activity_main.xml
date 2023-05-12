@@ -8,14 +8,16 @@
         <variable
             name="viewModel"
             type="ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.MainViewModel" />
- </data>
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/main_view"
+        android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorBackground"
-        tools:context=".MainActivity">
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        tools:openDrawer="end">
 
         <TextView
             android:id="@+id/textView"
@@ -28,7 +30,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/origin_input_layout"
             style="@style/InputLocationLayoutStyle"
-            android:layout_marginTop="38dp"
+            android:layout_marginTop="28dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -49,7 +51,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/destination_input_layout"
             style="@style/InputLocationLayoutStyle"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/origin_input_layout">
 
@@ -66,14 +68,15 @@
             android:layout_height="45dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/white_button_background"
-            app:backgroundTint="@null"
-            app:cornerRadius="8dp"
             android:fontFamily="@font/roboto"
             android:text="@string/clear_button_text"
             android:textAllCaps="false"
             android:textColor="@android:color/black"
             android:textSize="15sp"
+            app:backgroundTint="@null"
+            app:cornerRadius="8dp"
             app:layout_constraintEnd_toStartOf="@+id/goButton"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
@@ -86,9 +89,9 @@
             android:layout_height="45dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="8dp"
-            app:backgroundTint="@null"
             android:background="@drawable/orange_button_background"
             android:focusable="true"
+            android:layout_marginTop="5dp"
             android:focusableInTouchMode="true"
             android:fontFamily="@font/roboto"
             android:text="@string/go_button_text"
@@ -96,6 +99,7 @@
             android:textColor="@android:color/white"
             android:textSize="15sp"
             android:textStyle="bold"
+            app:backgroundTint="@null"
             app:cornerRadius="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -111,10 +115,10 @@
             android:text="Results"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
-            android:visibility="invisible"
             android:textStyle="italic|bold"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/clearButton"/>
+            app:layout_constraintTop_toBottomOf="@+id/clearButton" />
         <!--        <ImageView-->
         <!--            android:id="@+id/logo"-->
         <!--            android:layout_width="0dp"-->
@@ -143,5 +147,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/clearButton"
             tools:listitem="@layout/item_route" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

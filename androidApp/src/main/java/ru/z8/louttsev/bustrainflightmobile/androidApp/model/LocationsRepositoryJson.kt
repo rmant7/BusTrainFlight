@@ -1,5 +1,6 @@
 package ru.z8.louttsev.bustrainflightmobile.androidApp.model
 
+import io.github.aakira.napier.Napier
 import ru.z8.louttsev.bustrainflightmobile.androidApp.currentLocale
 import ru.z8.louttsev.bustrainflightmobile.androidApp.infrastructure.persistence.LocationsDbJson
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Locale
@@ -30,9 +31,10 @@ class LocationsRepositoryJson (val db: LocationsDbJson) {
         if (locationList.size < limit) {
             for((id, location) in locations.entries){
                 if (location.name.contains(needle, ignoreCase = true)){
-                    locationList.add(Location(id, location.name))
-                    if (locationList.size == limit)
-                        break
+                    if (!locationList.contains(Location(id, location.name)))
+                        locationList.add(Location(id, location.name))
+                        if (locationList.size == limit)
+                            break
                 }
             }
         }

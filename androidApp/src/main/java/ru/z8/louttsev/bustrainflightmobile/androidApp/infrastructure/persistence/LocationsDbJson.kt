@@ -1,6 +1,7 @@
 package ru.z8.louttsev.bustrainflightmobile.androidApp.infrastructure.persistence
 
 import android.content.Context
+import io.github.aakira.napier.Napier
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import ru.z8.louttsev.bustrainflightmobile.androidApp.R

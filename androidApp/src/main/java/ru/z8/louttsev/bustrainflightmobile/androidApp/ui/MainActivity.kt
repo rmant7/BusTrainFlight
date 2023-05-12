@@ -1,4 +1,4 @@
-package ru.z8.louttsev.bustrainflightmobile.androidApp
+package ru.z8.louttsev.bustrainflightmobile.androidApp.ui
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -9,7 +9,6 @@ import android.text.Editable
 import android.text.InputFilter
 import android.text.Spanned
 import android.view.View
-import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.view.inputmethod.InputMethodManager.*
@@ -17,6 +16,7 @@ import android.widget.*
 import androidx.appcompat.app.ActionBar.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doBeforeTextChanged
 import androidx.lifecycle.LiveData
@@ -27,6 +27,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 import org.koin.android.ext.android.inject
+import ru.z8.louttsev.bustrainflightmobile.androidApp.R
 import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.AutoCompleteLocationsListAdapter
 import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.RouteListAdapter
 import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ActivityMainBinding
@@ -40,7 +41,7 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Locale
 /**
  * Declares main UI controller.
  */
-class MainActivity : AppCompatActivity() {
+class MainActivity : DrawerBaseActivity() {
     private lateinit var mInputMethodManager: InputMethodManager
 
     private val model: MainViewModel by inject()
@@ -52,29 +53,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         mInputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-
-//        val model by viewModels<MainViewModel> {
-//            createWithFactory { MainViewModel(App.sLocationRepository, App.sRouteRepository) }
-//        }
-
         val binding = ActivityMainBinding.inflate(layoutInflater).apply {
             lifecycleOwner = this@MainActivity
             viewModel = model // ignore probably IDE error message "Cannot access class..."
         }
-
         setContentView(binding.root)
+
+        drawerBaseBinding.root.findViewById<TextView>(R.id.appBarTitle).text = "BusTrainFlight"
 
         if (resources.getBoolean(R.bool.isPhone)) {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         }
-
-        supportActionBar?.apply {
-            customView = layoutInflater.inflate(R.layout.action_bar, null)
-            customView.layoutParams = LayoutParams(MATCH_PARENT, MATCH_PARENT)
-            displayOptions = DISPLAY_SHOW_CUSTOM
-        }
+//        actionBarBinding.menuButton.setOnClickListener {
+//            binding.drawerLayout?.openDrawer(GravityCompat.END)
+//        }
 
         with(binding) {
+
             originTextView.setup(
                 handler = model.origins,
                 inputLayout = binding.originInputLayout
@@ -147,14 +142,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun createWithFactory(
-        create: () -> ViewModel
-    ): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            @Suppress("UNCHECKED_CAST")
-            return create.invoke() as T
-        }
-    }
+//    private fun createWithFactory(
+//        create: () -> ViewModel
+//    ): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
+//        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+//            @Suppress("UNCHECKED_CAST")
+//            return create.invoke() as T
+//        }
+//    }
 
     private fun AutoCompleteTextView.setup(
         handler: AutoCompleteHandler<Location>,
@@ -178,7 +173,7 @@ class MainActivity : AppCompatActivity() {
                 ): CharSequence {
                     val changedText = source.subSequence(start, end)
 
-                    val allowable = Regex("^[-a-zа-яё .]+$", IGNORE_CASE)
+                    val allowable = Regex("^[-a-z .]+$", IGNORE_CASE)
 
                     @Suppress("LiftReturnOrAssignment")
                     if (source.isNotEmpty() && !allowable.matches(changedText)) {
@@ -317,10 +312,16 @@ class MainActivity : AppCompatActivity() {
             if (it) {
                 isClickable = true
                 setOnClickListener(listener)
-                background = ContextCompat.getDrawable(this@MainActivity, R.drawable.orange_button_background)
+                background = ContextCompat.getDrawable(
+                    this@MainActivity,
+                    R.drawable.orange_button_background
+                )
             } else {
                 setOnClickListener(null)
-                background = ContextCompat.getDrawable(this@MainActivity, R.drawable.inactive_button_background)
+                background = ContextCompat.getDrawable(
+                    this@MainActivity,
+                    R.drawable.inactive_button_background
+                )
                 isClickable = false
             }
         }
@@ -340,3 +341,4 @@ class MainActivity : AppCompatActivity() {
         error = null
     }
 }
+

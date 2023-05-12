@@ -3,8 +3,8 @@
     android:opacity="opaque">
     <item android:drawable="@color/colorBackground" />
     <item
-        android:width="200dp"
-        android:height="200dp"
+        android:width="350dp"
+        android:height="350dp"
         android:drawable="@drawable/logo"
         android:gravity="center" />
 </layer-list>
