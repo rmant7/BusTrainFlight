@@ -272,10 +272,33 @@ final class MainViewController: UIViewController {
             let routes = Current.AllRoutes.filter {$0.from == Int(startFromPoint.uuid) && $0.to == Int(endToPoint.uuid)}
             print("routes: \(routes), count: \(routes.count)")
             print("===================")
-            let directRoutes = Current.AllDirectRoutes.filter {$0.from == Int(startFromPoint.uuid) && $0.to == Int(endToPoint.uuid)}
+            var directRoutes = Current.AllDirectRoutes.filter {$0.from == Int(startFromPoint.uuid) && $0.to == Int(endToPoint.uuid)}
             print("directRoutes: \(directRoutes), count: \(directRoutes.count)")
             print("===================")
             // Paris Berlin
+            var allRoutes = [Routess]()
+            allRoutes.append(contentsOf: fixedRoutes)
+            allRoutes.append(contentsOf: flyingRoutes)
+            allRoutes.append(contentsOf: routes)
+            var unical = removeDuplicates(array: allRoutes)
+            print("UNICAL: \(unical), count: \(unical.count)")
+            print("===================")
+            
+            
+            /*
+            directRoutes: [
+             CheapTrip.DirectRoutes(uuid: "2930416", from: 293, to: 124, transport: 2, price: 81, duration: 995),
+             CheapTrip.DirectRoutes(uuid: "2930608", from: 293, to: 124, transport: 1, price: 40, duration: 105)], count: 2
+            ]
+            ===================
+            UNICAL: [
+             CheapTrip.Routess(from: 293, to: 124, price: 50, duration: 940, uuid: "2930124", directRoutes: ["2930111", "1160591"]),
+             CheapTrip.Routess(from: 293, to: 124, price: 40, duration: 105, uuid: "2930124", directRoutes: ["2930608"])
+             ]
+            ===================
+            */
+            
+            
             
         } else {
             print("tap lets go")

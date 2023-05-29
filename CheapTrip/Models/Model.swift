@@ -72,3 +72,12 @@ struct Routes: Codable {
     var directRoutes: String
 }
 
+
+struct FlyingRoutes: Codable {
+    var from, to, price, duration: Int
+    var directRoutes: [String]
+    enum CodingKeys: String, CodingKey {
+            case from, to, price, duration
+            case directRoutes = "direct_routes"
+    }
+}
