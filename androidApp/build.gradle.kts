@@ -24,12 +24,19 @@ dependencies {
     implementation("com.google.android.material:material:1.4.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
+
+    // Admob
+    implementation("com.google.android.gms:play-services-ads:22.1.0")
+
+    implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
+    implementation("androidx.lifecycle:lifecycle-runtime:2.6.1")
+    annotationProcessor("androidx.lifecycle:lifecycle-compiler:2.6.1")
 }
 
 android {
     compileSdkVersion(33)
     defaultConfig {
-        applicationId = "ru.z8.louttsev.bustrainflightmobile.androidApp"
+        applicationId = "com.travelapp.bustrainflightmobile.androidApp"
         minSdkVersion(21)
         targetSdkVersion(33)
         versionCode = 1

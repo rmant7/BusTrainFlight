@@ -2,7 +2,7 @@
 <resources>
 
     <style name="InputLocationEditTextStyle">
-        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_height">56dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:backgroundTint">@android:color/transparent</item>
         <item name="android:imeOptions">actionDone</item>

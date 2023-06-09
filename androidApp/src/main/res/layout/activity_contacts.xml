@@ -17,8 +17,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Roman Mantelmakher"
+            android:textSize="18sp"
+            android:layout_marginTop="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="+972545779239"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:textSize="18sp"/>
         <TextView
             android:id="@+id/emailTextView"

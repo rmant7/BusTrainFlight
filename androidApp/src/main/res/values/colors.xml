@@ -9,4 +9,5 @@
     <color name="colorInactiveViewBackground">#DCDCDC</color>
     <color name="colorBackground">@android:color/white</color>
     <color name="lightGray">#CECECE</color>
+    <color name="white">#FFF</color>
 </resources>

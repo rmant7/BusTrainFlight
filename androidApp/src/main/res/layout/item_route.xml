@@ -5,30 +5,30 @@
 
     <data>
 
-        <import type="ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.DurationConverter" />
+        <import type="com.travelapp.bustrainflightmobile.androidApp.model.data.DurationConverter" />
 
         <variable
             name="model"
-            type="ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Route" />
+            type="com.travelapp.bustrainflightmobile.androidApp.model.data.Route" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/route_main_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/route_item_background">
+        android:background="@drawable/route_item_background_2">
 
         <HorizontalScrollView
             android:id="@+id/transport_icon_container_scroll"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fadeScrollbars="false"
+            android:padding="7dp"
             android:scrollIndicators="start|end"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:layout_height="36dp"
-            android:padding="7dp">
+            tools:layout_height="36dp">
 
             <LinearLayout
                 android:id="@+id/transport_icon_container"
@@ -38,7 +38,7 @@
         </HorizontalScrollView>
 
         <TextView
-            android:id="@+id/route_plan"
+            android:id="@+id/titleTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -51,34 +51,34 @@
             tools:text="Muscat → Abu Dhabi" />
 
         <TextView
-            android:id="@+id/duration"
+            android:id="@+id/storeTextView"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
-            android:text="@{model.routeDuration}"
-            android:gravity="center"
             android:fontFamily="@font/rubik_medium"
+            android:gravity="center"
+            android:text="@{model.routeDuration}"
             android:textColor="@android:color/black"
-            app:layout_constraintBottom_toBottomOf="@+id/euro_price"
-            app:layout_constraintTop_toTopOf="@id/euro_price"
-            app:layout_constraintStart_toEndOf="@+id/euro_price"
+            app:layout_constraintBottom_toBottomOf="@+id/actionButton"
+            app:layout_constraintStart_toEndOf="@+id/actionButton"
+            app:layout_constraintTop_toTopOf="@id/actionButton"
             tools:text="1 d 16 h 39 min" />
 
         <TextView
-            android:id="@+id/euro_price"
+            android:id="@+id/actionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="8dp"
-            android:paddingVertical="5dp"
+            android:background="@drawable/rounded_right_background"
             android:paddingHorizontal="10dp"
-            android:background="@drawable/price_background"
+            android:paddingVertical="5dp"
             android:text="@{`€\u2009` + String.valueOf(model.euroPrice) + '0'}"
             android:textColor="@android:color/white"
-            android:textStyle="bold"
             android:textSize="15sp"
-            app:layout_constraintTop_toBottomOf="@id/route_plan"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleTextView"
             tools:text="€ 125.30" />
 
         <CheckBox
@@ -86,9 +86,9 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:button="@drawable/route_item_opening_selector"
-            app:layout_constraintBottom_toBottomOf="@+id/route_plan"
+            app:layout_constraintBottom_toBottomOf="@+id/titleTextView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/route_plan" />
+            app:layout_constraintTop_toTopOf="@+id/titleTextView" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/path_list"
@@ -97,9 +97,9 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/euro_price"
-            tools:visibility="visible"
-            tools:listitem="@layout/item_path"/>
+            app:layout_constraintTop_toBottomOf="@id/actionButton"
+            tools:listitem="@layout/item_path"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

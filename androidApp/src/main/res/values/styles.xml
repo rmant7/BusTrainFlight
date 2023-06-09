@@ -5,7 +5,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="fontFamily">@font/roboto</item>
+        <item name="fontFamily">@font/montserrat</item>
     </style>
 
     <!-- Application launcher theme. -->
@@ -14,8 +14,7 @@
     </style>
 
     <style name="InputLocationLayoutStyle" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
-        <item name="android:layout_marginStart">10dp</item>
-        <item name="android:layout_marginEnd">15dp</item>
+<!--        <item name="android:layout_marginStart">10dp</item>-->
         <item name="background">@android:color/white</item>
         <item name="boxCornerRadiusBottomEnd">8dp</item>
         <item name="boxCornerRadiusBottomStart">8dp</item>
@@ -30,7 +29,7 @@
     </style>
 
     <style name="InputLocationEditTextStyle">
-        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_height">56dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:backgroundTint">@android:color/transparent</item>
         <item name="android:imeOptions">actionDone</item>
@@ -53,7 +52,6 @@
         <item name="singleLine">true</item>
         <item name="android:ellipsize">end</item>
         <item name="minWidth">0dp</item>
-        <item name="fontFamily">@font/roboto_condensed_regular</item>
     </style>
 
 </resources>
