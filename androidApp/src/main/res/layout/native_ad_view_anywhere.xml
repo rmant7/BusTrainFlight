@@ -17,7 +17,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="90dp"
             android:background="@drawable/route_item_background">
 
             <ImageView
@@ -43,14 +43,16 @@
 
             <TextView
                 android:id="@+id/titleTextView"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="3dp"
                 android:layout_marginTop="8dp"
-                android:gravity="center"
+                android:gravity="start"
+                android:layout_marginEnd="5dp"
                 android:text="@{binding_ad.headline}"
                 android:textColor="@color/colorTextPrimary"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,7 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="@{binding_ad.store}"
+                android:text="@{binding_ad.price}"
                 app:layout_constraintStart_toStartOf="@+id/ratingBar"
                 app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 

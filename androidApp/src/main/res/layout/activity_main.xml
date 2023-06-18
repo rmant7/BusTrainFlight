@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.travelapp.bustrainflightmobile.androidApp.viewmodel.MainViewModel" />
+            type="ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.MainViewModel" />
     </data>
 
     <androidx.core.widget.NestedScrollView
