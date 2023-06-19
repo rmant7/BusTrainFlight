@@ -1,0 +1,534 @@
+[
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_subway.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xhdpi\\ic_subway.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\layout_item_route.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\item_route.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_clear.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxxhdpi\\ic_clear.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_filled_field_background.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\filled_field_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_telegram_icon.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\telegram_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_shuttle.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxhdpi\\ic_shuttle.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_walk.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxhdpi\\ic_walk.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\layout_content_layout.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\content_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_ripple_mobile_icon.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\ripple_mobile_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_rounded_right_background.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\rounded_right_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_airplane_ticket.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\airplane_ticket.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_subway.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxhdpi\\ic_subway.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_bus.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-hdpi\\ic_bus.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_close_button_background.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\close_button_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_clear.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-hdpi\\ic_clear.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_train.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xhdpi\\ic_train.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_bus.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxhdpi\\ic_bus.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_orange_button_background.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\orange_button_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_ic_undefined.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\ic_undefined.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\font_roboto.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\font\\roboto.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_ic_train.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\ic_train.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_ic_ferry.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\ic_ferry.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_walk.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-hdpi\\ic_walk.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_ic_ride_share.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\ic_ride_share.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_town_car.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-hdpi\\ic_town_car.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_ferry.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xhdpi\\ic_ferry.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\raw_locations.json.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\raw\\locations.json"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\font_roboto_condensed_regular.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\font\\roboto_condensed_regular.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_taxi.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-hdpi\\ic_taxi.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\layout_action_bar.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\action_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_ic_taxi.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\ic_taxi.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_ic_car_drive.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\ic_car_drive.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_car_drive.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-hdpi\\ic_car_drive.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_ic_arrow_down.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\ic_arrow_down.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_route_item_background.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\route_item_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_ride_share.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxxhdpi\\ic_ride_share.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\layout_item_path.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\item_path.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\layout_activity_travel_tips.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\activity_travel_tips.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\layout_item_route_anywhere.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\item_route_anywhere.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\font_rubik_medium.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\font\\rubik_medium.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_taxi.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xhdpi\\ic_taxi.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_taxi.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxhdpi\\ic_taxi.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_bus.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxxhdpi\\ic_bus.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\layout_activity_drawer_base.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\activity_drawer_base.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_town_car.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxxhdpi\\ic_town_car.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\raw_routes.json.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\raw\\routes.json"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_clear.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxhdpi\\ic_clear.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\layout_native_ad_view_route.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\native_ad_view_route.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_ic_walk.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\ic_walk.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_plane.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-hdpi\\ic_plane.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_car_drive.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xhdpi\\ic_car_drive.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_undefined.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xhdpi\\ic_undefined.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_ic_clear.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\ic_clear.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_ripple_telegram_icon.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\ripple_telegram_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_route_item_background_2.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\route_item_background_2.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_ic_town_car.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\ic_town_car.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_ic_shuttle.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\ic_shuttle.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_round_stroke.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\round_stroke.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_taxi.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxxhdpi\\ic_taxi.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_ic_bus.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\ic_bus.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_route_item_opening_selector.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\route_item_opening_selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_ride_share.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xhdpi\\ic_ride_share.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_subway.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxxhdpi\\ic_subway.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_ferry.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-hdpi\\ic_ferry.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_ripple_whatsapp_icon.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\ripple_whatsapp_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_ride_share.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-hdpi\\ic_ride_share.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_walk.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xhdpi\\ic_walk.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_shuttle.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xhdpi\\ic_shuttle.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_train.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-hdpi\\ic_train.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_launch_screen.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\launch_screen.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_town_car.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxhdpi\\ic_town_car.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_book.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\book.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\raw_transport.json.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\raw\\transport.json"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_undefined.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxhdpi\\ic_undefined.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_ride_share.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxhdpi\\ic_ride_share.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_undefined.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-hdpi\\ic_undefined.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_ic_plane.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\ic_plane.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_whatsapp_icon.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\whatsapp_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_action_button_background.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\action_button_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_plane.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xhdpi\\ic_plane.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_shuttle.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-hdpi\\ic_shuttle.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\raw_booking_ids.json.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\raw\\booking_ids.json"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_plane.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxhdpi\\ic_plane.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_subway.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-hdpi\\ic_subway.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_rounded_left_background.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\rounded_left_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_ferry.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxhdpi\\ic_ferry.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_bus.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xhdpi\\ic_bus.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_undefined.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxxhdpi\\ic_undefined.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_path_item_background.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\path_item_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_logo.jpg.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\logo.jpg"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_car_drive.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxhdpi\\ic_car_drive.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\raw_direct_routes.json.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\raw\\direct_routes.json"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_train.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxxhdpi\\ic_train.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_ic_subway.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\ic_subway.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_mobile_icon.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\mobile_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_ic_arrow_up.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\ic_arrow_up.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\raw_fixed_routes.json.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\raw\\fixed_routes.json"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_plane.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxxhdpi\\ic_plane.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_train.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxhdpi\\ic_train.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_ferry.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxxhdpi\\ic_ferry.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_car_drive.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxxhdpi\\ic_car_drive.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_white_button_background.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\white_button_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\font_montserrat.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\font\\montserrat.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_clear.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xhdpi\\ic_clear.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\color_border_color_selector.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\color\\border_color_selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_menu.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_town_car.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xhdpi\\ic_town_car.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\layout_activity_contacts.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\activity_contacts.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_walk.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxxhdpi\\ic_walk.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_call.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\call.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_close.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\close.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\raw_flying_routes.json.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\raw\\flying_routes.json"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_shuttle.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxxhdpi\\ic_shuttle.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\layout_native_ad_view_anywhere.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\native_ad_view_anywhere.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_inactive_button_background.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\inactive_button_background.xml"
+    }
+]

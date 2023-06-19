@@ -1,0 +1,211 @@
+Index: shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Database.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/**\r\n * CheapTrip Mobile\r\n * This is mobile client for LowCostsTrip server.\r\n */\r\npackage ru.z8.louttsev.cheaptripmobile.shared\r\n\r\nimport android.content.Context\r\nimport com.squareup.sqldelight.android.AndroidSqliteDriver\r\nimport com.squareup.sqldelight.db.SqlDriver\r\nimport ru.z8.louttsev.cheaptripmobile.MR\r\nimport java.io.File\r\nimport java.io.FileOutputStream\r\nimport java.io.InputStream\r\n\r\n/**\r\n * A platform-specific implementation of the SQLite driver factory.\r\n */\r\nactual class DatabaseDriverFactory(private val context: Context) {\r\n    actual fun createDriver(schema: SqlDriver.Schema, fileName: String): SqlDriver {\r\n        return AndroidSqliteDriver(schema, context, fileName)\r\n    }\r\n\r\n    // TODO mark deprecate and/or remove, issue #1\r\n    actual fun getDriver(schema: SqlDriver.Schema, fileName: String): SqlDriver {\r\n        val database: File = context.getDatabasePath(fileName)\r\n//        val checkCode = BuildConfig.DB_FILE_CHECK_CODE\r\n//\r\n//        if (!database.exists()) {\r\n//            deployDatabase(database)\r\n//            saveDbCheckCodePreference(checkCode)\r\n//        } else {\r\n//            if (checkCode != loadDbCheckCodePreference()) {\r\n//                database.delete()\r\n//                deployDatabase(database)\r\n//                saveDbCheckCodePreference(checkCode)\r\n//            }\r\n//        }\r\n\r\n        return AndroidSqliteDriver(schema, context, fileName)\r\n    }\r\n\r\n    // TODO mark deprecate and/or remove, issue #1\r\n    private fun deployDatabase(database: File) {\r\n        fun createDirectoryIfNotExist(database: File) {\r\n            val directory = File(database.absolutePath.substringBeforeLast('/'))\r\n\r\n            if (!directory.exists()) {\r\n                directory.mkdir()\r\n            }\r\n        }\r\n\r\n//        val inputStream = context.resources.openRawResource(MR.files.fullDb.rawResId)\r\n\r\n//        createDirectoryIfNotExist(database)\r\n//        val outputStream = FileOutputStream(database.absolutePath)\r\n//\r\n//        inputStream.use { input: InputStream ->\r\n//            outputStream.use { output: FileOutputStream ->\r\n//                input.copyTo(output)\r\n//            }\r\n//        }\r\n    }\r\n\r\n    // TODO mark deprecate and/or remove, issue #1\r\n    @Suppress(\"SameParameterValue\")\r\n    private fun saveDbCheckCodePreference(checkCode: String) {\r\n        context.getSharedPreferences(\"application-settings\", Context.MODE_PRIVATE)\r\n            .edit()\r\n            .putString(\"db-file-check-code\", checkCode)\r\n            .apply()\r\n    }\r\n\r\n    // TODO mark deprecate and/or remove, issue #1\r\n    private fun loadDbCheckCodePreference() =\r\n        context.getSharedPreferences(\"application-settings\", Context.MODE_PRIVATE)\r\n            .getString(\"db-file-check-code\", \"\")\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Database.kt b/shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Database.kt
+--- a/shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Database.kt	(revision db9ea36da8ca99f0a30e83b6824c70578b661683)
++++ b/shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Database.kt	(date 1682532328372)
+@@ -7,7 +7,6 @@
+ import android.content.Context
+ import com.squareup.sqldelight.android.AndroidSqliteDriver
+ import com.squareup.sqldelight.db.SqlDriver
+-import ru.z8.louttsev.cheaptripmobile.MR
+ import java.io.File
+ import java.io.FileOutputStream
+ import java.io.InputStream
+Index: androidApp/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    id(\"com.android.application\")\r\n    kotlin(\"android\")\r\n}\r\n\r\ndependencies {\r\n    implementation(project(\":shared\"))\r\n    implementation(\"com.google.android.material:material:1.6.0\")\r\n    implementation(\"androidx.appcompat:appcompat:1.6.1\")\r\n    implementation(\"androidx.constraintlayout:constraintlayout:2.1.4\")\r\n    implementation(\"androidx.activity:activity-ktx:1.7.0\")\r\n    implementation(\"androidx.recyclerview:recyclerview:1.3.0\")\r\n    implementation(\"com.yandex.android:mobmetricalib:3.21.0\")\r\n\r\n    implementation(\"io.github.aakira:napier:2.6.1\")\r\n\r\n    implementation(\"io.insert-koin:koin-core:3.2.0\")\r\n    implementation(\"io.insert-koin:koin-android:3.2.0\")\r\n}3\r\n\r\nandroid {\r\n    compileSdkVersion(33)\r\n    defaultConfig {\r\n        applicationId = \"ru.z8.louttsev.cheaptripmobile.androidApp\"\r\n        minSdkVersion(21)\r\n        targetSdkVersion(33)\r\n        versionCode = 1\r\n        versionName = \"1.0.0\"\r\n    }\r\n    buildTypes {\r\n        getByName(\"release\") {\r\n            isDebuggable = false\r\n            isMinifyEnabled = true\r\n            isShrinkResources = true\r\n            proguardFiles(getDefaultProguardFile(\"proguard-android-optimize.txt\"), \"proguard-rules.pro\")\r\n        }\r\n        getByName(\"debug\") {\r\n            isDebuggable = true\r\n            isMinifyEnabled = false\r\n        }\r\n    }\r\n    buildFeatures {\r\n        viewBinding = true\r\n        dataBinding = true\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility = JavaVersion.VERSION_1_8\r\n        targetCompatibility = JavaVersion.VERSION_1_8\r\n    }\r\n    kotlinOptions {\r\n        jvmTarget = \"1.8\"\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/androidApp/build.gradle.kts b/androidApp/build.gradle.kts
+--- a/androidApp/build.gradle.kts	(revision db9ea36da8ca99f0a30e83b6824c70578b661683)
++++ b/androidApp/build.gradle.kts	(date 1682531575933)
+@@ -16,12 +16,12 @@
+ 
+     implementation("io.insert-koin:koin-core:3.2.0")
+     implementation("io.insert-koin:koin-android:3.2.0")
+-}3
++}
+ 
+ android {
+     compileSdkVersion(33)
+     defaultConfig {
+-        applicationId = "ru.z8.louttsev.cheaptripmobile.androidApp"
++        applicationId = "ru.z8.louttsev.bustrainflightmobile.androidApp"
+         minSdkVersion(21)
+         targetSdkVersion(33)
+         versionCode = 1
+@@ -50,4 +50,4 @@
+     kotlinOptions {
+         jvmTarget = "1.8"
+     }
+-}
+\ No newline at end of file
++}
+Index: androidApp/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<layout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <data>\r\n\r\n        <variable\r\n            name=\"viewModel\"\r\n            type=\"ru.z8.louttsev.bustrainflight.shared.viewmodel.MainViewModel\" />\r\n </data>\r\n\r\n    <androidx.constraintlayout.widget.ConstraintLayout\r\n        android:id=\"@+id/main_view\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:background=\"@color/colorBackground\"\r\n        tools:context=\".MainActivity\">\r\n\r\n        <TextView\r\n            android:id=\"@+id/textView\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"@string/from_location_input_field_hint\"\r\n            app:layout_constraintBottom_toTopOf=\"@id/origin_input_layout\"\r\n            app:layout_constraintStart_toStartOf=\"@id/origin_input_layout\" />\r\n\r\n        <com.google.android.material.textfield.TextInputLayout\r\n            android:id=\"@+id/origin_input_layout\"\r\n            style=\"@style/InputLocationLayoutStyle\"\r\n            android:layout_marginTop=\"38dp\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\">\r\n\r\n            <AutoCompleteTextView\r\n                android:id=\"@+id/origin_text_view\"\r\n                style=\"@style/InputLocationEditTextStyle\"\r\n                tools:text=\"Muscat\" />\r\n\r\n        </com.google.android.material.textfield.TextInputLayout>\r\n\r\n        <TextView\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"@string/to_location_input_field_hint\"\r\n            app:layout_constraintBottom_toTopOf=\"@id/destination_input_layout\"\r\n            app:layout_constraintStart_toStartOf=\"@id/destination_input_layout\" />\r\n\r\n        <com.google.android.material.textfield.TextInputLayout\r\n            android:id=\"@+id/destination_input_layout\"\r\n            style=\"@style/InputLocationLayoutStyle\"\r\n            android:layout_marginTop=\"8dp\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toBottomOf=\"@id/origin_input_layout\">\r\n\r\n            <AutoCompleteTextView\r\n                android:id=\"@+id/destination_text_view\"\r\n                style=\"@style/InputLocationEditTextStyle\"\r\n                tools:text=\"Abu Dhabi\" />\r\n\r\n        </com.google.android.material.textfield.TextInputLayout>\r\n\r\n        <com.google.android.material.button.MaterialButton\r\n            android:id=\"@+id/clearButton\"\r\n            android:layout_width=\"120dp\"\r\n            android:layout_height=\"45dp\"\r\n            android:layout_marginStart=\"8dp\"\r\n            android:layout_marginEnd=\"16dp\"\r\n            android:background=\"@drawable/white_button_background\"\r\n            app:backgroundTint=\"@null\"\r\n            app:cornerRadius=\"8dp\"\r\n            android:fontFamily=\"@font/roboto\"\r\n            android:text=\"@string/clear_button_text\"\r\n            android:textAllCaps=\"false\"\r\n            android:textColor=\"@android:color/black\"\r\n            android:textSize=\"15sp\"\r\n            app:layout_constraintEnd_toStartOf=\"@+id/goButton\"\r\n            app:layout_constraintHorizontal_bias=\"0.5\"\r\n            app:layout_constraintHorizontal_chainStyle=\"packed\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toBottomOf=\"@+id/destination_input_layout\" />\r\n\r\n        <com.google.android.material.button.MaterialButton\r\n            android:id=\"@+id/goButton\"\r\n            android:layout_width=\"120dp\"\r\n            android:layout_height=\"45dp\"\r\n            android:layout_marginStart=\"16dp\"\r\n            android:layout_marginEnd=\"8dp\"\r\n            app:backgroundTint=\"@null\"\r\n            android:background=\"@drawable/orange_button_background\"\r\n            android:focusable=\"true\"\r\n            android:focusableInTouchMode=\"true\"\r\n            android:fontFamily=\"@font/roboto\"\r\n            android:text=\"@string/go_button_text\"\r\n            android:textAllCaps=\"false\"\r\n            android:textColor=\"@android:color/white\"\r\n            android:textSize=\"15sp\"\r\n            android:textStyle=\"bold\"\r\n            app:cornerRadius=\"8dp\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintHorizontal_bias=\"0.5\"\r\n            app:layout_constraintStart_toEndOf=\"@+id/clearButton\"\r\n            app:layout_constraintTop_toBottomOf=\"@+id/destination_input_layout\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/resultsTextView\"\r\n            android:layout_width=\"80dp\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginStart=\"10dp\"\r\n            android:layout_marginTop=\"15dp\"\r\n            android:text=\"Results\"\r\n            android:textColor=\"@color/colorPrimary\"\r\n            android:textSize=\"20sp\"\r\n            android:visibility=\"invisible\"\r\n            android:textStyle=\"italic|bold\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toBottomOf=\"@+id/clearButton\"/>\r\n        <!--        <ImageView-->\r\n        <!--            android:id=\"@+id/logo\"-->\r\n        <!--            android:layout_width=\"0dp\"-->\r\n        <!--            android:layout_height=\"0dp\"-->\r\n        <!--            android:layout_marginStart=\"16dp\"-->\r\n        <!--            android:layout_marginTop=\"16dp\"-->\r\n        <!--            android:layout_marginEnd=\"16dp\"-->\r\n        <!--            android:layout_marginBottom=\"16dp\"-->\r\n        <!--            app:layout_constraintBottom_toBottomOf=\"parent\"-->\r\n        <!--            app:layout_constraintDimensionRatio=\"1\"-->\r\n        <!--            app:layout_constraintEnd_toEndOf=\"parent\"-->\r\n        <!--            app:layout_constraintStart_toStartOf=\"parent\"-->\r\n        <!--            app:layout_constraintTop_toBottomOf=\"@+id/clear_button\"-->\r\n        <!--            app:srcCompat=\"@drawable/logo\" />-->\r\n\r\n        <androidx.recyclerview.widget.RecyclerView\r\n            android:id=\"@+id/route_list\"\r\n            android:layout_width=\"0dp\"\r\n            android:layout_height=\"0dp\"\r\n            android:layout_marginStart=\"10dp\"\r\n            android:layout_marginTop=\"50dp\"\r\n            android:layout_marginEnd=\"15dp\"\r\n            android:layout_marginBottom=\"8dp\"\r\n            app:layout_constraintBottom_toBottomOf=\"parent\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toBottomOf=\"@+id/clearButton\"\r\n            tools:listitem=\"@layout/item_route\" />\r\n    </androidx.constraintlayout.widget.ConstraintLayout>\r\n</layout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/androidApp/src/main/res/layout/activity_main.xml b/androidApp/src/main/res/layout/activity_main.xml
+--- a/androidApp/src/main/res/layout/activity_main.xml	(revision db9ea36da8ca99f0a30e83b6824c70578b661683)
++++ b/androidApp/src/main/res/layout/activity_main.xml	(date 1682531584837)
+@@ -7,7 +7,7 @@
+ 
+         <variable
+             name="viewModel"
+-            type="ru.z8.louttsev.bustrainflight.shared.viewmodel.MainViewModel" />
++            type="ru.z8.louttsev.bustrainflightmobile.shared.viewmodel.MainViewModel" />
+  </data>
+ 
+     <androidx.constraintlayout.widget.ConstraintLayout
+Index: shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/ResourceReader.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package ru.z8.louttsev.cheaptripmobile.shared\r\n\r\n\r\n// TODO Implement\r\nactual class ResourceReader {\r\n    actual fun readResource(name: String) = \"\"\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/ResourceReader.kt b/shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/ResourceReader.kt
+--- a/shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/ResourceReader.kt	(revision db9ea36da8ca99f0a30e83b6824c70578b661683)
++++ b/shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/ResourceReader.kt	(date 1682532328402)
+@@ -1,6 +1,5 @@
+ package ru.z8.louttsev.cheaptripmobile.shared
+ 
+-
+ // TODO Implement
+ actual class ResourceReader {
+     actual fun readResource(name: String) = ""
+Index: shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/ResourceReader.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package ru.z8.louttsev.cheaptripmobile.shared\r\n\r\nimport java.io.InputStreamReader\r\n\r\n// Android resources are available via the class loader\r\nactual class ResourceReader {\r\n    actual fun readResource(name: String): String =\r\n        javaClass.classLoader!!.getResourceAsStream(name).use { stream ->\r\n            InputStreamReader(stream).use { reader ->\r\n                reader.readText()\r\n            }\r\n        }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/ResourceReader.kt b/shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/ResourceReader.kt
+--- a/shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/ResourceReader.kt	(revision db9ea36da8ca99f0a30e83b6824c70578b661683)
++++ b/shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/ResourceReader.kt	(date 1682532410553)
+@@ -2,7 +2,6 @@
+ 
+ import java.io.InputStreamReader
+ 
+-// Android resources are available via the class loader
+ actual class ResourceReader {
+     actual fun readResource(name: String): String =
+         javaClass.classLoader!!.getResourceAsStream(name).use { stream ->
+Index: shared/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget\r\nimport java.io.BufferedInputStream\r\nimport java.io.FileInputStream\r\nimport java.security.DigestInputStream\r\nimport java.security.MessageDigest\r\n\r\nplugins {\r\n    kotlin(\"multiplatform\")\r\n    id(\"com.android.library\")\r\n    id(\"dev.icerock.mobile.multiplatform-resources\")\r\n    id(\"com.squareup.sqldelight\")\r\n    kotlin(\"plugin.serialization\") version \"1.6.21\"\r\n}\r\n\r\nkotlin {\r\n    android()\r\n    ios {\r\n        binaries {\r\n            framework {\r\n                baseName = \"shared\"\r\n            }\r\n        }\r\n    }\r\n    sourceSets {\r\n        val commonMain by getting {\r\n            dependencies {\r\n                implementation(\"org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0\")\r\n                api(\"dev.icerock.moko:resources:0.21.1\")\r\n                api(\"dev.icerock.moko:mvvm-core:0.11.0\")\r\n                api(\"dev.icerock.moko:mvvm-livedata:0.11.0\")\r\n                implementation(\"com.squareup.sqldelight:runtime:1.4.4\")\r\n                implementation(\"org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1\")\r\n\r\n                implementation(\"io.github.aakira:napier:2.6.1\")\r\n                implementation(\"io.insert-koin:koin-core:3.2.0\")\r\n            }\r\n        }\r\n        val commonTest by getting {\r\n            dependencies {\r\n                implementation(kotlin(\"test-common\"))\r\n                implementation(kotlin(\"test-annotations-common\"))\r\n            }\r\n        }\r\n        val androidMain by getting {\r\n            dependencies {\r\n                implementation(\"org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2\")\r\n                implementation(\"com.google.android.material:material:1.4.0\")\r\n                implementation(\"androidx.lifecycle:lifecycle-livedata-ktx:2.3.1\")\r\n                implementation(\"androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1\")\r\n                api(\"dev.icerock.moko:mvvm-livedata-material:0.11.0\")\r\n                api(\"dev.icerock.moko:mvvm-databinding:0.11.0\")\r\n                api(\"dev.icerock.moko:mvvm-viewbinding:0.11.0\")\r\n                implementation(\"com.squareup.sqldelight:android-driver:1.4.4\")\r\n                implementation(\"io.insert-koin:koin-android:3.2.0\")\r\n            }\r\n        }\r\n        val androidTest by getting {\r\n            dependencies {\r\n                implementation(kotlin(\"test-junit\"))\r\n                implementation(\"junit:junit:4.13.2\")\r\n                implementation(\"androidx.test:core:1.4.0\")\r\n                implementation(\"com.android.support:support-annotations:28.0.0\")\r\n                implementation(\"com.android.support.test:runner:1.0.2\")\r\n                implementation(\"org.robolectric:robolectric:4.4\")\r\n            }\r\n        }\r\n        val iosMain by getting {\r\n            dependencies {\r\n                // TODO define the appropriate library dependency for coroutines, issue #25\r\n                implementation(\"com.squareup.sqldelight:native-driver:1.4.4\")\r\n            }\r\n        }\r\n        val iosTest by getting\r\n    }\r\n    // export correct artifact to use all classes of library directly from Swift\r\n    targets.withType(KotlinNativeTarget::class.java).all {\r\n/*        val arch = when (this.konanTarget) {\r\n            org.jetbrains.kotlin.konan.target.KonanTarget.IOS_ARM64 -> \"iosarm64\"\r\n            org.jetbrains.kotlin.konan.target.KonanTarget.IOS_X64 -> \"iosx64\"\r\n            else -> throw IllegalArgumentException()\r\n        }*/\r\n        binaries.withType(org.jetbrains.kotlin.gradle.plugin.mpp.Framework::class.java).all {\r\n//            export(\"dev.icerock.moko:mvvm-$arch:0.11.0\")\r\n            export(\"dev.icerock.moko:mvvm-core:0.11.0\")\r\n            export(\"dev.icerock.moko:mvvm-livedata:0.11.0\")\r\n        }\r\n    }\r\n}\r\n\r\nfun getMd5EncryptedString(file: File): String = DigestInputStream(\r\n    BufferedInputStream(FileInputStream(file)),\r\n    MessageDigest.getInstance(\"MD5\")\r\n).use {\r\n    @Suppress(\"ControlFlowWithEmptyBody\")\r\n    while (it.read() != -1) { }\r\n\r\n    it.messageDigest.digest()\r\n        .map { String.format(\"%02x\", it) }\r\n        .reduce { result, string -> result + string }\r\n}\r\n\r\nandroid {\r\n    compileSdkVersion(33)\r\n    sourceSets[\"main\"].manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\r\n    defaultConfig {\r\n        minSdkVersion(21)\r\n        targetSdkVersion(33)\r\n\r\n        val dbFile = File(\"shared/src/commonMain/resources/MR/files/fullDb.sqlite3\")\r\n        val checkCode = getMd5EncryptedString(dbFile)\r\n        buildConfigField(\"String\", \"DB_FILE_CHECK_CODE\", \"\\\"$checkCode\\\"\")\r\n    }\r\n    buildFeatures {\r\n        viewBinding = true\r\n        dataBinding = true\r\n    }\r\n    testOptions {\r\n        unitTests {\r\n            isReturnDefaultValues = true\r\n            isIncludeAndroidResources = true\r\n        }\r\n    }\r\n}\r\n\r\nmultiplatformResources {\r\n    multiplatformResourcesPackage = \"ru.z8.louttsev.bustrainflight\"\r\n}\r\n\r\nsqldelight {\r\n    database(\"LocalDb\") {\r\n        packageName = \"ru.z8.louttsev.bustrainflight.shared.infrastructure.persistence\"\r\n        sourceFolders = listOf(\"sqldelightLocalDb\")\r\n    }\r\n    database(\"FullDb\") {\r\n        packageName = \"ru.z8.louttsev.bustrainflight.shared.infrastructure.datasource\"\r\n        sourceFolders = listOf(\"sqldelightFullDb\")\r\n    }\r\n}\r\n\r\nval packForXcode by tasks.creating(Sync::class) {\r\n    group = \"build\"\r\n    val mode = System.getenv(\"CONFIGURATION\") ?: \"DEBUG\"\r\n    val sdkName = System.getenv(\"SDK_NAME\") ?: \"iphonesimulator\"\r\n    val targetName = \"ios\" + if (sdkName.startsWith(\"iphoneos\")) \"Arm64\" else \"X64\"\r\n    val framework =\r\n        kotlin.targets.getByName<KotlinNativeTarget>(targetName).binaries.getFramework(mode)\r\n    inputs.property(\"mode\", mode)\r\n    dependsOn(framework.linkTask)\r\n    val targetDir = File(buildDir, \"xcode-frameworks\")\r\n    from({ framework.outputDirectory })\r\n    into(targetDir)\r\n}\r\n\r\ntasks.getByName(\"build\").dependsOn(packForXcode)
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/shared/build.gradle.kts b/shared/build.gradle.kts
+--- a/shared/build.gradle.kts	(revision db9ea36da8ca99f0a30e83b6824c70578b661683)
++++ b/shared/build.gradle.kts	(date 1682531701269)
+@@ -102,13 +102,19 @@
+ android {
+     compileSdkVersion(33)
+     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
++    sourceSets["main"].resources.setSrcDirs(
++        listOf(
++            "src/androidMain/resources",
++            "src/commonMain/resources" // <-- add the commonMain Resources
++        )
++    )
+     defaultConfig {
+         minSdkVersion(21)
+         targetSdkVersion(33)
+ 
+-        val dbFile = File("shared/src/commonMain/resources/MR/files/fullDb.sqlite3")
+-        val checkCode = getMd5EncryptedString(dbFile)
+-        buildConfigField("String", "DB_FILE_CHECK_CODE", "\"$checkCode\"")
++//        val dbFile = File("shared/src/commonMain/resources/MR/files/fullDb.sqlite3")
++//        val checkCode = getMd5EncryptedString(dbFile)
++//        buildConfigField("String", "DB_FILE_CHECK_CODE", "\"$checkCode\"")
+     }
+     buildFeatures {
+         viewBinding = true
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/di/ViewModelModule.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/di/ViewModelModule.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/di/ViewModelModule.kt
+deleted file mode 100644
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/di/ViewModelModule.kt	(revision db9ea36da8ca99f0a30e83b6824c70578b661683)
++++ /dev/null	(revision db9ea36da8ca99f0a30e83b6824c70578b661683)
+@@ -1,12 +0,0 @@
+-package ru.z8.louttsev.cheaptripmobile.shared.di
+-
+-import org.koin.dsl.module
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.LocationsDbJson
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.RoutesDbJson
+-import ru.z8.louttsev.cheaptripmobile.shared.model.LocationsRepositoryJson
+-import ru.z8.louttsev.cheaptripmobile.shared.model.RoutesRepositoryJson
+-import ru.z8.louttsev.cheaptripmobile.shared.viewmodel.MainViewModel
+-
+-val viewModelModule = module {
+-    single { MainViewModel(get(), get()) }
+-}
+\ No newline at end of file
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/di/RepositoryModule.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/di/RepositoryModule.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/di/RepositoryModule.kt
+deleted file mode 100644
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/di/RepositoryModule.kt	(revision db9ea36da8ca99f0a30e83b6824c70578b661683)
++++ /dev/null	(revision db9ea36da8ca99f0a30e83b6824c70578b661683)
+@@ -1,14 +0,0 @@
+-package ru.z8.louttsev.cheaptripmobile.shared.di
+-
+-import org.koin.dsl.module
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.LocationsDbJson
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.RoutesDbJson
+-import ru.z8.louttsev.cheaptripmobile.shared.model.LocationsRepositoryJson
+-import ru.z8.louttsev.cheaptripmobile.shared.model.RoutesRepositoryJson
+-
+-val repositoryModule = module {
+-    single { LocationsDbJson() }
+-    single { RoutesDbJson() }
+-    single { LocationsRepositoryJson(get()) }
+-    single { RoutesRepositoryJson(get(), get()) }
+-}
+\ No newline at end of file
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/LocationsDbJson.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/LocationsDbJson.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/LocationsDbJson.kt
+deleted file mode 100644
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/LocationsDbJson.kt	(revision db9ea36da8ca99f0a30e83b6824c70578b661683)
++++ /dev/null	(revision db9ea36da8ca99f0a30e83b6824c70578b661683)
+@@ -1,25 +0,0 @@
+-package ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence
+-
+-import kotlinx.serialization.decodeFromString
+-import kotlinx.serialization.json.Json
+-import ru.z8.louttsev.cheaptripmobile.shared.ResourceReader
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.LocationJson
+-
+-
+-class LocationsDbJson {
+-
+-    private val locationsData: Map<Int, LocationJson> by lazy {
+-        val jsonString = ResourceReader().readResource("MR/files/locations.json")
+-        Json.decodeFromString(jsonString)
+-    }
+-
+-    fun getLocations() = locationsData
+-
+-    private val bookingIdsData: Map<Int, Int> by lazy {
+-        val jsonString = ResourceReader().readResource("MR/files/booking_ids.json")
+-        Json.decodeFromString(jsonString)
+-    }
+-
+-    fun getBookingIds() = bookingIdsData
+-
+-}

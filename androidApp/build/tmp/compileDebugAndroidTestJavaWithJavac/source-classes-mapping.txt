@@ -1,0 +1,2 @@
+com/travelapp/bustrainflightmobile/androidApp/test/BuildConfig.java
+ com.travelapp.bustrainflightmobile.androidApp.test.BuildConfig

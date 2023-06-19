@@ -1,0 +1,26 @@
+ru/z8/louttsev/bustrainflightmobile/androidApp/databinding/ActivityContactsBinding.java
+ ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ActivityContactsBinding
+ru/z8/louttsev/bustrainflightmobile/androidApp/databinding/ActivityTravelTipsBinding.java
+ ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ActivityTravelTipsBinding
+ru/z8/louttsev/bustrainflightmobile/androidApp/DataBindingTriggerClass.java
+ ru.z8.louttsev.bustrainflightmobile.androidApp.DataBindingTriggerClass
+ru/z8/louttsev/bustrainflightmobile/androidApp/databinding/ActivityMainBinding.java
+ ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ActivityMainBinding
+ru/z8/louttsev/bustrainflightmobile/androidApp/databinding/ItemPathBinding.java
+ ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ItemPathBinding
+ru/z8/louttsev/bustrainflightmobile/androidApp/databinding/ItemRouteAnywhereBinding.java
+ ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ItemRouteAnywhereBinding
+ru/z8/louttsev/bustrainflightmobile/androidApp/databinding/NativeAdViewRouteBinding.java
+ ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.NativeAdViewRouteBinding
+ru/z8/louttsev/bustrainflightmobile/androidApp/BuildConfig.java
+ ru.z8.louttsev.bustrainflightmobile.androidApp.BuildConfig
+ru/z8/louttsev/bustrainflightmobile/androidApp/databinding/ActivityDrawerBaseBinding.java
+ ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ActivityDrawerBaseBinding
+ru/z8/louttsev/bustrainflightmobile/androidApp/databinding/ContentLayoutBinding.java
+ ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ContentLayoutBinding
+ru/z8/louttsev/bustrainflightmobile/androidApp/databinding/ItemRouteBinding.java
+ ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ItemRouteBinding
+ru/z8/louttsev/bustrainflightmobile/androidApp/databinding/NativeAdViewAnywhereBinding.java
+ ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.NativeAdViewAnywhereBinding
+ru/z8/louttsev/bustrainflightmobile/androidApp/databinding/ActionBarBinding.java
+ ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ActionBarBinding

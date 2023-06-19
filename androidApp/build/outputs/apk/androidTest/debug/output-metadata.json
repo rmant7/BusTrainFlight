@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.travelapp.bustrainflightmobile.androidApp.test",
+  "variantName": "debugAndroidTest",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "versionCode": 0,
+      "versionName": "",
+      "outputFile": "androidApp-debug-androidTest.apk"
+    }
+  ]
+}

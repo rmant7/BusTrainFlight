@@ -1,0 +1,126 @@
+CREATE TABLE IF NOT EXISTS location (
+    id INTEGER AS Int NOT NULL,
+    name TEXT NOT NULL,
+    type_name TEXT NOT NULL,
+    language_code TEXT NOT NULL,
+    PRIMARY KEY (id, type_name, language_code)
+);
+
+updateOrInsertLocation {
+  UPDATE
+      location
+  SET
+      name = :name
+  WHERE
+      id = :id AND type_name = :typeName AND language_code = :languageCode;
+
+  INSERT OR IGNORE INTO
+      location
+      (id, name, type_name, language_code)
+  VALUES
+      (:id, :name, :typeName, :languageCode);
+}
+
+selectLocationsByName:
+SELECT
+    id, name
+FROM
+    location
+WHERE
+    name LIKE ('%' || :needle || '%')
+LIMIT
+    :limit;
+
+CREATE TABLE IF NOT EXISTS route (
+    id INTEGER NOT NULL PRIMARY KEY,
+    type_name TEXT NOT NULL,
+    price REAL AS Float NOT NULL,
+    duration INTEGER AS Int NOT NULL,
+    from_location_name TEXT NOT NULL,
+    to_location_name TEXT NOT NULL,
+    language_code TEXT NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS
+    secondary
+ON
+    route(type_name, from_location_name, to_location_name, language_code);
+
+CREATE TABLE IF NOT EXISTS path (
+    transportation_type_name TEXT NOT NULL,
+    price REAL AS Float NOT NULL,
+    duration INTEGER AS Int NOT NULL,
+    from_location_name TEXT NOT NULL,
+    to_location_name TEXT NOT NULL,
+    route_id INTEGER NOT NULL,
+    FOREIGN KEY (route_id) REFERENCES route(id)
+);
+
+updateOrInsertRoute {
+    UPDATE
+        route
+    SET
+        price = :price,
+        duration = :duration
+    WHERE
+        type_name = :typeName
+      AND
+        from_location_name = :fromLocationName
+      AND
+        to_location_name = :toLocationName
+      AND
+        language_code = :languageCode;
+
+    INSERT OR IGNORE INTO
+        route
+        (type_name, price, duration, from_location_name, to_location_name, language_code)
+    VALUES
+        (:typeName, :price, :duration, :fromLocationName, :toLocationName, :languageCode);
+}
+
+selectRouteId:
+SELECT
+    id
+FROM
+    route
+WHERE
+    type_name = :typeName
+  AND
+    from_location_name = :fromLocationName
+  AND
+    to_location_name = :toLocationName
+  AND
+    language_code = :languageCode;
+
+deletePathsByRouteId:
+DELETE FROM
+    path
+WHERE
+    route_id = :routeId;
+
+insertPath:
+INSERT INTO
+    path
+    (transportation_type_name, price, duration, from_location_name, to_location_name, route_id)
+VALUES
+    (:transportationTypeName, :price, :duration, :fromLocationName, :toLocationName, :routeId);
+
+selectRoutesByLocations:
+SELECT
+    id, type_name, price, duration
+FROM
+    route
+WHERE
+    from_location_name = :fromLocationName
+  AND
+    to_location_name = :toLocationName
+  AND
+    language_code = :languageCode;
+
+selectPathsByRouteId:
+SELECT
+    transportation_type_name, price, duration, from_location_name, to_location_name
+FROM
+    path
+WHERE
+    route_id = :routeId;

@@ -1,0 +1,1700 @@
+Index: shared/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget\r\nimport java.io.BufferedInputStream\r\nimport java.io.FileInputStream\r\nimport java.security.DigestInputStream\r\nimport java.security.MessageDigest\r\n\r\nplugins {\r\n    kotlin(\"multiplatform\")\r\n    id(\"com.android.library\")\r\n    id(\"dev.icerock.mobile.multiplatform-resources\")\r\n    id(\"com.squareup.sqldelight\")\r\n    kotlin(\"plugin.serialization\") version \"1.6.21\"\r\n}\r\n\r\nkotlin {\r\n    android()\r\n    ios {\r\n        binaries {\r\n            framework {\r\n                baseName = \"shared\"\r\n            }\r\n        }\r\n    }\r\n    sourceSets {\r\n        val commonMain by getting {\r\n            dependencies {\r\n                implementation(\"org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0\")\r\n                api(\"dev.icerock.moko:resources:0.21.1\")\r\n                api(\"dev.icerock.moko:mvvm-core:0.11.0\")\r\n                api(\"dev.icerock.moko:mvvm-livedata:0.11.0\")\r\n                implementation(\"com.squareup.sqldelight:runtime:1.4.4\")\r\n                implementation(\"org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1\")\r\n\r\n                implementation(\"io.github.aakira:napier:2.6.1\")\r\n                implementation(\"io.insert-koin:koin-core:3.2.0\")\r\n            }\r\n        }\r\n        val commonTest by getting {\r\n            dependencies {\r\n                implementation(kotlin(\"test-common\"))\r\n                implementation(kotlin(\"test-annotations-common\"))\r\n            }\r\n        }\r\n        val androidMain by getting {\r\n            dependencies {\r\n                implementation(\"org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2\")\r\n                implementation(\"com.google.android.material:material:1.4.0\")\r\n                implementation(\"androidx.lifecycle:lifecycle-livedata-ktx:2.3.1\")\r\n                implementation(\"androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1\")\r\n                api(\"dev.icerock.moko:mvvm-livedata-material:0.11.0\")\r\n                api(\"dev.icerock.moko:mvvm-databinding:0.11.0\")\r\n                api(\"dev.icerock.moko:mvvm-viewbinding:0.11.0\")\r\n                implementation(\"com.squareup.sqldelight:android-driver:1.4.4\")\r\n                implementation(\"io.insert-koin:koin-android:3.2.0\")\r\n            }\r\n        }\r\n        val androidTest by getting {\r\n            dependencies {\r\n                implementation(kotlin(\"test-junit\"))\r\n                implementation(\"junit:junit:4.13.2\")\r\n                implementation(\"androidx.test:core:1.4.0\")\r\n                implementation(\"com.android.support:support-annotations:28.0.0\")\r\n                implementation(\"com.android.support.test:runner:1.0.2\")\r\n                implementation(\"org.robolectric:robolectric:4.4\")\r\n            }\r\n        }\r\n        val iosMain by getting {\r\n            dependencies {\r\n                // TODO define the appropriate library dependency for coroutines, issue #25\r\n                implementation(\"com.squareup.sqldelight:native-driver:1.4.4\")\r\n            }\r\n        }\r\n        val iosTest by getting\r\n    }\r\n    // export correct artifact to use all classes of library directly from Swift\r\n    targets.withType(KotlinNativeTarget::class.java).all {\r\n/*        val arch = when (this.konanTarget) {\r\n            org.jetbrains.kotlin.konan.target.KonanTarget.IOS_ARM64 -> \"iosarm64\"\r\n            org.jetbrains.kotlin.konan.target.KonanTarget.IOS_X64 -> \"iosx64\"\r\n            else -> throw IllegalArgumentException()\r\n        }*/\r\n        binaries.withType(org.jetbrains.kotlin.gradle.plugin.mpp.Framework::class.java).all {\r\n//            export(\"dev.icerock.moko:mvvm-$arch:0.11.0\")\r\n            export(\"dev.icerock.moko:mvvm-core:0.11.0\")\r\n            export(\"dev.icerock.moko:mvvm-livedata:0.11.0\")\r\n        }\r\n    }\r\n}\r\n\r\nfun getMd5EncryptedString(file: File): String = DigestInputStream(\r\n    BufferedInputStream(FileInputStream(file)),\r\n    MessageDigest.getInstance(\"MD5\")\r\n).use {\r\n    @Suppress(\"ControlFlowWithEmptyBody\")\r\n    while (it.read() != -1) { }\r\n\r\n    it.messageDigest.digest()\r\n        .map { String.format(\"%02x\", it) }\r\n        .reduce { result, string -> result + string }\r\n}\r\n\r\nandroid {\r\n    compileSdkVersion(33)\r\n    sourceSets[\"main\"].manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\r\n    defaultConfig {\r\n        minSdkVersion(21)\r\n        targetSdkVersion(33)\r\n\r\n        val dbFile = File(\"shared/src/commonMain/resources/MR/files/fullDb.sqlite3\")\r\n        val checkCode = getMd5EncryptedString(dbFile)\r\n        buildConfigField(\"String\", \"DB_FILE_CHECK_CODE\", \"\\\"$checkCode\\\"\")\r\n    }\r\n    buildFeatures {\r\n        viewBinding = true\r\n        dataBinding = true\r\n    }\r\n    testOptions {\r\n        unitTests {\r\n            isReturnDefaultValues = true\r\n            isIncludeAndroidResources = true\r\n        }\r\n    }\r\n}\r\n\r\nmultiplatformResources {\r\n    multiplatformResourcesPackage = \"ru.z8.louttsev.bustrainflight\"\r\n}\r\n\r\nsqldelight {\r\n    database(\"LocalDb\") {\r\n        packageName = \"ru.z8.louttsev.bustrainflight.shared.infrastructure.persistence\"\r\n        sourceFolders = listOf(\"sqldelightLocalDb\")\r\n    }\r\n    database(\"FullDb\") {\r\n        packageName = \"ru.z8.louttsev.bustrainflight.shared.infrastructure.datasource\"\r\n        sourceFolders = listOf(\"sqldelightFullDb\")\r\n    }\r\n}\r\n\r\nval packForXcode by tasks.creating(Sync::class) {\r\n    group = \"build\"\r\n    val mode = System.getenv(\"CONFIGURATION\") ?: \"DEBUG\"\r\n    val sdkName = System.getenv(\"SDK_NAME\") ?: \"iphonesimulator\"\r\n    val targetName = \"ios\" + if (sdkName.startsWith(\"iphoneos\")) \"Arm64\" else \"X64\"\r\n    val framework =\r\n        kotlin.targets.getByName<KotlinNativeTarget>(targetName).binaries.getFramework(mode)\r\n    inputs.property(\"mode\", mode)\r\n    dependsOn(framework.linkTask)\r\n    val targetDir = File(buildDir, \"xcode-frameworks\")\r\n    from({ framework.outputDirectory })\r\n    into(targetDir)\r\n}\r\n\r\ntasks.getByName(\"build\").dependsOn(packForXcode)
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/shared/build.gradle.kts b/shared/build.gradle.kts
+--- a/shared/build.gradle.kts	
++++ b/shared/build.gradle.kts	
+@@ -33,7 +33,12 @@
+ 
+                 implementation("io.github.aakira:napier:2.6.1")
+                 implementation("io.insert-koin:koin-core:3.2.0")
++
++                api("dev.icerock.moko:parcelize:0.4.0")
++                api("dev.icerock.moko:graphics:0.4.0")
++
+             }
++
+         }
+         val commonTest by getting {
+             dependencies {
+@@ -106,9 +111,9 @@
+         minSdkVersion(21)
+         targetSdkVersion(33)
+ 
+-        val dbFile = File("shared/src/commonMain/resources/MR/files/fullDb.sqlite3")
+-        val checkCode = getMd5EncryptedString(dbFile)
+-        buildConfigField("String", "DB_FILE_CHECK_CODE", "\"$checkCode\"")
++//        val dbFile = File("shared/src/commonMain/resources/MR/files/fullDb.sqlite3")
++//        val checkCode = getMd5EncryptedString(dbFile)
++//        buildConfigField("String", "DB_FILE_CHECK_CODE", "\"$checkCode\"")
+     }
+     buildFeatures {
+         viewBinding = true
+@@ -123,16 +128,16 @@
+ }
+ 
+ multiplatformResources {
+-    multiplatformResourcesPackage = "ru.z8.louttsev.bustrainflight"
++    multiplatformResourcesPackage = "ru.z8.louttsev.bustrainflightmobile.shared"
+ }
+ 
+ sqldelight {
+     database("LocalDb") {
+-        packageName = "ru.z8.louttsev.bustrainflight.shared.infrastructure.persistence"
++        packageName = "ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence"
+         sourceFolders = listOf("sqldelightLocalDb")
+     }
+     database("FullDb") {
+-        packageName = "ru.z8.louttsev.bustrainflight.shared.infrastructure.datasource"
++        packageName = "ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource"
+         sourceFolders = listOf("sqldelightFullDb")
+     }
+ }
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/di/RepositoryModule.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/di/RepositoryModule.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/di/RepositoryModule.kt
+deleted file mode 100644
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/di/RepositoryModule.kt	
++++ /dev/null	
+@@ -1,14 +0,0 @@
+-package ru.z8.louttsev.cheaptripmobile.shared.di
+-
+-import org.koin.dsl.module
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.LocationsDbJson
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.RoutesDbJson
+-import ru.z8.louttsev.cheaptripmobile.shared.model.LocationsRepositoryJson
+-import ru.z8.louttsev.cheaptripmobile.shared.model.RoutesRepositoryJson
+-
+-val repositoryModule = module {
+-    single { LocationsDbJson() }
+-    single { RoutesDbJson() }
+-    single { LocationsRepositoryJson(get()) }
+-    single { RoutesRepositoryJson(get(), get()) }
+-}
+\ No newline at end of file
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/di/ViewModelModule.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/di/ViewModelModule.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/di/ViewModelModule.kt
+deleted file mode 100644
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/di/ViewModelModule.kt	
++++ /dev/null	
+@@ -1,12 +0,0 @@
+-package ru.z8.louttsev.cheaptripmobile.shared.di
+-
+-import org.koin.dsl.module
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.LocationsDbJson
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.RoutesDbJson
+-import ru.z8.louttsev.cheaptripmobile.shared.model.LocationsRepositoryJson
+-import ru.z8.louttsev.cheaptripmobile.shared.model.RoutesRepositoryJson
+-import ru.z8.louttsev.cheaptripmobile.shared.viewmodel.MainViewModel
+-
+-val viewModelModule = module {
+-    single { MainViewModel(get(), get()) }
+-}
+\ No newline at end of file
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/viewmodel/MainViewModel.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/viewmodel/MainViewModel.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/viewmodel/MainViewModel.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/viewmodel/MainViewModel.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/viewmodel/MainViewModel.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/viewmodel/MainViewModel.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/viewmodel/MainViewModel.kt	
+@@ -2,7 +2,7 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.viewmodel
++package ru.z8.louttsev.bustrainflightmobile.shared.viewmodel
+ 
+ import dev.icerock.moko.mvvm.livedata.LiveData
+ import dev.icerock.moko.mvvm.livedata.MutableLiveData
+@@ -13,18 +13,18 @@
+ import kotlinx.coroutines.withContext
+ import org.koin.core.component.KoinComponent
+ import org.koin.core.component.inject
+-import ru.z8.louttsev.cheaptripmobile.shared.DatabaseDriverFactory
+-import ru.z8.louttsev.cheaptripmobile.shared.currentLocale
+-import ru.z8.louttsev.cheaptripmobile.shared.ioDispatcher
+-import ru.z8.louttsev.cheaptripmobile.shared.model.LocationRepository
+-import ru.z8.louttsev.cheaptripmobile.shared.model.LocationsRepositoryJson
+-import ru.z8.louttsev.cheaptripmobile.shared.model.RouteRepository
+-import ru.z8.louttsev.cheaptripmobile.shared.model.RoutesRepositoryJson
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Locale
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location.Type
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Route
+-import ru.z8.louttsev.cheaptripmobile.shared.uiDispatcher
++import ru.z8.louttsev.bustrainflightmobile.shared.DatabaseDriverFactory
++import ru.z8.louttsev.bustrainflightmobile.shared.currentLocale
++import ru.z8.louttsev.bustrainflightmobile.shared.ioDispatcher
++import ru.z8.louttsev.bustrainflightmobile.shared.model.LocationRepository
++import ru.z8.louttsev.bustrainflightmobile.shared.model.LocationsRepositoryJson
++import ru.z8.louttsev.bustrainflightmobile.shared.model.RouteRepository
++import ru.z8.louttsev.bustrainflightmobile.shared.model.RoutesRepositoryJson
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Locale
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location.Type
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Route
++import ru.z8.louttsev.bustrainflightmobile.shared.uiDispatcher
+ 
+ 
+ /**
+@@ -39,7 +39,7 @@
+ class MainViewModel(
+     private val locationRepository: LocationsRepositoryJson,
+     private val routeRepository: RoutesRepositoryJson
+-) : ViewModel(), KoinComponent {
++) : ViewModel(){
+     private var inputLocale = currentLocale
+ 
+     private var selectedOrigin: Location? = null
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/viewmodel/GoButtonHandler.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/viewmodel/GoButtonHandler.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/viewmodel/GoButtonHandler.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/viewmodel/GoButtonHandler.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/viewmodel/GoButtonHandler.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/viewmodel/GoButtonHandler.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/viewmodel/GoButtonHandler.kt	
+@@ -2,10 +2,10 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.viewmodel
++package ru.z8.louttsev.bustrainflightmobile.shared.viewmodel
+ 
+ import dev.icerock.moko.mvvm.livedata.LiveData
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Route
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Route
+ 
+ /**
+  * Determines UI actions handle logic and data for build routes button.
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/viewmodel/README.md
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/viewmodel/README.md b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/viewmodel/README.md
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/viewmodel/README.md
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/viewmodel/README.md
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/viewmodel/README.md	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/viewmodel/README.md	
+@@ -1,4 +1,4 @@
+-# Package ru.z8.louttsev.cheaptripmobile.shared.viewmodel
++# Package ru.z8.louttsev.bustrainflightmobile.shared.viewmodel
+ 
+ ViewModel layer of the MVVM architecture.
+ 
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/payload/AffiliateProgram.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/payload/AffiliateProgram.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/payload/AffiliateProgram.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/payload/AffiliateProgram.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/payload/AffiliateProgram.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/payload/AffiliateProgram.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/payload/AffiliateProgram.kt	
+@@ -4,14 +4,14 @@
+  */
+ @file:Suppress("unused")
+ 
+-package ru.z8.louttsev.cheaptripmobile.shared.payload
++package ru.z8.louttsev.bustrainflightmobile.shared.payload
+ 
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Country
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Country.*
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Path
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.TransportationType
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.TransportationType.*
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Country
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Country.*
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Path
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.TransportationType
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.TransportationType.*
+ 
+ /**
+  * Declares available affiliate programs.
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/RoutesRepositoryJson.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/RoutesRepositoryJson.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/RoutesRepositoryJson.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/RoutesRepositoryJson.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/RoutesRepositoryJson.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/RoutesRepositoryJson.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/RoutesRepositoryJson.kt	
+@@ -1,9 +1,9 @@
+-package ru.z8.louttsev.cheaptripmobile.shared.model
++package ru.z8.louttsev.bustrainflightmobile.shared.model
+ 
+ import io.github.aakira.napier.Napier
+-import ru.z8.louttsev.cheaptripmobile.shared.currentLocale
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.RoutesDbJson
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.*
++import ru.z8.louttsev.bustrainflightmobile.shared.currentLocale
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence.RoutesDbJson
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.*
+ 
+ class RoutesRepositoryJson(val db: RoutesDbJson, val locationRepository: LocationsRepositoryJson) {
+ 
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/viewmodel/AutoCompleteHandler.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/viewmodel/AutoCompleteHandler.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/viewmodel/AutoCompleteHandler.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/viewmodel/AutoCompleteHandler.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/viewmodel/AutoCompleteHandler.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/viewmodel/AutoCompleteHandler.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/viewmodel/AutoCompleteHandler.kt	
+@@ -2,10 +2,10 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.viewmodel
++package ru.z8.louttsev.bustrainflightmobile.shared.viewmodel
+ 
+ import dev.icerock.moko.mvvm.livedata.LiveData
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Locale
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Locale
+ 
+ /**
+  * Determines UI actions handle logic and data for autocomplete input field.
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/payload/README.md
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/payload/README.md b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/payload/README.md
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/payload/README.md
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/payload/README.md
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/payload/README.md	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/payload/README.md	
+@@ -1,4 +1,4 @@
+-# Package ru.z8.louttsev.cheaptripmobile.shared.payload
++# Package ru.z8.louttsev.bustrainflightmobile.shared.payload
+ 
+ Application monetization layer.
+ 
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Locale.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Locale.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/Locale.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Locale.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/Locale.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Locale.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/Locale.kt	
+@@ -2,7 +2,7 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.model.data
++package ru.z8.louttsev.bustrainflightmobile.shared.model.data
+ 
+ /**
+  * Declares supported language.
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/DurationConverter.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/DurationConverter.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/DurationConverter.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/DurationConverter.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/DurationConverter.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/DurationConverter.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/DurationConverter.kt	
+@@ -2,12 +2,12 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.model.data
++package ru.z8.louttsev.bustrainflightmobile.shared.model.data
+ 
+ import dev.icerock.moko.resources.StringResource
+ import dev.icerock.moko.resources.format
+-import ru.z8.louttsev.cheaptripmobile.MR
+-import ru.z8.louttsev.cheaptripmobile.shared.convertToString
++import ru.z8.louttsev.bustrainflightmobile.MR
++import ru.z8.louttsev.bustrainflightmobile.shared.convertToString
+ 
+ /**
+  * Provides a duration conversion to string representations.
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/LocationJson.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/LocationJson.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/LocationJson.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/LocationJson.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/LocationJson.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/LocationJson.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/LocationJson.kt	
+@@ -1,4 +1,4 @@
+-package ru.z8.louttsev.cheaptripmobile.shared.model.data
++package ru.z8.louttsev.bustrainflightmobile.shared.model.data
+ 
+ import kotlinx.serialization.SerialName
+ import kotlinx.serialization.Serializable
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Location.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Location.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/Location.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Location.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/Location.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Location.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/Location.kt	
+@@ -2,7 +2,7 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.model.data
++package ru.z8.louttsev.bustrainflightmobile.shared.model.data
+ 
+ /**
+  * Declares concrete location (city).
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/ConditionalClause.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/ConditionalClause.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/ConditionalClause.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/ConditionalClause.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/ConditionalClause.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/ConditionalClause.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/ConditionalClause.kt	
+@@ -2,14 +2,14 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.model.data
++package ru.z8.louttsev.bustrainflightmobile.shared.model.data
+ 
+ import dev.icerock.moko.resources.StringResource
+ import dev.icerock.moko.resources.desc.Resource
+ import dev.icerock.moko.resources.desc.StringDesc
+-import ru.z8.louttsev.cheaptripmobile.MR
+-import ru.z8.louttsev.cheaptripmobile.shared.convertToString
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.TransportationType.FLIGHT
++import ru.z8.louttsev.bustrainflightmobile.MR
++import ru.z8.louttsev.bustrainflightmobile.shared.convertToString
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.TransportationType.FLIGHT
+ 
+ /**
+  * Declares clause or disclaimer in terms of transportation.
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/DirectRouteJson.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/DirectRouteJson.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/DirectRouteJson.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/DirectRouteJson.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/DirectRouteJson.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/DirectRouteJson.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/DirectRouteJson.kt	
+@@ -1,4 +1,4 @@
+-package ru.z8.louttsev.cheaptripmobile.shared.model.data
++package ru.z8.louttsev.bustrainflightmobile.shared.model.data
+ 
+ import kotlinx.serialization.SerialName
+ 
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Country.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Country.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/Country.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Country.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/Country.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Country.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/Country.kt	
+@@ -2,7 +2,7 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.model.data
++package ru.z8.louttsev.bustrainflightmobile.shared.model.data
+ 
+ /**
+  * Declares countries relevant to affiliate programs.
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/System.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/System.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/System.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/System.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/System.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/System.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/System.kt	
+@@ -2,9 +2,9 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared
++package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Locale
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Locale
+ 
+ /**
+  * A platform-specific property declaration for default language.
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/di/ViewModelModule.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/di/ViewModelModule.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/di/ViewModelModule.kt
+new file mode 100644
+--- /dev/null	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/di/ViewModelModule.kt	
+@@ -0,0 +1,8 @@
++package ru.z8.louttsev.bustrainflightmobile.shared.di
++
++import org.koin.dsl.module
++import ru.z8.louttsev.bustrainflightmobile.shared.viewmodel.MainViewModel
++
++val viewModelModule = module {
++    single { MainViewModel(get(), get()) }
++}
+\ No newline at end of file
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/di/RepositoryModule.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/di/RepositoryModule.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/di/RepositoryModule.kt
+new file mode 100644
+--- /dev/null	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/di/RepositoryModule.kt	
+@@ -0,0 +1,14 @@
++package ru.z8.louttsev.bustrainflightmobile.shared.di
++
++import org.koin.dsl.module
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence.LocationsDbJson
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence.RoutesDbJson
++import ru.z8.louttsev.bustrainflightmobile.shared.model.LocationsRepositoryJson
++import ru.z8.louttsev.bustrainflightmobile.shared.model.RoutesRepositoryJson
++
++val repositoryModule = module {
++    single { LocationsDbJson() }
++    single { RoutesDbJson() }
++    single { LocationsRepositoryJson(get()) }
++    single { RoutesRepositoryJson(get(), get()) }
++}
+\ No newline at end of file
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/README.md
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/README.md b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/README.md
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/README.md
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/README.md
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/README.md	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/README.md	
+@@ -1,4 +1,4 @@
+-# Package ru.z8.louttsev.cheaptripmobile.shared
++# Package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+ Basic cross-platform code of **shared/src/commonMain** submodule.
+ 
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Resources.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Resources.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Resources.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Resources.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Resources.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Resources.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Resources.kt	
+@@ -2,7 +2,7 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared
++package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+ import dev.icerock.moko.resources.desc.StringDesc
+ 
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/ResourceReader.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/ResourceReader.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/ResourceReader.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/ResourceReader.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/ResourceReader.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/ResourceReader.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/ResourceReader.kt	
+@@ -1,4 +1,4 @@
+-package ru.z8.louttsev.cheaptripmobile.shared
++package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+ expect class ResourceReader() {
+     fun readResource(name: String): String
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/README.md
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/README.md b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/README.md
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/README.md
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/README.md
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/README.md	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/README.md	
+@@ -1,4 +1,4 @@
+-# Package ru.z8.louttsev.cheaptripmobile.shared.model
++# Package ru.z8.louttsev.bustrainflightmobile.shared.model
+ 
+ Model layer of the MVVM architecture.
+ 
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/LocationsRepositoryJson.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/LocationsRepositoryJson.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/LocationsRepositoryJson.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/LocationsRepositoryJson.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/LocationsRepositoryJson.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/LocationsRepositoryJson.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/LocationsRepositoryJson.kt	
+@@ -1,11 +1,11 @@
+-package ru.z8.louttsev.cheaptripmobile.shared.model
++package ru.z8.louttsev.bustrainflightmobile.shared.model
+ 
+ import io.github.aakira.napier.Napier
+-import ru.z8.louttsev.cheaptripmobile.shared.currentLocale
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.LocationsDbJson
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Locale
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.LocationJson
++import ru.z8.louttsev.bustrainflightmobile.shared.currentLocale
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence.LocationsDbJson
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Locale
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.LocationJson
+ 
+ class LocationsRepositoryJson (val db: LocationsDbJson) {
+ 
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/RouteRepository.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/RouteRepository.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/RouteRepository.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/RouteRepository.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/RouteRepository.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/RouteRepository.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/RouteRepository.kt	
+@@ -2,14 +2,14 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.model
++package ru.z8.louttsev.bustrainflightmobile.shared.model
+ 
+-import ru.z8.louttsev.cheaptripmobile.shared.currentLocale
+-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource.ParamsBundle
+-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource.ParamsBundle.Key
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Locale
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Route
++import ru.z8.louttsev.bustrainflightmobile.shared.currentLocale
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource.ParamsBundle
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource.ParamsBundle.Key
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Locale
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Route
+ 
+ /**
+  * Declares read-only storage of available routes.
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/RepositoryStrategy.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/RepositoryStrategy.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/RepositoryStrategy.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/RepositoryStrategy.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/RepositoryStrategy.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/RepositoryStrategy.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/RepositoryStrategy.kt	
+@@ -2,9 +2,9 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.model
++package ru.z8.louttsev.bustrainflightmobile.shared.model
+ 
+-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource.ParamsBundle
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource.ParamsBundle
+ 
+ /**
+  * Declares data sources usage logic.
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/DataSource.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/DataSource.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/DataSource.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/DataSource.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/DataSource.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/DataSource.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/DataSource.kt	
+@@ -2,10 +2,10 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.model
++package ru.z8.louttsev.bustrainflightmobile.shared.model
+ 
+ // TODO add implementation based on Ktor multi-platform client
+-// to package ru.z8.louttsev.cheaptripmobile.shared.infrastructure.datasource, issue #1
++// to package ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource, issue #1
+ /**
+  * Determines read-only data access logic.
+  */
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/LocationRepository.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/LocationRepository.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/LocationRepository.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/LocationRepository.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/LocationRepository.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/LocationRepository.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/LocationRepository.kt	
+@@ -2,15 +2,15 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.model
++package ru.z8.louttsev.bustrainflightmobile.shared.model
+ 
+-import ru.z8.louttsev.cheaptripmobile.shared.currentLocale
+-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource.ParamsBundle
+-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource.ParamsBundle.Key
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Locale
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location.Type
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location.Type.ALL
++import ru.z8.louttsev.bustrainflightmobile.shared.currentLocale
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource.ParamsBundle
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource.ParamsBundle.Key
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Locale
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location.Type
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location.Type.ALL
+ 
+ /**
+  * Declares read-only storage of available locations.
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/DataStorage.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/DataStorage.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/DataStorage.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/DataStorage.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/DataStorage.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/DataStorage.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/DataStorage.kt	
+@@ -2,9 +2,9 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.model
++package ru.z8.louttsev.bustrainflightmobile.shared.model
+ 
+-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource.ParamsBundle
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource.ParamsBundle
+ 
+ /**
+  * Determines full data access logic.
+Index: shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/ResourceReader.kt
+===================================================================
+diff --git a/shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/ResourceReader.kt b/shared/src/iosMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/ResourceReader.kt
+rename from shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/ResourceReader.kt
+rename to shared/src/iosMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/ResourceReader.kt
+--- a/shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/ResourceReader.kt	
++++ b/shared/src/iosMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/ResourceReader.kt	
+@@ -1,4 +1,4 @@
+-package ru.z8.louttsev.cheaptripmobile.shared
++package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+ 
+ // TODO Implement
+Index: shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/README.md
+===================================================================
+diff --git a/shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/README.md b/shared/src/iosMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/README.md
+rename from shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/README.md
+rename to shared/src/iosMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/README.md
+--- a/shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/README.md	
++++ b/shared/src/iosMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/README.md	
+@@ -1,4 +1,4 @@
+-# Package ru.z8.louttsev.cheaptripmobile.shared
++# Package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+ A platform-specific code of **shared/src/iosMain** submodule.
+ 
+Index: androidApp/src/main/res/layout-sw600dp/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<layout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <data>\r\n        <variable\r\n            name=\"viewModel\"\r\n<<<<<<< HEAD\r\n            type=\"ru.z8.louttsev.bustrainflight.shared.viewmodel.MainViewModel\" />\r\n    </data>\r\n\r\n    <androidx.constraintlayout.widget.ConstraintLayout\r\n        android:id=\"@+id/main_view\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:background=\"@color/colorBackground\"\r\n        tools:context=\".MainActivity\">\r\n\r\n        <com.google.android.material.textfield.TextInputLayout\r\n            android:id=\"@+id/origin_input_layout\"\r\n            android:layout_width=\"0dp\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginStart=\"8dp\"\r\n            android:layout_marginTop=\"8dp\"\r\n            android:layout_marginEnd=\"4dp\"\r\n            android:background=\"@android:color/white\"\r\n            android:hint=\"@string/from_location_input_field_hint\"\r\n            app:errorEnabled=\"true\"\r\n            app:layout_constraintEnd_toStartOf=\"@+id/origin_clear_icon\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\">\r\n\r\n            <AutoCompleteTextView\r\n                android:id=\"@+id/origin_text_view\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:imeOptions=\"actionDone\"\r\n                android:importantForAutofill=\"no\"\r\n                android:inputType=\"textNoSuggestions\"\r\n                tools:text=\"Muscat\" />\r\n\r\n        </com.google.android.material.textfield.TextInputLayout>\r\n\r\n\r\n        <ImageView\r\n            android:id=\"@+id/origin_clear_icon\"\r\n            android:layout_width=\"0dp\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginTop=\"16dp\"\r\n            android:layout_marginEnd=\"16dp\"\r\n            app:layout_constraintDimensionRatio=\"1\"\r\n            app:layout_constraintEnd_toStartOf=\"@+id/guideline\"\r\n            app:layout_constraintTop_toTopOf=\"@+id/origin_input_layout\"\r\n            app:srcCompat=\"@drawable/ic_clear\" />\r\n\r\n        <com.google.android.material.textfield.TextInputLayout\r\n            android:id=\"@+id/destination_input_layout\"\r\n            android:layout_width=\"0dp\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginStart=\"16dp\"\r\n            android:layout_marginTop=\"8dp\"\r\n            android:layout_marginEnd=\"4dp\"\r\n            android:background=\"@android:color/white\"\r\n            android:hint=\"@string/to_location_input_field_hint\"\r\n            app:errorEnabled=\"true\"\r\n            app:layout_constraintEnd_toStartOf=\"@+id/destination_clear_icon\"\r\n            app:layout_constraintStart_toStartOf=\"@+id/guideline\"\r\n            app:layout_constraintTop_toTopOf=\"parent\">\r\n\r\n            <AutoCompleteTextView\r\n                android:id=\"@+id/destination_text_view\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:imeOptions=\"actionDone\"\r\n                android:importantForAutofill=\"no\"\r\n                android:inputType=\"textNoSuggestions\"\r\n                tools:text=\"Abu Dhabi\" />\r\n\r\n        </com.google.android.material.textfield.TextInputLayout>\r\n\r\n        <ImageView\r\n            android:id=\"@+id/destination_clear_icon\"\r\n            android:layout_width=\"0dp\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginTop=\"16dp\"\r\n            android:layout_marginEnd=\"8dp\"\r\n            app:layout_constraintDimensionRatio=\"1\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"@+id/destination_input_layout\"\r\n            app:srcCompat=\"@drawable/ic_clear\" />\r\n\r\n        <Button\r\n            android:id=\"@+id/clear_button\"\r\n            style=\"@android:style/Widget.Holo.Light.Button\"\r\n            android:layout_width=\"120dp\"\r\n            android:layout_height=\"36dp\"\r\n            android:layout_marginTop=\"8dp\"\r\n            android:layout_marginEnd=\"32dp\"\r\n            android:background=\"@color/colorActiveViewBackground\"\r\n            android:text=\"@string/clear_button_text\"\r\n            android:textColor=\"@android:color/white\"\r\n            android:textStyle=\"bold\"\r\n            app:layout_constraintEnd_toStartOf=\"@+id/goButton\"\r\n            app:layout_constraintHorizontal_bias=\"0.5\"\r\n            app:layout_constraintHorizontal_chainStyle=\"packed\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toBottomOf=\"@+id/origin_input_layout\" />\r\n\r\n        <Button\r\n            android:id=\"@+id/goButton\"\r\n            style=\"@android:style/Widget.Holo.Light.Button\"\r\n            android:layout_width=\"120dp\"\r\n            android:layout_height=\"36dp\"\r\n            android:layout_marginStart=\"32dp\"\r\n            android:layout_marginTop=\"8dp\"\r\n            android:background=\"@color/colorInactiveViewBackground\"\r\n            android:focusable=\"true\"\r\n            android:focusableInTouchMode=\"true\"\r\n            android:text=\"@string/go_button_text\"\r\n            android:textColor=\"@android:color/white\"\r\n            android:textStyle=\"bold\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintHorizontal_bias=\"0.5\"\r\n            app:layout_constraintHorizontal_chainStyle=\"packed\"\r\n            app:layout_constraintStart_toEndOf=\"@+id/clearButton\"\r\n            app:layout_constraintTop_toBottomOf=\"@+id/destination_input_layout\" />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/logo\"\r\n            android:layout_width=\"0dp\"\r\n            android:layout_height=\"0dp\"\r\n            android:layout_marginStart=\"16dp\"\r\n            android:layout_marginTop=\"16dp\"\r\n            android:layout_marginEnd=\"16dp\"\r\n            android:layout_marginBottom=\"16dp\"\r\n            app:layout_constraintBottom_toBottomOf=\"parent\"\r\n            app:layout_constraintDimensionRatio=\"1\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toBottomOf=\"@+id/clearButton\"\r\n            app:srcCompat=\"@drawable/logo\" />\r\n\r\n        <androidx.recyclerview.widget.RecyclerView\r\n            android:id=\"@+id/route_list\"\r\n            android:layout_width=\"0dp\"\r\n            android:layout_height=\"0dp\"\r\n            android:layout_marginStart=\"8dp\"\r\n            android:layout_marginTop=\"8dp\"\r\n            android:layout_marginEnd=\"8dp\"\r\n            android:layout_marginBottom=\"8dp\"\r\n            app:layout_constraintBottom_toBottomOf=\"parent\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toBottomOf=\"@+id/clearButton\" />\r\n\r\n        <androidx.constraintlayout.widget.Guideline\r\n            android:id=\"@+id/guideline\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:orientation=\"vertical\"\r\n            app:layout_constraintGuide_percent=\"0.5\" />\r\n    </androidx.constraintlayout.widget.ConstraintLayout>\r\n</layout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/androidApp/src/main/res/layout-sw600dp/activity_main.xml b/androidApp/src/main/res/layout-sw600dp/activity_main.xml
+--- a/androidApp/src/main/res/layout-sw600dp/activity_main.xml	
++++ b/androidApp/src/main/res/layout-sw600dp/activity_main.xml	
+@@ -6,8 +6,7 @@
+     <data>
+         <variable
+             name="viewModel"
+-<<<<<<< HEAD
+-            type="ru.z8.louttsev.bustrainflight.shared.viewmodel.MainViewModel" />
++            type="ru.z8.louttsev.bustrainflightmobile.shared.viewmodel.MainViewModel" />
+     </data>
+ 
+     <androidx.constraintlayout.widget.ConstraintLayout
+Index: shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/System.kt
+===================================================================
+diff --git a/shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/System.kt b/shared/src/iosMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/System.kt
+rename from shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/System.kt
+rename to shared/src/iosMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/System.kt
+--- a/shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/System.kt	
++++ b/shared/src/iosMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/System.kt	
+@@ -2,9 +2,9 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared
++package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Locale
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Locale
+ 
+ /**
+  * A platform-specific property implementation for default language.
+Index: shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Resources.kt
+===================================================================
+diff --git a/shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Resources.kt b/shared/src/iosMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Resources.kt
+rename from shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Resources.kt
+rename to shared/src/iosMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Resources.kt
+--- a/shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Resources.kt	
++++ b/shared/src/iosMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Resources.kt	
+@@ -2,7 +2,7 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared
++package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+ import dev.icerock.moko.resources.desc.StringDesc
+ 
+Index: shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Database.kt
+===================================================================
+diff --git a/shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Database.kt b/shared/src/iosMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Database.kt
+rename from shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Database.kt
+rename to shared/src/iosMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Database.kt
+--- a/shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Database.kt	
++++ b/shared/src/iosMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Database.kt	
+@@ -2,7 +2,7 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared
++package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+ import com.squareup.sqldelight.db.SqlDriver
+ 
+Index: shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/FileUtils.kt
+===================================================================
+diff --git a/shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/FileUtils.kt b/shared/src/iosMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/FileUtils.kt
+rename from shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/FileUtils.kt
+rename to shared/src/iosMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/FileUtils.kt
+--- a/shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/FileUtils.kt	
++++ b/shared/src/iosMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/FileUtils.kt	
+@@ -1,4 +1,4 @@
+-package ru.z8.louttsev.cheaptripmobile.shared
++package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+ 
+ //TODO implement
+Index: shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Dispatchers.kt
+===================================================================
+diff --git a/shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Dispatchers.kt b/shared/src/iosMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Dispatchers.kt
+rename from shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Dispatchers.kt
+rename to shared/src/iosMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Dispatchers.kt
+--- a/shared/src/iosMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Dispatchers.kt	
++++ b/shared/src/iosMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Dispatchers.kt	
+@@ -2,7 +2,7 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared
++package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+ import kotlin.coroutines.CoroutineContext
+ 
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/FileUtils.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/FileUtils.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/FileUtils.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/FileUtils.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/FileUtils.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/FileUtils.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/FileUtils.kt	
+@@ -1,4 +1,4 @@
+-package ru.z8.louttsev.cheaptripmobile.shared
++package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+ expect object FileUtils {
+     fun readTextFile(filePath: String): String
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Dispatchers.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Dispatchers.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Dispatchers.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Dispatchers.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Dispatchers.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Dispatchers.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Dispatchers.kt	
+@@ -2,7 +2,7 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared
++package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+ import kotlin.coroutines.CoroutineContext
+ 
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Database.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Database.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Database.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Database.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Database.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Database.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Database.kt	
+@@ -2,7 +2,7 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared
++package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+ import com.squareup.sqldelight.db.SqlDriver
+ 
+Index: androidApp/src/main/res/layout/item_path.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<layout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <data>\r\n\r\n        <import type=\"ru.z8.louttsev.bustrainflight.shared.model.data.DurationConverter\" />\r\n\r\n        <variable\r\n            name=\"model\"\r\n            type=\"ru.z8.louttsev.bustrainflight.shared.model.data.Path\" />\r\n\r\n    </data>\r\n\r\n    <androidx.constraintlayout.widget.ConstraintLayout\r\n        android:id=\"@+id/path_main_view\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:paddingStart=\"7dp\"\r\n        android:paddingTop=\"8dp\"\r\n        android:paddingEnd=\"7dp\"\r\n        android:paddingBottom=\"8dp\">\r\n\r\n        <View\r\n            app:layout_constraintTop_toTopOf=\"parent\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"1dp\"\r\n            android:background=\"@color/lightGray\"/>\r\n\r\n        <TextView\r\n            android:id=\"@+id/path_plan\"\r\n            android:layout_width=\"0dp\"\r\n            android:layout_marginTop=\"10dp\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginEnd=\"8dp\"\r\n            android:text=\"@{model.pathPlan}\"\r\n            android:textColor=\"@color/colorTextPrimary\"\r\n            app:layout_constraintEnd_toStartOf=\"@+id/transport\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\"\r\n            tools:text=\"Muscat → Abu Dhabi\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/transport\"\r\n            android:layout_marginTop=\"10dp\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"@{model.transportationType.toString()}\"\r\n            android:textColor=\"@color/colorTextPrimary\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\"\r\n            tools:text=\"Bus\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/duration\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"@{model.pathDuration}\"\r\n            android:textColor=\"@android:color/black\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"@+id/euro_price\"\r\n            tools:text=\"1 d 16 h 39 min\" />\r\n\r\n        <com.google.android.material.button.MaterialButton\r\n            android:id=\"@+id/bookingButton\"\r\n            style=\"@style/ActionButtonStyle\"\r\n            app:layout_constraintBottom_toBottomOf=\"@+id/buyTicketButton\"\r\n            app:layout_constraintEnd_toStartOf=\"@+id/buyTicketButton\"\r\n            app:layout_constraintTop_toTopOf=\"@+id/buyTicketButton\"\r\n            android:layout_marginEnd=\"6dp\"\r\n            android:text=\"Booking.com\"/>\r\n\r\n        <com.google.android.material.button.MaterialButton\r\n            android:id=\"@+id/buyTicketButton\"\r\n            style=\"@style/ActionButtonStyle\"\r\n            android:text=\"@string/action_button_text\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_marginTop=\"12dp\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toBottomOf=\"@+id/duration\"\r\n            tools:visibility=\"visible\"\r\n            android:textStyle=\"bold\"/>\r\n\r\n        <com.google.android.material.button.MaterialButton\r\n            android:id=\"@+id/hostelworldButton\"\r\n            style=\"@style/ActionButtonStyle\"\r\n            app:layout_constraintBottom_toBottomOf=\"@+id/buyTicketButton\"\r\n            app:layout_constraintStart_toEndOf=\"@+id/buyTicketButton\"\r\n            app:layout_constraintTop_toTopOf=\"@+id/buyTicketButton\"\r\n            android:layout_marginStart=\"6dp\"\r\n            android:text=\"Hostelworld\"/>\r\n\r\n        <TextView\r\n            android:id=\"@+id/euro_price\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:textColor=\"@android:color/black\"\r\n            android:text=\"@{String.valueOf(model.euroPrice) + `\\u2009€`}\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintTop_toBottomOf=\"@+id/path_plan\"\r\n            tools:text=\"125.30 €\" />\r\n\r\n<!--        <TextView-->\r\n<!--            android:id=\"@+id/conditional_clause\"-->\r\n<!--            android:layout_width=\"0dp\"-->\r\n<!--            android:layout_height=\"wrap_content\"-->\r\n<!--            android:layout_marginTop=\"8dp\"-->\r\n<!--            android:paddingTop=\"2dp\"-->\r\n<!--            android:paddingBottom=\"2dp\"-->\r\n<!--            android:text=\"\"-->\r\n<!--            android:textAlignment=\"center\"-->\r\n<!--            android:textColor=\"@color/colorTextPrimary\"-->\r\n<!--            android:visibility=\"gone\"-->\r\n<!--            app:layout_constraintEnd_toEndOf=\"@id/euro_price\"-->\r\n<!--            app:layout_constraintStart_toStartOf=\"@id/duration\"-->\r\n<!--            app:layout_constraintTop_toBottomOf=\"@id/euro_price\"-->\r\n<!--            tools:text=\"duration includes transfer to/from airport\"-->\r\n<!--            tools:visibility=\"visible\" />-->\r\n    </androidx.constraintlayout.widget.ConstraintLayout>\r\n</layout>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/androidApp/src/main/res/layout/item_path.xml b/androidApp/src/main/res/layout/item_path.xml
+--- a/androidApp/src/main/res/layout/item_path.xml	
++++ b/androidApp/src/main/res/layout/item_path.xml	
+@@ -5,11 +5,11 @@
+ 
+     <data>
+ 
+-        <import type="ru.z8.louttsev.bustrainflight.shared.model.data.DurationConverter" />
++        <import type="ru.z8.louttsev.bustrainflightmobile.shared.model.data.DurationConverter" />
+ 
+         <variable
+             name="model"
+-            type="ru.z8.louttsev.bustrainflight.shared.model.data.Path" />
++            type="ru.z8.louttsev.bustrainflightmobile.shared.model.data.Path" />
+ 
+     </data>
+ 
+Index: androidApp/src/main/res/layout/item_route.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<layout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <data>\r\n\r\n        <import type=\"ru.z8.louttsev.bustrainflight.shared.model.data.DurationConverter\" />\r\n\r\n        <variable\r\n            name=\"model\"\r\n            type=\"ru.z8.louttsev.bustrainflight.shared.model.data.Route\" />\r\n    </data>\r\n\r\n    <androidx.constraintlayout.widget.ConstraintLayout\r\n        android:id=\"@+id/route_main_view\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:background=\"@drawable/route_item_background\">\r\n\r\n        <HorizontalScrollView\r\n            android:id=\"@+id/transport_icon_container_scroll\"\r\n            android:layout_width=\"0dp\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:fadeScrollbars=\"false\"\r\n            android:scrollIndicators=\"start|end\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\"\r\n            tools:layout_height=\"36dp\"\r\n            android:padding=\"7dp\">\r\n\r\n            <LinearLayout\r\n                android:id=\"@+id/transport_icon_container\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:orientation=\"horizontal\" />\r\n        </HorizontalScrollView>\r\n\r\n        <TextView\r\n            android:id=\"@+id/route_plan\"\r\n            android:layout_width=\"0dp\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginStart=\"8dp\"\r\n            android:layout_marginEnd=\"8dp\"\r\n            android:text=\"@{model.routePlan}\"\r\n            android:textColor=\"@color/colorTextPrimary\"\r\n            app:layout_constraintEnd_toStartOf=\"@+id/open_indicator\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toBottomOf=\"@id/transport_icon_container_scroll\"\r\n            tools:text=\"Muscat → Abu Dhabi\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/duration\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"0dp\"\r\n            android:layout_marginStart=\"8dp\"\r\n            android:text=\"@{model.routeDuration}\"\r\n            android:gravity=\"center\"\r\n            android:fontFamily=\"@font/rubik_medium\"\r\n            android:textColor=\"@android:color/black\"\r\n            app:layout_constraintBottom_toBottomOf=\"@+id/euro_price\"\r\n            app:layout_constraintTop_toTopOf=\"@id/euro_price\"\r\n            app:layout_constraintStart_toEndOf=\"@+id/euro_price\"\r\n            tools:text=\"1 d 16 h 39 min\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/euro_price\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginTop=\"10dp\"\r\n            android:layout_marginEnd=\"8dp\"\r\n            android:paddingVertical=\"5dp\"\r\n            android:paddingHorizontal=\"10dp\"\r\n            android:background=\"@drawable/price_background\"\r\n            android:text=\"@{`€\\u2009` + String.valueOf(model.euroPrice) + '0'}\"\r\n            android:textColor=\"@android:color/white\"\r\n            android:textStyle=\"bold\"\r\n            android:textSize=\"15sp\"\r\n            app:layout_constraintTop_toBottomOf=\"@id/route_plan\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            tools:text=\"€ 125.30\" />\r\n\r\n        <CheckBox\r\n            android:id=\"@+id/open_indicator\"\r\n            android:layout_width=\"40dp\"\r\n            android:layout_height=\"40dp\"\r\n            android:button=\"@drawable/route_item_opening_selector\"\r\n            app:layout_constraintBottom_toBottomOf=\"@+id/route_plan\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"@+id/route_plan\" />\r\n\r\n        <androidx.recyclerview.widget.RecyclerView\r\n            android:id=\"@+id/path_list\"\r\n            android:layout_width=\"0dp\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:visibility=\"gone\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toBottomOf=\"@id/euro_price\"\r\n            tools:visibility=\"visible\"\r\n            tools:listitem=\"@layout/item_path\"/>\r\n\r\n    </androidx.constraintlayout.widget.ConstraintLayout>\r\n</layout>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/androidApp/src/main/res/layout/item_route.xml b/androidApp/src/main/res/layout/item_route.xml
+--- a/androidApp/src/main/res/layout/item_route.xml	
++++ b/androidApp/src/main/res/layout/item_route.xml	
+@@ -5,11 +5,11 @@
+ 
+     <data>
+ 
+-        <import type="ru.z8.louttsev.bustrainflight.shared.model.data.DurationConverter" />
++        <import type="ru.z8.louttsev.bustrainflightmobile.shared.model.data.DurationConverter" />
+ 
+         <variable
+             name="model"
+-            type="ru.z8.louttsev.bustrainflight.shared.model.data.Route" />
++            type="ru.z8.louttsev.bustrainflightmobile.shared.model.data.Route" />
+     </data>
+ 
+     <androidx.constraintlayout.widget.ConstraintLayout
+Index: androidApp/src/main/res/values/styles.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <!-- Base application theme. -->\r\n    <style name=\"AppTheme\" parent=\"Theme.AppCompat.Light.DarkActionBar\">\r\n=======\r\n<resources xmlns:tools=\"http://schemas.android.com/tools\">\r\n    <!-- Base application theme. -->\r\n    <style name=\"AppTheme\" parent=\"Theme.MaterialComponents.Light.DarkActionBar\">\r\n        <!-- Customize your theme here. -->\r\n        <item name=\"colorPrimary\">@color/colorPrimary</item>\r\n        <item name=\"colorPrimaryDark\">@color/colorPrimaryDark</item>\r\n        <item name=\"colorAccent\">@color/colorAccent</item>\r\n        <item name=\"fontFamily\">@font/roboto</item>\r\n    </style>\r\n\r\n    <!-- Application launcher theme. -->\r\n    <style name=\"AppTheme.Launcher\">\r\n        <item name=\"android:windowBackground\">@drawable/launch_screen</item>\r\n    </style>\r\n\r\n    <style name=\"InputLocationLayoutStyle\" parent=\"@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense\">\r\n        <item name=\"android:layout_marginStart\">10dp</item>\r\n        <item name=\"android:layout_marginEnd\">15dp</item>\r\n        <item name=\"background\">@android:color/white</item>\r\n        <item name=\"boxCornerRadiusBottomEnd\">8dp</item>\r\n        <item name=\"boxCornerRadiusBottomStart\">8dp</item>\r\n        <item name=\"boxCornerRadiusTopEnd\">8dp</item>\r\n        <item name=\"boxCornerRadiusTopStart\">8dp</item>\r\n        <item name=\"boxStrokeColor\">@color/border_color_selector</item>\r\n        <item name=\"boxStrokeWidthFocused\">1dp</item>\r\n        <item name=\"errorEnabled\">true</item>\r\n        <item name=\"endIconMode\">clear_text</item>\r\n        <item name=\"android:layout_width\">match_parent</item>\r\n        <item name=\"android:layout_height\">wrap_content</item>\r\n    </style>\r\n\r\n    <style name=\"InputLocationEditTextStyle\">\r\n        <item name=\"android:layout_height\">50dp</item>\r\n        <item name=\"android:layout_width\">match_parent</item>\r\n        <item name=\"android:backgroundTint\">@android:color/transparent</item>\r\n        <item name=\"android:imeOptions\">actionDone</item>\r\n        <item name=\"android:inputType\">textNoSuggestions</item>\r\n        <item name=\"android:paddingStart\">10dp</item>\r\n        <item name=\"android:textSize\">13sp</item>\r\n    </style>\r\n\r\n    <style name=\"ActionButtonStyle\">\r\n        <item name=\"background\">@drawable/action_button_background</item>\r\n        <item name=\"android:layout_height\">40dp</item>\r\n        <item name=\"android:layout_width\">109dp</item>\r\n        <item name=\"textAllCaps\">false</item>\r\n        <item name=\"android:textSize\">12sp</item>\r\n        <item name=\"android:insetTop\">0dp</item>\r\n        <item name=\"android:insetBottom\">0dp</item>\r\n        <item name=\"android:insetLeft\">0dp</item>\r\n        <item name=\"android:insetRight\">0dp</item>\r\n        <item name=\"maxLines\">1</item>\r\n        <item name=\"singleLine\">true</item>\r\n        <item name=\"android:ellipsize\">end</item>\r\n        <item name=\"minWidth\">0dp</item>\r\n        <item name=\"fontFamily\">@font/roboto_condensed_regular</item>\r\n    </style>\r\n\r\n</resources>\r\n>>>>>>> dev\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/androidApp/src/main/res/values/styles.xml b/androidApp/src/main/res/values/styles.xml
+--- a/androidApp/src/main/res/values/styles.xml	
++++ b/androidApp/src/main/res/values/styles.xml	
+@@ -1,7 +1,3 @@
+-<resources>
+-    <!-- Base application theme. -->
+-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+-=======
+ <resources xmlns:tools="http://schemas.android.com/tools">
+     <!-- Base application theme. -->
+     <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+@@ -61,4 +57,3 @@
+     </style>
+ 
+ </resources>
+->>>>>>> dev
+Index: androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/adapters/README.md
+===================================================================
+diff --git a/androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/adapters/README.md b/androidApp/src/main/java/ru/z8/louttsev/bustrainflightmobile/androidApp/adapters/README.md
+rename from androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/adapters/README.md
+rename to androidApp/src/main/java/ru/z8/louttsev/bustrainflightmobile/androidApp/adapters/README.md
+--- a/androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/adapters/README.md	
++++ b/androidApp/src/main/java/ru/z8/louttsev/bustrainflightmobile/androidApp/adapters/README.md	
+@@ -1,4 +1,4 @@
+-# Package ru.z8.louttsev.cheaptripmobile.androidApp.adapters
++# Package ru.z8.louttsev.bustrainflightmobile.androidApp.adapters
+ 
+ List adapters for UI.
+ 
+Index: androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/adapters/PathListAdapter.kt
+===================================================================
+diff --git a/androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/adapters/PathListAdapter.kt b/androidApp/src/main/java/ru/z8/louttsev/bustrainflightmobile/androidApp/adapters/PathListAdapter.kt
+rename from androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/adapters/PathListAdapter.kt
+rename to androidApp/src/main/java/ru/z8/louttsev/bustrainflightmobile/androidApp/adapters/PathListAdapter.kt
+--- a/androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/adapters/PathListAdapter.kt	
++++ b/androidApp/src/main/java/ru/z8/louttsev/bustrainflightmobile/androidApp/adapters/PathListAdapter.kt	
+@@ -2,7 +2,7 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.androidApp.adapters
++package ru.z8.louttsev.bustrainflightmobile.androidApp.adapters
+ 
+ import android.content.Intent
+ import android.net.Uri
+@@ -15,12 +15,12 @@
+ import io.github.aakira.napier.Napier
+ import org.koin.core.component.KoinComponent
+ import org.koin.core.component.inject
+-import ru.z8.louttsev.cheaptripmobile.androidApp.databinding.ItemPathBinding
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.ConditionalClause
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Country
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Path
+-import ru.z8.louttsev.cheaptripmobile.shared.payload.AffiliateProgram
+-import ru.z8.louttsev.cheaptripmobile.shared.model.LocationsRepositoryJson
++import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ItemPathBinding
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.ConditionalClause
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Country
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Path
++import ru.z8.louttsev.bustrainflightmobile.shared.payload.AffiliateProgram
++import ru.z8.louttsev.bustrainflightmobile.shared.model.LocationsRepositoryJson
+ 
+ /**
+  * Declares adapter for path list as part of route view.
+Index: androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/adapters/RouteListAdapter.kt
+===================================================================
+diff --git a/androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/adapters/RouteListAdapter.kt b/androidApp/src/main/java/ru/z8/louttsev/bustrainflightmobile/androidApp/adapters/RouteListAdapter.kt
+rename from androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/adapters/RouteListAdapter.kt
+rename to androidApp/src/main/java/ru/z8/louttsev/bustrainflightmobile/androidApp/adapters/RouteListAdapter.kt
+--- a/androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/adapters/RouteListAdapter.kt	
++++ b/androidApp/src/main/java/ru/z8/louttsev/bustrainflightmobile/androidApp/adapters/RouteListAdapter.kt	
+@@ -2,7 +2,7 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.androidApp.adapters
++package ru.z8.louttsev.bustrainflightmobile.androidApp.adapters
+ 
+ import android.animation.ValueAnimator
+ import android.content.Context
+@@ -21,10 +21,10 @@
+ import androidx.recyclerview.widget.LinearLayoutManager
+ import androidx.recyclerview.widget.RecyclerView
+ import dev.icerock.moko.mvvm.livedata.LiveData
+-import ru.z8.louttsev.cheaptripmobile.androidApp.R
+-import ru.z8.louttsev.cheaptripmobile.androidApp.databinding.ItemRouteBinding
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Path
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Route
++import ru.z8.louttsev.bustrainflightmobile.androidApp.R
++import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ItemRouteBinding
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Path
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Route
+ 
+ /**
+  * Declares adapter for route list as result of searching.
+Index: androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/MainActivity.kt
+===================================================================
+diff --git a/androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/MainActivity.kt b/androidApp/src/main/java/ru/z8/louttsev/bustrainflightmobile/androidApp/MainActivity.kt
+rename from androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/MainActivity.kt
+rename to androidApp/src/main/java/ru/z8/louttsev/bustrainflightmobile/androidApp/MainActivity.kt
+--- a/androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/MainActivity.kt	
++++ b/androidApp/src/main/java/ru/z8/louttsev/bustrainflightmobile/androidApp/MainActivity.kt	
+@@ -1,4 +1,4 @@
+-package ru.z8.louttsev.cheaptripmobile.androidApp
++package ru.z8.louttsev.bustrainflightmobile.androidApp
+ 
+ import android.annotation.SuppressLint
+ import android.content.Context
+@@ -29,13 +29,13 @@
+ import com.google.android.material.textfield.TextInputLayout
+ import dev.icerock.moko.mvvm.livedata.LiveData
+ import org.koin.android.ext.android.inject
+-import ru.z8.louttsev.cheaptripmobile.androidApp.adapters.AutoCompleteLocationsListAdapter
+-import ru.z8.louttsev.cheaptripmobile.androidApp.adapters.RouteListAdapter
+-import ru.z8.louttsev.cheaptripmobile.androidApp.databinding.ActivityMainBinding
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Locale
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location
+-import ru.z8.louttsev.cheaptripmobile.shared.viewmodel.AutoCompleteHandler
+-import ru.z8.louttsev.cheaptripmobile.shared.viewmodel.MainViewModel
++import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.AutoCompleteLocationsListAdapter
++import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.RouteListAdapter
++import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ActivityMainBinding
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Locale
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location
++import ru.z8.louttsev.bustrainflightmobile.shared.viewmodel.AutoCompleteHandler
++import ru.z8.louttsev.bustrainflightmobile.shared.viewmodel.MainViewModel
+ import java.util.*
+ import kotlin.text.RegexOption.*
+ 
+Index: androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/App.kt
+===================================================================
+diff --git a/androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/App.kt b/androidApp/src/main/java/ru/z8/louttsev/bustrainflightmobile/androidApp/App.kt
+rename from androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/App.kt
+rename to androidApp/src/main/java/ru/z8/louttsev/bustrainflightmobile/androidApp/App.kt
+--- a/androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/App.kt	
++++ b/androidApp/src/main/java/ru/z8/louttsev/bustrainflightmobile/androidApp/App.kt	
+@@ -1,4 +1,4 @@
+-package ru.z8.louttsev.cheaptripmobile.androidApp
++package ru.z8.louttsev.bustrainflightmobile.androidApp
+ 
+ import android.app.Application
+ import com.yandex.metrica.YandexMetrica
+@@ -7,22 +7,22 @@
+ import io.github.aakira.napier.Napier
+ import org.koin.android.ext.koin.androidContext
+ import org.koin.core.context.startKoin
+-import ru.z8.louttsev.cheaptripmobile.shared.DatabaseDriverFactory
+-import ru.z8.louttsev.cheaptripmobile.shared.convertToString
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.datasource.FullDb
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.datasource.LocationDataSourceFullDb
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.datasource.RouteDataSourceFullDb
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.LocalDb
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.LocationDb
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.RouteDb
+-import ru.z8.louttsev.cheaptripmobile.shared.model.LocationRepository
+-import ru.z8.louttsev.cheaptripmobile.shared.model.RepositoryStrategy.*
+-import ru.z8.louttsev.cheaptripmobile.shared.model.RouteRepository
++import ru.z8.louttsev.bustrainflightmobile.shared.DatabaseDriverFactory
++import ru.z8.louttsev.bustrainflightmobile.shared.convertToString
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.FullDb
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.LocationDataSourceFullDb
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.RouteDataSourceFullDb
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence.LocalDb
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence.LocationDb
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence.RouteDb
++import ru.z8.louttsev.bustrainflightmobile.shared.model.LocationRepository
++import ru.z8.louttsev.bustrainflightmobile.shared.model.RepositoryStrategy.*
++import ru.z8.louttsev.bustrainflightmobile.shared.model.RouteRepository
+ 
+ import org.koin.android.ext.koin.androidContext
+ import org.koin.core.context.startKoin
+-import ru.z8.louttsev.cheaptripmobile.shared.di.repositoryModule
+-import ru.z8.louttsev.cheaptripmobile.shared.di.viewModelModule
++import ru.z8.louttsev.bustrainflightmobile.shared.di.repositoryModule
++import ru.z8.louttsev.bustrainflightmobile.shared.di.viewModelModule
+ 
+ /**
+  * Declares DI container.
+Index: androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/adapters/AutoCompleteLocationsListAdapter.kt
+===================================================================
+diff --git a/androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/adapters/AutoCompleteLocationsListAdapter.kt b/androidApp/src/main/java/ru/z8/louttsev/bustrainflightmobile/androidApp/adapters/AutoCompleteLocationsListAdapter.kt
+rename from androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/adapters/AutoCompleteLocationsListAdapter.kt
+rename to androidApp/src/main/java/ru/z8/louttsev/bustrainflightmobile/androidApp/adapters/AutoCompleteLocationsListAdapter.kt
+--- a/androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/adapters/AutoCompleteLocationsListAdapter.kt	
++++ b/androidApp/src/main/java/ru/z8/louttsev/bustrainflightmobile/androidApp/adapters/AutoCompleteLocationsListAdapter.kt	
+@@ -2,7 +2,7 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.androidApp.adapters
++package ru.z8.louttsev.bustrainflightmobile.androidApp.adapters
+ 
+ import android.view.View
+ import android.view.ViewGroup
+@@ -11,8 +11,8 @@
+ import android.widget.Filterable
+ import android.widget.TextView
+ import dev.icerock.moko.mvvm.livedata.LiveData
+-import ru.z8.louttsev.cheaptripmobile.androidApp.R
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location
++import ru.z8.louttsev.bustrainflightmobile.androidApp.R
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location
+ 
+ /**
+  * Declares adapter for location list as base for autocomplete input fields.
+Index: androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/README.md
+===================================================================
+diff --git a/androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/README.md b/androidApp/src/main/java/ru/z8/louttsev/bustrainflightmobile/androidApp/README.md
+rename from androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/README.md
+rename to androidApp/src/main/java/ru/z8/louttsev/bustrainflightmobile/androidApp/README.md
+--- a/androidApp/src/main/java/ru/z8/louttsev/cheaptripmobile/androidApp/README.md	
++++ b/androidApp/src/main/java/ru/z8/louttsev/bustrainflightmobile/androidApp/README.md	
+@@ -1,4 +1,4 @@
+-# Package ru.z8.louttsev.cheaptripmobile.androidApp
++# Package ru.z8.louttsev.bustrainflightmobile.androidApp
+ 
+ View layer of the MVVM architecture.
+ 
+Index: shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/README.md
+===================================================================
+diff --git a/shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/README.md b/shared/src/androidMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/README.md
+rename from shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/README.md
+rename to shared/src/androidMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/README.md
+--- a/shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/README.md	
++++ b/shared/src/androidMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/README.md	
+@@ -1,4 +1,4 @@
+-# Package ru.z8.louttsev.cheaptripmobile.shared
++# Package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+ A platform-specific code of **shared/src/androidMain** submodule.
+ 
+Index: shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Dispatchers.kt
+===================================================================
+diff --git a/shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Dispatchers.kt b/shared/src/androidMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Dispatchers.kt
+rename from shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Dispatchers.kt
+rename to shared/src/androidMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Dispatchers.kt
+--- a/shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Dispatchers.kt	
++++ b/shared/src/androidMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Dispatchers.kt	
+@@ -2,7 +2,7 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared
++package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+ import kotlinx.coroutines.Dispatchers
+ import kotlin.coroutines.CoroutineContext
+Index: shared/src/commonTest/kotlin/model/RepositoryStrategyTest.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model\r\n\r\nimport ru.z8.louttsev.bustrainflight.shared.model.DataSource\r\nimport ru.z8.louttsev.bustrainflight.shared.model.DataSource.*\r\nimport ru.z8.louttsev.bustrainflight.shared.model.DataSource.ParamsBundle.*\r\nimport ru.z8.louttsev.bustrainflight.shared.model.DataStorage\r\nimport ru.z8.louttsev.bustrainflight.shared.model.RepositoryStrategy\r\nimport ru.z8.louttsev.bustrainflight.shared.model.RepositoryStrategy.*\r\nimport kotlin.test.Test\r\nimport kotlin.test.assertEquals\r\nimport kotlin.test.assertTrue\r\nimport kotlin.test.fail\r\n\r\nclass RepositoryStrategyTest {\r\n    private val dataSourceFake = object : DataSource<String> {\r\n        var isAvailable: Boolean = true\r\n\r\n        override fun get(parameters: ParamsBundle): List<String>? {\r\n            if (!isAvailable) {\r\n                return null\r\n            }\r\n            val needle = parameters.get(Key.NEEDLE).toString()\r\n\r\n            return if (needle.isEmpty() || needle.isBlank()) {\r\n                emptyList()\r\n            } else {\r\n                listOf(\r\n                    \"$needle-started-string\"\r\n                )\r\n            }\r\n        }\r\n    }\r\n\r\n    private val dataStorageFake = object : DataStorage<String> {\r\n        val storage = emptyMap<String, String>().toMutableMap()\r\n\r\n        override fun put(data: List<String>, parameters: ParamsBundle) {\r\n            data.forEach { storage[it] = it }\r\n        }\r\n\r\n        override fun get(parameters: ParamsBundle): List<String> {\r\n            val needle = parameters.get(Key.NEEDLE).toString()\r\n            return if (needle.isEmpty() || needle.isBlank()) {\r\n                emptyList()\r\n            } else {\r\n                storage.filterKeys { it.contains(needle) }.values.toList()\r\n            }\r\n        }\r\n    }\r\n\r\n    private val loadersUnderTest =\r\n        emptyList<Pair<RepositoryStrategy, (ParamsBundle) -> List<String>>>()\r\n            .toMutableList()\r\n            .also {\r\n                values().forEach { strategy ->\r\n                    it.add(\r\n                        strategy to strategy.combineLoaderFrom(\r\n                            dataSourceFake,\r\n                            dataStorageFake\r\n                        )\r\n                    )\r\n                }\r\n            }\r\n            .toList()\r\n\r\n    @Test\r\n    fun loaderTest() {\r\n        loadersUnderTest.forEach {\r\n            val (strategy, loader) = it\r\n            when (strategy) {\r\n                BACKUP -> {\r\n                    assertTrue(dataSourceFake.isAvailable)\r\n                    val params = ParamsBundle().apply { put(Key.NEEDLE, \"Mos\") }\r\n                    val result = loader(params)\r\n                    assertEquals(result, dataStorageFake.storage.values.toList())\r\n                    dataSourceFake.isAvailable = false\r\n                    val cachedResult = loader(params)\r\n                    assertEquals(result, cachedResult)\r\n                }\r\n                CACHING -> {\r\n                    val params = ParamsBundle().apply { put(Key.NEEDLE, \"Mos\") }\r\n                    val result = loader(params)\r\n                    assertEquals(result, dataStorageFake.storage.values.toList())\r\n                    val cachedResult = loader(params)\r\n                    assertEquals(result, cachedResult)\r\n                }\r\n                else -> fail(\"Uncovered case: ${strategy.name}\")\r\n            }\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/shared/src/commonTest/kotlin/model/RepositoryStrategyTest.kt b/shared/src/commonTest/kotlin/model/RepositoryStrategyTest.kt
+--- a/shared/src/commonTest/kotlin/model/RepositoryStrategyTest.kt	
++++ b/shared/src/commonTest/kotlin/model/RepositoryStrategyTest.kt	
+@@ -1,11 +1,11 @@
+ package model
+ 
+-import ru.z8.louttsev.bustrainflight.shared.model.DataSource
+-import ru.z8.louttsev.bustrainflight.shared.model.DataSource.*
+-import ru.z8.louttsev.bustrainflight.shared.model.DataSource.ParamsBundle.*
+-import ru.z8.louttsev.bustrainflight.shared.model.DataStorage
+-import ru.z8.louttsev.bustrainflight.shared.model.RepositoryStrategy
+-import ru.z8.louttsev.bustrainflight.shared.model.RepositoryStrategy.*
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource.*
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource.ParamsBundle.*
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataStorage
++import ru.z8.louttsev.bustrainflightmobile.shared.model.RepositoryStrategy
++import ru.z8.louttsev.bustrainflightmobile.shared.model.RepositoryStrategy.*
+ import kotlin.test.Test
+ import kotlin.test.assertEquals
+ import kotlin.test.assertTrue
+Index: shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Resources.kt
+===================================================================
+diff --git a/shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Resources.kt b/shared/src/androidMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Resources.kt
+rename from shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Resources.kt
+rename to shared/src/androidMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Resources.kt
+--- a/shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Resources.kt	
++++ b/shared/src/androidMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Resources.kt	
+@@ -2,7 +2,7 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared
++package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+ import dev.icerock.moko.resources.desc.StringDesc
+ 
+Index: shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Database.kt
+===================================================================
+diff --git a/shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Database.kt b/shared/src/androidMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Database.kt
+rename from shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Database.kt
+rename to shared/src/androidMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Database.kt
+--- a/shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/Database.kt	
++++ b/shared/src/androidMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/Database.kt	
+@@ -2,12 +2,12 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared
++package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+ import android.content.Context
+ import com.squareup.sqldelight.android.AndroidSqliteDriver
+ import com.squareup.sqldelight.db.SqlDriver
+-import ru.z8.louttsev.cheaptripmobile.MR
++import ru.z8.louttsev.bustrainflightmobile.MR
+ import java.io.File
+ import java.io.FileOutputStream
+ import java.io.InputStream
+Index: shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/AndroidFileUtils.kt
+===================================================================
+diff --git a/shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/AndroidFileUtils.kt b/shared/src/androidMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/AndroidFileUtils.kt
+rename from shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/AndroidFileUtils.kt
+rename to shared/src/androidMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/AndroidFileUtils.kt
+--- a/shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/AndroidFileUtils.kt	
++++ b/shared/src/androidMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/AndroidFileUtils.kt	
+@@ -1,4 +1,4 @@
+-package ru.z8.louttsev.cheaptripmobile.shared
++package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+ import java.io.File
+ 
+Index: shared/src/androidTest/kotlin/ru/z8/louttsev/cheaptripmobile/shared/RouteRepositoryTest.kt
+===================================================================
+diff --git a/shared/src/androidTest/kotlin/ru/z8/louttsev/cheaptripmobile/shared/RouteRepositoryTest.kt b/shared/src/androidTest/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/RouteRepositoryTest.kt
+rename from shared/src/androidTest/kotlin/ru/z8/louttsev/cheaptripmobile/shared/RouteRepositoryTest.kt
+rename to shared/src/androidTest/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/RouteRepositoryTest.kt
+--- a/shared/src/androidTest/kotlin/ru/z8/louttsev/cheaptripmobile/shared/RouteRepositoryTest.kt	
++++ b/shared/src/androidTest/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/RouteRepositoryTest.kt	
+@@ -1,25 +1,25 @@
+-package ru.z8.louttsev.cheaptripmobile.shared
++package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+ import android.content.Context
+ import android.support.test.runner.AndroidJUnit4
+ import androidx.test.core.app.ApplicationProvider
+ import org.junit.runner.RunWith
+ import org.robolectric.annotation.Config
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.datasource.FullDbDataSource
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.datasource.RouteDataSourceFullDb
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.LocalDb
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.LocalDbStorage
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.RouteDb
+-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource
+-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource.ParamsBundle
+-import ru.z8.louttsev.cheaptripmobile.shared.model.RepositoryStrategy
+-import ru.z8.louttsev.cheaptripmobile.shared.model.RouteRepository
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Locale
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Path
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Route
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Route.Type.*
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.TransportationType.*
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.FullDbDataSource
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.RouteDataSourceFullDb
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence.LocalDb
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence.LocalDbStorage
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence.RouteDb
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource.ParamsBundle
++import ru.z8.louttsev.bustrainflightmobile.shared.model.RepositoryStrategy
++import ru.z8.louttsev.bustrainflightmobile.shared.model.RouteRepository
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Locale
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Path
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Route
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Route.Type.*
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.TransportationType.*
+ import kotlin.test.Test
+ import kotlin.test.assertEquals
+ import kotlin.test.assertTrue
+Index: androidApp/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n<<<<<<< HEAD\r\n    package=\"ru.z8.louttsev.bustrainflight.androidApp\">\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />\r\n\r\n    <application\r\n<<<<<<< HEAD\r\n        android:name=\"ru.z8.louttsev.bustrainflight.androidApp.App\"\r\n        android:name=\".App\"\r\n        android:allowBackup=\"false\"\r\n        android:label=\"@string/app_name\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"false\"\r\n        android:theme=\"@style/AppTheme\">\r\n        <activity\r\n            android:name=\"ru.z8.louttsev.bustrainflight.androidApp.MainActivity\"\r\n            android:theme=\"@style/AppTheme.Launcher\"\r\n            android:name=\".MainActivity\"\r\n            android:windowSoftInputMode=\"stateVisible|adjustPan\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <meta-data\r\n            android:name=\"preloaded_fonts\"\r\n            android:resource=\"@array/preloaded_fonts\" />\r\n    </application>\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/androidApp/src/main/AndroidManifest.xml b/androidApp/src/main/AndroidManifest.xml
+--- a/androidApp/src/main/AndroidManifest.xml	
++++ b/androidApp/src/main/AndroidManifest.xml	
+@@ -1,14 +1,11 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+-<<<<<<< HEAD
+-    package="ru.z8.louttsev.bustrainflight.androidApp">
++    package="ru.z8.louttsev.bustrainflightmobile.androidApp">
+ 
+     <uses-permission android:name="android.permission.INTERNET" />
+     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+ 
+     <application
+-<<<<<<< HEAD
+-        android:name="ru.z8.louttsev.bustrainflight.androidApp.App"
+         android:name=".App"
+         android:allowBackup="false"
+         android:label="@string/app_name"
+@@ -17,7 +14,6 @@
+         android:supportsRtl="false"
+         android:theme="@style/AppTheme">
+         <activity
+-            android:name="ru.z8.louttsev.bustrainflight.androidApp.MainActivity"
+             android:theme="@style/AppTheme.Launcher"
+             android:name=".MainActivity"
+             android:windowSoftInputMode="stateVisible|adjustPan"
+Index: shared/src/androidMain/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<!--suppress XmlUnusedNamespaceDeclaration -->\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\" package=\"ru.z8.louttsev.bustrainflight.shared\"/>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/shared/src/androidMain/AndroidManifest.xml b/shared/src/androidMain/AndroidManifest.xml
+--- a/shared/src/androidMain/AndroidManifest.xml	
++++ b/shared/src/androidMain/AndroidManifest.xml	
+@@ -1,3 +1,3 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <!--suppress XmlUnusedNamespaceDeclaration -->
+-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="ru.z8.louttsev.bustrainflight.shared"/>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="ru.z8.louttsev.bustrainflightmobile.shared"/>
+Index: shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/System.kt
+===================================================================
+diff --git a/shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/System.kt b/shared/src/androidMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/System.kt
+rename from shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/System.kt
+rename to shared/src/androidMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/System.kt
+--- a/shared/src/androidMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/System.kt	
++++ b/shared/src/androidMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/System.kt	
+@@ -2,9 +2,9 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared
++package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Locale
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Locale
+ 
+ /**
+  * A platform-specific property implementation for default language.
+Index: shared/src/androidTest/kotlin/ru/z8/louttsev/cheaptripmobile/shared/LocationRepositoryTest.kt
+===================================================================
+diff --git a/shared/src/androidTest/kotlin/ru/z8/louttsev/cheaptripmobile/shared/LocationRepositoryTest.kt b/shared/src/androidTest/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/LocationRepositoryTest.kt
+rename from shared/src/androidTest/kotlin/ru/z8/louttsev/cheaptripmobile/shared/LocationRepositoryTest.kt
+rename to shared/src/androidTest/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/LocationRepositoryTest.kt
+--- a/shared/src/androidTest/kotlin/ru/z8/louttsev/cheaptripmobile/shared/LocationRepositoryTest.kt	
++++ b/shared/src/androidTest/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/LocationRepositoryTest.kt	
+@@ -1,22 +1,22 @@
+-package ru.z8.louttsev.cheaptripmobile.shared
++package ru.z8.louttsev.bustrainflightmobile.shared
+ 
+ import android.content.Context
+ import android.support.test.runner.AndroidJUnit4
+ import androidx.test.core.app.ApplicationProvider
+ import org.junit.runner.RunWith
+ import org.robolectric.annotation.Config
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.datasource.FullDb
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.datasource.FullDbDataSource
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.datasource.LocationDataSourceFullDb
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.LocalDb
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.LocalDbStorage
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.LocationDb
+-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource
+-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource.ParamsBundle
+-import ru.z8.louttsev.cheaptripmobile.shared.model.LocationRepository
+-import ru.z8.louttsev.cheaptripmobile.shared.model.RepositoryStrategy
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Locale
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.FullDb
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.FullDbDataSource
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.LocationDataSourceFullDb
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence.LocalDb
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence.LocalDbStorage
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence.LocationDb
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource.ParamsBundle
++import ru.z8.louttsev.bustrainflightmobile.shared.model.LocationRepository
++import ru.z8.louttsev.bustrainflightmobile.shared.model.RepositoryStrategy
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Locale
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location
+ import kotlin.test.Test
+ import kotlin.test.assertEquals
+ import kotlin.test.assertTrue
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/TransportationType.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/TransportationType.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/TransportationType.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/TransportationType.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/TransportationType.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/TransportationType.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/TransportationType.kt	
+@@ -2,15 +2,15 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.model.data
++package ru.z8.louttsev.bustrainflightmobile.shared.model.data
+ 
+ 
+ import dev.icerock.moko.resources.ImageResource
+ import dev.icerock.moko.resources.StringResource
+ import dev.icerock.moko.resources.desc.Resource
+ import dev.icerock.moko.resources.desc.StringDesc
+-import ru.z8.louttsev.cheaptripmobile.MR
+-import ru.z8.louttsev.cheaptripmobile.shared.convertToString
++import ru.z8.louttsev.bustrainflightmobile.MR
++import ru.z8.louttsev.bustrainflightmobile.shared.convertToString
+ 
+ /**
+  * Declares path type in relation to transport.
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Transport.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Transport.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/Transport.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Transport.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/Transport.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Transport.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/Transport.kt	
+@@ -1,4 +1,4 @@
+-package ru.z8.louttsev.cheaptripmobile.shared.model.data
++package ru.z8.louttsev.bustrainflightmobile.shared.model.data
+ 
+ @kotlinx.serialization.Serializable
+ data class Transport(
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/datasource/LocationDataSourceFullDb.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/datasource/LocationDataSourceFullDb.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/datasource/LocationDataSourceFullDb.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/datasource/LocationDataSourceFullDb.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/datasource/LocationDataSourceFullDb.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/datasource/LocationDataSourceFullDb.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/datasource/LocationDataSourceFullDb.kt	
+@@ -2,15 +2,15 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.infrastructure.datasource
++package ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource
+ 
+ import com.squareup.sqldelight.db.SqlDriver
+-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource.ParamsBundle
+-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource.ParamsBundle.Key
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Locale
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location.Type
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location.Type.*
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource.ParamsBundle
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource.ParamsBundle.Key
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Locale
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location.Type
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location.Type.*
+ 
+ // TODO mark deprecate and/or remove, issue #1
+ /**
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/datasource/FullDbDataSource.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/datasource/FullDbDataSource.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/datasource/FullDbDataSource.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/datasource/FullDbDataSource.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/datasource/FullDbDataSource.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/datasource/FullDbDataSource.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/datasource/FullDbDataSource.kt	
+@@ -2,13 +2,13 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.infrastructure.datasource
++package ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource
+ 
+ import com.squareup.sqldelight.db.SqlDriver
+-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.*
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Locale.RU
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Route.Type.*
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.*
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Locale.RU
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Route.Type.*
+ import kotlin.math.round
+ 
+ // TODO mark deprecate and/or remove, issue #1
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/README.md
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/README.md b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/README.md
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/README.md
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/README.md
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/README.md	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/README.md	
+@@ -1,4 +1,4 @@
+-# Package ru.z8.louttsev.cheaptripmobile.shared.model.data
++# Package ru.z8.louttsev.bustrainflightmobile.shared.model.data
+ 
+ Data model classes.
+ 
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Path.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Path.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/Path.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Path.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/Path.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Path.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/Path.kt	
+@@ -2,7 +2,7 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.model.data
++package ru.z8.louttsev.bustrainflightmobile.shared.model.data
+ 
+ /**
+  * Declares particular section (path) within aggregate route.
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/RouteJson.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/RouteJson.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/RouteJson.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/RouteJson.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/RouteJson.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/RouteJson.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/RouteJson.kt	
+@@ -1,8 +1,8 @@
+-package ru.z8.louttsev.cheaptripmobile.shared.model.data
++package ru.z8.louttsev.bustrainflightmobile.shared.model.data
+ 
+ import kotlinx.serialization.SerialName
+ import kotlinx.serialization.Serializable
+-import ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence.IntListSerializer
++import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence.IntListSerializer
+ 
+ @kotlinx.serialization.Serializable
+ data class RouteJson(
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Route.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Route.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/Route.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Route.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/Route.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/model/data/Route.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/model/data/Route.kt	
+@@ -2,13 +2,13 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.model.data
++package ru.z8.louttsev.bustrainflightmobile.shared.model.data
+ 
+ import dev.icerock.moko.resources.StringResource
+ import dev.icerock.moko.resources.desc.Resource
+ import dev.icerock.moko.resources.desc.StringDesc
+-import ru.z8.louttsev.cheaptripmobile.MR
+-import ru.z8.louttsev.cheaptripmobile.shared.convertToString
++import ru.z8.louttsev.bustrainflightmobile.MR
++import ru.z8.louttsev.bustrainflightmobile.shared.convertToString
+ 
+ /**
+  * Declares aggregate route between selected locations.
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/README.md
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/README.md b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/persistence/README.md
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/README.md
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/persistence/README.md
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/README.md	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/persistence/README.md	
+@@ -1,4 +1,4 @@
+-# Package ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence
++# Package ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence
+ 
+ Application infrastructure layer.
+ 
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/RoutesDbJson.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/RoutesDbJson.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/persistence/RoutesDbJson.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/RoutesDbJson.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/persistence/RoutesDbJson.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/RoutesDbJson.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/persistence/RoutesDbJson.kt	
+@@ -1,4 +1,4 @@
+-package ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence
++package ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence
+ 
+ import kotlinx.serialization.KSerializer
+ import kotlinx.serialization.builtins.ListSerializer
+@@ -8,10 +8,10 @@
+ import kotlinx.serialization.encoding.Decoder
+ import kotlinx.serialization.encoding.Encoder
+ import kotlinx.serialization.json.Json
+-import ru.z8.louttsev.cheaptripmobile.shared.ResourceReader
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.DirectRouteJson
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.RouteJson
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Transport
++import ru.z8.louttsev.bustrainflightmobile.shared.ResourceReader
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.DirectRouteJson
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.RouteJson
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Transport
+ 
+ class RoutesDbJson {
+ 
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/RouteDb.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/RouteDb.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/persistence/RouteDb.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/RouteDb.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/persistence/RouteDb.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/RouteDb.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/persistence/RouteDb.kt	
+@@ -2,14 +2,14 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence
++package ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence
+ 
+ import com.squareup.sqldelight.db.SqlDriver
+-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource.ParamsBundle
+-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource.ParamsBundle.Key
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Locale
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Route
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource.ParamsBundle
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource.ParamsBundle.Key
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Locale
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Route
+ 
+ /**
+  * Declares routes storage implementation.
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/datasource/RouteDataSourceFullDb.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/datasource/RouteDataSourceFullDb.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/datasource/RouteDataSourceFullDb.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/datasource/RouteDataSourceFullDb.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/datasource/RouteDataSourceFullDb.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/datasource/RouteDataSourceFullDb.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/datasource/RouteDataSourceFullDb.kt	
+@@ -2,15 +2,15 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.infrastructure.datasource
++package ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource
+ 
+ import com.squareup.sqldelight.db.SqlDriver
+-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource.*
+-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource.ParamsBundle.*
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Locale
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Route
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Route.Type.*
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource.*
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource.ParamsBundle.*
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Locale
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Route
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Route.Type.*
+ 
+ // TODO mark deprecate and/or remove, issue #1
+ /**
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/datasource/README.md
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/datasource/README.md b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/datasource/README.md
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/datasource/README.md
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/datasource/README.md
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/datasource/README.md	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/datasource/README.md	
+@@ -1,4 +1,4 @@
+-# Package ru.z8.louttsev.cheaptripmobile.shared.infrastructure.datasource
++# Package ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource
+ 
+ Application infrastructure layer.
+ 
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/LocationDb.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/LocationDb.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/persistence/LocationDb.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/LocationDb.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/persistence/LocationDb.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/LocationDb.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/persistence/LocationDb.kt	
+@@ -2,13 +2,13 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence
++package ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence
+ 
+ import com.squareup.sqldelight.db.SqlDriver
+-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource.ParamsBundle
+-import ru.z8.louttsev.cheaptripmobile.shared.model.DataSource.ParamsBundle.Key
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Locale
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource.ParamsBundle
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataSource.ParamsBundle.Key
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Locale
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location
+ 
+ /**
+  * Declares locations storage implementation.
+Index: shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/LocalDbStorage.kt
+===================================================================
+diff --git a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/LocalDbStorage.kt b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/persistence/LocalDbStorage.kt
+rename from shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/LocalDbStorage.kt
+rename to shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/persistence/LocalDbStorage.kt
+--- a/shared/src/commonMain/kotlin/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/LocalDbStorage.kt	
++++ b/shared/src/commonMain/kotlin/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/persistence/LocalDbStorage.kt	
+@@ -2,15 +2,15 @@
+  * CheapTrip Mobile
+  * This is mobile client for LowCostsTrip server.
+  */
+-package ru.z8.louttsev.cheaptripmobile.shared.infrastructure.persistence
++package ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence
+ 
+ import com.squareup.sqldelight.db.SqlDriver
+-import ru.z8.louttsev.cheaptripmobile.shared.model.DataStorage
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Location
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Path
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Route
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.Route.Type
+-import ru.z8.louttsev.cheaptripmobile.shared.model.data.TransportationType
++import ru.z8.louttsev.bustrainflightmobile.shared.model.DataStorage
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Location
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Path
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Route
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.Route.Type
++import ru.z8.louttsev.bustrainflightmobile.shared.model.data.TransportationType
+ 
+ /**
+  * Declares data storage based on local database.
+diff --git a/shared/src/commonMain/sqldelightFullDb/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/datasource/README.md b/shared/src/commonMain/sqldelightFullDb/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/datasource/README.md
+rename from shared/src/commonMain/sqldelightFullDb/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/datasource/README.md
+rename to shared/src/commonMain/sqldelightFullDb/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/datasource/README.md
+diff --git a/shared/src/commonMain/sqldelightLocalDb/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/README.md b/shared/src/commonMain/sqldelightLocalDb/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/persistence/README.md
+rename from shared/src/commonMain/sqldelightLocalDb/ru/z8/louttsev/cheaptripmobile/shared/infrastructure/persistence/README.md
+rename to shared/src/commonMain/sqldelightLocalDb/ru/z8/louttsev/bustrainflightmobile/shared/infrastructure/persistence/README.md
