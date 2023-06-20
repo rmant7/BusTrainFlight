@@ -1,4 +1,4 @@
-package ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.shared
+package com.travelapp.bustrainflightmobile.shared.infrastructure.datasource.shared
 
 import com.squareup.sqldelight.Query
 import com.squareup.sqldelight.TransacterImpl
@@ -13,16 +13,16 @@ import kotlin.collections.Collection
 import kotlin.collections.MutableList
 import kotlin.jvm.JvmField
 import kotlin.reflect.KClass
-import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.Fixed_routes
-import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.Fixed_routes_without_ride_share
-import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.Flying_routes
-import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.FullDb
-import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.FullDbQueries
-import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.Routes
-import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.Routes_without_ride_share
-import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.SelectLocationNamesById
-import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.SelectLocationsByName
-import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.Travel_data
+import com.travelapp.bustrainflightmobile.shared.infrastructure.datasource.Fixed_routes
+import com.travelapp.bustrainflightmobile.shared.infrastructure.datasource.Fixed_routes_without_ride_share
+import com.travelapp.bustrainflightmobile.shared.infrastructure.datasource.Flying_routes
+import com.travelapp.bustrainflightmobile.shared.infrastructure.datasource.FullDb
+import com.travelapp.bustrainflightmobile.shared.infrastructure.datasource.FullDbQueries
+import com.travelapp.bustrainflightmobile.shared.infrastructure.datasource.Routes
+import com.travelapp.bustrainflightmobile.shared.infrastructure.datasource.Routes_without_ride_share
+import com.travelapp.bustrainflightmobile.shared.infrastructure.datasource.SelectLocationNamesById
+import com.travelapp.bustrainflightmobile.shared.infrastructure.datasource.SelectLocationsByName
+import com.travelapp.bustrainflightmobile.shared.infrastructure.datasource.Travel_data
 
 internal val KClass<FullDb>.schema: SqlDriver.Schema
   get() = FullDbImpl.Schema

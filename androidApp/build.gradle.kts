@@ -38,11 +38,11 @@ dependencies {
 android {
     compileSdkVersion(33)
     defaultConfig {
-        applicationId = "ru.z8.louttsev.bustrainflightmobile.androidApp"
+        applicationId = "com.travelapp.bustrainflightmobile.androidApp"
         minSdkVersion(21)
         targetSdkVersion(33)
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 3
+        versionName = "1.1.1"
     }
     buildTypes {
         getByName("release") {

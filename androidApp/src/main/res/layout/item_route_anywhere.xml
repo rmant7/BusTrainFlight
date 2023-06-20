@@ -5,7 +5,7 @@
 
     <data>
 
-        <import type="ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.DurationConverter" />
+        <import type="com.travelapp.bustrainflightmobile.androidApp.model.data.DurationConverter" />
 
         <variable
             name="routeDuration"

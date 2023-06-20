@@ -1,4 +1,4 @@
-package ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence.shared
+package com.travelapp.bustrainflightmobile.shared.infrastructure.persistence.shared
 
 import com.squareup.sqldelight.Query
 import com.squareup.sqldelight.TransacterImpl
@@ -13,11 +13,11 @@ import kotlin.String
 import kotlin.collections.MutableList
 import kotlin.jvm.JvmField
 import kotlin.reflect.KClass
-import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence.LocalDb
-import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence.LocalDbQueries
-import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence.SelectLocationsByName
-import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence.SelectPathsByRouteId
-import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence.SelectRoutesByLocations
+import com.travelapp.bustrainflightmobile.shared.infrastructure.persistence.LocalDb
+import com.travelapp.bustrainflightmobile.shared.infrastructure.persistence.LocalDbQueries
+import com.travelapp.bustrainflightmobile.shared.infrastructure.persistence.SelectLocationsByName
+import com.travelapp.bustrainflightmobile.shared.infrastructure.persistence.SelectPathsByRouteId
+import com.travelapp.bustrainflightmobile.shared.infrastructure.persistence.SelectRoutesByLocations
 
 internal val KClass<LocalDb>.schema: SqlDriver.Schema
   get() = LocalDbImpl.Schema

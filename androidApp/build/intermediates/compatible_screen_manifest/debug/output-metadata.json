@@ -4,7 +4,7 @@
     "type": "COMPATIBLE_SCREEN_MANIFEST",
     "kind": "Directory"
   },
-  "applicationId": "ru.z8.louttsev.bustrainflightmobile.androidApp",
+  "applicationId": "com.travelapp.bustrainflightmobile.androidApp",
   "variantName": "debug",
   "elements": []
 }

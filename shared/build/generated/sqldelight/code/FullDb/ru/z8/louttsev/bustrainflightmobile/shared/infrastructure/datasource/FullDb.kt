@@ -1,9 +1,9 @@
-package ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource
+package com.travelapp.bustrainflightmobile.shared.infrastructure.datasource
 
 import com.squareup.sqldelight.Transacter
 import com.squareup.sqldelight.db.SqlDriver
-import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.shared.newInstance
-import ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource.shared.schema
+import com.travelapp.bustrainflightmobile.shared.infrastructure.datasource.shared.newInstance
+import com.travelapp.bustrainflightmobile.shared.infrastructure.datasource.shared.schema
 
 interface FullDb : Transacter {
   val fullDbQueries: FullDbQueries

@@ -1,4 +1,4 @@
-package ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.datasource
+package com.travelapp.bustrainflightmobile.shared.infrastructure.datasource
 
 import kotlin.Int
 import kotlin.String

@@ -4,14 +4,14 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "ru.z8.louttsev.bustrainflightmobile.androidApp",
+  "applicationId": "com.travelapp.bustrainflightmobile.androidApp",
   "variantName": "release",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 1,
-      "versionName": "1.0.0",
+      "versionCode": 3,
+      "versionName": "1.1.1",
       "outputFile": "androidApp-release.apk"
     }
   ]

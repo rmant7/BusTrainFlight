@@ -3379,9 +3379,10 @@ int raw booking_ids 0x7f100000
 int raw direct_routes 0x7f100001
 int raw fixed_routes 0x7f100002
 int raw flying_routes 0x7f100003
-int raw locations 0x7f100004
-int raw routes 0x7f100005
-int raw transport 0x7f100006
+int raw kiwi_city_id 0x7f100004
+int raw locations 0x7f100005
+int raw routes 0x7f100006
+int raw transport 0x7f100007
 int string abc_action_bar_home_description 0x7f110000
 int string abc_action_bar_up_description 0x7f110001
 int string abc_action_menu_overflow_description 0x7f110002

@@ -1,4 +1,4 @@
-package ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence
+package com.travelapp.bustrainflightmobile.shared.infrastructure.persistence
 
 import kotlin.Float
 import kotlin.Int

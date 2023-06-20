@@ -2,6 +2,6 @@ package androidx.databinding;
 
 public class DataBinderMapperImpl extends MergedDataBinderMapper {
   DataBinderMapperImpl() {
-    addMapper(new ru.z8.louttsev.bustrainflightmobile.androidApp.DataBinderMapperImpl());
+    addMapper(new com.travelapp.bustrainflightmobile.androidApp.DataBinderMapperImpl());
   }
 }

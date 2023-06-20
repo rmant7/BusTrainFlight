@@ -1,4 +1,4 @@
-package ru.z8.louttsev.bustrainflightmobile.shared.infrastructure.persistence
+package com.travelapp.bustrainflightmobile.shared.infrastructure.persistence
 
 import com.squareup.sqldelight.Query
 import com.squareup.sqldelight.Transacter

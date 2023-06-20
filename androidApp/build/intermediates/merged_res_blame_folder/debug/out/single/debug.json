@@ -56,6 +56,10 @@
         "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-hdpi\\ic_bus.png"
     },
     {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\raw_kiwi_city_id.json.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\raw\\kiwi_city_id.json"
+    },
+    {
         "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_close_button_background.xml.flat",
         "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\close_button_background.xml"
     },

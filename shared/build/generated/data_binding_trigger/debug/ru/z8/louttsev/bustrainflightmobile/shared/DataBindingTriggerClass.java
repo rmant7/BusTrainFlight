@@ -1,4 +1,4 @@
-package ru.z8.louttsev.bustrainflightmobile.shared;
+package com.travelapp.bustrainflightmobile.shared;
 
 @androidx.databinding.BindingBuildInfo
 public class DataBindingTriggerClass {}

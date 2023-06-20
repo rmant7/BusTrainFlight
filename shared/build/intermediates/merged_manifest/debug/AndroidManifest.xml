@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- suppress XmlUnusedNamespaceDeclaration -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ru.z8.louttsev.bustrainflightmobile.shared" >
+    package="com.travelapp.bustrainflightmobile.shared" >
 
     <uses-sdk
         android:minSdkVersion="21"

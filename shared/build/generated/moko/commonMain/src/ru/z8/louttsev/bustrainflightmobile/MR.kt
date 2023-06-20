@@ -1,4 +1,4 @@
-package ru.z8.louttsev.bustrainflightmobile
+package com.travelapp.bustrainflightmobile
 
 import dev.icerock.moko.resources.ColorResource
 import dev.icerock.moko.resources.FileResource

@@ -1,4 +1,4 @@
-package ru.z8.louttsev.bustrainflightmobile
+package com.travelapp.bustrainflightmobile
 
 import dev.icerock.moko.graphics.Color
 import dev.icerock.moko.resources.ColorResource
@@ -8,7 +8,7 @@ import dev.icerock.moko.resources.ImageResource
 import dev.icerock.moko.resources.PluralsResource
 import dev.icerock.moko.resources.ResourceContainer
 import dev.icerock.moko.resources.StringResource
-import ru.z8.louttsev.bustrainflightmobile.shared.R
+import com.travelapp.bustrainflightmobile.shared.R
 
 actual object MR {
   actual object strings : ResourceContainer<StringResource> {

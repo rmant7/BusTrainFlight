@@ -1,4 +1,4 @@
-ru.z8.louttsev.bustrainflightmobile.androidApp
+com.travelapp.bustrainflightmobile.androidApp
 anim abc_fade_in
 anim abc_fade_out
 anim abc_grow_fade_in_from_bottom
@@ -3380,6 +3380,7 @@ raw booking_ids
 raw direct_routes
 raw fixed_routes
 raw flying_routes
+raw kiwi_city_id
 raw locations
 raw routes
 raw transport

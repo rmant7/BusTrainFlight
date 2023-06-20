@@ -4,7 +4,7 @@
     "type": "AAPT_FRIENDLY_MERGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "ru.z8.louttsev.bustrainflightmobile.shared",
+  "applicationId": "com.travelapp.bustrainflightmobile.shared",
   "variantName": "debug",
   "elements": [
     {
