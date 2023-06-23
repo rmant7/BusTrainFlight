@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.travelapp.bustrainflightmobile.androidApp"
-4    android:versionCode="1"
-5    android:versionName="1.0.0" >
+3    package="ru.z8.louttsev.bustrainflightmobile.androidApp"
+4    android:versionCode="3"
+5    android:versionName="1.1.1" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
@@ -60,12 +60,12 @@
 35
 36    <permission
 36-->[androidx.core:core:1.9.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\03786a2ede17800cb7a78bc3678cdfd4\core-1.9.0\AndroidManifest.xml:22:5-24:47
-37        android:name="com.travelapp.bustrainflightmobile.androidApp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+37        android:name="ru.z8.louttsev.bustrainflightmobile.androidApp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
 37-->[androidx.core:core:1.9.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\03786a2ede17800cb7a78bc3678cdfd4\core-1.9.0\AndroidManifest.xml:23:9-81
 38        android:protectionLevel="signature" />
 38-->[androidx.core:core:1.9.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\03786a2ede17800cb7a78bc3678cdfd4\core-1.9.0\AndroidManifest.xml:24:9-44
 39
-40    <uses-permission android:name="com.travelapp.bustrainflightmobile.androidApp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+40    <uses-permission android:name="ru.z8.louttsev.bustrainflightmobile.androidApp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 40-->[androidx.core:core:1.9.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\03786a2ede17800cb7a78bc3678cdfd4\core-1.9.0\AndroidManifest.xml:26:5-97
 40-->[androidx.core:core:1.9.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\03786a2ede17800cb7a78bc3678cdfd4\core-1.9.0\AndroidManifest.xml:26:22-94
 41    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
@@ -74,7 +74,7 @@
 42
 43    <application
 43-->C:\Users\User\AndroidStudioProjects\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:9:5-44:19
-44        android:name="com.travelapp.bustrainflightmobile.androidApp.App"
+44        android:name="ru.z8.louttsev.bustrainflightmobile.androidApp.App"
 44-->C:\Users\User\AndroidStudioProjects\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:10:9-28
 45        android:allowBackup="false"
 45-->C:\Users\User\AndroidStudioProjects\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:11:9-36
@@ -94,25 +94,25 @@
 53-->C:\Users\User\AndroidStudioProjects\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:16:9-40
 54        <activity
 54-->C:\Users\User\AndroidStudioProjects\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:17:9-19:40
-55            android:name="com.travelapp.bustrainflightmobile.androidApp.ui.ContactsActivity"
+55            android:name="ru.z8.louttsev.bustrainflightmobile.androidApp.ui.ContactsActivity"
 55-->C:\Users\User\AndroidStudioProjects\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:18:13-48
 56            android:exported="false" />
 56-->C:\Users\User\AndroidStudioProjects\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:19:13-37
 57        <activity
 57-->C:\Users\User\AndroidStudioProjects\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:20:9-22:40
-58            android:name="com.travelapp.bustrainflightmobile.androidApp.ui.TravelTipsActivity"
+58            android:name="ru.z8.louttsev.bustrainflightmobile.androidApp.ui.TravelTipsActivity"
 58-->C:\Users\User\AndroidStudioProjects\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:21:13-50
 59            android:exported="false" />
 59-->C:\Users\User\AndroidStudioProjects\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:22:13-37
 60        <activity
 60-->C:\Users\User\AndroidStudioProjects\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:23:9-25:40
-61            android:name="com.travelapp.bustrainflightmobile.androidApp.ui.DrawerBaseActivity"
+61            android:name="ru.z8.louttsev.bustrainflightmobile.androidApp.ui.DrawerBaseActivity"
 61-->C:\Users\User\AndroidStudioProjects\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:24:13-50
 62            android:exported="false" />
 62-->C:\Users\User\AndroidStudioProjects\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:25:13-37
 63        <activity
 63-->C:\Users\User\AndroidStudioProjects\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:26:9-36:20
-64            android:name="com.travelapp.bustrainflightmobile.androidApp.ui.MainActivity"
+64            android:name="ru.z8.louttsev.bustrainflightmobile.androidApp.ui.MainActivity"
 64-->C:\Users\User\AndroidStudioProjects\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:27:13-44
 65            android:exported="true"
 65-->C:\Users\User\AndroidStudioProjects\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:28:13-36
@@ -160,7 +160,7 @@
 88-->[com.google.android.gms:play-services-ads-lite:22.1.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\067164885f65d9399418be4f691f7ba5\play-services-ads-lite-22.1.0\AndroidManifest.xml:60:9-65:43
 89            android:name="com.google.android.gms.ads.MobileAdsInitProvider"
 89-->[com.google.android.gms:play-services-ads-lite:22.1.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\067164885f65d9399418be4f691f7ba5\play-services-ads-lite-22.1.0\AndroidManifest.xml:61:13-76
-90            android:authorities="com.travelapp.bustrainflightmobile.androidApp.mobileadsinitprovider"
+90            android:authorities="ru.z8.louttsev.bustrainflightmobile.androidApp.mobileadsinitprovider"
 90-->[com.google.android.gms:play-services-ads-lite:22.1.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\067164885f65d9399418be4f691f7ba5\play-services-ads-lite-22.1.0\AndroidManifest.xml:62:13-73
 91            android:exported="false"
 91-->[com.google.android.gms:play-services-ads-lite:22.1.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\067164885f65d9399418be4f691f7ba5\play-services-ads-lite-22.1.0\AndroidManifest.xml:63:13-37
@@ -204,7 +204,7 @@
 112-->[androidx.emoji2:emoji2:1.2.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\cdbe2db44855a9dfef33e51de4bb55fd\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
 113            android:name="androidx.startup.InitializationProvider"
 113-->[androidx.emoji2:emoji2:1.2.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\cdbe2db44855a9dfef33e51de4bb55fd\emoji2-1.2.0\AndroidManifest.xml:25:13-67
-114            android:authorities="com.travelapp.bustrainflightmobile.androidApp.androidx-startup"
+114            android:authorities="ru.z8.louttsev.bustrainflightmobile.androidApp.androidx-startup"
 114-->[androidx.emoji2:emoji2:1.2.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\cdbe2db44855a9dfef33e51de4bb55fd\emoji2-1.2.0\AndroidManifest.xml:26:13-68
 115            android:exported="false" >
 115-->[androidx.emoji2:emoji2:1.2.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\cdbe2db44855a9dfef33e51de4bb55fd\emoji2-1.2.0\AndroidManifest.xml:27:13-37

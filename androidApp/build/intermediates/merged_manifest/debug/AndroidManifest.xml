@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.travelapp.bustrainflightmobile.androidApp"
-    android:versionCode="1"
-    android:versionName="1.0.0" >
+    package="ru.z8.louttsev.bustrainflightmobile.androidApp"
+    android:versionCode="3"
+    android:versionName="1.1.1" >
 
     <uses-sdk
         android:minSdkVersion="21"
@@ -34,14 +34,14 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <permission
-        android:name="com.travelapp.bustrainflightmobile.androidApp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:name="ru.z8.louttsev.bustrainflightmobile.androidApp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.travelapp.bustrainflightmobile.androidApp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+    <uses-permission android:name="ru.z8.louttsev.bustrainflightmobile.androidApp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
 
     <application
-        android:name="com.travelapp.bustrainflightmobile.androidApp.App"
+        android:name="ru.z8.louttsev.bustrainflightmobile.androidApp.App"
         android:allowBackup="false"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
@@ -52,16 +52,16 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.travelapp.bustrainflightmobile.androidApp.ui.ContactsActivity"
+            android:name="ru.z8.louttsev.bustrainflightmobile.androidApp.ui.ContactsActivity"
             android:exported="false" />
         <activity
-            android:name="com.travelapp.bustrainflightmobile.androidApp.ui.TravelTipsActivity"
+            android:name="ru.z8.louttsev.bustrainflightmobile.androidApp.ui.TravelTipsActivity"
             android:exported="false" />
         <activity
-            android:name="com.travelapp.bustrainflightmobile.androidApp.ui.DrawerBaseActivity"
+            android:name="ru.z8.louttsev.bustrainflightmobile.androidApp.ui.DrawerBaseActivity"
             android:exported="false" />
         <activity
-            android:name="com.travelapp.bustrainflightmobile.androidApp.ui.MainActivity"
+            android:name="ru.z8.louttsev.bustrainflightmobile.androidApp.ui.MainActivity"
             android:exported="true"
             android:theme="@style/AppTheme.Launcher"
             android:windowSoftInputMode="stateVisible|adjustPan" >
@@ -87,7 +87,7 @@
 
         <provider
             android:name="com.google.android.gms.ads.MobileAdsInitProvider"
-            android:authorities="com.travelapp.bustrainflightmobile.androidApp.mobileadsinitprovider"
+            android:authorities="ru.z8.louttsev.bustrainflightmobile.androidApp.mobileadsinitprovider"
             android:exported="false"
             android:initOrder="100" />
 
@@ -111,7 +111,7 @@
 
         <provider
             android:name="androidx.startup.InitializationProvider"
-            android:authorities="com.travelapp.bustrainflightmobile.androidApp.androidx-startup"
+            android:authorities="ru.z8.louttsev.bustrainflightmobile.androidApp.androidx-startup"
             android:exported="false" >
             <meta-data
                 android:name="androidx.emoji2.text.EmojiCompatInitializer"
