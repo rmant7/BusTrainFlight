@@ -188,7 +188,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 })
                 nestedScrollView.viewTreeObserver.addOnScrollChangedListener {
-                    if (!anywhereListAdapter.isListEmpty()){
+                    if (!anywhereListAdapter.isListEmpty()) {
                         if (nestedScrollView.getChildAt(0).bottom <= (nestedScrollView.height + nestedScrollView.scrollY)) {
                             anywhereListAdapter.addRoutes(model.loadMoreAnywhereRoutes())
                         }
@@ -237,7 +237,8 @@ class MainActivity : AppCompatActivity() {
                         inputLayout.showErrorMessage(getString(R.string.not_allowable_character_error_message))
                         return source.filter { allowable.matches(it.toString()) }
                     } else {
-                        inputLayout.hideErrorMessage()
+                        if (!checkForCoincidenceOfPoints()) showWrongChoiceError()
+                        else inputLayout.hideErrorMessage()
                         return source
                     }
                 }
@@ -287,6 +288,7 @@ class MainActivity : AppCompatActivity() {
                     dismissDropDown()
                     true
                 }
+
                 else -> false
             }
         }
@@ -309,7 +311,8 @@ class MainActivity : AppCompatActivity() {
             } else {
                 handler.onItemSelected(
                     selectedLocation,
-                    invalidSelectionHandler = ::showInvalidSelectionMessage)
+                    invalidSelectionHandler = ::showWrongChoiceError
+                )
 
             }
             performCompletion()
@@ -330,9 +333,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         setOnFocusChangeListener { _, hasFocus ->
-            if (!model.isAnywhereSelected.value!!){
+            if (!model.isAnywhereSelected.value!!) {
                 if (!hasFocus) {
-                    inputLayout.hideErrorMessage()
+                    if (!checkForCoincidenceOfPoints()) showWrongChoiceError()
+                    else inputLayout.hideErrorMessage()
                 } else if (hasFocus && text.isEmpty() && isDestination && model.selectedOrigin != null) {
                     handler.showAnywhereSelection()
                     postDelayed({ showDropDown() }, 200)
@@ -342,7 +346,7 @@ class MainActivity : AppCompatActivity() {
         }
         setOnClickListener {
             Napier.d("OnClick")
-            if (!model.isAnywhereSelected.value!!){
+            if (!model.isAnywhereSelected.value!!) {
                 if (text.isEmpty() && isDestination && model.selectedOrigin != null) {
 //                requestFocus()
                     if (!isPopupShowing) {
@@ -397,7 +401,7 @@ class MainActivity : AppCompatActivity() {
             setText(suitableLocation.name)
             handler.onItemSelected(
                 suitableLocation,
-                invalidSelectionHandler = ::showInvalidSelectionMessage
+                invalidSelectionHandler = ::showWrongChoiceError
             )
             performCompletion()
         }
@@ -436,5 +440,19 @@ class MainActivity : AppCompatActivity() {
     private fun TextInputLayout.hideErrorMessage() {
         error = null
     }
+
+    private fun showWrongChoiceError() {
+        binding.destinationInputLayout.showErrorMessage(getString(R.string.invalid_selection_error_message))
+    }
+
+    /////
+    private fun checkForCoincidenceOfPoints(): Boolean {
+        return (binding.originTextView.text.toString() !=
+                binding.destinationTextView.text.toString()) || (
+                binding.originTextView.text.toString().isEmpty() &&
+                        binding.destinationTextView.text.toString().isEmpty()
+                )
+    }
+
 }
 
