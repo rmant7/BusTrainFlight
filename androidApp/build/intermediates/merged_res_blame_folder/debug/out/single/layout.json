@@ -1,46 +1,46 @@
 [
     {
-        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\native_ad_view_anywhere.xml",
-        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\native_ad_view_anywhere.xml"
+        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_contacts.xml",
+        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\activity_contacts.xml"
     },
     {
-        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\action_bar.xml",
-        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\action_bar.xml"
+        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_route.xml",
-        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\item_route.xml"
+        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_drawer_base.xml",
+        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\activity_drawer_base.xml"
     },
     {
-        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_path.xml",
-        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\item_path.xml"
+        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\native_ad_view_anywhere.xml",
+        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\native_ad_view_anywhere.xml"
     },
     {
-        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
-        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_route.xml",
+        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\item_route.xml"
     },
     {
-        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_travel_tips.xml",
-        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\activity_travel_tips.xml"
+        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_path.xml",
+        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\item_path.xml"
     },
     {
-        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\native_ad_view_route.xml",
-        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\native_ad_view_route.xml"
+        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_route_anywhere.xml",
+        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\item_route_anywhere.xml"
     },
     {
-        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\content_layout.xml",
-        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\content_layout.xml"
+        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\action_bar.xml",
+        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\action_bar.xml"
     },
     {
-        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_route_anywhere.xml",
-        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\item_route_anywhere.xml"
+        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\content_layout.xml",
+        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\content_layout.xml"
     },
     {
-        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_contacts.xml",
-        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\activity_contacts.xml"
+        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_travel_tips.xml",
+        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\activity_travel_tips.xml"
     },
     {
-        "merged": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_drawer_base.xml",
-        "source": "C:\\Users\\User\\AndroidStudioProjects\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\activity_drawer_base.xml"
+        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\native_ad_view_route.xml",
+        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\native_ad_view_route.xml"
     }
 ]
