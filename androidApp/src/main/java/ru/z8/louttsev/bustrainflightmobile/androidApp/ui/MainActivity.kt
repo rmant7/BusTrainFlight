@@ -2,13 +2,17 @@ package ru.z8.louttsev.bustrainflightmobile.androidApp.ui
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.pm.ActivityInfo
+import android.graphics.PixelFormat
 import android.graphics.Rect
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputFilter
 import android.text.Spanned
+import android.view.Gravity
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.view.inputmethod.InputMethodManager.*
@@ -20,18 +24,12 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doBeforeTextChanged
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdLoader
-import com.google.android.gms.ads.LoadAdError
-import com.google.android.gms.ads.appopen.AppOpenAd
-import com.google.android.gms.ads.appopen.AppOpenAd.AppOpenAdLoadCallback
-import com.google.android.gms.ads.nativead.NativeAd
-import com.google.android.gms.ads.nativead.NativeAdOptions
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
+import io.github.aakira.napier.Napier
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.z8.louttsev.bustrainflightmobile.androidApp.R
 import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.AnywhereListAdapter
 import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.AutoCompleteLocationsListAdapter
@@ -39,13 +37,9 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.RouteListAdapter
 import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ActivityMainBinding
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Locale
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Location
+import ru.z8.louttsev.bustrainflightmobile.androidApp.ui.button.FloatingActionUp
 import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.AutoCompleteHandler
 import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.MainViewModel
-import io.github.aakira.napier.Napier
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 import kotlin.text.RegexOption.*
 
@@ -58,6 +52,7 @@ class MainActivity : AppCompatActivity() {
 
     private val model: MainViewModel by viewModel()
     private lateinit var binding: ActivityMainBinding
+    //private lateinit var  startService: Button
 
     override fun onResume() {
         super.onResume()
@@ -73,7 +68,7 @@ class MainActivity : AppCompatActivity() {
 
 //        loadAppOpenAd()
 
-        mInputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        mInputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         binding = ActivityMainBinding.inflate(layoutInflater).apply {
             lifecycleOwner = this@MainActivity
             viewModel = model // ignore probably IDE error message "Cannot access class..."
@@ -82,6 +77,18 @@ class MainActivity : AppCompatActivity() {
 
         val toolbar = binding.root.findViewById<Toolbar>(R.id.toolBar)
         setSupportActionBar(toolbar)
+
+        /////////////////////////////////////////
+       // startService = binding.startService
+
+       // startService.setOnClickListener {
+           // startService(
+               // Intent(
+                   // application,
+                   // FloatingActionUp::class.java)
+               // )
+       // }
+        //////////////////////////////////////////////////////////
 
 //        drawerBaseBinding.root.findViewById<TextView>(R.id.appBarTitle).text = "BusTrainFlight"
 
@@ -94,9 +101,11 @@ class MainActivity : AppCompatActivity() {
                 if (selected) {
                     routeListAnywhereRecyclerView.visibility = View.VISIBLE
                     routeListRecyclerView.visibility = View.GONE
+                    fab.visibility = View.VISIBLE
                 } else {
                     routeListAnywhereRecyclerView.visibility = View.GONE
                     routeListRecyclerView.visibility = View.VISIBLE
+                    fab.visibility = View.GONE
                 }
             }
         }
@@ -187,6 +196,7 @@ class MainActivity : AppCompatActivity() {
                         outRect.bottom = resources.getDimension(R.dimen.route_item_margin).toInt()
                     }
                 })
+
                 nestedScrollView.viewTreeObserver.addOnScrollChangedListener {
                     if (!anywhereListAdapter.isListEmpty()) {
                         if (nestedScrollView.getChildAt(0).bottom <= (nestedScrollView.height + nestedScrollView.scrollY)) {
@@ -194,6 +204,25 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                 }
+
+                /////////////////////////////////////
+                addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                    override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                        fab.visibility = View.VISIBLE
+                        //if (dy > 0 ||dy<0 && fab.isShown)
+                        // {
+                        //}
+                    }
+
+                    override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                        fab.visibility = View.VISIBLE
+                        //if (newState == RecyclerView.SCROLL_STATE_IDLE)
+                        //{
+                        // }
+                        super.onScrollStateChanged(recyclerView, newState)
+                    }
+                })
+                ///////////////////////////////////////////////////////////////////
             }
         }
     }
@@ -445,7 +474,6 @@ class MainActivity : AppCompatActivity() {
         binding.destinationInputLayout.showErrorMessage(getString(R.string.invalid_selection_error_message))
     }
 
-    /////
     private fun checkForCoincidenceOfPoints(): Boolean {
         return (binding.originTextView.text.toString() !=
                 binding.destinationTextView.text.toString()) || (
@@ -455,4 +483,3 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
-

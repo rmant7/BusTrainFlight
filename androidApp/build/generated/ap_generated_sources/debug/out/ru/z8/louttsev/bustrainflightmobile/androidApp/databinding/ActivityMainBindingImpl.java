@@ -27,7 +27,8 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
         sViewsWithIds.put(R.id.clearButton, 11);
         sViewsWithIds.put(R.id.goButton, 12);
         sViewsWithIds.put(R.id.route_list_anywhere_recycler_view, 13);
-        sViewsWithIds.put(R.id.route_list_recycler_view, 14);
+        sViewsWithIds.put(R.id.fab, 14);
+        sViewsWithIds.put(R.id.route_list_recycler_view, 15);
     }
     // views
     // variables
@@ -36,7 +37,7 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     // Inverse Binding Event Handlers
 
     public ActivityMainBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 15, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 16, sIncludes, sViewsWithIds));
     }
     private ActivityMainBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
@@ -46,12 +47,13 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
             , (com.google.android.material.textfield.TextInputLayout) bindings[9]
             , (android.widget.AutoCompleteTextView) bindings[10]
             , (android.widget.LinearLayout) bindings[1]
+            , (androidx.appcompat.widget.AppCompatImageView) bindings[14]
             , (com.google.android.material.button.MaterialButton) bindings[12]
             , (androidx.core.widget.NestedScrollView) bindings[0]
             , (com.google.android.material.textfield.TextInputLayout) bindings[7]
             , (android.widget.AutoCompleteTextView) bindings[8]
             , (androidx.recyclerview.widget.RecyclerView) bindings[13]
-            , (androidx.recyclerview.widget.RecyclerView) bindings[14]
+            , (androidx.recyclerview.widget.RecyclerView) bindings[15]
             , (android.widget.TextView) bindings[5]
             , (android.widget.TextView) bindings[6]
             , (androidx.appcompat.widget.Toolbar) bindings[3]

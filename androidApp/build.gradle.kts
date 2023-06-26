@@ -33,6 +33,8 @@ dependencies {
     annotationProcessor("androidx.lifecycle:lifecycle-compiler:2.6.1")
 
     implementation("com.github.satoshun.coroutine.autodispose:autodispose:0.3.1")
+
+    implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
 }
 
 android {

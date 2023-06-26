@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
 import androidx.databinding.Bindable;
@@ -43,6 +44,9 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
   public final LinearLayout drawerLayout;
 
   @NonNull
+  public final AppCompatImageView fab;
+
+  @NonNull
   public final MaterialButton goButton;
 
   @NonNull
@@ -75,10 +79,10 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
   protected ActivityMainBinding(Object _bindingComponent, View _root, int _localFieldCount,
       AppBarLayout appBarLayout, TextView appBarTitle, MaterialButton clearButton,
       TextInputLayout destinationInputLayout, AutoCompleteTextView destinationTextView,
-      LinearLayout drawerLayout, MaterialButton goButton, NestedScrollView nestedScrollView,
-      TextInputLayout originInputLayout, AutoCompleteTextView originTextView,
-      RecyclerView routeListAnywhereRecyclerView, RecyclerView routeListRecyclerView,
-      TextView tagline, TextView textView, Toolbar toolBar) {
+      LinearLayout drawerLayout, AppCompatImageView fab, MaterialButton goButton,
+      NestedScrollView nestedScrollView, TextInputLayout originInputLayout,
+      AutoCompleteTextView originTextView, RecyclerView routeListAnywhereRecyclerView,
+      RecyclerView routeListRecyclerView, TextView tagline, TextView textView, Toolbar toolBar) {
     super(_bindingComponent, _root, _localFieldCount);
     this.appBarLayout = appBarLayout;
     this.appBarTitle = appBarTitle;
@@ -86,6 +90,7 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
     this.destinationInputLayout = destinationInputLayout;
     this.destinationTextView = destinationTextView;
     this.drawerLayout = drawerLayout;
+    this.fab = fab;
     this.goButton = goButton;
     this.nestedScrollView = nestedScrollView;
     this.originInputLayout = originInputLayout;

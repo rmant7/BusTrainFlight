@@ -2489,6 +2489,7 @@ drawable action_button_background
 drawable admob_close_button_black_circle_white_cross
 drawable admob_close_button_white_circle_black_cross
 drawable airplane_ticket
+drawable arrow_up
 drawable avd_hide_password
 drawable avd_show_password
 drawable book
@@ -2836,6 +2837,7 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id fab
 id fade
 id fill
 id fill_horizontal
