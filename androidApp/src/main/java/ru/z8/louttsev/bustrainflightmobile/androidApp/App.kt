@@ -2,8 +2,7 @@ package ru.z8.louttsev.bustrainflightmobile.androidApp
 
 import android.app.Application
 import com.google.android.gms.ads.MobileAds
-import com.google.android.gms.ads.initialization.InitializationStatus
-import ru.z8.louttsev.bustrainflightmobile.androidApp.adds.AppOpenManager
+import ru.z8.louttsev.bustrainflightmobile.androidApp.ads.AppOpenManager
 import ru.z8.louttsev.bustrainflightmobile.androidApp.di.repositoryModule
 import ru.z8.louttsev.bustrainflightmobile.androidApp.di.utilsModule
 import ru.z8.louttsev.bustrainflightmobile.androidApp.di.viewModelModule

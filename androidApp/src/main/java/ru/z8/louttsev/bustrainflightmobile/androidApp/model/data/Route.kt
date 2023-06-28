@@ -5,6 +5,7 @@
 package ru.z8.louttsev.bustrainflightmobile.androidApp.model.data
 
 import org.koin.core.component.KoinComponent
+import org.koin.core.component.get
 import org.koin.core.component.inject
 import ru.z8.louttsev.bustrainflightmobile.androidApp.R
 
@@ -53,8 +54,8 @@ data class Route(
     fun getRoutePlan() =
         directPaths.joinToString(
             pointsDelimiter,
-            transform = Path::from
-        ) + pointsDelimiter + directPaths.last().to
+            transform = {path -> path.from.name}
+        ) + pointsDelimiter + directPaths.last().to.name
 
     /**
      * String representation of total route duration, eg. '2 d 11 h 27 m'

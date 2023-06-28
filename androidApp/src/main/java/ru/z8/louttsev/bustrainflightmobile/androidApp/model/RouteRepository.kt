@@ -36,8 +36,8 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                             transportationType = (TransportationType fromValue transport[directRoutes[path]?.transport]?.name),
                             euroPrice = directRoutes[path]?.price!!.toFloat(),
                             durationMinutes = directRoutes[path]?.duration!!,
-                            from = locationRepository.searchLocationById(directRoutes[path]!!.from)!!.name,
-                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!.name
+                            from = locationRepository.searchLocationById(directRoutes[path]!!.from)!!,
+                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!
                         )
                     )
                 }
@@ -66,8 +66,8 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                             transportationType = (TransportationType fromValue transport[directRoutes[path]?.transport]?.name),
                             euroPrice = directRoutes[path]?.price!!.toFloat(),
                             durationMinutes = directRoutes[path]?.duration!!,
-                            from = locationRepository.searchLocationById(directRoutes[path]!!.from)!!.name,
-                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!.name
+                            from = locationRepository.searchLocationById(directRoutes[path]!!.from)!!,
+                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!
                         )
                     )
                 }
@@ -97,8 +97,8 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                                 transportationType = (TransportationType fromValue transport[route.transport]?.name),
                                 euroPrice = route.price.toFloat(),
                                 durationMinutes = route.duration,
-                                from = originLocation.name,
-                                to = locationRepository.searchLocationById(route.to)!!.name
+                                from = originLocation,
+                                to = locationRepository.searchLocationById(route.to)!!
                             )
                         )
                     )
@@ -117,8 +117,8 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                             transportationType = (TransportationType fromValue transport[directRoutes[path]?.transport]?.name),
                             euroPrice = directRoutes[path]?.price!!.toFloat(),
                             durationMinutes = directRoutes[path]?.duration!!,
-                            from = locationRepository.searchLocationById(directRoutes[path]!!.from)!!.name,
-                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!.name
+                            from = locationRepository.searchLocationById(directRoutes[path]!!.from)!!,
+                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!
                         )
                     )
                 }
@@ -217,8 +217,8 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                             transportationType = (TransportationType fromValue transport[directRoutes[path]?.transport]?.name),
                             euroPrice = directRoutes[path]?.price!!.toFloat(),
                             durationMinutes = directRoutes[path]?.duration!!,
-                            from = locationRepository.searchLocationById(directRoutes[path]!!.from)!!.name,
-                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!.name
+                            from = locationRepository.searchLocationById(directRoutes[path]!!.from)!!,
+                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!
                         )
                     )
                 }
@@ -246,8 +246,8 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                             transportationType = (TransportationType fromValue transport[directRoutes[path]?.transport]?.name),
                             euroPrice = directRoutes[path]?.price!!.toFloat(),
                             durationMinutes = directRoutes[path]?.duration!!,
-                            from = locationRepository.searchLocationById(directRoutes[path]!!.from)!!.name,
-                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!.name
+                            from = locationRepository.searchLocationById(directRoutes[path]!!.from)!!,
+                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!
                         )
                     )
                 }
@@ -276,8 +276,8 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                                 transportationType = (TransportationType fromValue transport[route.transport]?.name),
                                 euroPrice = route.price.toFloat(),
                                 durationMinutes = route.duration,
-                                from = from.name,
-                                to = to.name
+                                from = from,
+                                to = to
                             )
                         )
                     )
@@ -296,8 +296,8 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                             transportationType = (TransportationType fromValue transport[directRoutes[path]?.transport]?.name),
                             euroPrice = directRoutes[path]?.price!!.toFloat(),
                             durationMinutes = directRoutes[path]?.duration!!,
-                            from = locationRepository.searchLocationById(directRoutes[path]!!.from)!!.name,
-                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!.name
+                            from = locationRepository.searchLocationById(directRoutes[path]!!.from)!!,
+                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!
                         )
                     )
                 }

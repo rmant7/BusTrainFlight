@@ -20,6 +20,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.nativead.NativeAdView
+import io.github.aakira.napier.BuildConfig
 import io.github.aakira.napier.Napier
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
@@ -28,9 +29,9 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ItemRouteBindi
 import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.NativeAdViewRouteBinding
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Country
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Path
-import ru.z8.louttsev.bustrainflightmobile.androidApp.payload.AffiliateProgram
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.LocationRepository
 import kotlinx.coroutines.launch
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.TransportationType
 import kotlin.io.path.Path
 
 /**
@@ -40,7 +41,7 @@ import kotlin.io.path.Path
  */
 class PathListAdapter(
     private val mPaths: List<Path>
-) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val AD_VIEW_TYPE = 1
     private val DATA_VIEW_TYPE = 2
@@ -57,7 +58,7 @@ class PathListAdapter(
 
     override fun getItemViewType(position: Int): Int {
 
-        return if (position == mPaths.size){
+        return if (position == mPaths.size) {
             AD_VIEW_TYPE
         } else {
             DATA_VIEW_TYPE
@@ -83,17 +84,20 @@ class PathListAdapter(
         }
     }
 
-    class PathViewHolder(val binding: ItemPathBinding) : RecyclerView.ViewHolder(binding.root), KoinComponent {
+    class PathViewHolder(val binding: ItemPathBinding) : RecyclerView.ViewHolder(binding.root),
+        KoinComponent {
         private val locationRepository: LocationRepository by inject()
 
-        fun bind(path: Path){
+        fun bind(path: Path) {
             with(binding) {
                 model = path // ignore probably IDE error message "Cannot access class..."
                 executePendingBindings()
 
                 with(buyTicketButton) {
                     // TODO change country stub to auto detected country, issue #3
-                    val affiliateUrl = AffiliateProgram.getAffiliateUrl(path, ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Country.INDEFINITE)
+//                    val affiliateUrl = AffiliateProgram.getAffiliateUrl(path, Country.INDEFINITE)
+//                    Napier.d(locationRepository.kiwiCityIds.toString())
+                    val affiliateUrl = getAffiliateUrlForBuyTicket(path)
                     Napier.d(affiliateUrl)
                     if (affiliateUrl.isNotEmpty()) {
                         visibility = VISIBLE
@@ -118,9 +122,10 @@ class PathListAdapter(
                 with(bookingButton) {
                     val affiliateUrl =
                         "https://www.booking.com/searchresults.en.html?aid=7920152&city=" +
-                                locationRepository.getBookingId(
-                                    locationRepository.searchLocationsByName(path.to)[0].id
-                                ) +
+//                                locationRepository.getBookingId(
+//                                    locationRepository.searchLocationsByName(path.to)[0].id
+//                                ) +
+                                locationRepository.getBookingId(path.to.id) +
                                 "&lang=en&selected_currency=EUR"
                     setOnClickListener {
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(affiliateUrl))
@@ -141,7 +146,37 @@ class PathListAdapter(
 //            }
             }
         }
+
+        private fun getAffiliateUrlForBuyTicket(path: Path): String {
+            return when (path.transportationType) {
+                TransportationType.FERRY -> "https://www.aferry.com/"
+                TransportationType.RIDE_SHARE -> "https://www.blablacar.co.uk/"
+                else -> {
+                    val qiwiCityId = locationRepository.kiwiCityIds
+
+                    if (qiwiCityId[path.to.id]!![0] != null && qiwiCityId[path.from.id]!![0] != null){
+                        val transport = when(path.transportationType){
+                            TransportationType.BUS -> "bus"
+                            TransportationType.TRAIN -> "train"
+                            else -> ""
+                        }
+                        "http://www.kiwi.com/deep?affilid=cheaptripcheaptrip&currency=EUR" +
+                                "&departure=anytime" +
+                                "&destination=" +
+                                qiwiCityId[path.to.id]!![0] +
+                                "&lang=en" +
+                                "&origin=" +
+                                qiwiCityId[path.from.id]!![0] +
+                                "&return=no-return&returnFromDifferentAirport=false&returnToDifferentAirport=false&sortBy=price" +
+                                "&transport=$transport"
+                    } else {
+                            "https://omio.sjv.io/XxEWmb"
+                    }
+                }
+            }
+        }
     }
+
 
     class AdViewHolder(val binding: NativeAdViewRouteBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -155,11 +190,15 @@ class PathListAdapter(
         }
 
         fun bind() {
-
             binding.root.autoDisposeScope.launch {
+                val id = if (ru.z8.louttsev.bustrainflightmobile.androidApp.BuildConfig.DEBUG) {
+                    "ca-app-pub-3940256099942544/2247696110"
+                } else {
+                    "ca-app-pub-7574006463043131/4046840341"
+                }
                 val adLoader =
-                    AdLoader.Builder(binding.root.context, "ca-app-pub-7574006463043131/4046840341")
-//                      AdLoader.Builder(binding.root.context, "ca-app-pub-3940256099942544/2247696110")
+                    AdLoader.Builder(binding.root.context, id)
+//                    AdLoader.Builder(binding.root.context, "ca-app-pub-3940256099942544/2247696110")
                         .forNativeAd { ad: NativeAd ->
                             with(binding) {
                                 bindingAd = ad

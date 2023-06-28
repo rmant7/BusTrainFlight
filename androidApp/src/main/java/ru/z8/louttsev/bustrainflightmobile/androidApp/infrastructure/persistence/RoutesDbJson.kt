@@ -51,5 +51,4 @@ class RoutesDbJson(private val context: Context) {
             it.readText()
         }
     }
-
 }

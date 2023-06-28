@@ -187,7 +187,6 @@ class RouteListAdapter(
                                 (root as NativeAdView).layoutParams = params
 
                                 root.visibility = View.VISIBLE
-                                root.requestLayout()
                                 routeMainView.callToActionView = root
                                 routeMainView.setNativeAd(ad)
                             }

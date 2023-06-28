@@ -6,11 +6,13 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Locale
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Location
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.LocationJson
 
-class LocationRepository (val db: LocationsDbJson) {
+class LocationRepository (db: LocationsDbJson) {
 
-    val locations: Map<Int, LocationJson> = db.locationsData
+    private val locations: Map<Int, LocationJson> = db.locationsData
 
     private val bookingIds: Map<Int, Int> = db.bookingIdsData
+
+    val kiwiCityIds: Map<Int, List<String?>> = db.kiwiCityIdData[0]
 
     fun searchLocationsByName(
         needle: String,

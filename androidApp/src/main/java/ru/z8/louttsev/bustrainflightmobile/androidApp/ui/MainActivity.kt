@@ -2,6 +2,7 @@ package ru.z8.louttsev.bustrainflightmobile.androidApp.ui
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import android.graphics.Rect
 import android.os.Bundle
@@ -20,16 +21,8 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doBeforeTextChanged
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdLoader
-import com.google.android.gms.ads.LoadAdError
-import com.google.android.gms.ads.appopen.AppOpenAd
-import com.google.android.gms.ads.appopen.AppOpenAd.AppOpenAdLoadCallback
-import com.google.android.gms.ads.nativead.NativeAd
-import com.google.android.gms.ads.nativead.NativeAdOptions
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 import ru.z8.louttsev.bustrainflightmobile.androidApp.R
@@ -42,9 +35,6 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Location
 import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.AutoCompleteHandler
 import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.MainViewModel
 import io.github.aakira.napier.Napier
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 import kotlin.text.RegexOption.*
@@ -58,6 +48,7 @@ class MainActivity : AppCompatActivity() {
 
     private val model: MainViewModel by viewModel()
     private lateinit var binding: ActivityMainBinding
+    private lateinit var preferences: SharedPreferences
 
     override fun onResume() {
         super.onResume()
@@ -72,6 +63,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
 //        loadAppOpenAd()
+
+        preferences = getSharedPreferences("PREFERENCES", Context.MODE_PRIVATE)
+
+        model.isFirstTimeRun = preferences.getBoolean("isFirstTimeRun", true)
+        preferences.edit().putBoolean("isFirstTimeRun", false).apply()
 
         mInputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         binding = ActivityMainBinding.inflate(layoutInflater).apply {
@@ -361,7 +357,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getInputLocale(text: String): Locale = Locale.fromLanguageCode(
         if (Regex("^[-а-яё .]+$", IGNORE_CASE).matches(text)) {
-            "ru"
+            "com"
         } else {
             "en"
         }

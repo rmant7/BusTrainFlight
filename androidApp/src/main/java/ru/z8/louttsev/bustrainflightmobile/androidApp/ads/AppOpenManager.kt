@@ -1,4 +1,4 @@
-package ru.z8.louttsev.bustrainflightmobile.androidApp.adds
+package ru.z8.louttsev.bustrainflightmobile.androidApp.ads
 
 import android.app.Activity
 import android.app.Application.ActivityLifecycleCallbacks

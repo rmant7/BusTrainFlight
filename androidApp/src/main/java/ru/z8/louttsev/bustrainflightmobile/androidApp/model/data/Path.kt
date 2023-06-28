@@ -20,8 +20,8 @@ data class Path(
     val transportationType: TransportationType,
     val euroPrice: Float,
     val durationMinutes: Int,
-    val from: String,
-    val to: String
+    val from: Location,
+    val to: Location
 ): KoinComponent {
     private val pointsDelimiter = "\u2009\u2794\u2009"
     private val durationConverter: DurationConverter by inject()
@@ -29,7 +29,7 @@ data class Path(
     /**
      * String representation of path plan, eg. 'Muscat → Abu Dhabi'
      */
-    fun getPathPlan() = from + pointsDelimiter + to
+    fun getPathPlan() = from.name + pointsDelimiter + to.name
 
     /**
      * String representation of path duration, eg. '8 h 27 m'

@@ -10,7 +10,7 @@ package ru.z8.louttsev.bustrainflightmobile.androidApp.model.data
  * @property languageCode Two-letter code accordingly ISO 639-1
  */
 enum class Locale(val languageCode: String) {
-    RU("ru"), EN("en");
+    RU("com"), EN("en");
 
     override fun toString(): String {
         return languageCode
