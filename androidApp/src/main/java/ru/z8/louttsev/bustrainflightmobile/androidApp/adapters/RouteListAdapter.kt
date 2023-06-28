@@ -26,6 +26,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.nativead.NativeAdView
+import io.github.aakira.napier.BuildConfig
 import ru.z8.louttsev.bustrainflightmobile.androidApp.R
 import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ItemRouteBinding
 import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.NativeAdViewRouteBinding
@@ -174,9 +175,13 @@ class RouteListAdapter(
         fun bind() {
 
             binding.root.autoDisposeScope.launch {
+                val id = if (BuildConfig.DEBUG) {
+                    "ca-app-pub-3940256099942544/2247696110"
+                } else {
+                    "ca-app-pub-7574006463043131/4046840341"
+                }
                 val adLoader =
-                    AdLoader.Builder(binding.root.context, "ca-app-pub-7574006463043131/4046840341")
-//                    AdLoader.Builder(binding.root.context, "ca-app-pub-3940256099942544/2247696110")
+                    AdLoader.Builder(binding.root.context, id)
                         .forNativeAd { ad: NativeAd ->
                             with(binding) {
                                 bindingAd = ad

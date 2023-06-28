@@ -191,7 +191,7 @@ class PathListAdapter(
 
         fun bind() {
             binding.root.autoDisposeScope.launch {
-                val id = if (ru.z8.louttsev.bustrainflightmobile.androidApp.BuildConfig.DEBUG) {
+                val id = if (BuildConfig.DEBUG) {
                     "ca-app-pub-3940256099942544/2247696110"
                 } else {
                     "ca-app-pub-7574006463043131/4046840341"
