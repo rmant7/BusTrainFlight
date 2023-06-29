@@ -9,7 +9,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
 import androidx.databinding.Bindable;
@@ -18,6 +17,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
 import java.lang.Deprecated;
 import java.lang.Object;
@@ -44,7 +44,7 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
   public final LinearLayout drawerLayout;
 
   @NonNull
-  public final AppCompatImageView fab;
+  public final FloatingActionButton fab;
 
   @NonNull
   public final MaterialButton goButton;
@@ -79,7 +79,7 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
   protected ActivityMainBinding(Object _bindingComponent, View _root, int _localFieldCount,
       AppBarLayout appBarLayout, TextView appBarTitle, MaterialButton clearButton,
       TextInputLayout destinationInputLayout, AutoCompleteTextView destinationTextView,
-      LinearLayout drawerLayout, AppCompatImageView fab, MaterialButton goButton,
+      LinearLayout drawerLayout, FloatingActionButton fab, MaterialButton goButton,
       NestedScrollView nestedScrollView, TextInputLayout originInputLayout,
       AutoCompleteTextView originTextView, RecyclerView routeListAnywhereRecyclerView,
       RecyclerView routeListRecyclerView, TextView tagline, TextView textView, Toolbar toolBar) {

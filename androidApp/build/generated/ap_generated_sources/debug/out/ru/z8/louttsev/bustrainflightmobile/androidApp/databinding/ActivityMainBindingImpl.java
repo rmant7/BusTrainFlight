@@ -47,7 +47,7 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
             , (com.google.android.material.textfield.TextInputLayout) bindings[9]
             , (android.widget.AutoCompleteTextView) bindings[10]
             , (android.widget.LinearLayout) bindings[1]
-            , (androidx.appcompat.widget.AppCompatImageView) bindings[14]
+            , (com.google.android.material.floatingactionbutton.FloatingActionButton) bindings[14]
             , (com.google.android.material.button.MaterialButton) bindings[12]
             , (androidx.core.widget.NestedScrollView) bindings[0]
             , (com.google.android.material.textfield.TextInputLayout) bindings[7]

@@ -54,6 +54,8 @@ class AnywhereListAdapter(
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
         super.onAttachedToRecyclerView(recyclerView)
         mRecyclerView = recyclerView
+
+        
     }
 
     fun isListEmpty() = mDestinationRoutes.isEmpty()

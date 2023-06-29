@@ -2,21 +2,21 @@ package ru.z8.louttsev.bustrainflightmobile.androidApp.ui
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
 import android.content.pm.ActivityInfo
-import android.graphics.PixelFormat
+import android.graphics.Point
 import android.graphics.Rect
+import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputFilter
 import android.text.Spanned
-import android.view.Gravity
+import android.util.Log
 import android.view.View
-import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.view.inputmethod.InputMethodManager.*
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -37,7 +37,6 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.RouteListAdapter
 import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ActivityMainBinding
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Locale
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Location
-import ru.z8.louttsev.bustrainflightmobile.androidApp.ui.button.FloatingActionUp
 import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.AutoCompleteHandler
 import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.MainViewModel
 import java.util.*
@@ -52,13 +51,13 @@ class MainActivity : AppCompatActivity() {
 
     private val model: MainViewModel by viewModel()
     private lateinit var binding: ActivityMainBinding
-    //private lateinit var  startService: Button
 
     override fun onResume() {
         super.onResume()
         model.updateReadiness()
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     @SuppressLint("InflateParams", "SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -78,18 +77,6 @@ class MainActivity : AppCompatActivity() {
         val toolbar = binding.root.findViewById<Toolbar>(R.id.toolBar)
         setSupportActionBar(toolbar)
 
-        /////////////////////////////////////////
-       // startService = binding.startService
-
-       // startService.setOnClickListener {
-           // startService(
-               // Intent(
-                   // application,
-                   // FloatingActionUp::class.java)
-               // )
-       // }
-        //////////////////////////////////////////////////////////
-
 //        drawerBaseBinding.root.findViewById<TextView>(R.id.appBarTitle).text = "BusTrainFlight"
 
         if (resources.getBoolean(R.bool.isPhone)) {
@@ -101,16 +88,15 @@ class MainActivity : AppCompatActivity() {
                 if (selected) {
                     routeListAnywhereRecyclerView.visibility = View.VISIBLE
                     routeListRecyclerView.visibility = View.GONE
-                    fab.visibility = View.VISIBLE
                 } else {
                     routeListAnywhereRecyclerView.visibility = View.GONE
                     routeListRecyclerView.visibility = View.VISIBLE
-                    fab.visibility = View.GONE
                 }
             }
         }
 
         with(binding) {
+
             originTextView.setup(
                 handler = model.origins,
                 inputLayout = binding.originInputLayout,
@@ -205,24 +191,16 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                /////////////////////////////////////
-                addOnScrollListener(object : RecyclerView.OnScrollListener() {
-                    override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                        fab.visibility = View.VISIBLE
-                        //if (dy > 0 ||dy<0 && fab.isShown)
-                        // {
-                        //}
+                val display = windowManager.defaultDisplay
+                nestedScrollView.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+                    fab.translationX = display.width * 6 / 8f
+                    fab.translationY = scrollY.toFloat() + display.height / 3
+                    fab.setOnClickListener { view ->
+                        nestedScrollView.smoothScrollTo(0, display.height / 3, childCount * 50)
+                        //nestedScrollView.scrollY = 0
                     }
-
-                    override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                        fab.visibility = View.VISIBLE
-                        //if (newState == RecyclerView.SCROLL_STATE_IDLE)
-                        //{
-                        // }
-                        super.onScrollStateChanged(recyclerView, newState)
-                    }
-                })
-                ///////////////////////////////////////////////////////////////////
+                    fab.visibility = View.VISIBLE
+                }
             }
         }
     }

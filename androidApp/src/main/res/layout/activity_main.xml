@@ -200,31 +200,43 @@
                 <!--            app:layout_constraintTop_toBottomOf="@+id/clear_button"-->
                 <!--            app:srcCompat="@drawable/logo" />-->
 
+
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/route_list_anywhere_recycler_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="8dp"
-                    android:nestedScrollingEnabled="false"
-                    android:visibility="invisible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/clearButton"
-                    tools:listitem="@layout/item_route_anywhere" />
 
-                    <androidx.appcompat.widget.AppCompatImageView
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/route_list_anywhere_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="8dp"
+                        android:nestedScrollingEnabled="false"
+                        android:visibility="invisible"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/clearButton"
+                        tools:listitem="@layout/item_route_anywhere" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/fab"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="end|bottom"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:contentDescription="TODO"
                         android:src="@drawable/arrow_up"
-                        android:layout_margin="16dp" />
+                        android:visibility="invisible" />
+
                 </FrameLayout>
+
+
+                <!--     <androidx.appcompat.widget.AppCompatImageView
+                       android:id="@+id/fab"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:src="@drawable/arrow_up" />  -->
+
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/route_list_recycler_view"
@@ -239,9 +251,12 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/clearButton"
                     tools:listitem="@layout/item_route" />
+
+
             </androidx.appcompat.widget.LinearLayoutCompat>
 
         </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
 
 </layout>

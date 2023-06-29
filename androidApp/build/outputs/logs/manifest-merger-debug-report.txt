@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:2:1-49:12
+ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:2:1-46:12
 MERGED from [androidx.databinding:databinding-adapters:4.2.2] C:\Users\PRIME\.gradle\caches\transforms-2\files-2.1\1f7365041694e3cc67708612197c1758\databinding-adapters-4.2.2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.databinding:databinding-runtime:4.2.2] C:\Users\PRIME\.gradle\caches\transforms-2\files-2.1\2bc01cef54d292dbd2ae560dfb4b55fc\databinding-runtime-4.2.2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.databinding:viewbinding:4.2.2] C:\Users\PRIME\.gradle\caches\transforms-2\files-2.1\90e8eb1fc0f1c39f4d8eda2872f48595\viewbinding-4.2.2\AndroidManifest.xml:17:1-22:12
@@ -79,20 +79,20 @@ MERGED from [androidx.sqlite:sqlite-framework:2.1.0] C:\Users\PRIME\.gradle\cach
 MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\PRIME\.gradle\caches\transforms-2\files-2.1\6b3601828d1189faf4ee6b3c0496b7a6\sqlite-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\PRIME\.gradle\caches\transforms-2\files-2.1\69f347235dd09e7121d3ba7e66aeaaa8\annotation-experimental-1.3.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.installreferrer:installreferrer:2.2] C:\Users\PRIME\.gradle\caches\transforms-2\files-2.1\9d2376f6d3fed027ea4bec5a18a5d043\installreferrer-2.2\AndroidManifest.xml:2:1-13:12
-INJECTED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:2:1-46:12
 	package
 		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:3:5-61
 		INJECTED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml
 		INJECTED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:2:1-49:12
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:2:1-46:12
 		INJECTED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:2:1-49:12
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:2:1-46:12
 		INJECTED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:2:11-69
@@ -122,12 +122,8 @@ uses-permission#android.permission.CALL_PHONE
 ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:7:5-69
 	android:name
 		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:7:22-66
-uses-permission#android.permission.SYSTEM_ALERT_WINDOW
-ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:8:5-78
-	android:name
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:8:22-75
 application
-ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:10:5-47:19
+ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:9:5-44:19
 MERGED from [io.insert-koin:koin-android:3.2.0] C:\Users\PRIME\.gradle\caches\transforms-2\files-2.1\ced11c051867ee33df1eb0490bcab85f\koin-android-3.2.0\AndroidManifest.xml:7:5-20
 MERGED from [io.insert-koin:koin-android:3.2.0] C:\Users\PRIME\.gradle\caches\transforms-2\files-2.1\ced11c051867ee33df1eb0490bcab85f\koin-android-3.2.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.material:material:1.6.0] C:\Users\PRIME\.gradle\caches\transforms-2\files-2.1\4a422f3da942e174f191a9328aea94a0\material-1.6.0\AndroidManifest.xml:24:5-20
@@ -175,75 +171,71 @@ MERGED from [com.android.installreferrer:installreferrer:2.2] C:\Users\PRIME\.gr
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.9.0] C:\Users\PRIME\.gradle\caches\transforms-2\files-2.1\03786a2ede17800cb7a78bc3678cdfd4\core-1.9.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:16:9-36
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:15:9-36
 	android:label
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:14:9-41
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:13:9-41
 	tools:ignore
 		ADDED from [com.yandex.android:mobmetricalib:3.21.0] C:\Users\PRIME\.gradle\caches\transforms-2\files-2.1\4b28fe58d93bb1bd8a93e3d3489e3ed0\mobmetricalib-3.21.0\AndroidManifest.xml:23:18-57
 	android:roundIcon
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:15:9-54
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:14:9-54
 	android:icon
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:13:9-43
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:12:9-43
 	android:allowBackup
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:12:9-36
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:11:9-36
 	android:theme
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:17:9-40
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:16:9-40
 	android:name
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:11:9-28
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:10:9-28
 activity#ru.z8.louttsev.bustrainflightmobile.androidApp.ui.ContactsActivity
-ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:18:9-20:40
+ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:17:9-19:40
 	android:exported
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:20:13-37
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:19:13-37
 	android:name
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:19:13-48
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:18:13-48
 activity#ru.z8.louttsev.bustrainflightmobile.androidApp.ui.TravelTipsActivity
-ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:21:9-23:40
+ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:20:9-22:40
 	android:exported
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:23:13-37
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:22:13-37
 	android:name
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:22:13-50
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:21:13-50
 activity#ru.z8.louttsev.bustrainflightmobile.androidApp.ui.DrawerBaseActivity
-ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:24:9-26:40
+ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:23:9-25:40
 	android:exported
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:26:13-37
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:25:13-37
 	android:name
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:25:13-50
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:24:13-50
 activity#ru.z8.louttsev.bustrainflightmobile.androidApp.ui.MainActivity
-ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:27:9-37:20
+ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:26:9-36:20
 	android:windowSoftInputMode
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:31:13-65
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:30:13-65
 	android:exported
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:29:13-36
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:28:13-36
 	android:theme
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:30:13-53
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:29:13-53
 	android:name
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:28:13-44
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:27:13-44
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:32:13-36:29
+ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:31:13-35:29
 action#android.intent.action.MAIN
-ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:33:17-69
+ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:32:17-69
 	android:name
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:33:25-66
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:32:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:35:17-77
+ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:34:17-77
 	android:name
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:35:27-74
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:34:27-74
 meta-data#preloaded_fonts
-ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:39:9-41:57
+ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:38:9-40:57
 	android:resource
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:41:13-54
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:40:13-54
 	android:name
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:40:13-43
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:39:13-43
 meta-data#com.google.android.gms.ads.APPLICATION_ID
-ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:42:9-44:70
+ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:41:9-43:70
 	android:value
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:44:13-67
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:43:13-67
 	android:name
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:43:13-69
-service#ru.z8.louttsev.bustrainflightmobile.androidApp.ui.button.FloatingActionUp
-ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:46:9-63
-	android:name
-		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:46:18-60
+		ADDED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:42:13-69
 uses-sdk
 INJECTED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml
