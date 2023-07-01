@@ -113,6 +113,7 @@
                     android:id="@+id/destination_input_layout"
                     style="@style/InputLocationLayoutStyle"
                     android:layout_marginTop="10dp"
+                    app:helperTextTextColor="@color/error"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/origin_input_layout">
 
@@ -226,7 +227,10 @@
                         android:backgroundTint="@color/colorPrimary"
                         android:contentDescription="TODO"
                         android:src="@drawable/arrow_up"
-                        android:visibility="invisible" />
+                        android:visibility="invisible"
+                        app:backgroundTint="@color/colorPrimary"
+                        app:maxImageSize="72dp"
+                        app:tint="@android:color/white" />
 
                 </FrameLayout>
 

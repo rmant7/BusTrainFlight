@@ -14,7 +14,7 @@
     </style>
 
     <style name="InputLocationLayoutStyle" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
-<!--        <item name="android:layout_marginStart">10dp</item>-->
+        <!--        <item name="android:layout_marginStart">10dp</item>-->
         <item name="background">@android:color/white</item>
         <item name="boxCornerRadiusBottomEnd">8dp</item>
         <item name="boxCornerRadiusBottomStart">8dp</item>

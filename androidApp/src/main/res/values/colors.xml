@@ -10,4 +10,5 @@
     <color name="colorBackground">@android:color/white</color>
     <color name="lightGray">#CECECE</color>
     <color name="white">#FFF</color>
+    <color name="error">#B00020</color>
 </resources>

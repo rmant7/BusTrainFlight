@@ -192,14 +192,15 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 val display = windowManager.defaultDisplay
+                fab.translationX = display.width * 6 / 8f
                 nestedScrollView.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
-                    fab.translationX = display.width * 6 / 8f
                     fab.translationY = scrollY.toFloat() + display.height / 3
+                    if (nestedScrollView.scrollY > 1200) fab.visibility = View.VISIBLE
+                    else fab.visibility = View.GONE
                     fab.setOnClickListener { view ->
                         nestedScrollView.smoothScrollTo(0, display.height / 3, childCount * 50)
-                        //nestedScrollView.scrollY = 0
+                        fab.visibility = View.GONE
                     }
-                    fab.visibility = View.VISIBLE
                 }
             }
         }
@@ -244,8 +245,9 @@ class MainActivity : AppCompatActivity() {
                         inputLayout.showErrorMessage(getString(R.string.not_allowable_character_error_message))
                         return source.filter { allowable.matches(it.toString()) }
                     } else {
-                        if (!checkForCoincidenceOfPoints()) showWrongChoiceError()
-                        else inputLayout.hideErrorMessage()
+                        inputLayout.hideErrorMessage()
+                        if (checkTheCorrectnessOfTheInput()) showWrongChoiceError()
+                        else inputLayout.hideInvalidInputMessage()
                         return source
                     }
                 }
@@ -320,7 +322,6 @@ class MainActivity : AppCompatActivity() {
                     selectedLocation,
                     invalidSelectionHandler = ::showWrongChoiceError
                 )
-
             }
             performCompletion()
         }
@@ -342,8 +343,9 @@ class MainActivity : AppCompatActivity() {
         setOnFocusChangeListener { _, hasFocus ->
             if (!model.isAnywhereSelected.value!!) {
                 if (!hasFocus) {
-                    if (!checkForCoincidenceOfPoints()) showWrongChoiceError()
-                    else inputLayout.hideErrorMessage()
+                    inputLayout.hideErrorMessage()
+                    if (checkTheCorrectnessOfTheInput()) showWrongChoiceError()
+                    else inputLayout.hideInvalidInputMessage()
                 } else if (hasFocus && text.isEmpty() && isDestination && model.selectedOrigin != null) {
                     handler.showAnywhereSelection()
                     postDelayed({ showDropDown() }, 200)
@@ -448,16 +450,30 @@ class MainActivity : AppCompatActivity() {
         error = null
     }
 
+    private fun TextInputLayout.hideInvalidInputMessage() {
+        binding.destinationInputLayout.boxStrokeColor =
+            resources.getColor(R.color.border_color_selector)
+        binding.destinationInputLayout.helperText = ""
+    }
+
     private fun showWrongChoiceError() {
-        binding.destinationInputLayout.showErrorMessage(getString(R.string.invalid_selection_error_message))
+        binding.destinationInputLayout.boxStrokeColor = resources.getColor(R.color.error)
+        binding.destinationInputLayout.helperText =
+            getString(R.string.invalid_selection_error_message)
+        //binding.destinationInputLayout.showErrorMessage(getString(R.string.invalid_selection_error_message))
+    }
+
+    private fun checkTheCorrectnessOfTheInput(): Boolean {
+        return checkForCoincidenceOfPoints() && checkForEmptyString()
     }
 
     private fun checkForCoincidenceOfPoints(): Boolean {
-        return (binding.originTextView.text.toString() !=
-                binding.destinationTextView.text.toString()) || (
-                binding.originTextView.text.toString().isEmpty() &&
-                        binding.destinationTextView.text.toString().isEmpty()
-                )
+        return binding.originTextView.text.toString() ==
+                binding.destinationTextView.text.toString()
     }
 
+    private fun checkForEmptyString(): Boolean {
+        return binding.originTextView.text.toString().isNotEmpty() &&
+                binding.destinationTextView.text.toString().isNotEmpty()
+    }
 }
