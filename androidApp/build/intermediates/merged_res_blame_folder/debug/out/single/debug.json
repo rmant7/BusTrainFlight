@@ -132,6 +132,10 @@
         "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
+        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable_reverse.png.flat",
+        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable\\reverse.png"
+    },
+    {
         "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_ride_share.png.flat",
         "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\drawable-xxhdpi\\ic_ride_share.png"
     },

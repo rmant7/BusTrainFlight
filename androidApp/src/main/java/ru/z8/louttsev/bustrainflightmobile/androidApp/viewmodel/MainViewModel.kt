@@ -45,6 +45,7 @@ class MainViewModel(
     private var selectedDestination: Location? = null
 
     private val routeBuildReadiness = MutableLiveData(isBothPointsSelected() && isPointsVarious())
+    val getRouteBuildReadiness : LiveData<Boolean> get() = routeBuildReadiness
 
     val currentRoutes = MutableLiveData<List<Route>>(emptyList())
 

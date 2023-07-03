@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
 import androidx.databinding.Bindable;
@@ -59,6 +60,9 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
   public final AutoCompleteTextView originTextView;
 
   @NonNull
+  public final AppCompatImageView reverse;
+
+  @NonNull
   public final RecyclerView routeListAnywhereRecyclerView;
 
   @NonNull
@@ -71,6 +75,9 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
   public final TextView textView;
 
   @NonNull
+  public final TextView to;
+
+  @NonNull
   public final Toolbar toolBar;
 
   @Bindable
@@ -81,8 +88,9 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
       TextInputLayout destinationInputLayout, AutoCompleteTextView destinationTextView,
       LinearLayout drawerLayout, FloatingActionButton fab, MaterialButton goButton,
       NestedScrollView nestedScrollView, TextInputLayout originInputLayout,
-      AutoCompleteTextView originTextView, RecyclerView routeListAnywhereRecyclerView,
-      RecyclerView routeListRecyclerView, TextView tagline, TextView textView, Toolbar toolBar) {
+      AutoCompleteTextView originTextView, AppCompatImageView reverse,
+      RecyclerView routeListAnywhereRecyclerView, RecyclerView routeListRecyclerView,
+      TextView tagline, TextView textView, TextView to, Toolbar toolBar) {
     super(_bindingComponent, _root, _localFieldCount);
     this.appBarLayout = appBarLayout;
     this.appBarTitle = appBarTitle;
@@ -95,10 +103,12 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
     this.nestedScrollView = nestedScrollView;
     this.originInputLayout = originInputLayout;
     this.originTextView = originTextView;
+    this.reverse = reverse;
     this.routeListAnywhereRecyclerView = routeListAnywhereRecyclerView;
     this.routeListRecyclerView = routeListRecyclerView;
     this.tagline = tagline;
     this.textView = textView;
+    this.to = to;
     this.toolBar = toolBar;
   }
 
