@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w320dp-land-v13\\values-w320dp-land-v13.xml",
+            "outputFile": "ru.z8.louttsev.bustrainflightmobile.androidApp-mergeDebugResources-49:/values-w320dp-land-v13/values-w320dp-land-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\PRIME\\.gradle\\caches\\transforms-2\\files-2.1\\4a422f3da942e174f191a9328aea94a0\\material-1.6.0\\res\\values-w320dp-land-v13\\values-w320dp-land-v13.xml",
+                    "source": "/home/jeka/.gradle/caches/transforms-3/7ea87ac918bcc996abf016d6c3a9b10d/transformed/material-1.9.0/res/values-w320dp-land-v13/values-w320dp-land-v13.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

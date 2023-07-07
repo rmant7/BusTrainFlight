@@ -5,28 +5,28 @@ plugins {
 }
 
 dependencies {
-    implementation("com.google.android.material:material:1.6.0")
+    implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.activity:activity-ktx:1.7.0")
+    implementation("androidx.activity:activity-ktx:1.7.2")
     implementation("androidx.recyclerview:recyclerview:1.3.0")
-    implementation("com.yandex.android:mobmetricalib:3.21.0")
+    implementation("com.yandex.android:mobmetricalib:5.3.0")
 
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
 
     implementation("io.github.aakira:napier:2.6.1")
 
-    implementation("io.insert-koin:koin-core:3.2.0")
-    implementation("io.insert-koin:koin-android:3.2.0")
+    implementation("io.insert-koin:koin-core:3.4.2")
+    implementation("io.insert-koin:koin-android:3.4.2")
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.0-RC")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.2")
 
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
+    implementation("com.google.android.material:material:1.9.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
 
     // Admob
-    implementation("com.google.android.gms:play-services-ads:22.1.0")
+    implementation("com.google.android.gms:play-services-ads:22.2.0")
 
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
     implementation("androidx.lifecycle:lifecycle-runtime:2.6.1")

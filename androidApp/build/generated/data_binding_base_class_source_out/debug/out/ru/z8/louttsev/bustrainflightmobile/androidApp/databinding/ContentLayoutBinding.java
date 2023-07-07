@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.google.android.material.appbar.AppBarLayout;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -81,37 +82,37 @@ public final class ContentLayoutBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.activityContainer;
-      FrameLayout activityContainer = rootView.findViewById(id);
+      FrameLayout activityContainer = ViewBindings.findChildViewById(rootView, id);
       if (activityContainer == null) {
         break missingId;
       }
 
       id = R.id.appBarLayout;
-      AppBarLayout appBarLayout = rootView.findViewById(id);
+      AppBarLayout appBarLayout = ViewBindings.findChildViewById(rootView, id);
       if (appBarLayout == null) {
         break missingId;
       }
 
       id = R.id.appBarTitle;
-      TextView appBarTitle = rootView.findViewById(id);
+      TextView appBarTitle = ViewBindings.findChildViewById(rootView, id);
       if (appBarTitle == null) {
         break missingId;
       }
 
       id = R.id.menuButton;
-      ImageView menuButton = rootView.findViewById(id);
+      ImageView menuButton = ViewBindings.findChildViewById(rootView, id);
       if (menuButton == null) {
         break missingId;
       }
 
       id = R.id.tagline;
-      TextView tagline = rootView.findViewById(id);
+      TextView tagline = ViewBindings.findChildViewById(rootView, id);
       if (tagline == null) {
         break missingId;
       }
 
       id = R.id.toolBar;
-      Toolbar toolBar = rootView.findViewById(id);
+      Toolbar toolBar = ViewBindings.findChildViewById(rootView, id);
       if (toolBar == null) {
         break missingId;
       }

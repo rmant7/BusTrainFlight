@@ -138,19 +138,6 @@ class MainActivity : AppCompatActivity() {
                     val destinationLocation = model.destinations.data.value!!.first()
                     val originLocation = model.origins.data.value!!.first()
                     originTextView.setText("")
-                    model.destinations.onItemReset()
-                    model.destinations.isBeingUpdated = true
-                    model.origins.onItemReset()
-                    model.origins.isBeingUpdated = true
-                    //model.destinations.onTextChanged(
-                    //originLocation.name,
-                    //getInputLocale(originLocation.name)
-                    //) { originTextView.selectSuitableLocation(model.origins) }
-
-                    //model.origins.onTextChanged(
-                    //destinationLocation.name,
-                    //getInputLocale(destinationLocation.name)
-                    //) { destinationTextView.selectSuitableLocation(model.destinations) }
 
                     destinationTextView.setText(originLocation.name)
                     model.destinations.onItemSelected(
@@ -158,7 +145,6 @@ class MainActivity : AppCompatActivity() {
                         invalidSelectionHandler = ::showWrongChoiceError
                     )
                     destinationTextView.performCompletion()
-                    //destinationInputLayout.endIconMode = TextInputLayout.END_ICON_CLEAR_TEXT
 
                     originTextView.setText(destinationLocation.name)
                     model.origins.onItemSelected(
@@ -166,7 +152,6 @@ class MainActivity : AppCompatActivity() {
                         invalidSelectionHandler = ::showWrongChoiceError
                     )
                     originTextView.performCompletion()
-                    //originInputLayout.endIconMode = TextInputLayout.END_ICON_CLEAR_TEXT
                 }
             }
 

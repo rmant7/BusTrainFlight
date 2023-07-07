@@ -1,46 +1,46 @@
 [
     {
-        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_contacts.xml",
-        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\activity_contacts.xml"
+        "merged": "ru.z8.louttsev.bustrainflightmobile.androidApp-mergeDebugResources-50:/layout/native_ad_view_anywhere.xml",
+        "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/layout/native_ad_view_anywhere.xml"
     },
     {
-        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
-        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "ru.z8.louttsev.bustrainflightmobile.androidApp-mergeDebugResources-50:/layout/activity_travel_tips.xml",
+        "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/layout/activity_travel_tips.xml"
     },
     {
-        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_drawer_base.xml",
-        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\activity_drawer_base.xml"
+        "merged": "ru.z8.louttsev.bustrainflightmobile.androidApp-mergeDebugResources-50:/layout/item_path.xml",
+        "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/layout/item_path.xml"
     },
     {
-        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\native_ad_view_anywhere.xml",
-        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\native_ad_view_anywhere.xml"
+        "merged": "ru.z8.louttsev.bustrainflightmobile.androidApp-mergeDebugResources-50:/layout/action_bar.xml",
+        "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/layout/action_bar.xml"
     },
     {
-        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_route.xml",
-        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\item_route.xml"
+        "merged": "ru.z8.louttsev.bustrainflightmobile.androidApp-mergeDebugResources-50:/layout/activity_contacts.xml",
+        "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/layout/activity_contacts.xml"
     },
     {
-        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_path.xml",
-        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\item_path.xml"
+        "merged": "ru.z8.louttsev.bustrainflightmobile.androidApp-mergeDebugResources-50:/layout/activity_drawer_base.xml",
+        "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/layout/activity_drawer_base.xml"
     },
     {
-        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_route_anywhere.xml",
-        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\item_route_anywhere.xml"
+        "merged": "ru.z8.louttsev.bustrainflightmobile.androidApp-mergeDebugResources-50:/layout/item_route.xml",
+        "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/layout/item_route.xml"
     },
     {
-        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\action_bar.xml",
-        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\action_bar.xml"
+        "merged": "ru.z8.louttsev.bustrainflightmobile.androidApp-mergeDebugResources-50:/layout/content_layout.xml",
+        "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/layout/content_layout.xml"
     },
     {
-        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\content_layout.xml",
-        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\content_layout.xml"
+        "merged": "ru.z8.louttsev.bustrainflightmobile.androidApp-mergeDebugResources-50:/layout/native_ad_view_route.xml",
+        "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/layout/native_ad_view_route.xml"
     },
     {
-        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_travel_tips.xml",
-        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\activity_travel_tips.xml"
+        "merged": "ru.z8.louttsev.bustrainflightmobile.androidApp-mergeDebugResources-50:/layout/item_route_anywhere.xml",
+        "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/layout/item_route_anywhere.xml"
     },
     {
-        "merged": "D:\\Roma\\BusTrainFlight\\androidApp\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\native_ad_view_route.xml",
-        "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\layout\\native_ad_view_route.xml"
+        "merged": "ru.z8.louttsev.bustrainflightmobile.androidApp-mergeDebugResources-50:/layout/activity_main.xml",
+        "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/layout/activity_main.xml"
     }
 ]
