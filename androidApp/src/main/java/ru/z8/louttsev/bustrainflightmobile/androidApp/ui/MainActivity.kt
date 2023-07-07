@@ -43,7 +43,7 @@ import kotlin.text.RegexOption.*
 /**
  * Declares main UI controller.
  */
-class MainActivity : AppCompatActivity() {
+class MainActivity : DrawerBaseActivity() {
     private lateinit var mInputMethodManager: InputMethodManager
 
     private val model: MainViewModel by viewModel()
@@ -76,8 +76,8 @@ class MainActivity : AppCompatActivity() {
         }
         setContentView(binding.root)
 
-        val toolbar = binding.root.findViewById<Toolbar>(R.id.toolBar)
-        setSupportActionBar(toolbar)
+//        val toolbar = binding.root.findViewById<Toolbar>(R.id.toolBar)
+//        setSupportActionBar(toolbar)
 
 //        drawerBaseBinding.root.findViewById<TextView>(R.id.appBarTitle).text = "BusTrainFlight"
 
