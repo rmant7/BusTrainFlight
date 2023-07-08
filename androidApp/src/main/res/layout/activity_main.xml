@@ -87,19 +87,32 @@
                     android:layout_marginTop="20dp"
                     android:text="@string/from_location_input_field_hint" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/origin_input_layout"
-                    style="@style/InputLocationLayoutStyle"
-                    android:layout_marginTop="10dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                    <AutoCompleteTextView
-                        android:id="@+id/origin_text_view"
-                        style="@style/InputLocationEditTextStyle"
-                        tools:text="Muscat" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/origin_input_layout"
+                        style="@style/InputLocationLayoutStyle"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                </com.google.android.material.textfield.TextInputLayout>
+                        <AutoCompleteTextView
+                            android:id="@+id/origin_text_view"
+                            style="@style/InputLocationEditTextStyle"
+                            tools:text="Muscat" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/origin_clear_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|end"
+                        android:layout_marginEnd="24dp"
+                        android:src="@drawable/cancel">
+                    </androidx.appcompat.widget.AppCompatImageView>
+                </FrameLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -124,20 +137,34 @@
                         app:layout_constraintBottom_toTopOf="@id/destination_input_layout" />
                 </LinearLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/destination_input_layout"
-                    style="@style/InputLocationLayoutStyle"
-                    android:layout_marginTop="10dp"
-                    app:helperTextTextColor="@color/error"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/origin_input_layout">
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                    <AutoCompleteTextView
-                        android:id="@+id/destination_text_view"
-                        style="@style/InputLocationEditTextStyle"
-                        tools:text="Abu Dhabi" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/destination_input_layout"
+                        style="@style/InputLocationLayoutStyle"
+                        android:layout_marginTop="10dp"
+                        app:helperTextTextColor="@color/error"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/origin_input_layout">
 
-                </com.google.android.material.textfield.TextInputLayout>
+                        <AutoCompleteTextView
+                            android:id="@+id/destination_text_view"
+                            style="@style/InputLocationEditTextStyle"
+                            tools:text="Abu Dhabi" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/destination_clear_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|end"
+                        android:layout_marginEnd="24dp"
+                        android:src="@drawable/cancel">
+                    </androidx.appcompat.widget.AppCompatImageView>
+                </FrameLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"

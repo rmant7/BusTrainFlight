@@ -2965,6 +2965,7 @@ drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable call
+drawable cancel
 drawable close
 drawable close_button_background
 drawable common_full_open_on_phone
@@ -3290,6 +3291,7 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id destination_clear_icon
 id destination_input_layout
 id destination_main_view
 id destination_text_view
@@ -3479,6 +3481,7 @@ id onAttachStateChangeListener
 id onDateChanged
 id onInterceptTouchReturnSwipe
 id open_indicator
+id origin_clear_icon
 id origin_input_layout
 id origin_text_view
 id outline

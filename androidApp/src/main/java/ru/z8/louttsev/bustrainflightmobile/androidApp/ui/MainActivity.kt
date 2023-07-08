@@ -3,7 +3,6 @@ package ru.z8.louttsev.bustrainflightmobile.androidApp.ui
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.ActivityInfo
-import android.graphics.Point
 import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
@@ -21,13 +20,14 @@ import androidx.appcompat.app.ActionBar.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.IconCompat.IconType
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doBeforeTextChanged
+import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import io.github.aakira.napier.Napier
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -104,12 +104,12 @@ class MainActivity : AppCompatActivity() {
                 false
             )
 
-//            originClearIcon.setOnClickListener {
-//                model.origins.onItemReset()
-//                originTextView.clearText()
-//                originTextView.requestFocus()
-//                mInputMethodManager.showSoftInput(originTextView, SHOW_IMPLICIT)
-//            }
+            originClearIcon.setOnClickListener {
+                model.origins.onItemReset()
+                originTextView.clearText()
+                originTextView.requestFocus()
+                mInputMethodManager.showSoftInput(originTextView, SHOW_IMPLICIT)
+            }
 
             destinationTextView.setup(
                 handler = model.destinations,
@@ -117,12 +117,12 @@ class MainActivity : AppCompatActivity() {
                 true
             )
 
-//            destinationClearIcon.setOnClickListener {
-//                model.destinations.onItemReset()
-//                destinationTextView.clearText()
-//                destinationTextView.requestFocus()
-//                mInputMethodManager.showSoftInput(destinationTextView, SHOW_IMPLICIT)
-//            }
+            destinationClearIcon.setOnClickListener {
+                model.destinations.onItemReset()
+                destinationTextView.clearText()
+                destinationTextView.requestFocus()
+                mInputMethodManager.showSoftInput(destinationTextView, SHOW_IMPLICIT)
+            }
 
             clearButton.setOnClickListener {
                 model.origins.onItemReset()
@@ -138,6 +138,13 @@ class MainActivity : AppCompatActivity() {
                     val destinationLocation = model.destinations.data.value!!.first()
                     val originLocation = model.origins.data.value!!.first()
                     originTextView.setText("")
+                    model.origins.onItemReset()
+                    originTextView.clearText()
+                    model.destinations.onItemReset()
+                    destinationTextView.clearText()
+                    originTextView.requestFocus()
+                    mInputMethodManager.showSoftInput(originTextView, SHOW_IMPLICIT)
+                    mInputMethodManager.showSoftInput(destinationTextView, SHOW_IMPLICIT)
 
                     destinationTextView.setText(originLocation.name)
                     model.destinations.onItemSelected(
@@ -285,6 +292,7 @@ class MainActivity : AppCompatActivity() {
 
         addTextChangedListener { changedEditableText: Editable? ->
             Napier.d("OnTextChanged")
+            Log.d("asdfg", "doBeforeTextChanged")
 
             if (text.toString() != "Anywhere") {
 

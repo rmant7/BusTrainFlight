@@ -22,15 +22,17 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
         sViewsWithIds.put(R.id.textView, 6);
         sViewsWithIds.put(R.id.origin_input_layout, 7);
         sViewsWithIds.put(R.id.origin_text_view, 8);
-        sViewsWithIds.put(R.id.to, 9);
-        sViewsWithIds.put(R.id.reverse, 10);
-        sViewsWithIds.put(R.id.destination_input_layout, 11);
-        sViewsWithIds.put(R.id.destination_text_view, 12);
-        sViewsWithIds.put(R.id.clearButton, 13);
-        sViewsWithIds.put(R.id.goButton, 14);
-        sViewsWithIds.put(R.id.route_list_anywhere_recycler_view, 15);
-        sViewsWithIds.put(R.id.fab, 16);
-        sViewsWithIds.put(R.id.route_list_recycler_view, 17);
+        sViewsWithIds.put(R.id.origin_clear_icon, 9);
+        sViewsWithIds.put(R.id.to, 10);
+        sViewsWithIds.put(R.id.reverse, 11);
+        sViewsWithIds.put(R.id.destination_input_layout, 12);
+        sViewsWithIds.put(R.id.destination_text_view, 13);
+        sViewsWithIds.put(R.id.destination_clear_icon, 14);
+        sViewsWithIds.put(R.id.clearButton, 15);
+        sViewsWithIds.put(R.id.goButton, 16);
+        sViewsWithIds.put(R.id.route_list_anywhere_recycler_view, 17);
+        sViewsWithIds.put(R.id.fab, 18);
+        sViewsWithIds.put(R.id.route_list_recycler_view, 19);
     }
     // views
     // variables
@@ -39,27 +41,29 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     // Inverse Binding Event Handlers
 
     public ActivityMainBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 18, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 20, sIncludes, sViewsWithIds));
     }
     private ActivityMainBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
             , (com.google.android.material.appbar.AppBarLayout) bindings[2]
             , (android.widget.TextView) bindings[4]
-            , (com.google.android.material.button.MaterialButton) bindings[13]
-            , (com.google.android.material.textfield.TextInputLayout) bindings[11]
-            , (android.widget.AutoCompleteTextView) bindings[12]
+            , (com.google.android.material.button.MaterialButton) bindings[15]
+            , (androidx.appcompat.widget.AppCompatImageView) bindings[14]
+            , (com.google.android.material.textfield.TextInputLayout) bindings[12]
+            , (android.widget.AutoCompleteTextView) bindings[13]
             , (android.widget.LinearLayout) bindings[1]
-            , (com.google.android.material.floatingactionbutton.FloatingActionButton) bindings[16]
-            , (com.google.android.material.button.MaterialButton) bindings[14]
+            , (com.google.android.material.floatingactionbutton.FloatingActionButton) bindings[18]
+            , (com.google.android.material.button.MaterialButton) bindings[16]
             , (androidx.core.widget.NestedScrollView) bindings[0]
+            , (androidx.appcompat.widget.AppCompatImageView) bindings[9]
             , (com.google.android.material.textfield.TextInputLayout) bindings[7]
             , (android.widget.AutoCompleteTextView) bindings[8]
-            , (androidx.appcompat.widget.AppCompatImageView) bindings[10]
-            , (androidx.recyclerview.widget.RecyclerView) bindings[15]
+            , (androidx.appcompat.widget.AppCompatImageView) bindings[11]
             , (androidx.recyclerview.widget.RecyclerView) bindings[17]
+            , (androidx.recyclerview.widget.RecyclerView) bindings[19]
             , (android.widget.TextView) bindings[5]
             , (android.widget.TextView) bindings[6]
-            , (android.widget.TextView) bindings[9]
+            , (android.widget.TextView) bindings[10]
             , (androidx.appcompat.widget.Toolbar) bindings[3]
             );
         this.nestedScrollView.setTag(null);

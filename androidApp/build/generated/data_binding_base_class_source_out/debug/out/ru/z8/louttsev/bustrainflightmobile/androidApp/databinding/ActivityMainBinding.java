@@ -36,6 +36,9 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
   public final MaterialButton clearButton;
 
   @NonNull
+  public final AppCompatImageView destinationClearIcon;
+
+  @NonNull
   public final TextInputLayout destinationInputLayout;
 
   @NonNull
@@ -52,6 +55,9 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
 
   @NonNull
   public final NestedScrollView nestedScrollView;
+
+  @NonNull
+  public final AppCompatImageView originClearIcon;
 
   @NonNull
   public final TextInputLayout originInputLayout;
@@ -85,9 +91,10 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
 
   protected ActivityMainBinding(Object _bindingComponent, View _root, int _localFieldCount,
       AppBarLayout appBarLayout, TextView appBarTitle, MaterialButton clearButton,
-      TextInputLayout destinationInputLayout, AutoCompleteTextView destinationTextView,
-      LinearLayout drawerLayout, FloatingActionButton fab, MaterialButton goButton,
-      NestedScrollView nestedScrollView, TextInputLayout originInputLayout,
+      AppCompatImageView destinationClearIcon, TextInputLayout destinationInputLayout,
+      AutoCompleteTextView destinationTextView, LinearLayout drawerLayout, FloatingActionButton fab,
+      MaterialButton goButton, NestedScrollView nestedScrollView,
+      AppCompatImageView originClearIcon, TextInputLayout originInputLayout,
       AutoCompleteTextView originTextView, AppCompatImageView reverse,
       RecyclerView routeListAnywhereRecyclerView, RecyclerView routeListRecyclerView,
       TextView tagline, TextView textView, TextView to, Toolbar toolBar) {
@@ -95,12 +102,14 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
     this.appBarLayout = appBarLayout;
     this.appBarTitle = appBarTitle;
     this.clearButton = clearButton;
+    this.destinationClearIcon = destinationClearIcon;
     this.destinationInputLayout = destinationInputLayout;
     this.destinationTextView = destinationTextView;
     this.drawerLayout = drawerLayout;
     this.fab = fab;
     this.goButton = goButton;
     this.nestedScrollView = nestedScrollView;
+    this.originClearIcon = originClearIcon;
     this.originInputLayout = originInputLayout;
     this.originTextView = originTextView;
     this.reverse = reverse;

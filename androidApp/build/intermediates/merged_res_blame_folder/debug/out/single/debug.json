@@ -304,6 +304,10 @@
         "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/raw/routes.json"
     },
     {
+        "merged": "ru.z8.louttsev.bustrainflightmobile.androidApp-merged_res-51:/drawable_cancel.xml.flat",
+        "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/drawable/cancel.xml"
+    },
+    {
         "merged": "ru.z8.louttsev.bustrainflightmobile.androidApp-merged_res-51:/drawable-xxhdpi_ic_shuttle.png.flat",
         "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/drawable-xxhdpi/ic_shuttle.png"
     },
