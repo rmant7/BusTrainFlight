@@ -329,12 +329,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 )
             }
-            if (binding.originTextView.text.toString().isNotEmpty())
-                binding.originClearIcon.visibility = View.VISIBLE
-            else binding.originClearIcon.visibility = View.GONE
-            if (binding.destinationTextView.text.toString().isNotEmpty())
-                binding.destinationClearIcon.visibility = View.VISIBLE
-            else binding.destinationClearIcon.visibility = View.GONE
+            showButton()
         }
 
         setOnEditorActionListener { _, actionId, _ ->
@@ -522,5 +517,14 @@ class MainActivity : AppCompatActivity() {
     private fun checkForEmptyString(): Boolean {
         return binding.originTextView.text.toString().isNotEmpty() &&
                 binding.destinationTextView.text.toString().isNotEmpty()
+    }
+
+    private fun showButton() {
+        if (binding.originTextView.text.toString().isNotEmpty())
+            binding.originClearIcon.visibility = View.VISIBLE
+        else binding.originClearIcon.visibility = View.GONE
+        if (binding.destinationTextView.text.toString().isNotEmpty())
+            binding.destinationClearIcon.visibility = View.VISIBLE
+        else binding.destinationClearIcon.visibility = View.GONE
     }
 }
