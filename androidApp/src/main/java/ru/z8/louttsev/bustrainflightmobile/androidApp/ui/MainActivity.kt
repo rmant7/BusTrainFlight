@@ -21,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doAfterTextChanged
 import androidx.core.widget.doBeforeTextChanged
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
@@ -285,14 +286,23 @@ class MainActivity : AppCompatActivity() {
         )
 
         doBeforeTextChanged { _, _, count, after ->
+            Log.d("asdfg", "doBeforeTextChanged")
             Napier.d("OnBeforeTextChanged")
             handler.isBeingBackspaced = after < count
             handler.wasSelected = handler.isItemSelected()
         }
 
+        doAfterTextChanged { changedEditableText: Editable? ->
+            if (checkForEmptyString() && !checkForCoincidenceOfPoints() &&
+                binding.originTextView.text.toString() != "Anywhere"
+            )
+                binding.reverse.visibility = View.VISIBLE
+            else binding.reverse.visibility = View.GONE
+        }
+
         addTextChangedListener { changedEditableText: Editable? ->
             Napier.d("OnTextChanged")
-            Log.d("asdfg", "doBeforeTextChanged")
+            Log.d("asdfg", "addTextChangedListener")
 
             if (text.toString() != "Anywhere") {
 
@@ -319,6 +329,12 @@ class MainActivity : AppCompatActivity() {
                     }
                 )
             }
+            if (binding.originTextView.text.toString().isNotEmpty())
+                binding.originClearIcon.visibility = View.VISIBLE
+            else binding.originClearIcon.visibility = View.GONE
+            if (binding.destinationTextView.text.toString().isNotEmpty())
+                binding.destinationClearIcon.visibility = View.VISIBLE
+            else binding.destinationClearIcon.visibility = View.GONE
         }
 
         setOnEditorActionListener { _, actionId, _ ->

@@ -110,8 +110,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center|end"
                         android:layout_marginEnd="24dp"
-                        android:src="@drawable/cancel">
-                    </androidx.appcompat.widget.AppCompatImageView>
+                        android:src="@drawable/cancel"
+                        android:visibility="invisible"></androidx.appcompat.widget.AppCompatImageView>
                 </FrameLayout>
 
                 <LinearLayout
@@ -134,6 +134,7 @@
                         android:layout_height="32dp"
                         android:layout_weight="1"
                         android:src="@drawable/reverse"
+                        android:visibility="invisible"
                         app:layout_constraintBottom_toTopOf="@id/destination_input_layout" />
                 </LinearLayout>
 
@@ -162,8 +163,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center|end"
                         android:layout_marginEnd="24dp"
-                        android:src="@drawable/cancel">
-                    </androidx.appcompat.widget.AppCompatImageView>
+                        android:src="@drawable/cancel"
+                        android:visibility="invisible"></androidx.appcompat.widget.AppCompatImageView>
                 </FrameLayout>
 
                 <LinearLayout
