@@ -1,5 +1,6 @@
 package ru.z8.louttsev.bustrainflightmobile.androidApp.ui
 
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -9,6 +10,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
+import io.github.aakira.napier.Napier
 import ru.z8.louttsev.bustrainflightmobile.androidApp.R
 import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ActivityDrawerBaseBinding
 
@@ -56,21 +58,38 @@ open class DrawerBaseActivity : AppCompatActivity() {
         }
     }
 
+    fun telegramIntent(): Intent {
+        val pageId = "bustrainflightferry"
+        var intent: Intent? = null
+        try {
+            try {
+                applicationContext.packageManager.getPackageInfo("org.telegram.messenger", 0)//Check for Telegram Messenger App
+            } catch (e : Exception){
+                applicationContext.packageManager.getPackageInfo("org.thunderdog.challegram", 0)//Check for Telegram X App
+            }
+            intent = Intent(Intent.ACTION_VIEW, Uri.parse("tg://resolve?domain=${pageId}"))
+        }catch (e : Exception){ //App not found open in browser
+            intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.telegram.me/$pageId"))
+        }
+        return intent!!
+    }
+
     private fun openBudgetTravelTips() {
         // Open Telegram
         val telegramAppPackage = "org.telegram.messenger"
         val telegramChannelUri = "https://t.me/bustrainflightferry"
         val telegramIntent = Intent(Intent.ACTION_VIEW, Uri.parse(telegramChannelUri))
+//        val telegramIntent = telegramIntent()
         telegramIntent.setPackage(telegramAppPackage)
 
         val packageManager = applicationContext.packageManager
         val activities =
             packageManager.queryIntentActivities(telegramIntent, PackageManager.MATCH_DEFAULT_ONLY)
 
+        Napier.d(activities.toString())
         if (activities.isNotEmpty()) {
             startActivity(telegramIntent)
         } else {
-
             val facebookAppPackage = "com.facebook.katana"
             val facebookPageUri = "fb://facewebmodal/f?href=https://m.facebook.com/cheaptripguru"
             val facebookIntent = Intent(Intent.ACTION_VIEW, Uri.parse(facebookPageUri))
@@ -82,6 +101,7 @@ open class DrawerBaseActivity : AppCompatActivity() {
                 PackageManager.MATCH_DEFAULT_ONLY
             )
 
+            Napier.d("$activities")
             if (activities.isNotEmpty()) {
                 startActivity(facebookIntent)
             } else {
