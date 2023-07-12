@@ -224,10 +224,6 @@
         "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/drawable/ic_arrow_up.png"
     },
     {
-        "merged": "ru.z8.louttsev.bustrainflightmobile.androidApp-merged_res-51:/drawable_reverse.png.flat",
-        "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/drawable/reverse.png"
-    },
-    {
         "merged": "ru.z8.louttsev.bustrainflightmobile.androidApp-merged_res-51:/drawable-xxhdpi_ic_bus.png.flat",
         "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/drawable-xxhdpi/ic_bus.png"
     },
@@ -326,6 +322,10 @@
     {
         "merged": "ru.z8.louttsev.bustrainflightmobile.androidApp-merged_res-51:/drawable-xxhdpi_ic_clear.png.flat",
         "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/drawable-xxhdpi/ic_clear.png"
+    },
+    {
+        "merged": "ru.z8.louttsev.bustrainflightmobile.androidApp-merged_res-51:/drawable_reverse.xml.flat",
+        "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/drawable/reverse.xml"
     },
     {
         "merged": "ru.z8.louttsev.bustrainflightmobile.androidApp-merged_res-51:/font_roboto_condensed_regular.xml.flat",
