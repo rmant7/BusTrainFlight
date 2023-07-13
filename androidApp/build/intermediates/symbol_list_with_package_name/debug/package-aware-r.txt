@@ -3101,6 +3101,7 @@ drawable notify_panel_notification_icon_bg
 drawable orange_button_background
 drawable path_item_background
 drawable reverse
+drawable reverse_svg
 drawable ripple_mobile_icon
 drawable ripple_telegram_icon
 drawable ripple_whatsapp_icon

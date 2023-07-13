@@ -1,9 +1,6 @@
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="1000dp"
-    android:height="1000dp"
-    android:viewportWidth="1000"
-    android:viewportHeight="1000">
-  <path
-      android:pathData="M749.6,338h34.6v98.6L990,260.2L784.2,83.8v117h-34.6c-181,0 -283.1,134.1 -373.1,252.5c-81,106.4 -150.9,198.3 -263.9,198.3H10v137.2h102.6c181,0 283.1,-134.1 373.1,-252.5C566.6,429.9 636.6,338 749.6,338zM275.1,424.4c7.7,-10 15.5,-20.2 23.3,-30.5c19.1,-25.2 39.4,-51.7 61.3,-78.2C295.1,255.2 217,210.6 112.6,210.6H10v137.2h102.6C177.6,347.8 228.3,378.3 275.1,424.4zM784.2,661.4h-34.6c-69,0 -121.9,-34.3 -171,-85.2c-4.9,6.4 -9.9,12.9 -14.9,19.5c-21.6,28.4 -44.9,58.9 -70.5,89c66.5,64.9 147,113.9 256.4,113.9h34.6v117.6L990,739.8L784.2,563.4V661.4z"
-      android:fillColor="#888888"/>
-</vector>
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?attr/colorControlHighlight">
+    <item android:drawable="@drawable/reverse_svg"/>
+
+</ripple>

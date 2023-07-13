@@ -6,503 +6,503 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml
+8-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="33" />
-9-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml
+9-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:5:5-67
-11-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:5:22-64
+11-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:5:5-67
+11-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:5:22-64
 12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-12-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:6:5-79
-12-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:6:22-76
+12-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:6:5-79
+12-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:6:22-76
 13    <uses-permission android:name="android.permission.CALL_PHONE" />
-13-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:7:5-69
-13-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:7:22-66
+13-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:7:5-69
+13-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:7:22-66
 14
 15    <!-- To obtain Google Advertising Identifier on Android 12 and higher -->
 16    <uses-permission android:name="com.google.android.gms.permission.AD_ID" /> <!-- Android package visibility setting -->
-16-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:23:5-79
-16-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:23:22-76
+16-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:23:5-79
+16-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:23:22-76
 17    <queries>
-17-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:32:5-48:15
+17-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:32:5-48:15
 18
 19        <!-- For browser content -->
 20        <intent>
-20-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:35:9-41:18
+20-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:35:9-41:18
 21            <action android:name="android.intent.action.VIEW" />
-21-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:36:13-65
-21-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:36:21-62
+21-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:36:13-65
+21-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:36:21-62
 22
 23            <category android:name="android.intent.category.BROWSABLE" />
-23-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:38:13-74
-23-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:38:23-71
+23-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:38:13-74
+23-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:38:23-71
 24
 25            <data android:scheme="https" />
-25-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:38:17-50
-25-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:38:23-47
+25-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:38:17-50
+25-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:38:23-47
 26        </intent>
 27        <!-- End of browser content -->
 28        <!-- For CustomTabsService -->
 29        <intent>
-29-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:44:9-46:18
+29-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:44:9-46:18
 30            <action android:name="android.support.customtabs.action.CustomTabsService" />
-30-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:45:13-90
-30-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:45:21-87
+30-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:45:13-90
+30-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:45:21-87
 31        </intent>
 32        <!-- End of CustomTabsService -->
 33    </queries>
 34
 35    <uses-permission android:name="android.permission.WAKE_LOCK" />
-35-->[com.google.android.gms:play-services-measurement-sdk-api:20.1.2] /home/jeka/.gradle/caches/transforms-3/5319081e84d1c99fc439db9dae3f37cf/transformed/play-services-measurement-sdk-api-20.1.2/AndroidManifest.xml:25:5-68
-35-->[com.google.android.gms:play-services-measurement-sdk-api:20.1.2] /home/jeka/.gradle/caches/transforms-3/5319081e84d1c99fc439db9dae3f37cf/transformed/play-services-measurement-sdk-api-20.1.2/AndroidManifest.xml:25:22-65
+35-->[com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\USER\.gradle\caches\transforms-3\5319081e84d1c99fc439db9dae3f37cf\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:25:5-68
+35-->[com.google.android.gms:play-services-measurement-sdk-api:20.1.2] C:\Users\USER\.gradle\caches\transforms-3\5319081e84d1c99fc439db9dae3f37cf\transformed\play-services-measurement-sdk-api-20.1.2\AndroidManifest.xml:25:22-65
 36    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-36-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:28:5-77
-36-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:28:22-74
+36-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:28:5-77
+36-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:28:22-74
 37
 38    <permission
-38-->[androidx.core:core:1.9.0] /home/jeka/.gradle/caches/transforms-3/513ce5838f81a8655b6e75bc45b492cf/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+38-->[androidx.core:core:1.9.0] C:\Users\USER\.gradle\caches\transforms-3\513ce5838f81a8655b6e75bc45b492cf\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
 39        android:name="ru.z8.louttsev.bustrainflightmobile.androidApp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-39-->[androidx.core:core:1.9.0] /home/jeka/.gradle/caches/transforms-3/513ce5838f81a8655b6e75bc45b492cf/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+39-->[androidx.core:core:1.9.0] C:\Users\USER\.gradle\caches\transforms-3\513ce5838f81a8655b6e75bc45b492cf\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
 40        android:protectionLevel="signature" />
-40-->[androidx.core:core:1.9.0] /home/jeka/.gradle/caches/transforms-3/513ce5838f81a8655b6e75bc45b492cf/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+40-->[androidx.core:core:1.9.0] C:\Users\USER\.gradle\caches\transforms-3\513ce5838f81a8655b6e75bc45b492cf\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
 41
 42    <uses-permission android:name="ru.z8.louttsev.bustrainflightmobile.androidApp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-42-->[androidx.core:core:1.9.0] /home/jeka/.gradle/caches/transforms-3/513ce5838f81a8655b6e75bc45b492cf/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
-42-->[androidx.core:core:1.9.0] /home/jeka/.gradle/caches/transforms-3/513ce5838f81a8655b6e75bc45b492cf/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+42-->[androidx.core:core:1.9.0] C:\Users\USER\.gradle\caches\transforms-3\513ce5838f81a8655b6e75bc45b492cf\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+42-->[androidx.core:core:1.9.0] C:\Users\USER\.gradle\caches\transforms-3\513ce5838f81a8655b6e75bc45b492cf\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 43    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
-43-->[com.android.installreferrer:installreferrer:2.2] /home/jeka/.gradle/caches/transforms-3/3783aeb758a268325fd6700dc246d23c/transformed/installreferrer-2.2/AndroidManifest.xml:9:5-110
-43-->[com.android.installreferrer:installreferrer:2.2] /home/jeka/.gradle/caches/transforms-3/3783aeb758a268325fd6700dc246d23c/transformed/installreferrer-2.2/AndroidManifest.xml:9:22-107
+43-->[com.android.installreferrer:installreferrer:2.2] C:\Users\USER\.gradle\caches\transforms-3\3783aeb758a268325fd6700dc246d23c\transformed\installreferrer-2.2\AndroidManifest.xml:9:5-110
+43-->[com.android.installreferrer:installreferrer:2.2] C:\Users\USER\.gradle\caches\transforms-3\3783aeb758a268325fd6700dc246d23c\transformed\installreferrer-2.2\AndroidManifest.xml:9:22-107
 44
 45    <application
-45-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:9:5-44:19
+45-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:9:5-44:19
 46        android:name="ru.z8.louttsev.bustrainflightmobile.androidApp.App"
-46-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:10:9-28
+46-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:10:9-28
 47        android:allowBackup="false"
-47-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:11:9-36
+47-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:11:9-36
 48        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-48-->[androidx.core:core:1.9.0] /home/jeka/.gradle/caches/transforms-3/513ce5838f81a8655b6e75bc45b492cf/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+48-->[androidx.core:core:1.9.0] C:\Users\USER\.gradle\caches\transforms-3\513ce5838f81a8655b6e75bc45b492cf\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
 49        android:debuggable="true"
 50        android:icon="@mipmap/ic_launcher"
-50-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:12:9-43
+50-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:12:9-43
 51        android:label="@string/app_name"
-51-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:13:9-41
+51-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:13:9-41
 52        android:roundIcon="@mipmap/ic_launcher_round"
-52-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:14:9-54
+52-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:14:9-54
 53        android:supportsRtl="false"
-53-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:15:9-36
+53-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:15:9-36
 54        android:theme="@style/AppTheme" >
-54-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:16:9-40
+54-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:16:9-40
 55        <activity
-55-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:17:9-19:40
+55-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:17:9-19:40
 56            android:name="ru.z8.louttsev.bustrainflightmobile.androidApp.ui.ContactsActivity"
-56-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:18:13-48
+56-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:18:13-48
 57            android:exported="false" />
-57-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:19:13-37
+57-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:19:13-37
 58        <activity
-58-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:20:9-22:40
+58-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:20:9-22:40
 59            android:name="ru.z8.louttsev.bustrainflightmobile.androidApp.ui.TravelTipsActivity"
-59-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:21:13-50
+59-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:21:13-50
 60            android:exported="false" />
-60-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:22:13-37
+60-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:22:13-37
 61        <activity
-61-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:23:9-25:40
+61-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:23:9-25:40
 62            android:name="ru.z8.louttsev.bustrainflightmobile.androidApp.ui.DrawerBaseActivity"
-62-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:24:13-50
+62-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:24:13-50
 63            android:exported="false" />
-63-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:25:13-37
+63-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:25:13-37
 64        <activity
-64-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:26:9-36:20
+64-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:26:9-36:20
 65            android:name="ru.z8.louttsev.bustrainflightmobile.androidApp.ui.MainActivity"
-65-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:27:13-44
+65-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:27:13-44
 66            android:exported="true"
-66-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:28:13-36
+66-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:28:13-36
 67            android:theme="@style/AppTheme.Launcher"
-67-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:29:13-53
+67-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:29:13-53
 68            android:windowSoftInputMode="stateVisible|adjustPan" >
-68-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:30:13-65
+68-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:30:13-65
 69            <intent-filter>
-69-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:31:13-35:29
+69-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:31:13-35:29
 70                <action android:name="android.intent.action.MAIN" />
-70-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:32:17-69
-70-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:32:25-66
+70-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:32:17-69
+70-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:32:25-66
 71
 72                <category android:name="android.intent.category.LAUNCHER" />
-72-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:34:17-77
-72-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:34:27-74
+72-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:34:17-77
+72-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:34:27-74
 73            </intent-filter>
 74        </activity>
 75
 76        <meta-data
-76-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:38:9-40:57
+76-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:38:9-40:57
 77            android:name="preloaded_fonts"
-77-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:39:13-43
+77-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:39:13-43
 78            android:resource="@array/preloaded_fonts" />
-78-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:40:13-54
+78-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:40:13-54
 79        <meta-data
-79-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:41:9-43:70
+79-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:41:9-43:70
 80            android:name="com.google.android.gms.ads.APPLICATION_ID"
-80-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:42:13-69
+80-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:42:13-69
 81            android:value="ca-app-pub-7574006463043131~2781587064" />
-81-->/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/AndroidManifest.xml:43:13-67
+81-->D:\Roma\BusTrainFlight\androidApp\src\main\AndroidManifest.xml:43:13-67
 82        <!-- Yandex Mobile Metrica Analytics: common service -->
 83        <service
-83-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:28:9-44:19
+83-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:28:9-44:19
 84            android:name="com.yandex.metrica.MetricaService"
-84-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:29:13-61
+84-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:29:13-61
 85            android:enabled="true"
-85-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:30:13-35
+85-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:30:13-35
 86            android:exported="false"
-86-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:31:13-37
+86-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:31:13-37
 87            android:process=":Metrica" >
-87-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:32:13-39
+87-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:32:13-39
 88            <intent-filter>
-88-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:33:13-39:29
+88-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:33:13-39:29
 89                <category android:name="android.intent.category.DEFAULT" />
-89-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:34:17-76
-89-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:34:27-73
+89-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:34:17-76
+89-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:34:27-73
 90
 91                <action android:name="com.yandex.metrica.IMetricaService" />
-91-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:36:17-77
-91-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:36:25-74
+91-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:36:17-77
+91-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:36:25-74
 92
 93                <data android:scheme="metrica" />
-93-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:38:17-50
-93-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:38:23-47
+93-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:38:17-50
+93-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:38:23-47
 94            </intent-filter>
 95
 96            <meta-data
-96-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:41:13-43:39
+96-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:41:13-43:39
 97                android:name="metrica:api:level"
-97-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:42:17-49
+97-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:42:17-49
 98                android:value="106" />
-98-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:43:17-36
+98-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:43:17-36
 99        </service> <!-- To track preinstallations -->
 100        <provider
-100-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:47:9-53:54
+100-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:47:9-53:54
 101            android:name="com.yandex.metrica.PreloadInfoContentProvider"
-101-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:48:13-73
+101-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:48:13-73
 102            android:authorities="ru.z8.louttsev.bustrainflightmobile.androidApp.appmetrica.preloadinfo.retail"
-102-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:49:13-81
+102-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:49:13-81
 103            android:enabled="true"
-103-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:50:13-35
+103-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:50:13-35
 104            android:exported="true"
-104-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:51:13-36
+104-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:51:13-36
 105            android:process=":Metrica" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
-105-->[com.yandex.android:mobmetricalib:5.3.0] /home/jeka/.gradle/caches/transforms-3/bbb148a7d8d6c4083dfa00758296598f/transformed/mobmetricalib-5.3.0/AndroidManifest.xml:52:13-39
+105-->[com.yandex.android:mobmetricalib:5.3.0] C:\Users\USER\.gradle\caches\transforms-3\bbb148a7d8d6c4083dfa00758296598f\transformed\mobmetricalib-5.3.0\AndroidManifest.xml:52:13-39
 106        <activity
-106-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:53:9-58:43
+106-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:53:9-58:43
 107            android:name="com.google.android.gms.ads.AdActivity"
-107-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:54:13-65
+107-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:54:13-65
 108            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-108-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:55:13-122
+108-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:55:13-122
 109            android:exported="false"
-109-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:56:13-37
+109-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:56:13-37
 110            android:theme="@android:style/Theme.Translucent" />
-110-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:57:13-61
+110-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:57:13-61
 111
 112        <provider
-112-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:60:9-65:43
+112-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:60:9-65:43
 113            android:name="com.google.android.gms.ads.MobileAdsInitProvider"
-113-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:61:13-76
+113-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:61:13-76
 114            android:authorities="ru.z8.louttsev.bustrainflightmobile.androidApp.mobileadsinitprovider"
-114-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:62:13-73
+114-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:62:13-73
 115            android:exported="false"
-115-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:63:13-37
+115-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:63:13-37
 116            android:initOrder="100" />
-116-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:64:13-36
+116-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:64:13-36
 117
 118        <service
-118-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:67:9-71:43
+118-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:67:9-71:43
 119            android:name="com.google.android.gms.ads.AdService"
-119-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:68:13-64
+119-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:68:13-64
 120            android:enabled="true"
-120-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:69:13-35
+120-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:69:13-35
 121            android:exported="false" />
-121-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:70:13-37
+121-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:70:13-37
 122
 123        <activity
-123-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:73:9-77:43
+123-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:73:9-77:43
 124            android:name="com.google.android.gms.ads.OutOfContextTestingActivity"
-124-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:74:13-82
+124-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:74:13-82
 125            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-125-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:75:13-122
+125-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:75:13-122
 126            android:exported="false" />
-126-->[com.google.android.gms:play-services-ads-lite:22.2.0] /home/jeka/.gradle/caches/transforms-3/c43f96fbd2324e402f773995c5376863/transformed/play-services-ads-lite-22.2.0/AndroidManifest.xml:76:13-37
+126-->[com.google.android.gms:play-services-ads-lite:22.2.0] C:\Users\USER\.gradle\caches\transforms-3\c43f96fbd2324e402f773995c5376863\transformed\play-services-ads-lite-22.2.0\AndroidManifest.xml:76:13-37
 127        <activity
-127-->[com.google.android.gms:play-services-base:18.0.1] /home/jeka/.gradle/caches/transforms-3/3c1ff5c8cc8a589b16defad7fbbf5815/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+127-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\USER\.gradle\caches\transforms-3\3c1ff5c8cc8a589b16defad7fbbf5815\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
 128            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-128-->[com.google.android.gms:play-services-base:18.0.1] /home/jeka/.gradle/caches/transforms-3/3c1ff5c8cc8a589b16defad7fbbf5815/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+128-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\USER\.gradle\caches\transforms-3\3c1ff5c8cc8a589b16defad7fbbf5815\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:19-85
 129            android:exported="false"
-129-->[com.google.android.gms:play-services-base:18.0.1] /home/jeka/.gradle/caches/transforms-3/3c1ff5c8cc8a589b16defad7fbbf5815/transformed/play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+129-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\USER\.gradle\caches\transforms-3\3c1ff5c8cc8a589b16defad7fbbf5815\transformed\play-services-base-18.0.1\AndroidManifest.xml:22:19-43
 130            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-130-->[com.google.android.gms:play-services-base:18.0.1] /home/jeka/.gradle/caches/transforms-3/3c1ff5c8cc8a589b16defad7fbbf5815/transformed/play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+130-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\USER\.gradle\caches\transforms-3\3c1ff5c8cc8a589b16defad7fbbf5815\transformed\play-services-base-18.0.1\AndroidManifest.xml:21:19-78
 131
 132        <meta-data
-132-->[com.google.android.gms:play-services-basement:18.0.0] /home/jeka/.gradle/caches/transforms-3/f8f019aec179fdc5c19eb490dcafa955/transformed/play-services-basement-18.0.0/AndroidManifest.xml:21:9-23:69
+132-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\USER\.gradle\caches\transforms-3\f8f019aec179fdc5c19eb490dcafa955\transformed\play-services-basement-18.0.0\AndroidManifest.xml:21:9-23:69
 133            android:name="com.google.android.gms.version"
-133-->[com.google.android.gms:play-services-basement:18.0.0] /home/jeka/.gradle/caches/transforms-3/f8f019aec179fdc5c19eb490dcafa955/transformed/play-services-basement-18.0.0/AndroidManifest.xml:22:13-58
+133-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\USER\.gradle\caches\transforms-3\f8f019aec179fdc5c19eb490dcafa955\transformed\play-services-basement-18.0.0\AndroidManifest.xml:22:13-58
 134            android:value="@integer/google_play_services_version" />
-134-->[com.google.android.gms:play-services-basement:18.0.0] /home/jeka/.gradle/caches/transforms-3/f8f019aec179fdc5c19eb490dcafa955/transformed/play-services-basement-18.0.0/AndroidManifest.xml:23:13-66
+134-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\USER\.gradle\caches\transforms-3\f8f019aec179fdc5c19eb490dcafa955\transformed\play-services-basement-18.0.0\AndroidManifest.xml:23:13-66
 135
 136        <provider
-136-->[androidx.emoji2:emoji2:1.2.0] /home/jeka/.gradle/caches/transforms-3/2a8bca12c200d8a0cdabf14aa89eb5a4/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+136-->[androidx.emoji2:emoji2:1.2.0] C:\Users\USER\.gradle\caches\transforms-3\2a8bca12c200d8a0cdabf14aa89eb5a4\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
 137            android:name="androidx.startup.InitializationProvider"
-137-->[androidx.emoji2:emoji2:1.2.0] /home/jeka/.gradle/caches/transforms-3/2a8bca12c200d8a0cdabf14aa89eb5a4/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+137-->[androidx.emoji2:emoji2:1.2.0] C:\Users\USER\.gradle\caches\transforms-3\2a8bca12c200d8a0cdabf14aa89eb5a4\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
 138            android:authorities="ru.z8.louttsev.bustrainflightmobile.androidApp.androidx-startup"
-138-->[androidx.emoji2:emoji2:1.2.0] /home/jeka/.gradle/caches/transforms-3/2a8bca12c200d8a0cdabf14aa89eb5a4/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+138-->[androidx.emoji2:emoji2:1.2.0] C:\Users\USER\.gradle\caches\transforms-3\2a8bca12c200d8a0cdabf14aa89eb5a4\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
 139            android:exported="false" >
-139-->[androidx.emoji2:emoji2:1.2.0] /home/jeka/.gradle/caches/transforms-3/2a8bca12c200d8a0cdabf14aa89eb5a4/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+139-->[androidx.emoji2:emoji2:1.2.0] C:\Users\USER\.gradle\caches\transforms-3\2a8bca12c200d8a0cdabf14aa89eb5a4\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
 140            <meta-data
-140-->[androidx.emoji2:emoji2:1.2.0] /home/jeka/.gradle/caches/transforms-3/2a8bca12c200d8a0cdabf14aa89eb5a4/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+140-->[androidx.emoji2:emoji2:1.2.0] C:\Users\USER\.gradle\caches\transforms-3\2a8bca12c200d8a0cdabf14aa89eb5a4\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
 141                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-141-->[androidx.emoji2:emoji2:1.2.0] /home/jeka/.gradle/caches/transforms-3/2a8bca12c200d8a0cdabf14aa89eb5a4/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+141-->[androidx.emoji2:emoji2:1.2.0] C:\Users\USER\.gradle\caches\transforms-3\2a8bca12c200d8a0cdabf14aa89eb5a4\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
 142                android:value="androidx.startup" />
-142-->[androidx.emoji2:emoji2:1.2.0] /home/jeka/.gradle/caches/transforms-3/2a8bca12c200d8a0cdabf14aa89eb5a4/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+142-->[androidx.emoji2:emoji2:1.2.0] C:\Users\USER\.gradle\caches\transforms-3\2a8bca12c200d8a0cdabf14aa89eb5a4\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
 143            <meta-data
-143-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:36:13-38:52
+143-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:36:13-38:52
 144                android:name="androidx.work.WorkManagerInitializer"
-144-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:37:17-68
+144-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:37:17-68
 145                android:value="androidx.startup" />
-145-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:38:17-49
+145-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:38:17-49
 146            <meta-data
-146-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/jeka/.gradle/caches/transforms-3/7f898d439ad8450e6b76bc3340b007ee/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
+146-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\USER\.gradle\caches\transforms-3\7f898d439ad8450e6b76bc3340b007ee\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
 147                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-147-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/jeka/.gradle/caches/transforms-3/7f898d439ad8450e6b76bc3340b007ee/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
+147-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\USER\.gradle\caches\transforms-3\7f898d439ad8450e6b76bc3340b007ee\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
 148                android:value="androidx.startup" />
-148-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/jeka/.gradle/caches/transforms-3/7f898d439ad8450e6b76bc3340b007ee/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
+148-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\USER\.gradle\caches\transforms-3\7f898d439ad8450e6b76bc3340b007ee\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
 149            <meta-data
-149-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/jeka/.gradle/caches/transforms-3/67debf25f9a077053e8640e6f6d02b74/transformed/profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+149-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\USER\.gradle\caches\transforms-3\67debf25f9a077053e8640e6f6d02b74\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
 150                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-150-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/jeka/.gradle/caches/transforms-3/67debf25f9a077053e8640e6f6d02b74/transformed/profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+150-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\USER\.gradle\caches\transforms-3\67debf25f9a077053e8640e6f6d02b74\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
 151                android:value="androidx.startup" />
-151-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/jeka/.gradle/caches/transforms-3/67debf25f9a077053e8640e6f6d02b74/transformed/profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+151-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\USER\.gradle\caches\transforms-3\67debf25f9a077053e8640e6f6d02b74\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
 152        </provider>
 153
 154        <service
-154-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:41:9-46:35
+154-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:41:9-46:35
 155            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
-155-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:42:13-88
+155-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:42:13-88
 156            android:directBootAware="false"
-156-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:43:13-44
+156-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:43:13-44
 157            android:enabled="@bool/enable_system_alarm_service_default"
-157-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:44:13-72
+157-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:44:13-72
 158            android:exported="false" />
-158-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:45:13-37
+158-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:45:13-37
 159        <service
-159-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:47:9-53:35
+159-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:47:9-53:35
 160            android:name="androidx.work.impl.background.systemjob.SystemJobService"
-160-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:48:13-84
+160-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:48:13-84
 161            android:directBootAware="false"
-161-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:49:13-44
+161-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:49:13-44
 162            android:enabled="@bool/enable_system_job_service_default"
-162-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:50:13-70
+162-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:50:13-70
 163            android:exported="true"
-163-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:51:13-36
+163-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:51:13-36
 164            android:permission="android.permission.BIND_JOB_SERVICE" />
-164-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:52:13-69
+164-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:52:13-69
 165        <service
-165-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:54:9-59:35
+165-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:54:9-59:35
 166            android:name="androidx.work.impl.foreground.SystemForegroundService"
-166-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:55:13-81
+166-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:55:13-81
 167            android:directBootAware="false"
-167-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:56:13-44
+167-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:56:13-44
 168            android:enabled="@bool/enable_system_foreground_service_default"
-168-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:57:13-77
+168-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:57:13-77
 169            android:exported="false" />
-169-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:58:13-37
+169-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:58:13-37
 170
 171        <receiver
-171-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:61:9-66:35
+171-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:61:9-66:35
 172            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
-172-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:62:13-88
+172-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:62:13-88
 173            android:directBootAware="false"
-173-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:63:13-44
+173-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:63:13-44
 174            android:enabled="true"
-174-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:64:13-35
+174-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:64:13-35
 175            android:exported="false" />
-175-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:65:13-37
+175-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:65:13-37
 176        <receiver
-176-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:67:9-77:20
+176-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:67:9-77:20
 177            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
-177-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:68:13-106
+177-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:68:13-106
 178            android:directBootAware="false"
-178-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:69:13-44
+178-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:69:13-44
 179            android:enabled="false"
-179-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:70:13-36
+179-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:70:13-36
 180            android:exported="false" >
-180-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:71:13-37
+180-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:71:13-37
 181            <intent-filter>
-181-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:73:13-76:29
+181-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:73:13-76:29
 182                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-182-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:74:17-87
-182-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:74:25-84
+182-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:74:17-87
+182-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:74:25-84
 183                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-183-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:75:17-90
-183-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:75:25-87
+183-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:75:17-90
+183-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:75:25-87
 184            </intent-filter>
 185        </receiver>
 186        <receiver
-186-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:78:9-88:20
+186-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:78:9-88:20
 187            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
-187-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:79:13-104
+187-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:79:13-104
 188            android:directBootAware="false"
-188-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:80:13-44
+188-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:80:13-44
 189            android:enabled="false"
-189-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:81:13-36
+189-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:81:13-36
 190            android:exported="false" >
-190-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:82:13-37
+190-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:82:13-37
 191            <intent-filter>
-191-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:84:13-87:29
+191-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:84:13-87:29
 192                <action android:name="android.intent.action.BATTERY_OKAY" />
-192-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:85:17-77
-192-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:85:25-74
+192-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:85:17-77
+192-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:85:25-74
 193                <action android:name="android.intent.action.BATTERY_LOW" />
-193-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:86:17-76
-193-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:86:25-73
+193-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:86:17-76
+193-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:86:25-73
 194            </intent-filter>
 195        </receiver>
 196        <receiver
-196-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:89:9-99:20
+196-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:89:9-99:20
 197            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
-197-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:90:13-104
+197-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:90:13-104
 198            android:directBootAware="false"
-198-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:91:13-44
+198-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:91:13-44
 199            android:enabled="false"
-199-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:92:13-36
+199-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:92:13-36
 200            android:exported="false" >
-200-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:93:13-37
+200-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:93:13-37
 201            <intent-filter>
-201-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:95:13-98:29
+201-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:95:13-98:29
 202                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
-202-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:96:17-83
-202-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:96:25-80
+202-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:96:17-83
+202-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:96:25-80
 203                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
-203-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:97:17-82
-203-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:97:25-79
+203-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:97:17-82
+203-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:97:25-79
 204            </intent-filter>
 205        </receiver>
 206        <receiver
-206-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:100:9-109:20
+206-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:100:9-109:20
 207            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
-207-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:101:13-103
+207-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:101:13-103
 208            android:directBootAware="false"
-208-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:102:13-44
+208-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:102:13-44
 209            android:enabled="false"
-209-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:103:13-36
+209-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:103:13-36
 210            android:exported="false" >
-210-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:104:13-37
+210-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:104:13-37
 211            <intent-filter>
-211-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:106:13-108:29
+211-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:106:13-108:29
 212                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-212-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:107:17-79
-212-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:107:25-76
+212-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:107:17-79
+212-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:107:25-76
 213            </intent-filter>
 214        </receiver>
 215        <receiver
-215-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:110:9-121:20
+215-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:110:9-121:20
 216            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
-216-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:111:13-88
+216-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:111:13-88
 217            android:directBootAware="false"
-217-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:112:13-44
+217-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:112:13-44
 218            android:enabled="false"
-218-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:113:13-36
+218-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:113:13-36
 219            android:exported="false" >
-219-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:114:13-37
+219-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:114:13-37
 220            <intent-filter>
-220-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:116:13-120:29
+220-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:116:13-120:29
 221                <action android:name="android.intent.action.BOOT_COMPLETED" />
-221-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:117:17-79
-221-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:117:25-76
+221-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:117:17-79
+221-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:117:25-76
 222                <action android:name="android.intent.action.TIME_SET" />
-222-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:118:17-73
-222-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:118:25-70
+222-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:118:17-73
+222-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:118:25-70
 223                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
-223-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:119:17-81
-223-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:119:25-78
+223-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:119:17-81
+223-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:119:25-78
 224            </intent-filter>
 225        </receiver>
 226        <receiver
-226-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:122:9-131:20
+226-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:122:9-131:20
 227            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
-227-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:123:13-99
+227-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:123:13-99
 228            android:directBootAware="false"
-228-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:124:13-44
+228-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:124:13-44
 229            android:enabled="@bool/enable_system_alarm_service_default"
-229-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:125:13-72
+229-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:125:13-72
 230            android:exported="false" >
-230-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:126:13-37
+230-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:126:13-37
 231            <intent-filter>
-231-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:128:13-130:29
+231-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:128:13-130:29
 232                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
-232-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:129:17-98
-232-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:129:25-95
+232-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:129:17-98
+232-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:129:25-95
 233            </intent-filter>
 234        </receiver>
 235        <receiver
-235-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:132:9-142:20
+235-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:132:9-142:20
 236            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
-236-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:133:13-78
+236-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:133:13-78
 237            android:directBootAware="false"
-237-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:134:13-44
+237-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:134:13-44
 238            android:enabled="true"
-238-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:135:13-35
+238-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:135:13-35
 239            android:exported="true"
-239-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:136:13-36
+239-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:136:13-36
 240            android:permission="android.permission.DUMP" >
-240-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:137:13-57
+240-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:137:13-57
 241            <intent-filter>
-241-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:139:13-141:29
+241-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:139:13-141:29
 242                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
-242-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:140:17-88
-242-->[androidx.work:work-runtime:2.7.0] /home/jeka/.gradle/caches/transforms-3/a5ab1580b420867a2dbdfe9d676a10c8/transformed/work-runtime-2.7.0/AndroidManifest.xml:140:25-85
+242-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:140:17-88
+242-->[androidx.work:work-runtime:2.7.0] C:\Users\USER\.gradle\caches\transforms-3\a5ab1580b420867a2dbdfe9d676a10c8\transformed\work-runtime-2.7.0\AndroidManifest.xml:140:25-85
 243            </intent-filter>
 244        </receiver>
 245
 246        <service
-246-->[androidx.room:room-runtime:2.2.5] /home/jeka/.gradle/caches/transforms-3/89bbb694f7e01a499c60473ddef73c58/transformed/room-runtime-2.2.5/AndroidManifest.xml:25:9-28:40
+246-->[androidx.room:room-runtime:2.2.5] C:\Users\USER\.gradle\caches\transforms-3\89bbb694f7e01a499c60473ddef73c58\transformed\room-runtime-2.2.5\AndroidManifest.xml:25:9-28:40
 247            android:name="androidx.room.MultiInstanceInvalidationService"
-247-->[androidx.room:room-runtime:2.2.5] /home/jeka/.gradle/caches/transforms-3/89bbb694f7e01a499c60473ddef73c58/transformed/room-runtime-2.2.5/AndroidManifest.xml:26:13-74
+247-->[androidx.room:room-runtime:2.2.5] C:\Users\USER\.gradle\caches\transforms-3\89bbb694f7e01a499c60473ddef73c58\transformed\room-runtime-2.2.5\AndroidManifest.xml:26:13-74
 248            android:directBootAware="true"
-248-->[androidx.room:room-runtime:2.2.5] /home/jeka/.gradle/caches/transforms-3/89bbb694f7e01a499c60473ddef73c58/transformed/room-runtime-2.2.5/AndroidManifest.xml:27:13-43
+248-->[androidx.room:room-runtime:2.2.5] C:\Users\USER\.gradle\caches\transforms-3\89bbb694f7e01a499c60473ddef73c58\transformed\room-runtime-2.2.5\AndroidManifest.xml:27:13-43
 249            android:exported="false" />
-249-->[androidx.room:room-runtime:2.2.5] /home/jeka/.gradle/caches/transforms-3/89bbb694f7e01a499c60473ddef73c58/transformed/room-runtime-2.2.5/AndroidManifest.xml:28:13-37
+249-->[androidx.room:room-runtime:2.2.5] C:\Users\USER\.gradle\caches\transforms-3\89bbb694f7e01a499c60473ddef73c58\transformed\room-runtime-2.2.5\AndroidManifest.xml:28:13-37
 250
 251        <receiver
-251-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/jeka/.gradle/caches/transforms-3/67debf25f9a077053e8640e6f6d02b74/transformed/profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+251-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\USER\.gradle\caches\transforms-3\67debf25f9a077053e8640e6f6d02b74\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
 252            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-252-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/jeka/.gradle/caches/transforms-3/67debf25f9a077053e8640e6f6d02b74/transformed/profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+252-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\USER\.gradle\caches\transforms-3\67debf25f9a077053e8640e6f6d02b74\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
 253            android:directBootAware="false"
-253-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/jeka/.gradle/caches/transforms-3/67debf25f9a077053e8640e6f6d02b74/transformed/profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+253-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\USER\.gradle\caches\transforms-3\67debf25f9a077053e8640e6f6d02b74\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
 254            android:enabled="true"
-254-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/jeka/.gradle/caches/transforms-3/67debf25f9a077053e8640e6f6d02b74/transformed/profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+254-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\USER\.gradle\caches\transforms-3\67debf25f9a077053e8640e6f6d02b74\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
 255            android:exported="true"
-255-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/jeka/.gradle/caches/transforms-3/67debf25f9a077053e8640e6f6d02b74/transformed/profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+255-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\USER\.gradle\caches\transforms-3\67debf25f9a077053e8640e6f6d02b74\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
 256            android:permission="android.permission.DUMP" >
-256-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/jeka/.gradle/caches/transforms-3/67debf25f9a077053e8640e6f6d02b74/transformed/profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+256-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\USER\.gradle\caches\transforms-3\67debf25f9a077053e8640e6f6d02b74\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
 257            <intent-filter>
-257-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/jeka/.gradle/caches/transforms-3/67debf25f9a077053e8640e6f6d02b74/transformed/profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+257-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\USER\.gradle\caches\transforms-3\67debf25f9a077053e8640e6f6d02b74\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
 258                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-258-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/jeka/.gradle/caches/transforms-3/67debf25f9a077053e8640e6f6d02b74/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
-258-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/jeka/.gradle/caches/transforms-3/67debf25f9a077053e8640e6f6d02b74/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+258-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\USER\.gradle\caches\transforms-3\67debf25f9a077053e8640e6f6d02b74\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+258-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\USER\.gradle\caches\transforms-3\67debf25f9a077053e8640e6f6d02b74\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
 259            </intent-filter>
 260            <intent-filter>
-260-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/jeka/.gradle/caches/transforms-3/67debf25f9a077053e8640e6f6d02b74/transformed/profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+260-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\USER\.gradle\caches\transforms-3\67debf25f9a077053e8640e6f6d02b74\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
 261                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-261-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/jeka/.gradle/caches/transforms-3/67debf25f9a077053e8640e6f6d02b74/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
-261-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/jeka/.gradle/caches/transforms-3/67debf25f9a077053e8640e6f6d02b74/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+261-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\USER\.gradle\caches\transforms-3\67debf25f9a077053e8640e6f6d02b74\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+261-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\USER\.gradle\caches\transforms-3\67debf25f9a077053e8640e6f6d02b74\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
 262            </intent-filter>
 263            <intent-filter>
-263-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/jeka/.gradle/caches/transforms-3/67debf25f9a077053e8640e6f6d02b74/transformed/profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+263-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\USER\.gradle\caches\transforms-3\67debf25f9a077053e8640e6f6d02b74\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
 264                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-264-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/jeka/.gradle/caches/transforms-3/67debf25f9a077053e8640e6f6d02b74/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
-264-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/jeka/.gradle/caches/transforms-3/67debf25f9a077053e8640e6f6d02b74/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+264-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\USER\.gradle\caches\transforms-3\67debf25f9a077053e8640e6f6d02b74\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+264-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\USER\.gradle\caches\transforms-3\67debf25f9a077053e8640e6f6d02b74\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
 265            </intent-filter>
 266            <intent-filter>
-266-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/jeka/.gradle/caches/transforms-3/67debf25f9a077053e8640e6f6d02b74/transformed/profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+266-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\USER\.gradle\caches\transforms-3\67debf25f9a077053e8640e6f6d02b74\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
 267                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-267-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/jeka/.gradle/caches/transforms-3/67debf25f9a077053e8640e6f6d02b74/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
-267-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/jeka/.gradle/caches/transforms-3/67debf25f9a077053e8640e6f6d02b74/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+267-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\USER\.gradle\caches\transforms-3\67debf25f9a077053e8640e6f6d02b74\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+267-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\USER\.gradle\caches\transforms-3\67debf25f9a077053e8640e6f6d02b74\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
 268            </intent-filter>
 269        </receiver>
 270    </application>

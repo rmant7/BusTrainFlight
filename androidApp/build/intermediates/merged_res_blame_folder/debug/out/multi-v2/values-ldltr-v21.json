@@ -4,7 +4,7 @@
             "outputFile": "ru.z8.louttsev.bustrainflightmobile.androidApp-mergeDebugResources-49:/values-ldltr-v21/values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "/home/jeka/.gradle/caches/transforms-3/80ed505d97e77076cd7f42d34743c379/transformed/appcompat-1.6.1/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\80ed505d97e77076cd7f42d34743c379\\transformed\\appcompat-1.6.1\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

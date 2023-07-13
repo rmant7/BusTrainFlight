@@ -356,6 +356,10 @@
         "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/drawable-hdpi/ic_walk.png"
     },
     {
+        "merged": "ru.z8.louttsev.bustrainflightmobile.androidApp-merged_res-51:/drawable_reverse_svg.xml.flat",
+        "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/drawable/reverse_svg.xml"
+    },
+    {
         "merged": "ru.z8.louttsev.bustrainflightmobile.androidApp-merged_res-51:/font_rubik_medium.xml.flat",
         "source": "ru.z8.louttsev.bustrainflightmobile.androidApp-main-53:/font/rubik_medium.xml"
     },
