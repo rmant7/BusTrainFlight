@@ -4,14 +4,25 @@
             "outputFile": "ru.z8.louttsev.bustrainflightmobile.androidApp-mergeDebugResources-49:/values-v26/values-v26.xml",
             "map": [
                 {
-                    "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\values-v26\\styles.xml",
+                    "source": "/home/jeka/.gradle/caches/transforms-3/80ed505d97e77076cd7f42d34743c379/transformed/appcompat-1.6.1/res/values-v26/values-v26.xml",
+                    "from": {
+                        "startLines": "2,3,4,8,12,16",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,130,217,381,557,796",
+                        "endLines": "2,3,7,11,15,16",
+                        "endColumns": "74,86,12,12,12,92",
+                        "endOffsets": "125,212,376,552,791,884"
+                    }
+                },
+                {
+                    "source": "/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/res/values-v26/styles.xml",
                     "from": {
                         "startLines": "3",
                         "startColumns": "4",
-                        "startOffsets": "59",
+                        "startOffsets": "56",
                         "endLines": "11",
                         "endColumns": "12",
-                        "endOffsets": "552"
+                        "endOffsets": "541"
                     },
                     "to": {
                         "startLines": "17",
@@ -20,17 +31,6 @@
                         "endLines": "25",
                         "endColumns": "12",
                         "endOffsets": "1374"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\80ed505d97e77076cd7f42d34743c379\\transformed\\appcompat-1.6.1\\res\\values-v26\\values-v26.xml",
-                    "from": {
-                        "startLines": "2,3,4,8,12,16",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,130,217,381,557,796",
-                        "endLines": "2,3,7,11,15,16",
-                        "endColumns": "74,86,12,12,12,92",
-                        "endOffsets": "125,212,376,552,791,884"
                     }
                 }
             ]

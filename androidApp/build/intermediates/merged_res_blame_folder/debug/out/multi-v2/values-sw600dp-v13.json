@@ -4,7 +4,17 @@
             "outputFile": "ru.z8.louttsev.bustrainflightmobile.androidApp-mergeDebugResources-49:/values-sw600dp-v13/values-sw600dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\7ea87ac918bcc996abf016d6c3a9b10d\\transformed\\material-1.9.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "source": "/home/jeka/StudioProjects/BusTrainFlight/androidApp/src/main/res/values-sw600dp/attrs.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "37",
+                        "endOffsets": "88"
+                    }
+                },
+                {
+                    "source": "/home/jeka/.gradle/caches/transforms-3/7ea87ac918bcc996abf016d6c3a9b10d/transformed/material-1.9.0/res/values-sw600dp-v13/values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,10,11,12,13,14",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +33,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\80ed505d97e77076cd7f42d34743c379\\transformed\\appcompat-1.6.1\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "source": "/home/jeka/.gradle/caches/transforms-3/80ed505d97e77076cd7f42d34743c379/transformed/appcompat-1.6.1/res/values-sw600dp-v13/values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -37,23 +47,6 @@
                         "startOffsets": "93,162,231,301,375,451,510,581",
                         "endColumns": "68,68,69,73,75,58,70,67",
                         "endOffsets": "157,226,296,370,446,505,576,644"
-                    }
-                },
-                {
-                    "source": "D:\\Roma\\BusTrainFlight\\androidApp\\src\\main\\res\\values-sw600dp\\attrs.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "57",
-                        "endColumns": "37",
-                        "endOffsets": "90"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "37",
-                        "endOffsets": "88"
                     }
                 }
             ]

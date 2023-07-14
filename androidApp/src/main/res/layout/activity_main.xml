@@ -94,7 +94,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/origin_input_layout"
                         style="@style/InputLocationLayoutStyle"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="16dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
@@ -104,13 +104,13 @@
                             tools:text="Muscat" />
                     </com.google.android.material.textfield.TextInputLayout>
 
+                    <!--        <TextView-->
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/origin_clear_icon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|end"
+                        android:layout_gravity="center|end"
                         android:layout_marginEnd="24dp"
-                        android:layout_marginBottom="38dp"
                         android:src="@drawable/cancel"
                         android:visibility="invisible" />
                 </FrameLayout>
@@ -131,7 +131,7 @@
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/reverse"
-                        android:layout_width="0dp"
+                        android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:layout_weight="1"
                         android:src="@drawable/reverse"
@@ -146,7 +146,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/destination_input_layout"
                         style="@style/InputLocationLayoutStyle"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="16dp"
                         app:helperTextTextColor="@color/error"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/origin_input_layout">
@@ -162,9 +162,8 @@
                         android:id="@+id/destination_clear_icon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|end"
+                        android:layout_gravity="center|end"
                         android:layout_marginEnd="24dp"
-                        android:layout_marginBottom="38dp"
                         android:src="@drawable/cancel"
                         android:visibility="invisible" />
                 </FrameLayout>

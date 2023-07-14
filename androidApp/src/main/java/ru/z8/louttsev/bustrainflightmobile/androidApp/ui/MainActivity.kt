@@ -294,7 +294,7 @@ class MainActivity : AppCompatActivity() {
 
         doAfterTextChanged { changedEditableText: Editable? ->
             if (checkForEmptyString() && !checkForCoincidenceOfPoints() &&
-                binding.originTextView.text.toString() != "Anywhere"
+                binding.destinationTextView.text.toString() != "Anywhere"
             )
                 binding.reverse.visibility = View.VISIBLE
             else binding.reverse.visibility = View.GONE

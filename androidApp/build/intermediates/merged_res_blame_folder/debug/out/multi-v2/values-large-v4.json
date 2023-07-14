@@ -4,7 +4,7 @@
             "outputFile": "ru.z8.louttsev.bustrainflightmobile.androidApp-mergeDebugResources-49:/values-large-v4/values-large-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\80ed505d97e77076cd7f42d34743c379\\transformed\\appcompat-1.6.1\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "/home/jeka/.gradle/caches/transforms-3/80ed505d97e77076cd7f42d34743c379/transformed/appcompat-1.6.1/res/values-large-v4/values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\7ea87ac918bcc996abf016d6c3a9b10d\\transformed\\material-1.9.0\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "/home/jeka/.gradle/caches/transforms-3/7ea87ac918bcc996abf016d6c3a9b10d/transformed/material-1.9.0/res/values-large-v4/values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,10",
                         "startColumns": "4,4,4,4",
