@@ -5,26 +5,34 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import android.graphics.Rect
+import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputFilter
 import android.text.Spanned
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.view.inputmethod.InputMethodManager.*
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doAfterTextChanged
 import androidx.core.widget.doBeforeTextChanged
+import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import io.github.aakira.napier.Napier
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.z8.louttsev.bustrainflightmobile.androidApp.R
 import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.AnywhereListAdapter
 import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.AutoCompleteLocationsListAdapter
@@ -55,6 +63,7 @@ class MainActivity : AppCompatActivity() {
         model.updateReadiness()
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     @SuppressLint("InflateParams", "SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -69,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         model.isFirstTimeRun = preferences.getBoolean("isFirstTimeRun", true)
         preferences.edit().putBoolean("isFirstTimeRun", false).apply()
 
-        mInputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        mInputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         binding = ActivityMainBinding.inflate(layoutInflater).apply {
             lifecycleOwner = this@MainActivity
             viewModel = model // ignore probably IDE error message "Cannot access class..."
@@ -104,12 +113,12 @@ class MainActivity : AppCompatActivity() {
                 false
             )
 
-//            originClearIcon.setOnClickListener {
-//                model.origins.onItemReset()
-//                originTextView.clearText()
-//                originTextView.requestFocus()
-//                mInputMethodManager.showSoftInput(originTextView, SHOW_IMPLICIT)
-//            }
+            originClearIcon.setOnClickListener {
+                model.origins.onItemReset()
+                originTextView.clearText()
+                originTextView.requestFocus()
+                mInputMethodManager.showSoftInput(originTextView, SHOW_IMPLICIT)
+            }
 
             destinationTextView.setup(
                 handler = model.destinations,
@@ -117,12 +126,12 @@ class MainActivity : AppCompatActivity() {
                 true
             )
 
-//            destinationClearIcon.setOnClickListener {
-//                model.destinations.onItemReset()
-//                destinationTextView.clearText()
-//                destinationTextView.requestFocus()
-//                mInputMethodManager.showSoftInput(destinationTextView, SHOW_IMPLICIT)
-//            }
+            destinationClearIcon.setOnClickListener {
+                model.destinations.onItemReset()
+                destinationTextView.clearText()
+                destinationTextView.requestFocus()
+                mInputMethodManager.showSoftInput(destinationTextView, SHOW_IMPLICIT)
+            }
 
             clearButton.setOnClickListener {
                 model.origins.onItemReset()
@@ -131,6 +140,35 @@ class MainActivity : AppCompatActivity() {
                 destinationTextView.clearText()
                 originTextView.requestFocus()
                 mInputMethodManager.showSoftInput(originTextView, SHOW_IMPLICIT)
+            }
+
+            reverse.setOnClickListener {
+                if (model.getRouteBuildReadiness.value == true) {
+                    val destinationLocation = model.destinations.data.value!!.first()
+                    val originLocation = model.origins.data.value!!.first()
+                    originTextView.setText("")
+                    model.origins.onItemReset()
+                    originTextView.clearText()
+                    model.destinations.onItemReset()
+                    destinationTextView.clearText()
+                    originTextView.requestFocus()
+                    mInputMethodManager.showSoftInput(originTextView, SHOW_IMPLICIT)
+                    mInputMethodManager.showSoftInput(destinationTextView, SHOW_IMPLICIT)
+
+                    destinationTextView.setText(originLocation.name)
+                    model.destinations.onItemSelected(
+                        originLocation,
+                        invalidSelectionHandler = ::showWrongChoiceError
+                    )
+                    destinationTextView.performCompletion()
+
+                    originTextView.setText(destinationLocation.name)
+                    model.origins.onItemSelected(
+                        destinationLocation,
+                        invalidSelectionHandler = ::showWrongChoiceError
+                    )
+                    originTextView.performCompletion()
+                }
             }
 
             goButton.setup(
@@ -190,6 +228,18 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                 }
+
+                val display = windowManager.defaultDisplay
+                fab.translationX = display.width * 6 / 8f
+                nestedScrollView.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+                    fab.translationY = scrollY.toFloat() + display.height / 3
+                    if (nestedScrollView.scrollY > 1200) fab.visibility = View.VISIBLE
+                    else fab.visibility = View.GONE
+                    fab.setOnClickListener { view ->
+                        nestedScrollView.smoothScrollTo(0, display.height / 3, childCount * 50)
+                        fab.visibility = View.GONE
+                    }
+                }
             }
         }
     }
@@ -233,8 +283,9 @@ class MainActivity : AppCompatActivity() {
                         inputLayout.showErrorMessage(getString(R.string.not_allowable_character_error_message))
                         return source.filter { allowable.matches(it.toString()) }
                     } else {
-                        if (!checkForCoincidenceOfPoints()) showWrongChoiceError()
-                        else inputLayout.hideErrorMessage()
+                        inputLayout.hideErrorMessage()
+                        if (checkTheCorrectnessOfTheInput()) showWrongChoiceError()
+                        else inputLayout.hideInvalidInputMessage()
                         return source
                     }
                 }
@@ -245,6 +296,14 @@ class MainActivity : AppCompatActivity() {
             Napier.d("OnBeforeTextChanged")
             handler.isBeingBackspaced = after < count
             handler.wasSelected = handler.isItemSelected()
+        }
+
+        doAfterTextChanged { changedEditableText: Editable? ->
+            if (checkForEmptyString() && !checkForCoincidenceOfPoints() &&
+                binding.destinationTextView.text.toString() != "Anywhere"
+            )
+                binding.reverse.visibility = View.VISIBLE
+            else binding.reverse.visibility = View.GONE
         }
 
         addTextChangedListener { changedEditableText: Editable? ->
@@ -275,6 +334,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 )
             }
+            showButton()
         }
 
         setOnEditorActionListener { _, actionId, _ ->
@@ -331,8 +391,9 @@ class MainActivity : AppCompatActivity() {
         setOnFocusChangeListener { _, hasFocus ->
             if (!model.isAnywhereSelected.value!!) {
                 if (!hasFocus) {
-                    if (!checkForCoincidenceOfPoints()) showWrongChoiceError()
-                    else inputLayout.hideErrorMessage()
+                    inputLayout.hideErrorMessage()
+                    if (checkTheCorrectnessOfTheInput()) showWrongChoiceError()
+                    else inputLayout.hideInvalidInputMessage()
                 } else if (hasFocus && text.isEmpty() && isDestination && model.selectedOrigin != null) {
                     handler.showAnywhereSelection()
                     postDelayed({ showDropDown() }, 200)
@@ -357,7 +418,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getInputLocale(text: String): Locale = Locale.fromLanguageCode(
         if (Regex("^[-а-яё .]+$", IGNORE_CASE).matches(text)) {
-            "com"
+            "ru"
         } else {
             "en"
         }
@@ -437,18 +498,40 @@ class MainActivity : AppCompatActivity() {
         error = null
     }
 
+    private fun TextInputLayout.hideInvalidInputMessage() {
+        binding.destinationInputLayout.boxStrokeColor =
+            resources.getColor(R.color.border_color_selector)
+        binding.destinationInputLayout.helperText = ""
+    }
+
     private fun showWrongChoiceError() {
-        binding.destinationInputLayout.showErrorMessage(getString(R.string.invalid_selection_error_message))
+        binding.destinationInputLayout.boxStrokeColor = resources.getColor(R.color.error)
+        binding.destinationInputLayout.helperText =
+            getString(R.string.invalid_selection_error_message)
+        //binding.destinationInputLayout.showErrorMessage(getString(R.string.invalid_selection_error_message))
+    }
+
+    private fun checkTheCorrectnessOfTheInput(): Boolean {
+        return checkForCoincidenceOfPoints() && checkForEmptyString()
     }
 
     /////
     private fun checkForCoincidenceOfPoints(): Boolean {
-        return (binding.originTextView.text.toString() !=
-                binding.destinationTextView.text.toString()) || (
-                binding.originTextView.text.toString().isEmpty() &&
-                        binding.destinationTextView.text.toString().isEmpty()
-                )
+        return binding.originTextView.text.toString() ==
+                binding.destinationTextView.text.toString()
     }
 
-}
+    private fun checkForEmptyString(): Boolean {
+        return binding.originTextView.text.toString().isNotEmpty() &&
+                binding.destinationTextView.text.toString().isNotEmpty()
+    }
 
+    private fun showButton() {
+        if (binding.originTextView.text.toString().isNotEmpty())
+            binding.originClearIcon.visibility = View.VISIBLE
+        else binding.originClearIcon.visibility = View.GONE
+        if (binding.destinationTextView.text.toString().isNotEmpty())
+            binding.destinationClearIcon.visibility = View.VISIBLE
+        else binding.destinationClearIcon.visibility = View.GONE
+    }
+}

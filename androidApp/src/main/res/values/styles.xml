@@ -14,7 +14,7 @@
     </style>
 
     <style name="InputLocationLayoutStyle" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
-<!--        <item name="android:layout_marginStart">10dp</item>-->
+        <!--        <item name="android:layout_marginStart">10dp</item>-->
         <item name="background">@android:color/white</item>
         <item name="boxCornerRadiusBottomEnd">8dp</item>
         <item name="boxCornerRadiusBottomStart">8dp</item>
@@ -23,7 +23,7 @@
         <item name="boxStrokeColor">@color/border_color_selector</item>
         <item name="boxStrokeWidthFocused">1dp</item>
         <item name="errorEnabled">true</item>
-        <item name="endIconMode">clear_text</item>
+        <!--  <item name="endIconMode">clear_text</item>  -->
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
