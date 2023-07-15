@@ -50,17 +50,17 @@ class ContactsActivity : DrawerBaseActivity() {
                 )
                 startActivity(intent)
             }
-            mobileImageView.setOnClickListener {
-                val dialIntent = Intent(Intent.ACTION_DIAL)
-                dialIntent.data = Uri.parse("tel:972545779239")
-
-                if (dialIntent.resolveActivity(packageManager) != null) {
-                    startActivity(dialIntent)
-                } else {
-                    Toast.makeText(this@ContactsActivity, "Error", Toast.LENGTH_LONG)
-                        .show()
-                }
-            }
+//            mobileImageView.setOnClickListener {
+//                val dialIntent = Intent(Intent.ACTION_DIAL)
+//                dialIntent.data = Uri.parse("tel:972545779239")
+//
+//                if (dialIntent.resolveActivity(packageManager) != null) {
+//                    startActivity(dialIntent)
+//                } else {
+//                    Toast.makeText(this@ContactsActivity, "Error", Toast.LENGTH_LONG)
+//                        .show()
+//                }
+//            }
             emailTextView.setOnClickListener {
                 val mailto = "mailto:roman.mantelmakher@gmail.com" +
                         "?subject=" + Uri.encode("BusTrainFlight - Support")

@@ -2,6 +2,8 @@ package ru.z8.louttsev.bustrainflightmobile.androidApp
 
 import android.app.Application
 import com.google.android.gms.ads.MobileAds
+import com.yandex.metrica.YandexMetrica
+import com.yandex.metrica.YandexMetricaConfig
 import ru.z8.louttsev.bustrainflightmobile.androidApp.ads.AppOpenManager
 import ru.z8.louttsev.bustrainflightmobile.androidApp.di.repositoryModule
 import ru.z8.louttsev.bustrainflightmobile.androidApp.di.utilsModule
@@ -37,13 +39,13 @@ class App : Application(){
 
         Napier.base(DebugAntilog())
 
-//        YandexMetrica.activate(
-//            applicationContext,
-//            YandexMetricaConfig
-//                .newConfigBuilder("40914165-705b-466c-aa95-f1f7ade0606d")
-//                .build()
-//        )
-//        YandexMetrica.enableActivityAutoTracking(this)
+        YandexMetrica.activate(
+            applicationContext,
+            YandexMetricaConfig
+                .newConfigBuilder("40914165-705b-466c-aa95-f1f7ade0606d")
+                .build()
+        )
+        YandexMetrica.enableActivityAutoTracking(this)
 
     }
 

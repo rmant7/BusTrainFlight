@@ -29,15 +29,15 @@ class AppOpenManager(private val myApplication: App) : LifecycleObserver,
     /** LifecycleObserver methods  */
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun onStart() {
-//        showAdIfAvailable()
-        fetchAd()
+        showAdIfAvailable()
+//        fetchAd()
         Log.d(LOG_TAG, "onStart")
     }
 
     private fun showAdIfAvailable() {
         // Only show ad if there is not already an app open ad currently showing
         // and an ad is available.
-//        fetchAd()
+        fetchAd()
         if (!isShowingAd && isAdAvailable) {
             Log.d(LOG_TAG, "Will show ad.")
             val fullScreenContentCallback: FullScreenContentCallback =

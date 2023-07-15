@@ -45,3 +45,4 @@ output.json
 #NDK
 obj/
 .externalNativeBuild
+/androidApp/release/

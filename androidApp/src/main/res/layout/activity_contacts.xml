@@ -55,13 +55,13 @@
                 android:layout_height="55dp"
                 android:padding="5dp"
                 android:src="@drawable/ripple_whatsapp_icon"/>
-            <ImageView
-                android:id="@+id/mobileImageView"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:padding="5dp"
-                android:src="@drawable/ripple_mobile_icon"
-                android:layout_margin="5dp"/>
+<!--            <ImageView-->
+<!--                android:id="@+id/mobileImageView"-->
+<!--                android:layout_width="45dp"-->
+<!--                android:layout_height="45dp"-->
+<!--                android:padding="5dp"-->
+<!--                android:src="@drawable/ripple_mobile_icon"-->
+<!--                android:layout_margin="5dp"/>-->
         </LinearLayout>
     </LinearLayout>
 </layout>
