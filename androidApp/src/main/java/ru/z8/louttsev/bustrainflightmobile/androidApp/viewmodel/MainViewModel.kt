@@ -122,13 +122,13 @@ class MainViewModel(
         override fun hideAnywhereSelection() {}
 
         override fun onAnywhereSelected() {
-            if (isFirstTimeRun) {
+//            if (isFirstTimeRun) {
                 isAnywhereSelected.value = true
                 val result = routeRepository.getPackOfRoutesFromLocation(selectedOrigin!!)
                 anywhereNearestRoutes.value = result
-                isFirstTimeRun = false
+//                isFirstTimeRun = false
             }
-        }
+//        }
     }
 
     fun loadMoreAnywhereRoutes() = routeRepository.getPackOfRoutesFromLocation(selectedOrigin!!)

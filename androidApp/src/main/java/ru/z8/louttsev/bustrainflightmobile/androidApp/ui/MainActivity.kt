@@ -31,7 +31,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import io.github.aakira.napier.Napier
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.z8.louttsev.bustrainflightmobile.androidApp.R
 import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.AnywhereListAdapter
