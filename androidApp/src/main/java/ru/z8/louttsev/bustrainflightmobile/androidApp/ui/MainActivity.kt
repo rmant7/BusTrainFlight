@@ -231,7 +231,7 @@ class MainActivity : DrawerBaseActivity() {
                 val display = windowManager.defaultDisplay
                 fab.translationX = display.width * 6 / 8f
                 nestedScrollView.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
-                    fab.translationY = scrollY.toFloat() + display.height / 3
+                    fab.translationY = scrollY.toFloat() + display.height / 4
                     if (nestedScrollView.scrollY > 1200) fab.visibility = View.VISIBLE
                     else fab.visibility = View.GONE
                     fab.setOnClickListener { view ->

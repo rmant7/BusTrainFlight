@@ -14,8 +14,8 @@
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="50dp"
+        android:fillViewport="true">
 
         <LinearLayout
             android:id="@+id/drawerLayout"
@@ -26,53 +26,53 @@
             android:orientation="vertical"
             tools:openDrawer="end">
 
-<!--            <com.google.android.material.appbar.AppBarLayout-->
-<!--                android:id="@+id/appBarLayout"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:layout_constraintTop_toTopOf="parent">-->
+            <!--            <com.google.android.material.appbar.AppBarLayout-->
+            <!--                android:id="@+id/appBarLayout"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                app:layout_constraintTop_toTopOf="parent">-->
 
-<!--                <androidx.appcompat.widget.Toolbar-->
-<!--                    android:id="@+id/toolBar"-->
-<!--                    style="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="?attr/actionBarSize">-->
+            <!--                <androidx.appcompat.widget.Toolbar-->
+            <!--                    android:id="@+id/toolBar"-->
+            <!--                    style="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="?attr/actionBarSize">-->
 
-<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:background="@color/colorPrimary"-->
-<!--                        tools:ignore="Overdraw">-->
+            <!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="match_parent"-->
+            <!--                        android:background="@color/colorPrimary"-->
+            <!--                        tools:ignore="Overdraw">-->
 
-<!--                        <TextView-->
-<!--                            android:id="@+id/appBarTitle"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="@string/app_name"-->
-<!--                            android:textColor="@android:color/white"-->
-<!--                            android:textSize="20sp"-->
-<!--                            android:textStyle="bold"-->
-<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                            app:layout_constraintStart_toStartOf="parent"-->
-<!--                            app:layout_constraintTop_toTopOf="parent" />-->
+            <!--                        <TextView-->
+            <!--                            android:id="@+id/appBarTitle"-->
+            <!--                            android:layout_width="wrap_content"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:text="@string/app_name"-->
+            <!--                            android:textColor="@android:color/white"-->
+            <!--                            android:textSize="20sp"-->
+            <!--                            android:textStyle="bold"-->
+            <!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+            <!--                            app:layout_constraintTop_toTopOf="parent" />-->
 
-<!--                        <TextView-->
-<!--                            android:id="@+id/tagline"-->
-<!--                            android:layout_width="100dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:inputType="textMultiLine"-->
-<!--                            android:text="@string/action_bar_tagline"-->
-<!--                            android:textColor="@android:color/white"-->
-<!--                            android:textSize="14sp"-->
-<!--                            android:textStyle="bold"-->
-<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                            app:layout_constraintEnd_toEndOf="parent"-->
-<!--                            app:layout_constraintTop_toTopOf="parent"-->
-<!--                            tools:ignore="TextViewEdits" />-->
-<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
-<!--                </androidx.appcompat.widget.Toolbar>-->
+            <!--                        <TextView-->
+            <!--                            android:id="@+id/tagline"-->
+            <!--                            android:layout_width="100dp"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:inputType="textMultiLine"-->
+            <!--                            android:text="@string/action_bar_tagline"-->
+            <!--                            android:textColor="@android:color/white"-->
+            <!--                            android:textSize="14sp"-->
+            <!--                            android:textStyle="bold"-->
+            <!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                            app:layout_constraintTop_toTopOf="parent"-->
+            <!--                            tools:ignore="TextViewEdits" />-->
+            <!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+            <!--                </androidx.appcompat.widget.Toolbar>-->
 
-<!--            </com.google.android.material.appbar.AppBarLayout>-->
+            <!--            </com.google.android.material.appbar.AppBarLayout>-->
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -116,10 +116,9 @@
                         android:visibility="invisible" />
                 </FrameLayout>
 
-                <LinearLayout
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="28dp"
-                    android:orientation="horizontal">
+                    android:layout_height="28dp">
 
                     <TextView
                         android:id="@+id/to"
@@ -134,11 +133,11 @@
                         android:id="@+id/reverse"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:layout_weight="1"
+                        android:layout_gravity="center"
                         android:src="@drawable/reverse"
                         android:visibility="invisible"
                         app:layout_constraintBottom_toTopOf="@id/destination_input_layout" />
-                </LinearLayout>
+                </FrameLayout>
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -249,7 +248,7 @@
 
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/route_list_anywhere_recycler_view"
