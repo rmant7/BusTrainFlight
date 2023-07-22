@@ -193,7 +193,7 @@ class MainActivity : DrawerBaseActivity() {
 
             with(routeListRecyclerView) {
                 layoutManager = LinearLayoutManager(this@MainActivity)
-                adapter = RouteListAdapter(model.currentRoutes)
+                adapter = RouteListAdapter(model.currentRoutes, nestedScrollView)
                 addItemDecoration(object : RecyclerView.ItemDecoration() {
                     override fun getItemOffsets(
                         outRect: Rect,
@@ -206,7 +206,7 @@ class MainActivity : DrawerBaseActivity() {
             }
             with(routeListAnywhereRecyclerView) {
                 val anywhereListAdapter = AnywhereListAdapter(
-                    model.anywhereNearestRoutes,
+                    model.anywhereNearestRoutes, nestedScrollView
 //                    model.destinationSelectedHandler
                 )
                 layoutManager = LinearLayoutManager(this@MainActivity)

@@ -4,11 +4,17 @@
  */
 package ru.z8.louttsev.bustrainflightmobile.androidApp.adapters
 
+import android.annotation.SuppressLint
+import android.os.Build
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import androidx.annotation.RequiresApi
+import androidx.core.view.get
+import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -33,10 +39,13 @@ import org.koin.core.component.inject
 
 class AnywhereListAdapter(
     liveData: MutableLiveData<MutableList<Pair<Int, MutableList<Route>>>>,
+    nestedScrollView: NestedScrollView,
 //    val handler: DestinationSelectedHandler
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var mDestinationRoutes: MutableList<Pair<Int, MutableList<Route>>>
+
+    private val nestedScrollView: NestedScrollView
 
     private val AD_ITEM_INTERVAL = 5
     private val AD_VIEW_TYPE = 1
@@ -48,6 +57,7 @@ class AnywhereListAdapter(
             mDestinationRoutes = it
             notifyDataSetChanged()
         }
+        this.nestedScrollView = nestedScrollView
     }
 
     private lateinit var mRecyclerView: RecyclerView
@@ -56,7 +66,7 @@ class AnywhereListAdapter(
         super.onAttachedToRecyclerView(recyclerView)
         mRecyclerView = recyclerView
 
-        
+
     }
 
     fun isListEmpty() = mDestinationRoutes.isEmpty()
@@ -96,20 +106,21 @@ class AnywhereListAdapter(
         Napier.d("$mDestinationRoutes")
         return if (viewType == DATA_VIEW_TYPE) {
             val binding = ItemRouteAnywhereBinding.inflate(LayoutInflater.from(parent.context))
-            RouteViewHolder(binding)
+            RouteViewHolder(binding, nestedScrollView)
         } else {
             val binding = NativeAdViewAnywhereBinding.inflate(LayoutInflater.from(parent.context))
             AdViewHolder(binding)
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is RouteViewHolder) {
             val dataIndex = calculateDataIndex(position)
             val currentDestination = mDestinationRoutes[dataIndex]
             holder.bind(currentDestination)
         } else if (holder is AdViewHolder) {
-            holder.bind(mRecyclerView, mDestinationRoutes.size-1)
+            holder.bind(mRecyclerView, mDestinationRoutes.size - 1)
         }
     }
 
@@ -119,11 +130,16 @@ class AnywhereListAdapter(
         return dataCount + adCount
     }
 
-    class RouteViewHolder(val binding: ItemRouteAnywhereBinding) :
+    class RouteViewHolder(
+        val binding: ItemRouteAnywhereBinding,
+        val nestedScrollView: NestedScrollView
+    ) :
         RecyclerView.ViewHolder(binding.root),
         KoinComponent {
 
         private val locationRepository: LocationRepository by inject()
+
+        @RequiresApi(Build.VERSION_CODES.M)
         fun bind(currentDestination: Pair<Int, MutableList<Route>>) {
 
             with(binding) {
@@ -136,7 +152,11 @@ class AnywhereListAdapter(
                 routeDestination =
                     locationRepository.searchLocationById(currentDestination.first)!!.getLocation()
                 routeList.adapter =
-                    RouteListAdapter(MutableLiveData(currentDestination.second), true)
+                    RouteListAdapter(
+                        MutableLiveData(currentDestination.second),
+                        nestedScrollView,
+                        true
+                    )
 
                 executePendingBindings()
 //            destinationMainView.setOnClickListener {
@@ -144,6 +164,12 @@ class AnywhereListAdapter(
 //            }
 
                 root.setOnClickListener { openIndicator.isChecked = !openIndicator.isChecked }
+                routeList.addOnLayoutChangeListener { view, i, i2, i3, i4, i5, i6, i7, i8 ->
+                    nestedScrollView.smoothScrollTo(
+                        0,
+                        nestedScrollView.scrollY + routeList.height
+                    )
+                }
                 openIndicator.setOnCheckedChangeListener { _, isChecked ->
                     if (isChecked) {
                         routeList.visibility = View.VISIBLE
@@ -151,6 +177,10 @@ class AnywhereListAdapter(
 //                    duration.visibility = View.GONE
                     } else {
                         routeList.visibility = View.GONE
+                        nestedScrollView.smoothScrollTo(
+                            0,
+                            nestedScrollView.scrollY - routeList.height
+                        )
 //                    euroPrice.visibility = View.VISIBLE
 //                    duration.visibility = View.VISIBLE
                     }

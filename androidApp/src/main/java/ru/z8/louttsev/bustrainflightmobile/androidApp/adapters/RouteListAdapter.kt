@@ -16,6 +16,7 @@ import android.view.animation.*
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.view.setPadding
+import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -34,6 +35,7 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Path
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Route
 import io.github.aakira.napier.Napier
 import kotlinx.coroutines.launch
+import org.koin.core.component.getScopeName
 
 /**
  * Declares adapter for route list as result of searching.
@@ -42,9 +44,12 @@ import kotlinx.coroutines.launch
  */
 class RouteListAdapter(
     liveData: LiveData<List<Route>>,
+    nestedScrollView: NestedScrollView,
     val isNested: Boolean = false
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var mRoutes: List<Route>
+
+    private val nestedScrollView: NestedScrollView
 
     private val AD_VIEW_TYPE = 1
     private val DATA_VIEW_TYPE = 2
@@ -55,13 +60,14 @@ class RouteListAdapter(
             mRoutes = it
             notifyDataSetChanged()
         }
+        this.nestedScrollView = nestedScrollView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
         return if (viewType == DATA_VIEW_TYPE) {
             val binding = ItemRouteBinding.inflate(LayoutInflater.from(parent.context))
-            RouteViewHolder(binding)
+            RouteViewHolder(binding, nestedScrollView)
         } else {
             val binding = NativeAdViewRouteBinding.inflate(LayoutInflater.from(parent.context))
             AdViewHolder(binding)
@@ -111,7 +117,7 @@ class RouteListAdapter(
         }
     }
 
-    class RouteViewHolder(val binding: ItemRouteBinding) :
+    class RouteViewHolder(val binding: ItemRouteBinding, val nestedScrollView: NestedScrollView) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(currentRoute: Route) {
             with(binding) {
@@ -126,6 +132,7 @@ class RouteListAdapter(
                 openIndicator.setOnCheckedChangeListener { _, isChecked ->
                     if (isChecked) {
                         pathList.visibility = View.VISIBLE
+                        nestedScrollView.smoothScrollTo(0, 800)
 //                    euroPrice.visibility = View.GONE
 //                    duration.visibility = View.GONE
                     } else {
