@@ -13,7 +13,7 @@
 
         <variable
             name="price"
-            type="java.lang.Float"/>
+            type="java.lang.Float" />
 
         <variable
             name="routeDestination"
@@ -33,14 +33,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:gravity="center"
             android:text="@{routeDestination}"
-            android:textSize="19sp"
             android:textColor="@color/colorTextPrimary"
+            android:textSize="19sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Madrid, Spain"
-            android:gravity="center"/>
+            tools:text="Madrid, Spain" />
 
         <TextView
             android:id="@+id/actionButton"
@@ -58,21 +58,21 @@
             app:layout_constraintTop_toBottomOf="@id/titleTextView"
             tools:text="From: € 125.30" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/duration"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="15dp"-->
-<!--            android:background="@drawable/rounded_right_background"-->
-<!--            android:paddingHorizontal="10dp"-->
-<!--            android:paddingVertical="10dp"-->
-<!--            android:text="@{routeDuration}"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:textSize="14sp"-->
-<!--            android:textStyle="bold"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/routeDestinationTextView"-->
-<!--            tools:text="1 d 16 h 39 min"/>-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/duration"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="15dp"-->
+        <!--            android:background="@drawable/rounded_right_background"-->
+        <!--            android:paddingHorizontal="10dp"-->
+        <!--            android:paddingVertical="10dp"-->
+        <!--            android:text="@{routeDuration}"-->
+        <!--            android:textColor="@android:color/white"-->
+        <!--            android:textSize="14sp"-->
+        <!--            android:textStyle="bold"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/routeDestinationTextView"-->
+        <!--            tools:text="1 d 16 h 39 min"/>-->
 
         <CheckBox
             android:id="@+id/open_indicator"
@@ -81,7 +81,7 @@
             android:button="@drawable/route_item_opening_selector"
             app:layout_constraintBottom_toBottomOf="@id/actionButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/route_list"
