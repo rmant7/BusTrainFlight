@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resources>
-    <string name="app_name">BusTrainFlight</string>
+    <string name="app_name">Bus Train Flight</string>
     <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
     <string name="action_bar_tagline">Pay less,­ visit more!</string>
     <string name="transportation_type_flight">Flight</string>

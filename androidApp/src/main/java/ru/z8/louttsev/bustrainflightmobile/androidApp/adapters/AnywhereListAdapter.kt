@@ -8,6 +8,7 @@ import android.annotation.SuppressLint
 import android.os.Build
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
@@ -65,8 +66,6 @@ class AnywhereListAdapter(
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
         super.onAttachedToRecyclerView(recyclerView)
         mRecyclerView = recyclerView
-
-
     }
 
     fun isListEmpty() = mDestinationRoutes.isEmpty()
@@ -164,10 +163,18 @@ class AnywhereListAdapter(
 //            }
 
                 root.setOnClickListener { openIndicator.isChecked = !openIndicator.isChecked }
+                var viewY = 0
+                root.setOnTouchListener(object : View.OnTouchListener {
+                    override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                        if (event != null) viewY = event.y.toInt()
+                        return v?.onTouchEvent(event) ?: true
+                    }
+                })
                 routeList.addOnLayoutChangeListener { view, i, i2, i3, i4, i5, i6, i7, i8 ->
                     nestedScrollView.smoothScrollTo(
                         0,
-                        nestedScrollView.scrollY + routeList.height
+                        nestedScrollView.scrollY + (nestedScrollView.display.height / 2 - viewY),
+                        1500
                     )
                 }
                 openIndicator.setOnCheckedChangeListener { _, isChecked ->
@@ -179,7 +186,8 @@ class AnywhereListAdapter(
                         routeList.visibility = View.GONE
                         nestedScrollView.smoothScrollTo(
                             0,
-                            nestedScrollView.scrollY - routeList.height
+                            nestedScrollView.scrollY - routeList.height,
+                            1500
                         )
 //                    euroPrice.visibility = View.VISIBLE
 //                    duration.visibility = View.VISIBLE

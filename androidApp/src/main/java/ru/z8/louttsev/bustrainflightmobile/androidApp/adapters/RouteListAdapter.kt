@@ -132,7 +132,6 @@ class RouteListAdapter(
                 openIndicator.setOnCheckedChangeListener { _, isChecked ->
                     if (isChecked) {
                         pathList.visibility = View.VISIBLE
-                        nestedScrollView.smoothScrollTo(0, 800)
 //                    euroPrice.visibility = View.GONE
 //                    duration.visibility = View.GONE
                     } else {
