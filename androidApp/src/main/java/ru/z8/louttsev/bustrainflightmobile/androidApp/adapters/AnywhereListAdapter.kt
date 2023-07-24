@@ -163,28 +163,38 @@ class AnywhereListAdapter(
 //            }
 
                 var viewY = 0
-                root.setOnClickListener { openIndicator.isChecked = !openIndicator.isChecked }
+                root.setOnClickListener {
+                    scrollUp(viewY)
+                    viewY = 0
+                    openIndicator.isChecked = !openIndicator.isChecked
+                }
                 openIndicator.setOnClickListener(object : View.OnClickListener {
                     override fun onClick(p0: View?) {
+                        var values = IntArray(2)
                         if (p0 != null) {
-                            Log.d("asdfg", p0.translationY.toString())
+                            p0.getLocationOnScreen(values)
+                            viewY =
+                                nestedScrollView.scrollY - nestedScrollView.display.height / 2 +
+                                        values[1] - p0.y.toInt() - nestedScrollView.display.height / 7
                         }
-                        viewY = nestedScrollView.scrollY
+                        scrollUp(viewY)
+                        viewY = 0
                     }
                 })
                 root.setOnTouchListener(object : View.OnTouchListener {
                     override fun onTouch(v: View?, event: MotionEvent?): Boolean {
                         if (v != null) viewY = v.y.toInt()
+                        Log.d("asdfg", "root setOnTouchListener")
                         return v?.onTouchEvent(event) ?: true
                     }
                 })
                 routeList.addOnLayoutChangeListener { view, i, i2, i3, i4, i5, i6, i7, i8 ->
-                    nestedScrollView.smoothScrollTo(
-                        0,
-                        (nestedScrollView.scrollY + nestedScrollView.display.height / 2) - (nestedScrollView.scrollY - viewY),
-                        1500
-                    )
-                    viewY = 0
+                    //nestedScrollView.smoothScrollTo(
+                    //0,
+                    //(nestedScrollView.scrollY + nestedScrollView.display.height / 2) - (nestedScrollView.scrollY - viewY),
+                    //1500
+                    //)
+                    //viewY = 0
                 }
                 openIndicator.setOnCheckedChangeListener { _, isChecked ->
                     if (isChecked) {
@@ -204,6 +214,14 @@ class AnywhereListAdapter(
                 }
                 openIndicator.isChecked = false
             }
+        }
+
+        private fun scrollUp(viewY: Int) {
+            nestedScrollView.smoothScrollTo(
+                0,
+                (nestedScrollView.scrollY + nestedScrollView.display.height / 2) - (nestedScrollView.scrollY - viewY),
+                1500
+            )
         }
     }
 
