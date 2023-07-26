@@ -86,7 +86,6 @@ class RouteListAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-
         if (holder is RouteViewHolder) {
             val currentRoute = mRoutes[calculateDataIndex(position)]
             holder.bind(currentRoute)

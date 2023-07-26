@@ -181,7 +181,6 @@ class MainActivity : DrawerBaseActivity() {
                             routeListRecyclerView.visibility = View.VISIBLE
                         }
                     )
-
                     routeListRecyclerView.visibility = View.GONE
 //                    resultsTextView.visibility = View.INVISIBLE
                     mInputMethodManager.hideSoftInputFromWindow(
@@ -203,6 +202,9 @@ class MainActivity : DrawerBaseActivity() {
                         outRect.bottom = resources.getDimension(R.dimen.route_item_margin).toInt()
                     }
                 })
+                addOnLayoutChangeListener { view, i, i2, i3, i4, i5, i6, i7, i8 ->
+                    nestedScrollView.smoothScrollTo(0, nestedScrollView.display.height / 4, 1000)
+                }
             }
             with(routeListAnywhereRecyclerView) {
                 val anywhereListAdapter = AnywhereListAdapter(
