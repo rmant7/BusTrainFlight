@@ -146,13 +146,13 @@ class MainActivity : DrawerBaseActivity() {
                     val destinationLocation = model.destinations.data.value!!.first()
                     val originLocation = model.origins.data.value!!.first()
                     originTextView.setText("")
-                    model.origins.onItemReset()
-                    originTextView.clearText()
-                    model.destinations.onItemReset()
-                    destinationTextView.clearText()
-                    originTextView.requestFocus()
-                    mInputMethodManager.showSoftInput(originTextView, SHOW_IMPLICIT)
-                    mInputMethodManager.showSoftInput(destinationTextView, SHOW_IMPLICIT)
+                    //model.origins.onItemReset()
+                    //originTextView.clearText()
+                    //model.destinations.onItemReset()
+                    //destinationTextView.clearText()
+                    //originTextView.requestFocus()
+                    //mInputMethodManager.showSoftInput(originTextView, SHOW_IMPLICIT)
+                    //mInputMethodManager.showSoftInput(destinationTextView, SHOW_IMPLICIT)
 
                     destinationTextView.setText(originLocation.name)
                     model.destinations.onItemSelected(
@@ -203,7 +203,12 @@ class MainActivity : DrawerBaseActivity() {
                     }
                 })
                 addOnLayoutChangeListener { view, i, i2, i3, i4, i5, i6, i7, i8 ->
-                    nestedScrollView.smoothScrollTo(0, nestedScrollView.display.height / 4, 1000)
+                    if (nestedScrollView.scrollY == 0)
+                        nestedScrollView.smoothScrollTo(
+                            0,
+                            nestedScrollView.display.height / 32,
+                            500
+                        )
                 }
             }
             with(routeListAnywhereRecyclerView) {
@@ -233,11 +238,11 @@ class MainActivity : DrawerBaseActivity() {
                 val display = windowManager.defaultDisplay
                 fab.translationX = display.width * 6 / 8f
                 nestedScrollView.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
-                    fab.translationY = scrollY.toFloat() + display.height / 4
+                    fab.translationY = scrollY.toFloat() + display.height / 3.2f
                     if (nestedScrollView.scrollY > 1200) fab.visibility = View.VISIBLE
                     else fab.visibility = View.GONE
                     fab.setOnClickListener { view ->
-                        nestedScrollView.smoothScrollTo(0, display.height / 3, childCount * 50)
+                        nestedScrollView.smoothScrollTo(0, 0)
                         fab.visibility = View.GONE
                     }
                 }
