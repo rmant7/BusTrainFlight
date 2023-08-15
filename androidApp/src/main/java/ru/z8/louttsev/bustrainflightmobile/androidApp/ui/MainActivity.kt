@@ -1,12 +1,18 @@
 package ru.z8.louttsev.bustrainflightmobile.androidApp.ui
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
+import android.content.pm.PackageManager
 import android.graphics.Rect
+import android.location.LocationListener
+import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.text.Editable
 import android.text.InputFilter
 import android.text.Spanned
@@ -18,18 +24,17 @@ import android.view.inputmethod.InputMethodManager.*
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar.*
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
 import androidx.core.widget.doBeforeTextChanged
-import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.z8.louttsev.bustrainflightmobile.androidApp.R
@@ -42,7 +47,6 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Location
 import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.AutoCompleteHandler
 import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.MainViewModel
 import io.github.aakira.napier.Napier
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 import kotlin.text.RegexOption.*
 
@@ -50,16 +54,22 @@ import kotlin.text.RegexOption.*
 /**
  * Declares main UI controller.
  */
-class MainActivity : DrawerBaseActivity() {
+class MainActivity : DrawerBaseActivity(), LocationListener {
     private lateinit var mInputMethodManager: InputMethodManager
 
     private val model: MainViewModel by viewModel()
     private lateinit var binding: ActivityMainBinding
     private lateinit var preferences: SharedPreferences
+    private val locationPermissionCode = 2
+
+    private lateinit var locationManager: LocationManager
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     override fun onResume() {
         super.onResume()
         model.updateReadiness()
+        getLocation()
+        //originTextView.setText(userLocation?.get(0)?.locality ?: "")
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -83,6 +93,8 @@ class MainActivity : DrawerBaseActivity() {
             viewModel = model // ignore probably IDE error message "Cannot access class..."
         }
         setContentView(binding.root)
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
 //        val toolbar = binding.root.findViewById<Toolbar>(R.id.toolBar)
 //        setSupportActionBar(toolbar)
@@ -539,5 +551,84 @@ class MainActivity : DrawerBaseActivity() {
         if (binding.destinationTextView.text.toString().isNotEmpty())
             binding.destinationClearIcon.visibility = View.VISIBLE
         else binding.destinationClearIcon.visibility = View.GONE
+    }
+
+    @SuppressLint("MissingPermission", "SetTextI18n")
+    private fun getLocation() {
+        if (checkPermissions()) {
+            if (isLocationEnabled()) {
+
+                locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+                if ((ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
+                    ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), locationPermissionCode)
+                }
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5f, this)
+
+
+                fusedLocationClient.lastLocation.addOnCompleteListener(this) { task ->
+                    Log.d("asdfg", task.result?.latitude.toString())
+                    Log.d("asdfg", task.result?.longitude.toString())
+                }
+            } else {
+                Toast.makeText(this, "Please turn on location", Toast.LENGTH_LONG).show()
+                val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                startActivity(intent)
+            }
+        } else {
+            requestPermissions()
+        }
+    }
+
+    private fun requestPermissions() {
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ),
+            locationPermissionCode
+        )
+    }
+
+    private fun isLocationEnabled(): Boolean {
+        //val locationManager: LocationManager =
+            //getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        //return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
+            //LocationManager.NETWORK_PROVIDER
+        //)
+        return true
+    }
+
+    private fun checkPermissions(): Boolean {
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED &&
+            ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            return true
+        }
+        return false
+    }
+
+    @SuppressLint("MissingSuperCall")
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == locationPermissionCode) {
+            if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                getLocation()
+            }
+        }
+    }
+
+    override fun onLocationChanged(p0: android.location.Location) {
+        Log.d("asdfg", p0?.latitude.toString())
+        Log.d("asdfg", p0?.longitude.toString())
     }
 }
