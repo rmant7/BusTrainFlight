@@ -8,6 +8,8 @@ import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 import android.graphics.Rect
+import android.location.Address
+import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Build
@@ -26,10 +28,12 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar.*
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.doOnPreDraw
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
 import androidx.core.widget.doBeforeTextChanged
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.setViewTreeLifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -43,10 +47,13 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.AutoCompleteLocat
 import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.RouteListAdapter
 import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ActivityMainBinding
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Locale
-import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Location
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.LocationData
 import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.AutoCompleteHandler
 import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.MainViewModel
 import io.github.aakira.napier.Napier
+import org.koin.android.ext.android.inject
+import org.koin.core.component.inject
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.LocationRepository
 import java.util.*
 import kotlin.text.RegexOption.*
 
@@ -54,22 +61,22 @@ import kotlin.text.RegexOption.*
 /**
  * Declares main UI controller.
  */
-class MainActivity : DrawerBaseActivity(), LocationListener {
+class MainActivity : DrawerBaseActivity() {
+    //}, LocationListener {
     private lateinit var mInputMethodManager: InputMethodManager
 
     private val model: MainViewModel by viewModel()
     private lateinit var binding: ActivityMainBinding
     private lateinit var preferences: SharedPreferences
-    private val locationPermissionCode = 2
 
-    private lateinit var locationManager: LocationManager
-    private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private lateinit var mFusedLocationClient: FusedLocationProviderClient
+    private val permissionId = 2
+    private val locationRepository: LocationRepository by inject()
 
     override fun onResume() {
         super.onResume()
         model.updateReadiness()
         getLocation()
-        //originTextView.setText(userLocation?.get(0)?.locality ?: "")
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -94,7 +101,7 @@ class MainActivity : DrawerBaseActivity(), LocationListener {
         }
         setContentView(binding.root)
 
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
 //        val toolbar = binding.root.findViewById<Toolbar>(R.id.toolBar)
 //        setSupportActionBar(toolbar)
@@ -123,6 +130,8 @@ class MainActivity : DrawerBaseActivity(), LocationListener {
                 inputLayout = binding.originInputLayout,
                 false
             )
+            //originTextView.setViewTreeLifecycleOwner()
+            //originTextView.doOnPreDraw { getLocation() }
 
             originClearIcon.setOnClickListener {
                 model.origins.onItemReset()
@@ -171,14 +180,14 @@ class MainActivity : DrawerBaseActivity(), LocationListener {
                         originLocation,
                         invalidSelectionHandler = ::showWrongChoiceError
                     )
-                    destinationTextView.performCompletion()
+                    //destinationTextView.performCompletion()
 
                     originTextView.setText(destinationLocation.name)
                     model.origins.onItemSelected(
                         destinationLocation,
                         invalidSelectionHandler = ::showWrongChoiceError
                     )
-                    originTextView.performCompletion()
+                    //originTextView.performCompletion()
                 }
             }
 
@@ -272,7 +281,7 @@ class MainActivity : DrawerBaseActivity(), LocationListener {
 //    }
 
     private fun AutoCompleteTextView.setup(
-        handler: AutoCompleteHandler<Location>,
+        handler: AutoCompleteHandler<LocationData>,
         inputLayout: TextInputLayout,
         isDestination: Boolean
     ) {
@@ -371,7 +380,7 @@ class MainActivity : DrawerBaseActivity(), LocationListener {
 
             Napier.d("OnItemClicked")
 
-            val selectedLocation = parent.getItemAtPosition(position) as Location
+            val selectedLocation = parent.getItemAtPosition(position) as LocationData
 
             val inputMethodManager =
                 getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -387,7 +396,6 @@ class MainActivity : DrawerBaseActivity(), LocationListener {
                     selectedLocation,
                     invalidSelectionHandler = ::showWrongChoiceError
                 )
-
             }
             performCompletion()
         }
@@ -469,7 +477,7 @@ class MainActivity : DrawerBaseActivity(), LocationListener {
         text.clear()
     }
 
-    private fun AutoCompleteTextView.selectSuitableLocation(handler: AutoCompleteHandler<Location>) {
+    private fun AutoCompleteTextView.selectSuitableLocation(handler: AutoCompleteHandler<LocationData>) {
         if (handler.data.value!!.isNotEmpty()) {
             val suitableLocation = handler.data.value!!.first()
 
@@ -557,17 +565,21 @@ class MainActivity : DrawerBaseActivity(), LocationListener {
     private fun getLocation() {
         if (checkPermissions()) {
             if (isLocationEnabled()) {
-
-                locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-                if ((ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
-                    ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), locationPermissionCode)
-                }
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5f, this)
-
-
-                fusedLocationClient.lastLocation.addOnCompleteListener(this) { task ->
-                    Log.d("asdfg", task.result?.latitude.toString())
-                    Log.d("asdfg", task.result?.longitude.toString())
+                mFusedLocationClient.lastLocation.addOnCompleteListener(this) { task ->
+                    if (task.result != null) {
+                        val city: LocationData? =
+                            locationRepository.searchLocation(
+                                task.result!!.latitude,
+                                task.result!!.longitude
+                            )
+                        if (city != null) {
+                            binding.originTextView.setText(city.name)
+                            model.origins.onItemSelected(
+                                city,
+                                invalidSelectionHandler = ::showWrongChoiceError
+                            )
+                        }
+                    }
                 }
             } else {
                 Toast.makeText(this, "Please turn on location", Toast.LENGTH_LONG).show()
@@ -579,24 +591,12 @@ class MainActivity : DrawerBaseActivity(), LocationListener {
         }
     }
 
-    private fun requestPermissions() {
-        ActivityCompat.requestPermissions(
-            this,
-            arrayOf(
-                Manifest.permission.ACCESS_COARSE_LOCATION,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ),
-            locationPermissionCode
-        )
-    }
-
     private fun isLocationEnabled(): Boolean {
-        //val locationManager: LocationManager =
-            //getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        //return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
-            //LocationManager.NETWORK_PROVIDER
-        //)
-        return true
+        val locationManager: LocationManager =
+            getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
+            LocationManager.NETWORK_PROVIDER
+        )
     }
 
     private fun checkPermissions(): Boolean {
@@ -614,21 +614,27 @@ class MainActivity : DrawerBaseActivity(), LocationListener {
         return false
     }
 
+    private fun requestPermissions() {
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ),
+            permissionId
+        )
+    }
+
     @SuppressLint("MissingSuperCall")
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String>,
         grantResults: IntArray
     ) {
-        if (requestCode == locationPermissionCode) {
+        if (requestCode == permissionId) {
             if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                 getLocation()
             }
         }
-    }
-
-    override fun onLocationChanged(p0: android.location.Location) {
-        Log.d("asdfg", p0?.latitude.toString())
-        Log.d("asdfg", p0?.longitude.toString())
     }
 }
