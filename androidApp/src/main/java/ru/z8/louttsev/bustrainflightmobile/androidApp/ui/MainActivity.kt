@@ -578,13 +578,14 @@ class MainActivity : DrawerBaseActivity() {
                                 city,
                                 invalidSelectionHandler = ::showWrongChoiceError
                             )
+                            binding.destinationTextView.requestFocus()
                         }
                     }
                 }
             } else {
                 Toast.makeText(this, "Please turn on location", Toast.LENGTH_LONG).show()
-                val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
-                startActivity(intent)
+                //val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                //startActivity(intent)
             }
         } else {
             requestPermissions()
@@ -594,9 +595,8 @@ class MainActivity : DrawerBaseActivity() {
     private fun isLocationEnabled(): Boolean {
         val locationManager: LocationManager =
             getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
-            LocationManager.NETWORK_PROVIDER
-        )
+        return locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+                || locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
     }
 
     private fun checkPermissions(): Boolean {

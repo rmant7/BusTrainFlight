@@ -5,7 +5,6 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.infrastructure.persistence
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Locale
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.LocationData
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.LocationJson
-import java.lang.Math.pow
 import kotlin.math.abs
 import kotlin.math.pow
 import kotlin.math.sqrt
@@ -65,24 +64,32 @@ class LocationRepository(db: LocationsDbJson) {
         return null
     }
 
+
+    //"name": "Orlando",
+    //"latitude": 28.54210090637207,
+    //"longitude": -81.37899780273438,
+
+    //"name": "Buenos Aires",
+    //"latitude": -34.607601165771484,
+    //"longitude": -58.43709945678711,
     fun searchLocation(latitude: Double, longitude: Double): LocationData? {
-        val city_1 = searchLocationLatitude(latitude)
-        val city_2 = searchLocationLongitude(longitude)
-        if (city_1 != null && city_2 != null) {
+        val cityOne = searchLocationLatitude(-34.607601165771484)//(latitude)
+        val cityTwo = searchLocationLongitude(-58.43709945678711)//(longitude)
+        if (cityOne != null && cityTwo != null) {
             return if
                            (sqrt(
-                    abs(latitude - city_1.latitude).pow(2) + abs(longitude - city_1.longitude).pow(
+                    abs(latitude - cityOne.latitude).pow(2) + abs(longitude - cityOne.longitude).pow(
                         2
                     )
                 ) >
                 sqrt(
-                    abs(latitude - city_2.latitude).pow(2) + abs(longitude - city_2.longitude).pow(
+                    abs(latitude - cityTwo.latitude).pow(2) + abs(longitude - cityTwo.longitude).pow(
                         2
                     )
                 )
             ) {
-                searchLocationByName(city_2.name)
-            } else searchLocationByName(city_1.name)
+                searchLocationByName(cityTwo.name)
+            } else searchLocationByName(cityOne.name)
         }
         return null
     }
