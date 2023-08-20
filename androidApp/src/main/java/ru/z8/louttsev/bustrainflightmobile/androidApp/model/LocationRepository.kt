@@ -1,5 +1,6 @@
 package ru.z8.louttsev.bustrainflightmobile.androidApp.model
 
+import android.util.Log
 import ru.z8.louttsev.bustrainflightmobile.androidApp.currentLocale
 import ru.z8.louttsev.bustrainflightmobile.androidApp.infrastructure.persistence.LocationsDbJson
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Locale
@@ -69,12 +70,20 @@ class LocationRepository(db: LocationsDbJson) {
     //"latitude": 28.54210090637207,
     //"longitude": -81.37899780273438,
 
+    //"name": "Johannesburg",
+    //"latitude": -26.204999923706055,
+    //"longitude": 28.049699783325195,
+
     //"name": "Buenos Aires",
     //"latitude": -34.607601165771484,
     //"longitude": -58.43709945678711,
     fun searchLocation(latitude: Double, longitude: Double): LocationData? {
-        val cityOne = searchLocationLatitude(-34.607601165771484)//(latitude)
-        val cityTwo = searchLocationLongitude(-58.43709945678711)//(longitude)
+        Log.d("asdfg", latitude.toString())
+        val cityOne = searchLocationLatitude(latitude)
+        Log.d("asdfg", cityOne.toString())
+        Log.d("asdfg", longitude.toString())
+        val cityTwo = searchLocationLongitude(longitude)
+        Log.d("asdfg", cityTwo.toString())
         if (cityOne != null && cityTwo != null) {
             return if
                            (sqrt(
@@ -106,7 +115,7 @@ class LocationRepository(db: LocationsDbJson) {
         var minlocation: LocationJson? = null
         for ((_, location) in locations.entries) {
             if (abs(latitude - location.latitude) < minLatitude) {
-                minLatitude = location.latitude
+                minLatitude = abs(latitude - location.latitude)
                 minlocation = location
             }
         }
@@ -118,7 +127,7 @@ class LocationRepository(db: LocationsDbJson) {
         var minlocation: LocationJson? = null
         for ((_, location) in locations.entries) {
             if (abs(longitude - location.longitude) < minLongitude) {
-                minLongitude = location.longitude
+                minLongitude = abs(longitude - location.longitude)
                 minlocation = location
             }
         }
