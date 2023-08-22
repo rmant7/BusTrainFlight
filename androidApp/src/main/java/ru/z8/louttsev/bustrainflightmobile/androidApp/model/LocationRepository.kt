@@ -65,18 +65,6 @@ class LocationRepository(db: LocationsDbJson) {
         return null
     }
 
-
-    //"name": "Orlando",
-    //"latitude": 28.54210090637207,
-    //"longitude": -81.37899780273438,
-
-    //"name": "Johannesburg",
-    //"latitude": -26.204999923706055,
-    //"longitude": 28.049699783325195,
-
-    //"name": "Buenos Aires",
-    //"latitude": -34.607601165771484,
-    //"longitude": -58.43709945678711,
     fun searchLocation(latitude: Double, longitude: Double): LocationData? {
         var minDistance = Double.MAX_VALUE
         var distance = 0.0
@@ -88,29 +76,6 @@ class LocationRepository(db: LocationsDbJson) {
                 minlocation = location
             }
         }
-
-        //Log.d("asdfg", latitude.toString())
-        //val cityOne = searchLocationLatitude(latitude)
-        //Log.d("asdfg", cityOne.toString())
-        //Log.d("asdfg", longitude.toString())
-        //val cityTwo = searchLocationLongitude(longitude)
-        //Log.d("asdfg", cityTwo.toString())
-        //if (cityOne != null && cityTwo != null) {
-            //return if
-                      //     (sqrt(
-                    //abs(latitude - cityOne.latitude).pow(2) + abs(longitude - cityOne.longitude).pow(
-                   //     2
-                   // )
-                //) >
-                //sqrt(
-                    //abs(latitude - cityTwo.latitude).pow(2) + abs(longitude - cityTwo.longitude).pow(
-                       // 2
-                    //)
-                //)
-            //) {
-                //searchLocationByName(cityTwo.name)
-            //} else searchLocationByName(cityOne.name)
-        //}
         if (minlocation != null) {
             return searchLocationByName(minlocation.name)
         }
@@ -122,30 +87,6 @@ class LocationRepository(db: LocationsDbJson) {
             if (name == location.name) return searchLocationById(locationId)
         }
         return null
-    }
-
-    private fun searchLocationLatitude(latitude: Double): LocationJson? {
-        var minLatitude = Double.MAX_VALUE
-        var minlocation: LocationJson? = null
-        for ((_, location) in locations.entries) {
-            if (abs(latitude - location.latitude) < minLatitude) {
-                minLatitude = abs(latitude - location.latitude)
-                minlocation = location
-            }
-        }
-        return minlocation
-    }
-
-    private fun searchLocationLongitude(longitude: Double): LocationJson? {
-        var minLongitude = Double.MAX_VALUE
-        var minlocation: LocationJson? = null
-        for ((_, location) in locations.entries) {
-            if (abs(longitude - location.longitude) < minLongitude) {
-                minLongitude = abs(longitude - location.longitude)
-                minlocation = location
-            }
-        }
-        return minlocation
     }
 
     fun getBookingId(locationId: Int) = bookingIds[locationId]

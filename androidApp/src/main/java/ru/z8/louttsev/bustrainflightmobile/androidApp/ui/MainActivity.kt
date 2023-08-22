@@ -578,7 +578,7 @@ class MainActivity : DrawerBaseActivity() {
                                 city,
                                 invalidSelectionHandler = ::showWrongChoiceError
                             )
-                            binding.destinationTextView.requestFocus()
+                            model.destinations.onItemReset()
                         }
                     }
                 }
@@ -596,18 +596,18 @@ class MainActivity : DrawerBaseActivity() {
         val locationManager: LocationManager =
             getSystemService(Context.LOCATION_SERVICE) as LocationManager
         return locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
-                || locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+        //|| locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
     }
 
     private fun checkPermissions(): Boolean {
         if (ActivityCompat.checkSelfPermission(
                 this,
                 Manifest.permission.ACCESS_COARSE_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED &&
-            ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED
+            ) == PackageManager.PERMISSION_GRANTED //&&
+        // ActivityCompat.checkSelfPermission(
+        //   this,
+        // Manifest.permission.ACCESS_FINE_LOCATION
+        // ) == PackageManager.PERMISSION_GRANTED
         ) {
             return true
         }
@@ -619,7 +619,7 @@ class MainActivity : DrawerBaseActivity() {
             this,
             arrayOf(
                 Manifest.permission.ACCESS_COARSE_LOCATION,
-                Manifest.permission.ACCESS_FINE_LOCATION
+                //Manifest.permission.ACCESS_FINE_LOCATION
             ),
             permissionId
         )
