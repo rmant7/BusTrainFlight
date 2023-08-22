@@ -72,6 +72,7 @@ class MainActivity : DrawerBaseActivity() {
     private lateinit var mFusedLocationClient: FusedLocationProviderClient
     private val permissionId = 2
     private val locationRepository: LocationRepository by inject()
+    private var showLocation = true
 
     override fun onResume() {
         super.onResume()
@@ -572,7 +573,8 @@ class MainActivity : DrawerBaseActivity() {
                                 task.result!!.latitude,
                                 task.result!!.longitude
                             )
-                        if (city != null) {
+                        if (city != null && showLocation) {
+                            showLocation = false
                             binding.originTextView.setText(city.name)
                             model.origins.onItemSelected(
                                 city,
