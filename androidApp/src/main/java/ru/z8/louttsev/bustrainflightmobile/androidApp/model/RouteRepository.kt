@@ -16,11 +16,11 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
 
     private val transport = db.getTransport()
 
-    private lateinit var currentAnywhereLocation: Location
+    private lateinit var currentAnywhereLocation: LocationData
     private lateinit var fullSortedRoutesFromCurrentLocation: MutableList<Pair<Int, MutableList<Route>>>
 
     private fun getFullSortedRoutesFromLocation(
-        originLocation: Location
+        originLocation: LocationData
     ): List<Pair<Int, MutableList<Route>>> {
 
         val routes = mutableMapOf<Int, MutableList<Route>>()
@@ -166,7 +166,7 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
 //    }
 
     fun getPackOfRoutesFromLocation(
-        originLocation: Location,
+        originLocation: LocationData,
         limit: Int = 20,
         newList: Boolean = false
     ): MutableList<Pair<Int, MutableList<Route>>> {
@@ -197,8 +197,8 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
     }
 
     fun getRoutes(
-        from: Location,
-        to: Location,
+        from: LocationData,
+        to: LocationData,
 //        locale: Locale = currentLocale
     ): List<Route> {
         val routeList = mutableListOf<Route>()

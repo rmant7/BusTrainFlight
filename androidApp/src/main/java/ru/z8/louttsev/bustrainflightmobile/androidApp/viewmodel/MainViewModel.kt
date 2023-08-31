@@ -18,8 +18,8 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.ioDispatcher
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.LocationRepository
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.RouteRepository
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Locale
-import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Location
-import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Location.Type
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.LocationData
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.LocationData.Type
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Route
 import ru.z8.louttsev.bustrainflightmobile.androidApp.uiDispatcher
 
@@ -39,10 +39,10 @@ class MainViewModel(
 ) : ViewModel(), KoinComponent {
     private var inputLocale = currentLocale
 
-    var selectedOrigin: Location? = null
+    var selectedOrigin: LocationData? = null
         private set
 
-    private var selectedDestination: Location? = null
+    private var selectedDestination: LocationData? = null
 
     private val routeBuildReadiness = MutableLiveData(isBothPointsSelected() && isPointsVarious())
     val getRouteBuildReadiness : LiveData<Boolean> get() = routeBuildReadiness
@@ -63,9 +63,9 @@ class MainViewModel(
 //        }
 //    }
 
-    val origins = object : AutoCompleteHandler<Location> {
-        private val locations = MutableLiveData<List<Location>>(emptyList())
-        override val data: LiveData<List<Location>>
+    val origins = object : AutoCompleteHandler<LocationData> {
+        private val locations = MutableLiveData<List<LocationData>>(emptyList())
+        override val data: LiveData<List<LocationData>>
             get() = locations
 
         override var isBeingUpdated: Boolean = false
@@ -97,7 +97,7 @@ class MainViewModel(
             }
         }
 
-        override fun onItemSelected(item: Location, invalidSelectionHandler: () -> Unit) {
+        override fun onItemSelected(item: LocationData, invalidSelectionHandler: () -> Unit) {
             selectedOrigin = item
             updateReadiness()
             if (!isPointsVarious()) {
@@ -133,9 +133,9 @@ class MainViewModel(
 
     fun loadMoreAnywhereRoutes() = routeRepository.getPackOfRoutesFromLocation(selectedOrigin!!)
 
-    val destinations = object : AutoCompleteHandler<Location> {
-        private val locations = MutableLiveData<List<Location>>(emptyList())
-        override val data: LiveData<List<Location>>
+    val destinations = object : AutoCompleteHandler<LocationData> {
+        private val locations = MutableLiveData<List<LocationData>>(emptyList())
+        override val data: LiveData<List<LocationData>>
             get() = locations
 
         override var isBeingUpdated: Boolean = false
@@ -174,7 +174,7 @@ class MainViewModel(
         override fun showAnywhereSelection() {
             Napier.d("Anywhere shown")
             if (isOriginSelected()) {
-                locations.value = listOf(Location(0, "Anywhere", ""))
+                locations.value = listOf(LocationData(0, "Anywhere", ""))
             }
         }
 
@@ -184,7 +184,7 @@ class MainViewModel(
             }
         }
 
-        override fun onItemSelected(item: Location, invalidSelectionHandler: () -> Unit) {
+        override fun onItemSelected(item: LocationData, invalidSelectionHandler: () -> Unit) {
             selectedDestination = item
             updateReadiness()
             if (!isPointsVarious()) {
@@ -201,7 +201,7 @@ class MainViewModel(
 
         override fun onAnywhereSelected() {
             Napier.d("Anywhere selected")
-            selectedDestination = Location(0, "Anywhere", "")
+            selectedDestination = LocationData(0, "Anywhere", "")
             Napier.d("$selectedDestination")
             updateReadiness()
         }

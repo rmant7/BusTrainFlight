@@ -77,7 +77,7 @@ class MainActivity : DrawerBaseActivity() {
     override fun onResume() {
         super.onResume()
         model.updateReadiness()
-        getLocation()
+        if (showLocation) getLocation()
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -131,8 +131,6 @@ class MainActivity : DrawerBaseActivity() {
                 inputLayout = binding.originInputLayout,
                 false
             )
-            //originTextView.setViewTreeLifecycleOwner()
-            //originTextView.doOnPreDraw { getLocation() }
 
             originClearIcon.setOnClickListener {
                 model.origins.onItemReset()
@@ -150,6 +148,7 @@ class MainActivity : DrawerBaseActivity() {
             destinationClearIcon.setOnClickListener {
                 model.destinations.onItemReset()
                 destinationTextView.clearText()
+                destinationTextView.clearFocus()
                 destinationTextView.requestFocus()
                 mInputMethodManager.showSoftInput(destinationTextView, SHOW_IMPLICIT)
             }
@@ -168,27 +167,18 @@ class MainActivity : DrawerBaseActivity() {
                     val destinationLocation = model.destinations.data.value!!.first()
                     val originLocation = model.origins.data.value!!.first()
                     originTextView.setText("")
-                    //model.origins.onItemReset()
-                    //originTextView.clearText()
-                    //model.destinations.onItemReset()
-                    //destinationTextView.clearText()
-                    //originTextView.requestFocus()
-                    //mInputMethodManager.showSoftInput(originTextView, SHOW_IMPLICIT)
-                    //mInputMethodManager.showSoftInput(destinationTextView, SHOW_IMPLICIT)
 
                     destinationTextView.setText(originLocation.name)
                     model.destinations.onItemSelected(
                         originLocation,
                         invalidSelectionHandler = ::showWrongChoiceError
                     )
-                    //destinationTextView.performCompletion()
 
                     originTextView.setText(destinationLocation.name)
                     model.origins.onItemSelected(
                         destinationLocation,
                         invalidSelectionHandler = ::showWrongChoiceError
                     )
-                    //originTextView.performCompletion()
                 }
             }
 
@@ -416,6 +406,7 @@ class MainActivity : DrawerBaseActivity() {
         }
 
         setOnFocusChangeListener { _, hasFocus ->
+            Log.d("asdfg", "setOnFocusChangeListener")
             if (!model.isAnywhereSelected.value!!) {
                 if (!hasFocus) {
                     inputLayout.hideErrorMessage()
@@ -430,6 +421,7 @@ class MainActivity : DrawerBaseActivity() {
         }
         setOnClickListener {
             Napier.d("OnClick")
+            Log.d("asdfg", "setOnClickListener")
             if (!model.isAnywhereSelected.value!!) {
                 if (text.isEmpty() && isDestination && model.selectedOrigin != null) {
 //                requestFocus()
@@ -564,7 +556,7 @@ class MainActivity : DrawerBaseActivity() {
 
     @SuppressLint("MissingPermission", "SetTextI18n")
     private fun getLocation() {
-        if (checkPermissions()) {
+        if (showLocation && checkPermissions()) {
             if (isLocationEnabled()) {
                 mFusedLocationClient.lastLocation.addOnCompleteListener(this) { task ->
                     if (task.result != null) {
@@ -573,21 +565,25 @@ class MainActivity : DrawerBaseActivity() {
                                 task.result!!.latitude,
                                 task.result!!.longitude
                             )
-                        if (city != null && showLocation) {
+                        if (city != null) {
                             showLocation = false
                             binding.originTextView.setText(city.name)
                             model.origins.onItemSelected(
                                 city,
                                 invalidSelectionHandler = ::showWrongChoiceError
                             )
-                            model.destinations.onItemReset()
+                            binding.destinationTextView.requestFocus()
+                            binding.destinationTextView.clearFocus()
+                            //model.destinations.onItemReset()
                         }
                     }
                 }
-            } else {
+            } else if (showLocation) {
+                showLocation = false
                 Toast.makeText(this, "Please turn on location", Toast.LENGTH_LONG).show()
                 //val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
                 //startActivity(intent)
+                //jakarta
             }
         } else {
             requestPermissions()
@@ -636,7 +632,7 @@ class MainActivity : DrawerBaseActivity() {
         if (requestCode == permissionId) {
             if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                 getLocation()
-            }
+            } else showLocation = false
         }
     }
 }
