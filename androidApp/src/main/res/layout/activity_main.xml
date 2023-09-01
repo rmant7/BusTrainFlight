@@ -96,6 +96,7 @@
                         android:id="@+id/origin_input_layout"
                         style="@style/InputLocationLayoutStyle"
                         android:layout_marginTop="16dp"
+                        app:helperTextTextColor="@color/error"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 

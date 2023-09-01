@@ -26,6 +26,7 @@ import android.view.inputmethod.InputMethodManager.*
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar.*
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.doOnPreDraw
@@ -90,7 +91,7 @@ class MainActivity : DrawerBaseActivity() {
 
 //        loadAppOpenAd()
 
-        preferences = getSharedPreferences("PREFERENCES", Context.MODE_PRIVATE)
+        preferences = getSharedPreferences("PREFERENCES", MODE_PRIVATE)
 
         model.isFirstTimeRun = preferences.getBoolean("isFirstTimeRun", true)
         preferences.edit().putBoolean("isFirstTimeRun", false).apply()
@@ -129,7 +130,8 @@ class MainActivity : DrawerBaseActivity() {
             originTextView.setup(
                 handler = model.origins,
                 inputLayout = binding.originInputLayout,
-                false
+                false,
+                originClearIcon
             )
 
             originClearIcon.setOnClickListener {
@@ -142,7 +144,8 @@ class MainActivity : DrawerBaseActivity() {
             destinationTextView.setup(
                 handler = model.destinations,
                 inputLayout = binding.destinationInputLayout,
-                true
+                true,
+                destinationClearIcon
             )
 
             destinationClearIcon.setOnClickListener {
@@ -274,7 +277,8 @@ class MainActivity : DrawerBaseActivity() {
     private fun AutoCompleteTextView.setup(
         handler: AutoCompleteHandler<LocationData>,
         inputLayout: TextInputLayout,
-        isDestination: Boolean
+        isDestination: Boolean,
+        clearIcon: AppCompatImageView
     ) {
         threshold = 1
 
@@ -351,8 +355,8 @@ class MainActivity : DrawerBaseActivity() {
                         }
                     }
                 )
+                showButton()
             }
-            showButton()
         }
 
         setOnEditorActionListener { _, actionId, _ ->
@@ -374,7 +378,7 @@ class MainActivity : DrawerBaseActivity() {
             val selectedLocation = parent.getItemAtPosition(position) as LocationData
 
             val inputMethodManager =
-                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(rootView.windowToken, 0)
 
             if (selectedLocation.name == "Anywhere") {
@@ -406,10 +410,10 @@ class MainActivity : DrawerBaseActivity() {
         }
 
         setOnFocusChangeListener { _, hasFocus ->
-            Log.d("asdfg", "setOnFocusChangeListener")
+            inputLayout.hideErrorMessage()
             if (!model.isAnywhereSelected.value!!) {
                 if (!hasFocus) {
-                    inputLayout.hideErrorMessage()
+                    //inputLayout.hideErrorMessage()
                     if (checkTheCorrectnessOfTheInput()) showWrongChoiceError()
                     else inputLayout.hideInvalidInputMessage()
                 } else if (hasFocus && text.isEmpty() && isDestination && model.selectedOrigin != null) {
@@ -421,7 +425,6 @@ class MainActivity : DrawerBaseActivity() {
         }
         setOnClickListener {
             Napier.d("OnClick")
-            Log.d("asdfg", "setOnClickListener")
             if (!model.isAnywhereSelected.value!!) {
                 if (text.isEmpty() && isDestination && model.selectedOrigin != null) {
 //                requestFocus()
@@ -510,11 +513,12 @@ class MainActivity : DrawerBaseActivity() {
     }
 
     private fun TextInputLayout.showErrorMessage(message: String) {
-        error = message
+        helperText = message
+        //error = message
     }
 
     private fun TextInputLayout.hideErrorMessage() {
-        error = null
+        helperText = null
     }
 
     private fun TextInputLayout.hideInvalidInputMessage() {
@@ -534,7 +538,6 @@ class MainActivity : DrawerBaseActivity() {
         return checkForCoincidenceOfPoints() && checkForEmptyString()
     }
 
-    /////
     private fun checkForCoincidenceOfPoints(): Boolean {
         return binding.originTextView.text.toString() ==
                 binding.destinationTextView.text.toString()
@@ -572,6 +575,7 @@ class MainActivity : DrawerBaseActivity() {
                                 city,
                                 invalidSelectionHandler = ::showWrongChoiceError
                             )
+                            //binding.originTextView.clearFocus()
                             binding.destinationTextView.requestFocus()
                             binding.destinationTextView.clearFocus()
                             //model.destinations.onItemReset()
@@ -583,7 +587,6 @@ class MainActivity : DrawerBaseActivity() {
                 Toast.makeText(this, "Please turn on location", Toast.LENGTH_LONG).show()
                 //val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
                 //startActivity(intent)
-                //jakarta
             }
         } else {
             requestPermissions()
@@ -592,7 +595,7 @@ class MainActivity : DrawerBaseActivity() {
 
     private fun isLocationEnabled(): Boolean {
         val locationManager: LocationManager =
-            getSystemService(Context.LOCATION_SERVICE) as LocationManager
+            getSystemService(LOCATION_SERVICE) as LocationManager
         return locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
         //|| locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
     }

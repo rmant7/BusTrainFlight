@@ -26,7 +26,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
 
     // Admob
-    implementation("com.google.android.gms:play-services-ads:22.2.0")
+    implementation("com.google.android.gms:play-services-ads:22.3.0")
 
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
     implementation("androidx.lifecycle:lifecycle-runtime:2.6.1")
@@ -36,6 +36,8 @@ dependencies {
     implementation("com.github.satoshun.coroutine.autodispose:autodispose:0.3.1")
 
     implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
+
+   // implementation ("com.google.android.gms:play-services-location:15.0.1")
 }
 
 android {

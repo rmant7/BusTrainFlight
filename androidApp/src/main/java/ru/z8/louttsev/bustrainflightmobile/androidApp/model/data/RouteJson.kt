@@ -2,6 +2,7 @@ package ru.z8.louttsev.bustrainflightmobile.androidApp.model.data
 
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.descriptors.SerialDescriptor
@@ -15,7 +16,7 @@ data class RouteJson(
     val price: Int,
     val duration: Int,
     @SerialName("direct_routes")
-//    @Serializable(with = IntListSerializer::class)
+    @Serializable(with = IntListSerializer::class)
     val directRoutes: List<Int>
 )
 

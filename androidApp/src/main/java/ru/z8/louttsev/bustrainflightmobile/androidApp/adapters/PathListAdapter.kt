@@ -153,9 +153,11 @@ class PathListAdapter(
                 TransportationType.RIDE_SHARE -> "https://www.blablacar.co.uk/"
                 else -> {
                     val qiwiCityId = locationRepository.kiwiCityIds
-
-                    if (qiwiCityId[path.to.id]!![0] != null && qiwiCityId[path.from.id]!![0] != null){
-                        val transport = when(path.transportationType){
+                    ///////////////////////////////////////////////
+                    if (qiwiCityId[path.to.id] == null || qiwiCityId[path.from.id] == null) return "https://www.aviasales.ru/?params=KWG1"
+                    //////////////////////////////////////////////////
+                    if (qiwiCityId[path.to.id]!![0] != null && qiwiCityId[path.from.id]!![0] != null) {
+                        val transport = when (path.transportationType) {
                             TransportationType.BUS -> "bus"
                             TransportationType.TRAIN -> "train"
                             else -> ""
@@ -170,7 +172,7 @@ class PathListAdapter(
                                 "&return=no-return&returnFromDifferentAirport=false&returnToDifferentAirport=false&sortBy=price" +
                                 "&transport=$transport"
                     } else {
-                            "https://omio.sjv.io/XxEWmb"
+                        "https://omio.sjv.io/XxEWmb"
                     }
                 }
             }
