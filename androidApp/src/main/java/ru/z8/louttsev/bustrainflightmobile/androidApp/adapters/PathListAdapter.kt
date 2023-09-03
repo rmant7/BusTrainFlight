@@ -6,6 +6,7 @@ package ru.z8.louttsev.bustrainflightmobile.androidApp.adapters
 
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.*
@@ -154,7 +155,13 @@ class PathListAdapter(
                 else -> {
                     val qiwiCityId = locationRepository.kiwiCityIds
                     ///////////////////////////////////////////////
-                    if (qiwiCityId[path.to.id] == null || qiwiCityId[path.from.id] == null) return "https://www.aviasales.ru/?params=KWG1"
+                    if (qiwiCityId[path.to.id] == null || qiwiCityId[path.from.id] == null) {
+                        return when (path.transportationType) {
+                            TransportationType.BUS -> "https://www.aviasales.ru/?params=KWG1"
+                            TransportationType.TRAIN -> "https://www.aviasales.ru/?params=KWG1"
+                            else -> "https://www.aviasales.ru/?params=KWG1"
+                        }
+                    }
                     //////////////////////////////////////////////////
                     if (qiwiCityId[path.to.id]!![0] != null && qiwiCityId[path.from.id]!![0] != null) {
                         val transport = when (path.transportationType) {
