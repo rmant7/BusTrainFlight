@@ -46,3 +46,4 @@ output.json
 obj/
 .externalNativeBuild
 /androidApp/release/
+/androidApp/src/main/res/raw
