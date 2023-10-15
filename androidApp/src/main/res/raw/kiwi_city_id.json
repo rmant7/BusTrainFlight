@@ -1,0 +1,4517 @@
+[
+  {
+    "8": [
+      "tehran_ir"
+    ],
+    "9": [
+      "tashkent_uz"
+    ],
+    "11": [
+      "phnom-penh_kh"
+    ],
+    "12": [
+      "naypyidaw_mm"
+    ],
+    "13": [
+      "muscat_om"
+    ],
+    "14": [
+      "manila_ph"
+    ],
+    "15": [
+      "male_mv"
+    ],
+    "17": [
+      "kuwait-city_kw"
+    ],
+    "18": [
+      "kathmandu_np"
+    ],
+    "19": [
+      "kabul_af"
+    ],
+    "20": [
+      "islamabad_pk"
+    ],
+    "21": [
+      "dushanbe_tj"
+    ],
+    "22": [
+      "doha_qa"
+    ],
+    "23": [
+      "dhaka_bd"
+    ],
+    "24": [
+      "colombo_lk"
+    ],
+    "25": [
+      "bishkek_kg"
+    ],
+    "26": [
+      "beirut_lb"
+    ],
+    "27": [
+      "bandar-seri-begawan_bn"
+    ],
+    "28": [
+      "baghdad_iq"
+    ],
+    "29": [
+      "astana_kz"
+    ],
+    "30": [
+      "ashgabat_tm"
+    ],
+    "31": [
+      "amman_jo"
+    ],
+    "32": [
+      "bahrain-island_bh"
+    ],
+    "33": [
+      "tbilisi_ge"
+    ],
+    "34": [
+      "baku_az"
+    ],
+    "35": [
+      "yerevan_am"
+    ],
+    "36": [
+      "honolulu_hi_us"
+    ],
+    "37": [
+      "san-francisco_ca_us"
+    ],
+    "38": [
+      "orlando_fl_us"
+    ],
+    "39": [
+      "las-vegas_nv_us"
+    ],
+    "40": [
+      "los-angeles_ca_us"
+    ],
+    "41": [
+      "miami_fl_us"
+    ],
+    "42": [
+      "new-york-city_ny_us"
+    ],
+    "44": [
+      "dammam_sa"
+    ],
+    "45": [
+      "riyadh_sa"
+    ],
+    "47": [
+      "cancun_mx"
+    ],
+    "48": [
+      "fukuoka_jp"
+    ],
+    "50": [
+      "kyoto_jp"
+    ],
+    "51": [
+      "osaka_jp"
+    ],
+    "53": [
+      "batam_id"
+    ],
+    "59": [
+      "beijing_cn"
+    ],
+    "60": [
+      "zhuhai_cn"
+    ],
+    "61": [
+      "guilin_cn"
+    ],
+    "62": [
+      "vancouver_bc_ca"
+    ],
+    "63": [
+      "toronto_on_ca"
+    ],
+    "67": [
+      "krabi_th"
+    ],
+    "68": [
+      "jeju-city_kr"
+    ],
+    "69": [
+      "abu-dhabi_ae"
+    ],
+    "71": [
+      "cebu_ph"
+    ],
+    "76": [
+      "jakarta_id"
+    ],
+    "77": [
+      "hanoi_vn"
+    ],
+    "79": [
+      "johor-bahru_my"
+    ],
+    "80": [
+      "denpasar_id"
+    ],
+    "81": [
+      "ho-chi-minh-city_vn"
+    ],
+    "82": [
+      "shanghai_cn"
+    ],
+    "83": [
+      "seoul_kr"
+    ],
+    "84": [
+      "medina_sa"
+    ],
+    "85": [
+      "guangzhou_cn"
+    ],
+    "87": [
+      "taipei_tw"
+    ],
+    "88": [
+      "pattaya_th"
+    ],
+    "89": [
+      "tokyo_jp"
+    ],
+    "90": [
+      "phuket-city_th"
+    ],
+    "92": [
+      "shenzhen_cn"
+    ],
+    "94": [
+      "kuala-lumpur_my"
+    ],
+    "95": [
+      "dubai_ae"
+    ],
+    "96": [
+      "singapore_sg"
+    ],
+    "98": [
+      "bangkok_th"
+    ],
+    "100": [
+      "antwerp_be"
+    ],
+    "101": [
+      "aberdeen_gb"
+    ],
+    "103": [
+      "alexandroupoli_gr"
+    ],
+    "104": [
+      "athens_gr"
+    ],
+    "105": [
+      "alicante_es"
+    ],
+    "106": [
+      "almeria_es"
+    ],
+    "107": [
+      "aalborg_dk"
+    ],
+    "108": [
+      "aarhus_dk"
+    ],
+    "109": [
+      "ancona_it"
+    ],
+    "111": [
+      "amsterdam_nl"
+    ],
+    "113": [
+      "ankara_tr"
+    ],
+    "114": [
+      "antalya_tr"
+    ],
+    "115": [
+      "thal_ch"
+    ],
+    "116": [
+      "brussels_be"
+    ],
+    "118": [
+      "banja-luka_ba"
+    ],
+    "119": [
+      "belfast_gb"
+    ],
+    "120": [
+      "birmingham_gb"
+    ],
+    "121": [
+      "bournemouth_gb"
+    ],
+    "122": [
+      "bristol_gb"
+    ],
+    "123": [
+      "budapest_hu"
+    ],
+    "124": [
+      "berlin_de"
+    ],
+    "126": [
+      "bremen_de"
+    ],
+    "127": [
+      "billund_dk"
+    ],
+    "128": [
+      "barcelona_es"
+    ],
+    "129": [
+      "bilbao_es"
+    ],
+    "130": [
+      "bologna_it"
+    ],
+    "131": [
+      "bergen_no"
+    ],
+    "132": [
+      "bodo_no"
+    ],
+    "133": [
+      "bydgoszcz_pl"
+    ],
+    "134": [
+      "bucharest_ro"
+    ],
+    "135": [
+      "belgrade_rs"
+    ],
+    "136": [
+      "bratislava_sk"
+    ],
+    "137": [
+      "bordeaux_fr"
+    ],
+    "139": [
+      "brno_cz"
+    ],
+    "140": [
+      "basel_ch"
+    ],
+    "141": [
+      "bern_ch"
+    ],
+    "142": [
+      "cardiff_gb"
+    ],
+    "145": [
+      "cologne_de"
+    ],
+    "146": [
+      "corfu_gr"
+    ],
+    "147": [
+      "copenhagen_dk"
+    ],
+    "150": [
+      "cork_ie"
+    ],
+    "151": [
+      "cagliari_it"
+    ],
+    "152": [
+      "catania_it"
+    ],
+    "153": [
+      "cluj-napoca_ro"
+    ],
+    "154": [
+      "clermont-ferrand_fr"
+    ],
+    "155": [
+      "chambery_fr"
+    ],
+    "157": [
+      "durham_gb"
+    ],
+    "159": [
+      "dortmund_de"
+    ],
+    "160": [
+      "dresden_de"
+    ],
+    "161": [
+      "dusseldorf_de"
+    ],
+    "162": [
+      "dublin_ie"
+    ],
+    "163": [
+      "dalaman_tr"
+    ],
+    "164": [
+      "dubrovnik_hr"
+    ],
+    "166": [
+      "edinburgh_gb"
+    ],
+    "167": [
+      "exeter_gb"
+    ],
+    "168": [
+      "erfurt_de"
+    ],
+    "169": [
+      "esbjerg_dk"
+    ],
+    "171": [
+      "eilat_il"
+    ],
+    "172": [
+      "eindhoven_nl"
+    ],
+    "174": [
+      "frankfurt_de"
+    ],
+    "175": [
+      "friedrichshafen_de"
+    ],
+    "177": [
+      "florence_it"
+    ],
+    "178": [
+      "floro_no"
+    ],
+    "179": [
+      "faro_pt"
+    ],
+    "180": [
+      "funchal_pt"
+    ],
+    "181": [
+      "graz_at"
+    ],
+    "184": [
+      "glasgow_gb"
+    ],
+    "186": [
+      "granada_es"
+    ],
+    "187": [
+      "girona_es"
+    ],
+    "189": [
+      "genoa_it"
+    ],
+    "190": [
+      "groningen_nl"
+    ],
+    "191": [
+      "gdansk_pl"
+    ],
+    "192": [
+      "geneva_ch"
+    ],
+    "193": [
+      "gothenburg_se"
+    ],
+    "194": [
+      "humberside_gb"
+    ],
+    "196": [
+      "hamburg_de"
+    ],
+    "197": [
+      "hanover_de"
+    ],
+    "198": [
+      "heringsdorf_de"
+    ],
+    "200": [
+      "heraklion_gr"
+    ],
+    "201": [
+      "helsinki_fi"
+    ],
+    "202": [
+      "innsbruck_at"
+    ],
+    "203": [
+      "inverness_gb"
+    ],
+    "204": [
+      "debrecen_hu"
+    ],
+    "205": [
+      "ibiza_es"
+    ],
+    "206": [
+      "izmir_tr"
+    ],
+    "207": [
+      "istanbul_tr"
+    ],
+    "209": [
+      "klagenfurt_at"
+    ],
+    "210": [
+      "karlsruhe_de"
+    ],
+    "212": [
+      "kaunas_lt"
+    ],
+    "213": [
+      "katowice_pl"
+    ],
+    "214": [
+      "krakow_pl"
+    ],
+    "215": [
+      "kosice_sk"
+    ],
+    "219": [
+      "linz_at"
+    ],
+    "220": [
+      "liege_be"
+    ],
+    "222": [
+      "liverpool_gb"
+    ],
+    "224": [
+      "leeds_gb"
+    ],
+    "225": [
+      "london_gb"
+    ],
+    "226": [
+      "lubeck_de"
+    ],
+    "227": [
+      "lanzarote_es"
+    ],
+    "228": [
+      "las-palmas_es"
+    ],
+    "229": [
+      "lleida_es"
+    ],
+    "230": [
+      "lamezia-terme_it"
+    ],
+    "231": [
+      "larnaca_cy"
+    ],
+    "233": [
+      "luxembourg-city_lu"
+    ],
+    "235": [
+      "lisbon_pt"
+    ],
+    "236": [
+      "ljubljana_si"
+    ],
+    "237": [
+      "lappeenranta_fi"
+    ],
+    "239": [
+      "lille_fr"
+    ],
+    "240": [
+      "lyon_fr"
+    ],
+    "241": [
+      "lugano_ch"
+    ],
+    "242": [
+      "lulea_se"
+    ],
+    "243": [
+      "manchester_gb"
+    ],
+    "244": [
+      "mannheim_de"
+    ],
+    "245": [
+      "memmingen_de"
+    ],
+    "246": [
+      "munster_de"
+    ],
+    "247": [
+      "munich_de"
+    ],
+    "248": [
+      "madrid_es"
+    ],
+    "249": [
+      "malaga_es"
+    ],
+    "251": [
+      "murcia_es"
+    ],
+    "252": [
+      "milan_it"
+    ],
+    "253": [
+      "malta_mt"
+    ],
+    "254": [
+      "monte-carlo_mc"
+    ],
+    "255": [
+      "maastricht_nl"
+    ],
+    "256": [
+      "moss_no"
+    ],
+    "259": [
+      "marseille_fr"
+    ],
+    "260": [
+      "metz_fr"
+    ],
+    "261": [
+      "montpellier_fr"
+    ],
+    "262": [
+      "malmo_se"
+    ],
+    "263": [
+      "norwich_gb"
+    ],
+    "264": [
+      "newcastle-upon-tyne_gb"
+    ],
+    "265": [
+      "newquay_gb"
+    ],
+    "266": [
+      "nuremberg_de"
+    ],
+    "267": [
+      "naples_it"
+    ],
+    "268": [
+      "constanta_ro"
+    ],
+    "269": [
+      "nantes_fr"
+    ],
+    "270": [
+      "nice_fr"
+    ],
+    "271": [
+      "norrkoping_se"
+    ],
+    "272": [
+      "ostend_be"
+    ],
+    "275": [
+      "olbia_it"
+    ],
+    "276": [
+      "ohrid_mk"
+    ],
+    "277": [
+      "oslo_no"
+    ],
+    "278": [
+      "osijek_hr"
+    ],
+    "279": [
+      "ostrava_cz"
+    ],
+    "280": [
+      "plovdiv_bg"
+    ],
+    "282": [
+      "paderborn_de"
+    ],
+    "283": [
+      "rostock_de"
+    ],
+    "284": [
+      "palma_es"
+    ],
+    "285": [
+      "palermo_it"
+    ],
+    "286": [
+      "pescara_it"
+    ],
+    "287": [
+      "pisa_it"
+    ],
+    "288": [
+      "paphos_cy"
+    ],
+    "289": [
+      "palanga_lt"
+    ],
+    "290": [
+      "ponta-delgada_pt"
+    ],
+    "291": [
+      "porto_pt"
+    ],
+    "292": [
+      "poprad_sk"
+    ],
+    "293": [
+      "paris_fr"
+    ],
+    "294": [
+      "pula_hr"
+    ],
+    "295": [
+      "podgorica_me"
+    ],
+    "296": [
+      "pardubice_cz"
+    ],
+    "297": [
+      "prague_cz"
+    ],
+    "298": [
+      "parnu_ee"
+    ],
+    "299": [
+      "rhodes_gr"
+    ],
+    "300": [
+      "reykjavik_is"
+    ],
+    "301": [
+      "reus_es"
+    ],
+    "302": [
+      "rijeka_hr"
+    ],
+    "303": [
+      "rome_it"
+    ],
+    "304": [
+      "rimini_it"
+    ],
+    "305": [
+      "riga_lv"
+    ],
+    "306": [
+      "rotterdam_nl"
+    ],
+    "307": [
+      "ronneby_se"
+    ],
+    "308": [
+      "salzburg_at"
+    ],
+    "309": [
+      "sofia_bg"
+    ],
+    "310": [
+      "sarajevo_ba"
+    ],
+    "311": [
+      "southampton_gb"
+    ],
+    "314": [
+      "poznan_pl"
+    ],
+    "315": [
+      "saarbrucken_de"
+    ],
+    "316": [
+      "stuttgart_de"
+    ],
+    "318": [
+      "shannon_ie"
+    ],
+    "320": [
+      "santiago-de-compostela_es"
+    ],
+    "321": [
+      "seville_es"
+    ],
+    "323": [
+      "skopje_mk"
+    ],
+    "325": [
+      "stavanger_no"
+    ],
+    "326": [
+      "strasbourg_fr"
+    ],
+    "327": [
+      "split_hr"
+    ],
+    "329": [
+      "stockholm_se"
+    ],
+    "330": [
+      "tirana_al"
+    ],
+    "331": [
+      "thessaloniki_gr"
+    ],
+    "332": [
+      "tenerife_es"
+    ],
+    "334": [
+      "trieste_it"
+    ],
+    "335": [
+      "turin_it"
+    ],
+    "336": [
+      "tel-aviv_il"
+    ],
+    "337": [
+      "terceira-island_pt"
+    ],
+    "338": [
+      "timisoara_ro"
+    ],
+    "339": [
+      "trabzon_tr"
+    ],
+    "340": [
+      "tampere_fi"
+    ],
+    "341": [
+      "turku_fi"
+    ],
+    "342": [
+      "toulouse_fr"
+    ],
+    "343": [
+      "tivat_me"
+    ],
+    "345": [
+      "tallinn_ee"
+    ],
+    "347": [
+      "umea_se"
+    ],
+    "348": [
+      "vienna_at"
+    ],
+    "349": [
+      "varna_bg"
+    ],
+    "350": [
+      "volos_gr"
+    ],
+    "351": [
+      "valencia_es"
+    ],
+    "352": [
+      "valladolid_es"
+    ],
+    "353": [
+      "venice_it"
+    ],
+    "354": [
+      "verona_it"
+    ],
+    "356": [
+      "vilnius_lt"
+    ],
+    "357": [
+      "iasi_ro"
+    ],
+    "358": [
+      "vaxjo_se"
+    ],
+    "359": [
+      "visby_se"
+    ],
+    "362": [
+      "westerland_de"
+    ],
+    "364": [
+      "warsaw_pl"
+    ],
+    "365": [
+      "wroclaw_pl"
+    ],
+    "367": [
+      "zaragoza_es"
+    ],
+    "368": [
+      "zagreb_hr"
+    ],
+    "369": [
+      "zadar_hr"
+    ],
+    "370": [
+      "zurich_ch"
+    ],
+    "371": [
+      "chisinau_md"
+    ],
+    "548": [
+      "ulaanbaatar_mn"
+    ],
+    "549": [
+      "vientiane_la"
+    ],
+    "636": [
+      "chiang-mai_th"
+    ],
+    "637": [
+      "hat-yai_th"
+    ],
+    "638": [
+      "ko-samui_th"
+    ],
+    "639": [
+      "udon-thani_th"
+    ],
+    "640": [
+      "chiang-rai-province_th"
+    ],
+    "641": [
+      "khon-kaen_th"
+    ],
+    "642": [
+      "surat-thani-province_th"
+    ],
+    "643": [
+      "ubon-ratchathani-province_th"
+    ],
+    "644": [
+      "nakhon-si-thammarat-province_th"
+    ],
+    "645": [
+      "phitsanulok_th"
+    ],
+    "647": [
+      "roi-et-province_th"
+    ],
+    "649": [
+      "buriram-province_th"
+    ],
+    "650": [
+      "sakon-nakhon_th"
+    ],
+    "651": [
+      "lampang-province_th"
+    ],
+    "654": [
+      "chumphon-province_th"
+    ],
+    "655": [
+      "loei-province_th"
+    ],
+    "656": [
+      "narathiwat-province_th"
+    ],
+    "657": [
+      "trat-province_th"
+    ],
+    "659": [
+      "sukhothai-province_th"
+    ],
+    "663": [
+      "chicago_il_us"
+    ],
+    "664": [
+      "houston_tx_us"
+    ],
+    "665": [
+      "phoenix_az_us"
+    ],
+    "666": [
+      "philadelphia_pa_us"
+    ],
+    "667": [
+      "san-antonio_tx_us"
+    ],
+    "668": [
+      "san-diego_ca_us"
+    ],
+    "669": [
+      "dallas_tx_us"
+    ],
+    "670": [
+      "san-jose_ca_us"
+    ],
+    "671": [
+      "austin_tx_us"
+    ],
+    "673": [
+      "jacksonville_fl_us"
+    ],
+    "674": [
+      "columbus_oh_us"
+    ],
+    "675": [
+      "charlotte_nc_us"
+    ],
+    "676": [
+      "indianapolis_in_us"
+    ],
+    "677": [
+      "seattle_wa_us"
+    ],
+    "678": [
+      "denver_co_us"
+    ],
+    "680": [
+      "boston_ma_us"
+    ],
+    "681": [
+      "el-paso_tx_us"
+    ],
+    "682": [
+      "nashville_tn_us"
+    ],
+    "683": [
+      "detroit_mi_us"
+    ],
+    "684": [
+      "portland_or_us"
+    ],
+    "685": [
+      "oklahoma-city_ok_us"
+    ],
+    "686": [
+      "memphis_tn_us"
+    ],
+    "687": [
+      "louisville_ky_us"
+    ],
+    "689": [
+      "milwaukee_wi_us"
+    ],
+    "690": [
+      "albuquerque_nm_us"
+    ],
+    "691": [
+      "tucson_az_us"
+    ],
+    "692": [
+      "fresno_ca_us"
+    ],
+    "694": [
+      "atlanta_ga_us"
+    ],
+    "695": [
+      "sacramento_ca_us"
+    ],
+    "696": [
+      "kansas-city_mo_us"
+    ],
+    "698": [
+      "raleigh_nc_us"
+    ],
+    "699": [
+      "omaha_ne_us"
+    ],
+    "702": [
+      "minneapolis_mn_us"
+    ],
+    "703": [
+      "oakland_ca_us"
+    ],
+    "704": [
+      "tampa_fl_us"
+    ],
+    "706": [
+      "tulsa_ok_us"
+    ],
+    "708": [
+      "new-orleans_la_us"
+    ],
+    "709": [
+      "wichita_ks_us"
+    ],
+    "711": [
+      "cleveland_oh_us"
+    ],
+    "714": [
+      "san-juan_pr_pr"
+    ],
+    "715": [
+      "santa-ana_ca_us"
+    ],
+    "717": [
+      "lexington_ky_us"
+    ],
+    "718": [
+      "corpus-christi_tx_us"
+    ],
+    "721": [
+      "cincinnati_oh_us"
+    ],
+    "723": [
+      "greensboro_nc_us"
+    ],
+    "724": [
+      "pittsburgh_pa_us"
+    ],
+    "726": [
+      "st-louis_mo_us"
+    ],
+    "728": [
+      "anchorage_ak_us"
+    ],
+    "734": [
+      "fort-wayne_in_us"
+    ],
+    "737": [
+      "laredo_tx_us"
+    ],
+    "738": [
+      "madison_wi_us"
+    ],
+    "740": [
+      "lubbock_tx_us"
+    ],
+    "741": [
+      "reno_nv_us"
+    ],
+    "743": [
+      "buffalo_ny_us"
+    ],
+    "751": [
+      "norfolk_va_us"
+    ],
+    "755": [
+      "richmond_va_us"
+    ],
+    "757": [
+      "spokane_wa_us"
+    ],
+    "761": [
+      "des-moines_ia_us"
+    ],
+    "763": [
+      "baton-rouge_la_us"
+    ],
+    "765": [
+      "salt-lake-city_ut_us"
+    ],
+    "769": [
+      "birmingham_mi_us"
+    ],
+    "772": [
+      "fayetteville_ar_us"
+    ],
+    "773": [
+      "grand-rapids_mi_us"
+    ],
+    "775": [
+      "rochester_ny_us"
+    ],
+    "776": [
+      "charleston_wv_us"
+    ],
+    "777": [
+      "palm-springs_ca_us"
+    ],
+    "780": [
+      "montreal_qc_ca"
+    ],
+    "781": [
+      "calgary_ab_ca"
+    ],
+    "782": [
+      "edmonton_ab_ca"
+    ],
+    "783": [
+      "ottawa_on_ca"
+    ],
+    "784": [
+      "winnipeg_mb_ca"
+    ],
+    "785": [
+      "quebec-city_qc_ca"
+    ],
+    "786": [
+      "mount-hope_on_ca"
+    ],
+    "787": [
+      "waterloo_on_ca"
+    ],
+    "788": [
+      "london_on_ca"
+    ],
+    "789": [
+      "victoria_bc_ca"
+    ],
+    "790": [
+      "halifax_ns_ca"
+    ],
+    "792": [
+      "windsor_on_ca"
+    ],
+    "793": [
+      "saskatoon_sk_ca"
+    ],
+    "795": [
+      "regina_sk_ca"
+    ],
+    "796": [
+      "st-johns_nl_ca"
+    ],
+    "797": [
+      "kelowna_bc_ca"
+    ],
+    "1001": [
+      "herat_af"
+    ],
+    "1002": [
+      "kandahar_af"
+    ],
+    "1003": [
+      "mazar-i-sharif_af"
+    ],
+    "1005": [
+      "durres_al"
+    ],
+    "1006": [
+      "kukes_al"
+    ],
+    "1020": [
+      "andorra-la-vella_ad"
+    ],
+    "1021": [
+      "pas-de-la-casa_ad"
+    ],
+    "1022": [
+      "sant-julia-de-loria_ad"
+    ],
+    "1023": [
+      "soldeu_ad"
+    ],
+    "1027": [
+      "anguilla_ai"
+    ],
+    "1029": [
+      "antigua_ag"
+    ],
+    "1053": [
+      "aruba_aw"
+    ],
+    "1079": [
+      "bregenz_at"
+    ],
+    "1080": [
+      "st-anton_at"
+    ],
+    "1081": [
+      "villach_at"
+    ],
+    "1082": [
+      "ganja_az"
+    ],
+    "1084": [
+      "nakhchivan_az"
+    ],
+    "1086": [
+      "bimini_bs"
+    ],
+    "1088": [
+      "upper-channel-cay_bs"
+    ],
+    "1089": [
+      "freeport_bs"
+    ],
+    "1090": [
+      "george-town_bs"
+    ],
+    "1091": [
+      "governors-harbour_bs"
+    ],
+    "1092": [
+      "berry-islands_bs"
+    ],
+    "1093": [
+      "marsh-harbour_bs"
+    ],
+    "1094": [
+      "monte-alegre_bs"
+    ],
+    "1095": [
+      "nassau_bs"
+    ],
+    "1096": [
+      "north-eleuthera_bs"
+    ],
+    "1098": [
+      "rock-sound_bs"
+    ],
+    "1099": [
+      "san-salvador-island_bs"
+    ],
+    "1101": [
+      "barisal_bd"
+    ],
+    "1102": [
+      "chittagong_bd"
+    ],
+    "1103": [
+      "coxs-bazar_bd"
+    ],
+    "1104": [
+      "jessore_bd"
+    ],
+    "1105": [
+      "rajshahi_bd"
+    ],
+    "1106": [
+      "saidpur_bd"
+    ],
+    "1107": [
+      "sylhet_bd"
+    ],
+    "1108": [
+      "bridgetown_bb"
+    ],
+    "1109": [
+      "arlon_be"
+    ],
+    "1111": [
+      "ghent_be"
+    ],
+    "1112": [
+      "hasselt_be"
+    ],
+    "1113": [
+      "mons_be"
+    ],
+    "1114": [
+      "belize-city_bz"
+    ],
+    "1115": [
+      "caye-caulker_bz"
+    ],
+    "1116": [
+      "corozal-town_bz"
+    ],
+    "1117": [
+      "dangriga_bz"
+    ],
+    "1118": [
+      "placencia_bz"
+    ],
+    "1119": [
+      "punta-gorda_bz"
+    ],
+    "1120": [
+      "san-pedro-town_bz"
+    ],
+    "1123": [
+      "paro_bt"
+    ],
+    "1130": [
+      "brcko_ba"
+    ],
+    "1131": [
+      "bugojno_ba"
+    ],
+    "1132": [
+      "kupres_ba"
+    ],
+    "1133": [
+      "livno_ba"
+    ],
+    "1134": [
+      "mostar_ba"
+    ],
+    "1135": [
+      "srebrenik_ba"
+    ],
+    "1136": [
+      "tuzla_ba"
+    ],
+    "1176": [
+      "tortola_vg"
+    ],
+    "1177": [
+      "virgin-gorda_vg"
+    ],
+    "1178": [
+      "bansko_bg"
+    ],
+    "1179": [
+      "burgas_bg"
+    ],
+    "1180": [
+      "dobrinishte_bg"
+    ],
+    "1181": [
+      "haskovo_bg"
+    ],
+    "1182": [
+      "karlovo_bg"
+    ],
+    "1183": [
+      "pazardzhik_bg"
+    ],
+    "1184": [
+      "pernik_bg"
+    ],
+    "1185": [
+      "radomir_bg"
+    ],
+    "1186": [
+      "razlog_bg"
+    ],
+    "1187": [
+      "ruse_bg"
+    ],
+    "1188": [
+      "sandanski_bg"
+    ],
+    "1189": [
+      "sopot_bg"
+    ],
+    "1192": [
+      "krong-kampot_kh"
+    ],
+    "1193": [
+      "siem-reap_kh"
+    ],
+    "1194": [
+      "sihanoukville-province_kh"
+    ],
+    "1197": [
+      "abbotsford_bc_ca"
+    ],
+    "1198": [
+      "azilda_on_ca"
+    ],
+    "1199": [
+      "bathurst_nb_ca"
+    ],
+    "1200": [
+      "brandon_mb_ca"
+    ],
+    "1202": [
+      "charlottetown_pe_ca"
+    ],
+    "1203": [
+      "chelmsford_on_ca"
+    ],
+    "1204": [
+      "comox_bc_ca"
+    ],
+    "1205": [
+      "cranbrook_bc_ca"
+    ],
+    "1206": [
+      "deer-lake_nl_ca"
+    ],
+    "1207": [
+      "fort-albany-first-nation_on_ca"
+    ],
+    "1208": [
+      "fort-mcmurray_ab_ca"
+    ],
+    "1209": [
+      "fort-st-john_bc_ca"
+    ],
+    "1210": [
+      "fredericton_nb_ca"
+    ],
+    "1211": [
+      "gander_nl_ca"
+    ],
+    "1212": [
+      "grande-prairie_ab_ca"
+    ],
+    "1213": [
+      "gravenhurst_on_ca"
+    ],
+    "1214": [
+      "kamloops_bc_ca"
+    ],
+    "1215": [
+      "kapuskasing_on_ca"
+    ],
+    "1216": [
+      "kashechewan_on_ca"
+    ],
+    "1217": [
+      "lethbridge_ab_ca"
+    ],
+    "1218": [
+      "lloydminster_sk_ca"
+    ],
+    "1219": [
+      "longueuil_qc_ca"
+    ],
+    "1220": [
+      "matheson_on_ca"
+    ],
+    "1221": [
+      "medicine-hat_ab_ca"
+    ],
+    "1222": [
+      "moncton_nb_ca"
+    ],
+    "1223": [
+      "nanaimo_bc_ca"
+    ],
+    "1224": [
+      "north-bay_on_ca"
+    ],
+    "1225": [
+      "penticton_bc_ca"
+    ],
+    "1226": [
+      "prince-george_bc_ca"
+    ],
+    "1228": [
+      "saguenay_qc_ca"
+    ],
+    "1229": [
+      "saint-john_nb_ca"
+    ],
+    "1230": [
+      "sault-ste-marie_on_ca"
+    ],
+    "1231": [
+      "shillington_on_ca"
+    ],
+    "1232": [
+      "south-river_on_ca"
+    ],
+    "1233": [
+      "greater-sudbury_on_ca"
+    ],
+    "1234": [
+      "sydney_ns_ca"
+    ],
+    "1235": [
+      "terrace_bc_ca"
+    ],
+    "1236": [
+      "thunder-bay_on_ca"
+    ],
+    "1237": [
+      "timmins_on_ca"
+    ],
+    "1238": [
+      "trout-creek_on_ca"
+    ],
+    "1239": [
+      "washago_on_ca"
+    ],
+    "1240": [
+      "whitehorse_yt_ca"
+    ],
+    "1241": [
+      "yellowknife_nt_ca"
+    ],
+    "1248": [
+      "cayman-brac_ky"
+    ],
+    "1249": [
+      "grand-cayman_ky"
+    ],
+    "1250": [
+      "little-cayman_ky"
+    ],
+    "1267": [
+      "ankang_cn"
+    ],
+    "1268": [
+      "anqing_cn"
+    ],
+    "1269": [
+      "baishan_cn"
+    ],
+    "1270": [
+      "baoshan_cn"
+    ],
+    "1271": [
+      "baotou_cn"
+    ],
+    "1273": [
+      "beihai_cn"
+    ],
+    "1276": [
+      "changchun_cn"
+    ],
+    "1277": [
+      "changde_cn"
+    ],
+    "1278": [
+      "changsha_cn"
+    ],
+    "1280": [
+      "changzhou_cn"
+    ],
+    "1282": [
+      "chengdu_cn"
+    ],
+    "1283": [
+      "chizhou_cn"
+    ],
+    "1284": [
+      "chongqing_cn"
+    ],
+    "1285": [
+      "dali_cn"
+    ],
+    "1286": [
+      "dalian_cn"
+    ],
+    "1287": [
+      "dandong_cn"
+    ],
+    "1292": [
+      "diqing-tibetan-autonomous-prefecture_cn"
+    ],
+    "1294": [
+      "dongying_cn"
+    ],
+    "1299": [
+      "fuyang_cn"
+    ],
+    "1300": [
+      "fuzhou_cn"
+    ],
+    "1303": [
+      "guiyang_cn"
+    ],
+    "1305": [
+      "haikou_cn"
+    ],
+    "1306": [
+      "hailar_cn"
+    ],
+    "1308": [
+      "handan_cn"
+    ],
+    "1309": [
+      "hangzhou_cn"
+    ],
+    "1311": [
+      "harbin_cn"
+    ],
+    "1312": [
+      "hefei_cn"
+    ],
+    "1314": [
+      "hengyang_cn"
+    ],
+    "1316": [
+      "hohhot_cn"
+    ],
+    "1318": [
+      "huaian_cn"
+    ],
+    "1320": [
+      "huangshan-city_cn"
+    ],
+    "1322": [
+      "jian_cn"
+    ],
+    "1324": [
+      "jiamusi_cn"
+    ],
+    "1325": [
+      "shantou_cn"
+    ],
+    "1326": [
+      "jinan_cn"
+    ],
+    "1327": [
+      "jingdezhen_cn"
+    ],
+    "1328": [
+      "jinghong_cn"
+    ],
+    "1329": [
+      "jining_cn"
+    ],
+    "1330": [
+      "quanzhou_cn"
+    ],
+    "1337": [
+      "kunming_cn"
+    ],
+    "1338": [
+      "lancang-lahu-autonomous-county_cn"
+    ],
+    "1339": [
+      "lanzhou_cn"
+    ],
+    "1340": [
+      "lianyungang_cn"
+    ],
+    "1341": [
+      "lijiang_cn"
+    ],
+    "1342": [
+      "linfen_cn"
+    ],
+    "1343": [
+      "linyi_cn"
+    ],
+    "1344": [
+      "liuzhou_cn"
+    ],
+    "1347": [
+      "luoyang_cn"
+    ],
+    "1348": [
+      "luzhou_cn"
+    ],
+    "1349": [
+      "mang-city_cn"
+    ],
+    "1351": [
+      "manzhouli_cn"
+    ],
+    "1354": [
+      "mudanjiang_cn"
+    ],
+    "1355": [
+      "nanchang_cn"
+    ],
+    "1356": [
+      "nanchong_cn"
+    ],
+    "1357": [
+      "nanjing_cn"
+    ],
+    "1358": [
+      "nanning_cn"
+    ],
+    "1359": [
+      "nantong_cn"
+    ],
+    "1360": [
+      "nanyang_cn"
+    ],
+    "1361": [
+      "ningbo_cn"
+    ],
+    "1364": [
+      "qingdao_cn"
+    ],
+    "1365": [
+      "qingyang_cn"
+    ],
+    "1367": [
+      "qionghai_cn"
+    ],
+    "1370": [
+      "rizhao_cn"
+    ],
+    "1371": [
+      "sanya_cn"
+    ],
+    "1373": [
+      "shangrao_cn"
+    ],
+    "1374": [
+      "jingzhou_cn"
+    ],
+    "1375": [
+      "shenyang_cn"
+    ],
+    "1377": [
+      "shijiazhuang_cn"
+    ],
+    "1380": [
+      "taiyuan_cn"
+    ],
+    "1381": [
+      "taizhou_cn"
+    ],
+    "1383": [
+      "tengchong_cn"
+    ],
+    "1384": [
+      "tianjin_cn"
+    ],
+    "1389": [
+      "urumqi_cn"
+    ],
+    "1392": [
+      "weihai_cn"
+    ],
+    "1394": [
+      "wenzhou_cn"
+    ],
+    "1396": [
+      "wuhan_cn"
+    ],
+    "1398": [
+      "wuxi_cn"
+    ],
+    "1400": [
+      "xiamen_cn"
+    ],
+    "1402": [
+      "xiangyang_cn"
+    ],
+    "1405": [
+      "xining_cn"
+    ],
+    "1407": [
+      "xuzhou_cn"
+    ],
+    "1409": [
+      "yancheng_cn"
+    ],
+    "1410": [
+      "yangzhou_cn"
+    ],
+    "1411": [
+      "yanji_cn"
+    ],
+    "1412": [
+      "yantai_cn"
+    ],
+    "1413": [
+      "yibin_cn"
+    ],
+    "1414": [
+      "yichang_cn"
+    ],
+    "1416": [
+      "yinchuan_cn"
+    ],
+    "1418": [
+      "yiwu_cn"
+    ],
+    "1421": [
+      "yuncheng_cn"
+    ],
+    "1422": [
+      "zhangjiajie_cn"
+    ],
+    "1425": [
+      "zhanjiang_cn"
+    ],
+    "1426": [
+      "zhaotong_cn"
+    ],
+    "1427": [
+      "zhengzhou_cn"
+    ],
+    "1428": [
+      "zhoushan_cn"
+    ],
+    "1429": [
+      "zunyi_cn"
+    ],
+    "1443": [
+      "liberia_cr"
+    ],
+    "1444": [
+      "nosara_cr"
+    ],
+    "1445": [
+      "puerto-jimenez_cr"
+    ],
+    "1446": [
+      "puerto-limon_cr"
+    ],
+    "1447": [
+      "quepos_cr"
+    ],
+    "1448": [
+      "san-jose_cr"
+    ],
+    "1449": [
+      "tamarindo_cr"
+    ],
+    "1450": [
+      "tambor_cr"
+    ],
+    "1451": [
+      "brac_hr"
+    ],
+    "1452": [
+      "brestova_hr"
+    ],
+    "1453": [
+      "brsec_hr"
+    ],
+    "1454": [
+      "buje_hr"
+    ],
+    "1455": [
+      "donji-miholjac_hr"
+    ],
+    "1456": [
+      "labin_hr"
+    ],
+    "1457": [
+      "porec_hr"
+    ],
+    "1458": [
+      "rasa_hr"
+    ],
+    "1459": [
+      "rovinj_hr"
+    ],
+    "1467": [
+      "willemstad_cw"
+    ],
+    "1468": [
+      "bohumin_cz"
+    ],
+    "1469": [
+      "breclav_cz"
+    ],
+    "1470": [
+      "bystrice_cz"
+    ],
+    "1471": [
+      "ceske-budejovice_cz"
+    ],
+    "1472": [
+      "cesky-tesin_cz"
+    ],
+    "1473": [
+      "cheb_cz"
+    ],
+    "1474": [
+      "decin_cz"
+    ],
+    "1475": [
+      "pavlice_cz"
+    ],
+    "1476": [
+      "plzen_cz"
+    ],
+    "1477": [
+      "trinec_cz"
+    ],
+    "1478": [
+      "uherske-hradiste_cz"
+    ],
+    "1479": [
+      "usti-nad-labem_cz"
+    ],
+    "1480": [
+      "vranovska-ves_cz"
+    ],
+    "1481": [
+      "znojmo_cz"
+    ],
+    "1485": [
+      "anholt_dk"
+    ],
+    "1486": [
+      "bornholm_dk"
+    ],
+    "1487": [
+      "helsingor_dk"
+    ],
+    "1488": [
+      "karup_dk"
+    ],
+    "1489": [
+      "koge_dk"
+    ],
+    "1490": [
+      "kolding_dk"
+    ],
+    "1491": [
+      "laeso_dk"
+    ],
+    "1492": [
+      "nykoebing-falster_dk"
+    ],
+    "1493": [
+      "odense_dk"
+    ],
+    "1494": [
+      "sonderborg_dk"
+    ],
+    "1495": [
+      "vejle_dk"
+    ],
+    "1498": [
+      "saint-andrew-parish_dm"
+    ],
+    "1500": [
+      "la-romana_do"
+    ],
+    "1501": [
+      "puerto-plata_do"
+    ],
+    "1502": [
+      "punta-cana_do"
+    ],
+    "1503": [
+      "samana_do"
+    ],
+    "1505": [
+      "santiago-de-los-caballeros_do"
+    ],
+    "1506": [
+      "santo-domingo_do"
+    ],
+    "1522": [
+      "san-salvador_sv"
+    ],
+    "1539": [
+      "ivalo_fi"
+    ],
+    "1540": [
+      "joensuu_fi"
+    ],
+    "1541": [
+      "jyvaskyla_fi"
+    ],
+    "1542": [
+      "kajaani_fi"
+    ],
+    "1543": [
+      "kemi_fi"
+    ],
+    "1544": [
+      "kittila_fi"
+    ],
+    "1545": [
+      "kokkola_fi"
+    ],
+    "1546": [
+      "kuopio_fi"
+    ],
+    "1547": [
+      "kuusamo_fi"
+    ],
+    "1548": [
+      "oulu_fi"
+    ],
+    "1549": [
+      "rovaniemi_fi"
+    ],
+    "1550": [
+      "savonlinna_fi"
+    ],
+    "1551": [
+      "vaasa_fi"
+    ],
+    "1552": [
+      "ajaccio_fr"
+    ],
+    "1553": [
+      "annecy_fr"
+    ],
+    "1554": [
+      "avignon_fr"
+    ],
+    "1555": [
+      "bastia_fr"
+    ],
+    "1556": [
+      "bayonne_fr"
+    ],
+    "1557": [
+      "bergerac_fr"
+    ],
+    "1558": [
+      "beziers_fr"
+    ],
+    "1559": [
+      "biarritz_fr"
+    ],
+    "1560": [
+      "brest_fr"
+    ],
+    "1561": [
+      "brive-la-gaillarde_fr"
+    ],
+    "1562": [
+      "caen_fr"
+    ],
+    "1563": [
+      "calais_fr"
+    ],
+    "1564": [
+      "calvi_fr"
+    ],
+    "1565": [
+      "cannes_fr"
+    ],
+    "1566": [
+      "carcassonne_fr"
+    ],
+    "1567": [
+      "castres_fr"
+    ],
+    "1568": [
+      "chamonix_fr"
+    ],
+    "1569": [
+      "colmar_fr"
+    ],
+    "1570": [
+      "deauville_fr"
+    ],
+    "1571": [
+      "dijon_fr"
+    ],
+    "1572": [
+      "disneyland-paris_fr"
+    ],
+    "1573": [
+      "dole_fr"
+    ],
+    "1574": [
+      "figari_fr"
+    ],
+    "1575": [
+      "fort-de-france_mq"
+    ],
+    "1576": [
+      "grenoble_fr"
+    ],
+    "1577": [
+      "hendaye_fr"
+    ],
+    "1578": [
+      "hyeres_fr"
+    ],
+    "1579": [
+      "la-roche-sur-foron_fr"
+    ],
+    "1580": [
+      "la-rochelle_fr"
+    ],
+    "1581": [
+      "limoges_fr"
+    ],
+    "1582": [
+      "lourdes_fr"
+    ],
+    "1583": [
+      "mulhouse_fr"
+    ],
+    "1584": [
+      "narbonne_fr"
+    ],
+    "1585": [
+      "nimes_fr"
+    ],
+    "1586": [
+      "pau_fr"
+    ],
+    "1587": [
+      "perpignan_fr"
+    ],
+    "1588": [
+      "poitiers_fr"
+    ],
+    "1590": [
+      "reims_fr"
+    ],
+    "1591": [
+      "rennes_fr"
+    ],
+    "1592": [
+      "rodez_fr"
+    ],
+    "1593": [
+      "saint-etienne_fr"
+    ],
+    "1594": [
+      "saint-jean-de-luz_fr"
+    ],
+    "1595": [
+      "thionville_fr"
+    ],
+    "1596": [
+      "toulon_fr"
+    ],
+    "1597": [
+      "tours_fr"
+    ],
+    "1598": [
+      "valence_fr"
+    ],
+    "1607": [
+      "batumi_ge"
+    ],
+    "1608": [
+      "kobuleti_ge"
+    ],
+    "1609": [
+      "kutaisi_ge"
+    ],
+    "1610": [
+      "aachen_de"
+    ],
+    "1611": [
+      "bielefeld_de"
+    ],
+    "1612": [
+      "bochum_de"
+    ],
+    "1613": [
+      "duisburg_de"
+    ],
+    "1614": [
+      "essen_de"
+    ],
+    "1615": [
+      "freiburg_de"
+    ],
+    "1616": [
+      "gelsenkirchen_de"
+    ],
+    "1617": [
+      "guetersloh_de"
+    ],
+    "1618": [
+      "kassel_de"
+    ],
+    "1619": [
+      "leipzig_de"
+    ],
+    "1620": [
+      "passau_de"
+    ],
+    "1621": [
+      "regensburg_de"
+    ],
+    "1622": [
+      "simbach-am-inn_de"
+    ],
+    "1623": [
+      "singen_de"
+    ],
+    "1624": [
+      "trier_de"
+    ],
+    "1625": [
+      "ulm_de"
+    ],
+    "1630": [
+      "chania_gr"
+    ],
+    "1631": [
+      "chios_gr"
+    ],
+    "1632": [
+      "icaria_gr"
+    ],
+    "1633": [
+      "ioannina_gr"
+    ],
+    "1634": [
+      "kalamata_gr"
+    ],
+    "1635": [
+      "karpathos_gr"
+    ],
+    "1636": [
+      "kasos_gr"
+    ],
+    "1639": [
+      "kavala_gr"
+    ],
+    "1640": [
+      "cephalonia_gr"
+    ],
+    "1642": [
+      "kythira_gr"
+    ],
+    "1643": [
+      "kos_gr"
+    ],
+    "1645": [
+      "larisa_gr"
+    ],
+    "1646": [
+      "leros_gr"
+    ],
+    "1647": [
+      "lemnos_gr"
+    ],
+    "1648": [
+      "mykonos_gr"
+    ],
+    "1649": [
+      "plaka_gr"
+    ],
+    "1650": [
+      "mytilene_gr"
+    ],
+    "1651": [
+      "naxos_gr"
+    ],
+    "1652": [
+      "parikia_gr"
+    ],
+    "1654": [
+      "patras_gr"
+    ],
+    "1655": [
+      "preveza_gr"
+    ],
+    "1656": [
+      "samos_gr"
+    ],
+    "1657": [
+      "serres_gr"
+    ],
+    "1658": [
+      "sitia_gr"
+    ],
+    "1659": [
+      "skiathos_gr"
+    ],
+    "1660": [
+      "skyros_gr"
+    ],
+    "1661": [
+      "syros_gr"
+    ],
+    "1662": [
+      "santorini_gr"
+    ],
+    "1663": [
+      "zakynthos-island_gr"
+    ],
+    "1664": [
+      "aasiaat_gl"
+    ],
+    "1665": [
+      "ilulissat_gl"
+    ],
+    "1666": [
+      "ittoqqortoormiit_gl"
+    ],
+    "1667": [
+      "kangerlussuaq_gl"
+    ],
+    "1668": [
+      "kulusuk_gl"
+    ],
+    "1669": [
+      "maniitsoq_gl"
+    ],
+    "1670": [
+      "nanortalik_gl"
+    ],
+    "1671": [
+      "narsaq_gl"
+    ],
+    "1672": [
+      "narsarsuaq_gl"
+    ],
+    "1673": [
+      "nuuk_gl"
+    ],
+    "1674": [
+      "paamiut_gl"
+    ],
+    "1675": [
+      "qaanaaq_gl"
+    ],
+    "1676": [
+      "qaarsut_gl"
+    ],
+    "1677": [
+      "qaqortoq_gl"
+    ],
+    "1678": [
+      "siorapaluk_gl"
+    ],
+    "1679": [
+      "sisimiut_gl"
+    ],
+    "1680": [
+      "tasiilaq_gl"
+    ],
+    "1681": [
+      "uummannaq_gl"
+    ],
+    "1682": [
+      "st-georges_gd"
+    ],
+    "1686": [
+      "flores_gt"
+    ],
+    "1687": [
+      "guatemala-city_gt"
+    ],
+    "1688": [
+      "puerto-barrios_gt"
+    ],
+    "1689": [
+      "quezaltenango_gt"
+    ],
+    "1690": [
+      "retalhuleu_gt"
+    ],
+    "1695": [
+      "cap-haitien_ht"
+    ],
+    "1696": [
+      "jeremie_ht"
+    ],
+    "1697": [
+      "les-cayes_ht"
+    ],
+    "1698": [
+      "port-au-prince_ht"
+    ],
+    "1699": [
+      "comayagua_hn"
+    ],
+    "1700": [
+      "guanaja_hn"
+    ],
+    "1701": [
+      "la-ceiba_hn"
+    ],
+    "1702": [
+      "coxen-hole_hn"
+    ],
+    "1703": [
+      "san-pedro-sula_hn"
+    ],
+    "1704": [
+      "tegucigalpa_hn"
+    ],
+    "1705": [
+      "utila_hn"
+    ],
+    "1706": [
+      "hong-kong_hk"
+    ],
+    "1707": [
+      "gyor_hu"
+    ],
+    "1708": [
+      "hegyeshalom_hu"
+    ],
+    "1709": [
+      "mosonmagyarovar_hu"
+    ],
+    "1710": [
+      "siofok_hu"
+    ],
+    "1711": [
+      "szeged_hu"
+    ],
+    "1712": [
+      "akureyri_is"
+    ],
+    "1714": [
+      "grimsey_is"
+    ],
+    "1715": [
+      "isafjordur_is"
+    ],
+    "1716": [
+      "vestmannaeyjar_is"
+    ],
+    "1717": [
+      "vopnafjordur_is"
+    ],
+    "1719": [
+      "balikpapan_id"
+    ],
+    "1720": [
+      "banda-aceh_id"
+    ],
+    "1721": [
+      "bandar-lampung_id"
+    ],
+    "1722": [
+      "bandung_id"
+    ],
+    "1723": [
+      "banjarmasin_id"
+    ],
+    "1725": [
+      "bengkulu_id"
+    ],
+    "1727": [
+      "jambi-city_id"
+    ],
+    "1729": [
+      "kertajati_id"
+    ],
+    "1731": [
+      "kupang_id"
+    ],
+    "1732": [
+      "labuan-bajo_id"
+    ],
+    "1733": [
+      "makassar_id"
+    ],
+    "1735": [
+      "manado_id"
+    ],
+    "1736": [
+      "medan_id"
+    ],
+    "1737": [
+      "padang_id"
+    ],
+    "1739": [
+      "palembang_id"
+    ],
+    "1741": [
+      "pangkal-pinang_id"
+    ],
+    "1742": [
+      "pekanbaru_id"
+    ],
+    "1743": [
+      "pontianak_id"
+    ],
+    "1744": [
+      "praya_id"
+    ],
+    "1745": [
+      "semarang_id"
+    ],
+    "1746": [
+      "sorong_id"
+    ],
+    "1747": [
+      "surabaya_id"
+    ],
+    "1748": [
+      "surakarta_id"
+    ],
+    "1749": [
+      "tanjung-pandan_id"
+    ],
+    "1752": [
+      "yogyakarta_id"
+    ],
+    "1754": [
+      "bandar-abbas_ir"
+    ],
+    "1756": [
+      "isfahan_ir"
+    ],
+    "1758": [
+      "lar_ir"
+    ],
+    "1759": [
+      "mashhad_ir"
+    ],
+    "1761": [
+      "shiraz_ir"
+    ],
+    "1762": [
+      "tabriz_ir"
+    ],
+    "1763": [
+      "urmia_ir"
+    ],
+    "1764": [
+      "najaf_iq"
+    ],
+    "1765": [
+      "basra_iq"
+    ],
+    "1766": [
+      "erbil_iq"
+    ],
+    "1767": [
+      "kirkuk_iq"
+    ],
+    "1768": [
+      "sulaymaniyah_iq"
+    ],
+    "1769": [
+      "donegal_ie"
+    ],
+    "1770": [
+      "county-kerry_ie"
+    ],
+    "1771": [
+      "knock_ie"
+    ],
+    "1773": [
+      "alghero_it"
+    ],
+    "1774": [
+      "bari_it"
+    ],
+    "1775": [
+      "bolzano_it"
+    ],
+    "1776": [
+      "brescia_it"
+    ],
+    "1777": [
+      "brindisi_it"
+    ],
+    "1778": [
+      "brixen_it"
+    ],
+    "1779": [
+      "comiso_it"
+    ],
+    "1780": [
+      "como_it"
+    ],
+    "1781": [
+      "crotone_it"
+    ],
+    "1782": [
+      "cuneo_it"
+    ],
+    "1783": [
+      "domodossola_it"
+    ],
+    "1784": [
+      "foggia_it"
+    ],
+    "1785": [
+      "forli_it"
+    ],
+    "1786": [
+      "fortezza_it"
+    ],
+    "1787": [
+      "gorizia_it"
+    ],
+    "1788": [
+      "monfalcone_it"
+    ],
+    "1789": [
+      "padova_it"
+    ],
+    "1790": [
+      "pantelleria_it"
+    ],
+    "1791": [
+      "parma_it"
+    ],
+    "1792": [
+      "perugia_it"
+    ],
+    "1793": [
+      "reggio-calabria_it"
+    ],
+    "1794": [
+      "trapani_it"
+    ],
+    "1795": [
+      "trento_it"
+    ],
+    "1796": [
+      "udine_it"
+    ],
+    "1798": [
+      "kingston_jm"
+    ],
+    "1799": [
+      "montego-bay_jm"
+    ],
+    "1800": [
+      "ocho-rios_jm"
+    ],
+    "1801": [
+      "akita_jp"
+    ],
+    "1802": [
+      "amami_jp"
+    ],
+    "1803": [
+      "aomori_jp"
+    ],
+    "1804": [
+      "asahikawa_jp"
+    ],
+    "1806": [
+      "hachijo-jima_jp"
+    ],
+    "1807": [
+      "hakodate_jp"
+    ],
+    "1808": [
+      "hanamaki_jp"
+    ],
+    "1809": [
+      "hiroshima_jp"
+    ],
+    "1810": [
+      "ishigaki_jp"
+    ],
+    "1811": [
+      "izumo_jp"
+    ],
+    "1812": [
+      "kagoshima_jp"
+    ],
+    "1813": [
+      "kikai_jp"
+    ],
+    "1814": [
+      "kitakyushu_jp"
+    ],
+    "1815": [
+      "kobe_jp"
+    ],
+    "1816": [
+      "kochi_jp"
+    ],
+    "1817": [
+      "komatsu_jp"
+    ],
+    "1818": [
+      "kumamoto_jp"
+    ],
+    "1821": [
+      "matsuyama_jp"
+    ],
+    "1823": [
+      "misawa_jp"
+    ],
+    "1824": [
+      "miyako-district_jp"
+    ],
+    "1825": [
+      "miyazaki_jp"
+    ],
+    "1826": [
+      "nagasaki_jp"
+    ],
+    "1827": [
+      "nagoya_jp"
+    ],
+    "1829": [
+      "niigata_jp"
+    ],
+    "1830": [
+      "odate_jp"
+    ],
+    "1831": [
+      "oita_jp"
+    ],
+    "1832": [
+      "okayama_jp"
+    ],
+    "1833": [
+      "okinawa-prefecture_jp"
+    ],
+    "1835": [
+      "saga_jp"
+    ],
+    "1836": [
+      "sapporo_jp"
+    ],
+    "1837": [
+      "sendai_jp"
+    ],
+    "1838": [
+      "shimojishima_jp"
+    ],
+    "1839": [
+      "shirahama_jp"
+    ],
+    "1840": [
+      "shizuoka_jp"
+    ],
+    "1841": [
+      "shonai_jp"
+    ],
+    "1842": [
+      "takamatsu_jp"
+    ],
+    "1843": [
+      "tokushima_jp"
+    ],
+    "1844": [
+      "toyama_jp"
+    ],
+    "1845": [
+      "hyogo-prefecture_jp"
+    ],
+    "1847": [
+      "ube_jp"
+    ],
+    "1848": [
+      "wakkanai_jp"
+    ],
+    "1850": [
+      "yamagata_jp"
+    ],
+    "1851": [
+      "yonago_jp"
+    ],
+    "1853": [
+      "aqaba_jo"
+    ],
+    "1854": [
+      "aktau_kz"
+    ],
+    "1855": [
+      "aktobe_kz"
+    ],
+    "1856": [
+      "almaty_kz"
+    ],
+    "1857": [
+      "atyrau_kz"
+    ],
+    "1858": [
+      "karaganda_kz"
+    ],
+    "1860": [
+      "kostanay_kz"
+    ],
+    "1861": [
+      "kyzylorda_kz"
+    ],
+    "1862": [
+      "oral_kz"
+    ],
+    "1863": [
+      "pavlodar_kz"
+    ],
+    "1865": [
+      "semey_kz"
+    ],
+    "1866": [
+      "shymkent_kz"
+    ],
+    "1869": [
+      "turkistan_kz"
+    ],
+    "1873": [
+      "oskemen_kz"
+    ],
+    "1874": [
+      "jezkazgan_kz"
+    ],
+    "1879": [
+      "osh_kg"
+    ],
+    "1881": [
+      "luang-namtha_la"
+    ],
+    "1882": [
+      "luang-prabang_la"
+    ],
+    "1883": [
+      "pakse_la"
+    ],
+    "1884": [
+      "phonsavan_la"
+    ],
+    "1885": [
+      "xam-neua_la"
+    ],
+    "1886": [
+      "savannakhet_la"
+    ],
+    "1887": [
+      "bauska_lv"
+    ],
+    "1888": [
+      "jelgava_lv"
+    ],
+    "1892": [
+      "druskininkai_lt"
+    ],
+    "1893": [
+      "marijampole_lt"
+    ],
+    "1894": [
+      "pasvalys_lt"
+    ],
+    "1895": [
+      "esch-sur-alzette_lu"
+    ],
+    "1901": [
+      "alor-setar_my"
+    ],
+    "1902": [
+      "bakelalan_my"
+    ],
+    "1903": [
+      "bario_my"
+    ],
+    "1904": [
+      "bintulu_my"
+    ],
+    "1905": [
+      "butterworth_my"
+    ],
+    "1906": [
+      "gelugor_my"
+    ],
+    "1907": [
+      "ipoh_my"
+    ],
+    "1908": [
+      "kota-bharu_my"
+    ],
+    "1909": [
+      "kota-kinabalu_my"
+    ],
+    "1910": [
+      "kuala-terengganu_my"
+    ],
+    "1911": [
+      "kuantan_my"
+    ],
+    "1912": [
+      "kuching_my"
+    ],
+    "1913": [
+      "labuan_my"
+    ],
+    "1914": [
+      "langkawi_my"
+    ],
+    "1916": [
+      "miri_my"
+    ],
+    "1917": [
+      "penang_my"
+    ],
+    "1918": [
+      "sandakan_my"
+    ],
+    "1919": [
+      "sibu_my"
+    ],
+    "1920": [
+      "tawau_my"
+    ],
+    "1921": [
+      "dharavandhoo_mv"
+    ],
+    "1922": [
+      "gan_mv"
+    ],
+    "1923": [
+      "kudahuvadhoo_mv"
+    ],
+    "1931": [
+      "acapulco_mx"
+    ],
+    "1932": [
+      "aguascalientes_mx"
+    ],
+    "1933": [
+      "campeche_mx"
+    ],
+    "1934": [
+      "chetumal_mx"
+    ],
+    "1935": [
+      "chihuahua_mx"
+    ],
+    "1936": [
+      "ciudad-del-carmen_mx"
+    ],
+    "1937": [
+      "ciudad-juarez_mx"
+    ],
+    "1938": [
+      "ciudad-obregon_mx"
+    ],
+    "1939": [
+      "cozumel_mx"
+    ],
+    "1940": [
+      "culiacan_mx"
+    ],
+    "1941": [
+      "durango_mx"
+    ],
+    "1942": [
+      "guadalajara_mx"
+    ],
+    "1943": [
+      "gutierrez-zamora_mx"
+    ],
+    "1944": [
+      "hermosillo_mx"
+    ],
+    "1945": [
+      "huatulco_mx"
+    ],
+    "1946": [
+      "ixtapa_mx"
+    ],
+    "1947": [
+      "la-paz_mx"
+    ],
+    "1948": [
+      "leon_mx"
+    ],
+    "1949": [
+      "loreto_mx"
+    ],
+    "1950": [
+      "los-mochis_mx"
+    ],
+    "1951": [
+      "manzanillo_mx"
+    ],
+    "1952": [
+      "mazatlan_mx"
+    ],
+    "1953": [
+      "merida_mx"
+    ],
+    "1954": [
+      "mexicali_mx"
+    ],
+    "1955": [
+      "mexico-city_mx"
+    ],
+    "1956": [
+      "minatitlan_mx"
+    ],
+    "1957": [
+      "monterrey_mx"
+    ],
+    "1958": [
+      "morelia_mx"
+    ],
+    "1959": [
+      "nuevo-laredo_mx"
+    ],
+    "1960": [
+      "oaxaca_mx"
+    ],
+    "1961": [
+      "playa-del-carmen_mx"
+    ],
+    "1962": [
+      "puebla_mx"
+    ],
+    "1963": [
+      "puerto-escondido_mx"
+    ],
+    "1964": [
+      "puerto-vallarta_mx"
+    ],
+    "1965": [
+      "santiago-de-queretaro_mx"
+    ],
+    "1966": [
+      "reynosa_mx"
+    ],
+    "1967": [
+      "san-jose-del-cabo_mx"
+    ],
+    "1968": [
+      "san-luis-potosi_mx"
+    ],
+    "1969": [
+      "tampico_mx"
+    ],
+    "1970": [
+      "tapachula_mx"
+    ],
+    "1971": [
+      "tecolutla_mx"
+    ],
+    "1972": [
+      "tijuana_mx"
+    ],
+    "1973": [
+      "toluca_mx"
+    ],
+    "1974": [
+      "torreon_mx"
+    ],
+    "1975": [
+      "tuxtla-gutierrez_mx"
+    ],
+    "1976": [
+      "uruapan_mx"
+    ],
+    "1977": [
+      "veracruz_mx"
+    ],
+    "1978": [
+      "villahermosa_mx"
+    ],
+    "1979": [
+      "zacatecas_mx"
+    ],
+    "1981": [
+      "moron_mn"
+    ],
+    "1982": [
+      "budva_me"
+    ],
+    "1983": [
+      "herceg-novi_me"
+    ],
+    "1984": [
+      "kotor_me"
+    ],
+    "2006": [
+      "ann_mm"
+    ],
+    "2007": [
+      "bagan_mm"
+    ],
+    "2008": [
+      "bhamo_mm"
+    ],
+    "2009": [
+      "bokpyin_mm"
+    ],
+    "2010": [
+      "dawei-township_mm"
+    ],
+    "2011": [
+      "heho_mm"
+    ],
+    "2012": [
+      "kalay_mm"
+    ],
+    "2013": [
+      "kawthaung-township_mm"
+    ],
+    "2014": [
+      "kengtung_mm"
+    ],
+    "2015": [
+      "lashio_mm"
+    ],
+    "2016": [
+      "magway_mm"
+    ],
+    "2017": [
+      "mandalay_mm"
+    ],
+    "2018": [
+      "monywa_mm"
+    ],
+    "2019": [
+      "myeik_mm"
+    ],
+    "2020": [
+      "myitkyina_mm"
+    ],
+    "2021": [
+      "putao_mm"
+    ],
+    "2022": [
+      "sittwe_mm"
+    ],
+    "2023": [
+      "tachileik_mm"
+    ],
+    "2024": [
+      "thandwe_mm"
+    ],
+    "2025": [
+      "yangon_mm"
+    ],
+    "2029": [
+      "siddharthanagar_np"
+    ],
+    "2030": [
+      "simara--bara_np"
+    ],
+    "2031": [
+      "bonaire_bq"
+    ],
+    "2032": [
+      "breda_nl"
+    ],
+    "2033": [
+      "enschede_nl"
+    ],
+    "2034": [
+      "saba_bq"
+    ],
+    "2035": [
+      "sint-eustatius_bq"
+    ],
+    "2036": [
+      "the-hague_nl"
+    ],
+    "2037": [
+      "venlo_nl"
+    ],
+    "2048": [
+      "managua_ni"
+    ],
+    "2058": [
+      "alesund_no"
+    ],
+    "2059": [
+      "alta_no"
+    ],
+    "2061": [
+      "andselv_no"
+    ],
+    "2062": [
+      "batsfjord_no"
+    ],
+    "2063": [
+      "berlevag_no"
+    ],
+    "2064": [
+      "forde_no"
+    ],
+    "2065": [
+      "hammerfest_no"
+    ],
+    "2066": [
+      "narvik_no"
+    ],
+    "2067": [
+      "hasvik_no"
+    ],
+    "2068": [
+      "haugesund_no"
+    ],
+    "2070": [
+      "kirkenes_no"
+    ],
+    "2071": [
+      "kristiansand_no"
+    ],
+    "2072": [
+      "lakselv_no"
+    ],
+    "2074": [
+      "molde_no"
+    ],
+    "2075": [
+      "volda_no"
+    ],
+    "2076": [
+      "roros_no"
+    ],
+    "2077": [
+      "sandane_no"
+    ],
+    "2078": [
+      "sarpsborg_no"
+    ],
+    "2079": [
+      "sogndal_no"
+    ],
+    "2080": [
+      "sorkjosen_no"
+    ],
+    "2081": [
+      "tromso_no"
+    ],
+    "2082": [
+      "trondheim_no"
+    ],
+    "2083": [
+      "vadso_no"
+    ],
+    "2085": [
+      "duqm_om"
+    ],
+    "2086": [
+      "khasab_om"
+    ],
+    "2087": [
+      "masirah_om"
+    ],
+    "2088": [
+      "salalah_om"
+    ],
+    "2089": [
+      "sohar_om"
+    ],
+    "2090": [
+      "bahawalpur_pk"
+    ],
+    "2091": [
+      "chitral_pk"
+    ],
+    "2092": [
+      "faisalabad-district_pk"
+    ],
+    "2093": [
+      "gwadar_pk"
+    ],
+    "2094": [
+      "karachi_pk"
+    ],
+    "2095": [
+      "lahore_pk"
+    ],
+    "2096": [
+      "multan_pk"
+    ],
+    "2097": [
+      "peshawar_pk"
+    ],
+    "2098": [
+      "quetta_pk"
+    ],
+    "2099": [
+      "rahim-yar-khan_pk"
+    ],
+    "2100": [
+      "sialkot_pk"
+    ],
+    "2101": [
+      "sukkur_pk"
+    ],
+    "2102": [
+      "turbat_pk"
+    ],
+    "2104": [
+      "bocas-town_pa"
+    ],
+    "2105": [
+      "changuinola_pa"
+    ],
+    "2106": [
+      "chitre_pa"
+    ],
+    "2107": [
+      "david_pa"
+    ],
+    "2108": [
+      "panama-city_pa"
+    ],
+    "2109": [
+      "penonome_pa"
+    ],
+    "2126": [
+      "angeles_ph"
+    ],
+    "2127": [
+      "bacolod_ph"
+    ],
+    "2129": [
+      "busuanga_ph"
+    ],
+    "2130": [
+      "butuan_ph"
+    ],
+    "2131": [
+      "cagayan-de-oro_ph"
+    ],
+    "2133": [
+      "caticlan_ph"
+    ],
+    "2134": [
+      "cauayan_ph"
+    ],
+    "2135": [
+      "cotabato-city_ph"
+    ],
+    "2136": [
+      "davao_ph"
+    ],
+    "2137": [
+      "del-carmen_ph"
+    ],
+    "2138": [
+      "dipolog_ph"
+    ],
+    "2139": [
+      "dumaguete_ph"
+    ],
+    "2141": [
+      "general-santos_ph"
+    ],
+    "2142": [
+      "iloilo-city_ph"
+    ],
+    "2143": [
+      "kalibo_ph"
+    ],
+    "2144": [
+      "laoag_ph"
+    ],
+    "2145": [
+      "legazpi_ph"
+    ],
+    "2147": [
+      "masbate-city_ph"
+    ],
+    "2148": [
+      "naga_ph"
+    ],
+    "2149": [
+      "ozamiz_ph"
+    ],
+    "2150": [
+      "pagadian_ph"
+    ],
+    "2151": [
+      "panglao_ph"
+    ],
+    "2152": [
+      "puerto-princesa_ph"
+    ],
+    "2153": [
+      "roxas_ph"
+    ],
+    "2154": [
+      "san-jose_ph"
+    ],
+    "2156": [
+      "surigao-city_ph"
+    ],
+    "2157": [
+      "tacloban_ph"
+    ],
+    "2159": [
+      "tawi-tawi_ph"
+    ],
+    "2160": [
+      "tuguegarao_ph"
+    ],
+    "2161": [
+      "virac_ph"
+    ],
+    "2162": [
+      "zamboanga-city_ph"
+    ],
+    "2163": [
+      "bialka-tatrzanska_pl"
+    ],
+    "2164": [
+      "bielsko-biala_pl"
+    ],
+    "2165": [
+      "boleslawiec_pl"
+    ],
+    "2166": [
+      "duszniki-zdroj_pl"
+    ],
+    "2167": [
+      "gorzow-wielkopolski_pl"
+    ],
+    "2168": [
+      "jastrzebie-zdroj_pl"
+    ],
+    "2169": [
+      "jelenia-gora_pl"
+    ],
+    "2170": [
+      "kudowa-zdroj_pl"
+    ],
+    "2171": [
+      "legnica_pl"
+    ],
+    "2172": [
+      "lodz_pl"
+    ],
+    "2173": [
+      "myslenice_pl"
+    ],
+    "2174": [
+      "myslowice_pl"
+    ],
+    "2175": [
+      "opole_pl"
+    ],
+    "2176": [
+      "polanica-zdroj_pl"
+    ],
+    "2177": [
+      "radom_pl"
+    ],
+    "2178": [
+      "rybnik_pl"
+    ],
+    "2179": [
+      "rzeszow_pl"
+    ],
+    "2180": [
+      "slubice_pl"
+    ],
+    "2181": [
+      "suwalki_pl"
+    ],
+    "2182": [
+      "lublin_pl"
+    ],
+    "2183": [
+      "swiebodzin_pl"
+    ],
+    "2184": [
+      "szczecin_pl"
+    ],
+    "2185": [
+      "szklarska-poreba_pl"
+    ],
+    "2186": [
+      "szymany_pl"
+    ],
+    "2187": [
+      "torun_pl"
+    ],
+    "2188": [
+      "tychy_pl"
+    ],
+    "2189": [
+      "walbrzych_pl"
+    ],
+    "2190": [
+      "zielona-gora_pl"
+    ],
+    "2191": [
+      "zory_pl"
+    ],
+    "2192": [
+      "zywiec_pl"
+    ],
+    "2193": [
+      "aguim_pt"
+    ],
+    "2194": [
+      "braganca_pt"
+    ],
+    "2195": [
+      "caminha_pt"
+    ],
+    "2196": [
+      "celorico-da-beira_pt"
+    ],
+    "2197": [
+      "coimbra_pt"
+    ],
+    "2198": [
+      "corvo-island_pt"
+    ],
+    "2199": [
+      "covilha_pt"
+    ],
+    "2200": [
+      "esposende_pt"
+    ],
+    "2201": [
+      "flores-island_pt"
+    ],
+    "2202": [
+      "fundao_pt"
+    ],
+    "2203": [
+      "graciosa_pt"
+    ],
+    "2204": [
+      "guarda_pt"
+    ],
+    "2205": [
+      "horta_pt"
+    ],
+    "2206": [
+      "macedo-de-cavaleiros_pt"
+    ],
+    "2207": [
+      "mangualde_pt"
+    ],
+    "2208": [
+      "mirandela_pt"
+    ],
+    "2209": [
+      "mogofores_pt"
+    ],
+    "2210": [
+      "moncao_pt"
+    ],
+    "2211": [
+      "pico-island_pt"
+    ],
+    "2212": [
+      "porto-santo-island_pt"
+    ],
+    "2213": [
+      "povoa-de-varzim_pt"
+    ],
+    "2214": [
+      "santa-maria-island_pt"
+    ],
+    "2215": [
+      "sao-jorge-island_pt"
+    ],
+    "2216": [
+      "tamengos_pt"
+    ],
+    "2217": [
+      "tavira_pt"
+    ],
+    "2218": [
+      "valenca_pt"
+    ],
+    "2219": [
+      "vila-real_pt"
+    ],
+    "2220": [
+      "vilar-formoso_pt"
+    ],
+    "2221": [
+      "viseu_pt"
+    ],
+    "2228": [
+      "arad_ro"
+    ],
+    "2229": [
+      "bacau_ro"
+    ],
+    "2230": [
+      "baia-mare_ro"
+    ],
+    "2231": [
+      "brasov_ro"
+    ],
+    "2232": [
+      "buzau_ro"
+    ],
+    "2233": [
+      "calafat_ro"
+    ],
+    "2234": [
+      "craiova_ro"
+    ],
+    "2235": [
+      "oradea_ro"
+    ],
+    "2236": [
+      "satu-mare_ro"
+    ],
+    "2237": [
+      "sebes_ro"
+    ],
+    "2238": [
+      "sibiu_ro"
+    ],
+    "2239": [
+      "suceava_ro"
+    ],
+    "2240": [
+      "targu-mures_ro"
+    ],
+    "2247": [
+      "nevis_kn"
+    ],
+    "2248": [
+      "saint-kitts_kn"
+    ],
+    "2249": [
+      "saint-lucia_lc"
+    ],
+    "2250": [
+      "saint-martin_mf"
+    ],
+    "2251": [
+      "saint-pierre_pm"
+    ],
+    "2252": [
+      "saint-vincent_vc"
+    ],
+    "2255": [
+      "abha_sa"
+    ],
+    "2257": [
+      "al-bahah_sa"
+    ],
+    "2259": [
+      "bisha_sa"
+    ],
+    "2261": [
+      "gassim_sa"
+    ],
+    "2262": [
+      "hail_sa"
+    ],
+    "2263": [
+      "hofuf_sa"
+    ],
+    "2264": [
+      "jizan_sa"
+    ],
+    "2265": [
+      "jeddah_sa"
+    ],
+    "2266": [
+      "al-jawf-region_sa"
+    ],
+    "2267": [
+      "najran_sa"
+    ],
+    "2268": [
+      "neom_sa"
+    ],
+    "2269": [
+      "qaisumah_sa"
+    ],
+    "2271": [
+      "tabuk_sa"
+    ],
+    "2272": [
+      "taif_sa"
+    ],
+    "2275": [
+      "yanbu_sa"
+    ],
+    "2278": [
+      "kragujevac_rs"
+    ],
+    "2279": [
+      "kraljevo_rs"
+    ],
+    "2280": [
+      "nis_rs"
+    ],
+    "2281": [
+      "novi-sad_rs"
+    ],
+    "2282": [
+      "uzice_rs"
+    ],
+    "2286": [
+      "seletar_sg"
+    ],
+    "2287": [
+      "lower-princes-quarter_sx"
+    ],
+    "2289": [
+      "banska-bystrica_sk"
+    ],
+    "2290": [
+      "cadca_sk"
+    ],
+    "2291": [
+      "dolny-kubin_sk"
+    ],
+    "2292": [
+      "martin_sk"
+    ],
+    "2293": [
+      "nitra_sk"
+    ],
+    "2294": [
+      "nove-mesto-nad-vahom_sk"
+    ],
+    "2295": [
+      "piestany_sk"
+    ],
+    "2296": [
+      "povazska-bystrica_sk"
+    ],
+    "2297": [
+      "puchov_sk"
+    ],
+    "2298": [
+      "trencianske-teplice_sk"
+    ],
+    "2299": [
+      "trencin_sk"
+    ],
+    "2300": [
+      "vrutky_sk"
+    ],
+    "2301": [
+      "zilina_sk"
+    ],
+    "2302": [
+      "zvolen_sk"
+    ],
+    "2303": [
+      "koper_si"
+    ],
+    "2304": [
+      "maribor_si"
+    ],
+    "2305": [
+      "postojna_si"
+    ],
+    "2322": [
+      "busan_kr"
+    ],
+    "2323": [
+      "cheongju_kr"
+    ],
+    "2324": [
+      "daegu_kr"
+    ],
+    "2325": [
+      "gwangju_kr"
+    ],
+    "2326": [
+      "ulsan_kr"
+    ],
+    "2327": [
+      "yeosu_kr"
+    ],
+    "2329": [
+      "asturias_es"
+    ],
+    "2330": [
+      "baga_es"
+    ],
+    "2331": [
+      "bellver-de-cerdanya_es"
+    ],
+    "2332": [
+      "cartaya_es"
+    ],
+    "2333": [
+      "castellon-de-la-plana_es"
+    ],
+    "2335": [
+      "cubelles_es"
+    ],
+    "2336": [
+      "cunit_es"
+    ],
+    "2337": [
+      "elda_es"
+    ],
+    "2338": [
+      "figueres_es"
+    ],
+    "2339": [
+      "fuenlabrada_es"
+    ],
+    "2340": [
+      "huelva_es"
+    ],
+    "2341": [
+      "igualada_es"
+    ],
+    "2342": [
+      "jerez-de-la-frontera_es"
+    ],
+    "2343": [
+      "a-coruna_es"
+    ],
+    "2344": [
+      "leganes_es"
+    ],
+    "2346": [
+      "lepe_es"
+    ],
+    "2347": [
+      "lloret-de-mar_es"
+    ],
+    "2348": [
+      "manresa_es"
+    ],
+    "2349": [
+      "melilla_es"
+    ],
+    "2350": [
+      "minorca_es"
+    ],
+    "2351": [
+      "pamplona_es"
+    ],
+    "2352": [
+      "pontedeume_es"
+    ],
+    "2353": [
+      "fuerteventura_es"
+    ],
+    "2354": [
+      "redondela_es"
+    ],
+    "2355": [
+      "donostia-san-sebastian_es"
+    ],
+    "2357": [
+      "santa-cruz-de-la-palma_es"
+    ],
+    "2358": [
+      "santander_es"
+    ],
+    "2359": [
+      "solsona_es"
+    ],
+    "2360": [
+      "vielha_es"
+    ],
+    "2361": [
+      "vigo_es"
+    ],
+    "2362": [
+      "vila-real_es"
+    ],
+    "2363": [
+      "vitoria-gasteiz_es"
+    ],
+    "2364": [
+      "batticaloa_lk"
+    ],
+    "2365": [
+      "ella_lk"
+    ],
+    "2366": [
+      "galle_lk"
+    ],
+    "2368": [
+      "hatton_lk"
+    ],
+    "2369": [
+      "jaffna_lk"
+    ],
+    "2370": [
+      "kandy_lk"
+    ],
+    "2371": [
+      "koggala_lk"
+    ],
+    "2372": [
+      "nanu-oya_lk"
+    ],
+    "2373": [
+      "sigiriya_lk"
+    ],
+    "2374": [
+      "sri-jayawardenepura-kotte_lk"
+    ],
+    "2375": [
+      "trincomalee_lk"
+    ],
+    "2376": [
+      "weerawila_lk"
+    ],
+    "2377": [
+      "saint-barthelemy_bl"
+    ],
+    "2381": [
+      "angelholm_se"
+    ],
+    "2382": [
+      "arvidsjaur_se"
+    ],
+    "2383": [
+      "bergasa_se"
+    ],
+    "2384": [
+      "gallivare_se"
+    ],
+    "2385": [
+      "kalmar_se"
+    ],
+    "2386": [
+      "kiruna_se"
+    ],
+    "2387": [
+      "linkoping_se"
+    ],
+    "2388": [
+      "lund_se"
+    ],
+    "2389": [
+      "orebro_se"
+    ],
+    "2390": [
+      "ostersund_se"
+    ],
+    "2391": [
+      "pajala_se"
+    ],
+    "2392": [
+      "ramlosa_se"
+    ],
+    "2393": [
+      "skelleftea_se"
+    ],
+    "2394": [
+      "sundsvall_se"
+    ],
+    "2395": [
+      "bellinzona_ch"
+    ],
+    "2396": [
+      "chiasso_ch"
+    ],
+    "2397": [
+      "fribourg_ch"
+    ],
+    "2398": [
+      "lausanne_ch"
+    ],
+    "2399": [
+      "mendrisio_ch"
+    ],
+    "2400": [
+      "olten_ch"
+    ],
+    "2401": [
+      "st-gallen_ch"
+    ],
+    "2402": [
+      "aleppo_sy"
+    ],
+    "2403": [
+      "damascus_sy"
+    ],
+    "2405": [
+      "kaohsiung_tw"
+    ],
+    "2406": [
+      "kinmen_tw"
+    ],
+    "2410": [
+      "taichung_tw"
+    ],
+    "2411": [
+      "tainan_tw"
+    ],
+    "2413": [
+      "khujand_tj"
+    ],
+    "2424": [
+      "bang-tao-beach_th"
+    ],
+    "2425": [
+      "thalang_th"
+    ],
+    "2430": [
+      "port-of-spain_tt"
+    ],
+    "2431": [
+      "tobago_tt"
+    ],
+    "2437": [
+      "adana_tr"
+    ],
+    "2438": [
+      "adiyaman_tr"
+    ],
+    "2439": [
+      "agri_tr"
+    ],
+    "2441": [
+      "hatay_tr"
+    ],
+    "2442": [
+      "batman_tr"
+    ],
+    "2443": [
+      "bingol_tr"
+    ],
+    "2444": [
+      "bodrum_tr"
+    ],
+    "2446": [
+      "canakkale_tr"
+    ],
+    "2447": [
+      "corlu_tr"
+    ],
+    "2448": [
+      "denizli_tr"
+    ],
+    "2449": [
+      "diyarbakir_tr"
+    ],
+    "2450": [
+      "edirne_tr"
+    ],
+    "2451": [
+      "edremit_tr"
+    ],
+    "2452": [
+      "elazig_tr"
+    ],
+    "2453": [
+      "erzincan_tr"
+    ],
+    "2454": [
+      "erzurum_tr"
+    ],
+    "2455": [
+      "eskisehir_tr"
+    ],
+    "2456": [
+      "gaziantep_tr"
+    ],
+    "2457": [
+      "gazipasa_tr"
+    ],
+    "2458": [
+      "sanliurfa_tr"
+    ],
+    "2460": [
+      "igdir_tr"
+    ],
+    "2462": [
+      "kahramanmaras_tr"
+    ],
+    "2463": [
+      "kars_tr"
+    ],
+    "2464": [
+      "kastamonu_tr"
+    ],
+    "2465": [
+      "kayseri_tr"
+    ],
+    "2466": [
+      "konya_tr"
+    ],
+    "2467": [
+      "kutahya_tr"
+    ],
+    "2468": [
+      "malatya_tr"
+    ],
+    "2469": [
+      "mardin_tr"
+    ],
+    "2470": [
+      "amasya_tr"
+    ],
+    "2471": [
+      "mus_tr"
+    ],
+    "2472": [
+      "nevsehir_tr"
+    ],
+    "2473": [
+      "ordu_tr"
+    ],
+    "2474": [
+      "rize_tr"
+    ],
+    "2475": [
+      "samsun_tr"
+    ],
+    "2476": [
+      "sirnak_tr"
+    ],
+    "2477": [
+      "sinop_tr"
+    ],
+    "2478": [
+      "sivas_tr"
+    ],
+    "2479": [
+      "tekirdag_tr"
+    ],
+    "2480": [
+      "tokat_tr"
+    ],
+    "2481": [
+      "van_tr"
+    ],
+    "2482": [
+      "zonguldak_tr"
+    ],
+    "2483": [
+      "turkmenbasy_tm"
+    ],
+    "2484": [
+      "cockburn-town_tc"
+    ],
+    "2485": [
+      "providenciales_tc"
+    ],
+    "2486": [
+      "south-caicos_tc"
+    ],
+    "2490": [
+      "al-ain_ae"
+    ],
+    "2491": [
+      "fujairah_ae"
+    ],
+    "2492": [
+      "ras-al-khaimah_ae"
+    ],
+    "2495": [
+      "bermuda_bm"
+    ],
+    "2498": [
+      "eday_gb"
+    ],
+    "2499": [
+      "kirkwall_gb"
+    ],
+    "2501": [
+      "north-ronaldsay_gb"
+    ],
+    "2502": [
+      "nottingham_gb"
+    ],
+    "2503": [
+      "papa-westray_gb"
+    ],
+    "2504": [
+      "sanday_gb"
+    ],
+    "2507": [
+      "stronsay_gb"
+    ],
+    "2509": [
+      "watford_gb"
+    ],
+    "2510": [
+      "westray_gb"
+    ],
+    "2512": [
+      "aguadilla_pr_pr"
+    ],
+    "2514": [
+      "albany_ny_us"
+    ],
+    "2515": [
+      "alexandria_la_us"
+    ],
+    "2516": [
+      "allentown_pa_us"
+    ],
+    "2517": [
+      "amarillo_tx_us"
+    ],
+    "2518": [
+      "appleton_wi_us"
+    ],
+    "2520": [
+      "asheville_nc_us"
+    ],
+    "2521": [
+      "atlantic-city_nj_us"
+    ],
+    "2524": [
+      "beckley_wv_us"
+    ],
+    "2525": [
+      "bozeman_mt_us"
+    ],
+    "2526": [
+      "bellingham_wa_us"
+    ],
+    "2530": [
+      "bloomington_il_us"
+    ],
+    "2531": [
+      "burbank_ca_us"
+    ],
+    "2533": [
+      "burlington_vt_us"
+    ],
+    "2535": [
+      "cedar-rapids_ia_us"
+    ],
+    "2537": [
+      "charlottesville_va_us"
+    ],
+    "2538": [
+      "chattanooga_tn_us"
+    ],
+    "2540": [
+      "columbia_sc_us"
+    ],
+    "2541": [
+      "culebra_pr_pr"
+    ],
+    "2542": [
+      "dayton_oh_us"
+    ],
+    "2543": [
+      "daytona-beach_fl_us"
+    ],
+    "2545": [
+      "edmonds_wa_us"
+    ],
+    "2548": [
+      "evansville_in_us"
+    ],
+    "2549": [
+      "everett_wa_us"
+    ],
+    "2552": [
+      "fort-lauderdale_fl_us"
+    ],
+    "2553": [
+      "fort-myers_fl_us"
+    ],
+    "2554": [
+      "valparaiso_fl_us"
+    ],
+    "2555": [
+      "green-bay_wi_us"
+    ],
+    "2556": [
+      "greenville_sc_us"
+    ],
+    "2558": [
+      "haines_ak_us"
+    ],
+    "2559": [
+      "harrisburg_pa_us"
+    ],
+    "2560": [
+      "hartford_ct_us"
+    ],
+    "2561": [
+      "hayden_co_us"
+    ],
+    "2563": [
+      "hilo_hi_us"
+    ],
+    "2564": [
+      "ho-olehua_hi_us"
+    ],
+    "2566": [
+      "huntsville_al_us"
+    ],
+    "2567": [
+      "hyannis_ma_us"
+    ],
+    "2569": [
+      "jackson_ms_us"
+    ],
+    "2572": [
+      "kahului_hi_us"
+    ],
+    "2573": [
+      "kailua_hi_us"
+    ],
+    "2576": [
+      "kauai_hi_us"
+    ],
+    "2578": [
+      "key-west_fl_us"
+    ],
+    "2579": [
+      "knoxville_tn_us"
+    ],
+    "2580": [
+      "lafayette_la_us"
+    ],
+    "2581": [
+      "lake-charles_la_us"
+    ],
+    "2582": [
+      "lanai_hi_us"
+    ],
+    "2587": [
+      "little-rock_ar_us"
+    ],
+    "2588": [
+      "manchester_nh_us"
+    ],
+    "2589": [
+      "marquette_mi_us"
+    ],
+    "2590": [
+      "marthas-vineyard_ma_us"
+    ],
+    "2591": [
+      "mayaguez_pr_pr"
+    ],
+    "2593": [
+      "melbourne_fl_us"
+    ],
+    "2595": [
+      "midland_tx_us"
+    ],
+    "2596": [
+      "mobile_al_us"
+    ],
+    "2597": [
+      "moline_il_us"
+    ],
+    "2599": [
+      "montgomery_al_us"
+    ],
+    "2600": [
+      "mount-vernon_il_us"
+    ],
+    "2601": [
+      "myrtle-beach_sc_us"
+    ],
+    "2602": [
+      "nantucket_ma_us"
+    ],
+    "2604": [
+      "ontario_ca_us"
+    ],
+    "2605": [
+      "panama-city_fl_us"
+    ],
+    "2606": [
+      "parkersburg_wv_us"
+    ],
+    "2608": [
+      "pensacola_fl_us"
+    ],
+    "2610": [
+      "plattsburgh_ny_us"
+    ],
+    "2611": [
+      "ponce_pr_pr"
+    ],
+    "2612": [
+      "providence_ri_us"
+    ],
+    "2618": [
+      "roanoke_va_us"
+    ],
+    "2619": [
+      "rouses-point_ny_us"
+    ],
+    "2623": [
+      "santa-rosa_ca_us"
+    ],
+    "2625": [
+      "sarasota_fl_us"
+    ],
+    "2626": [
+      "savannah_ga_us"
+    ],
+    "2627": [
+      "shreveport_la_us"
+    ],
+    "2628": [
+      "sioux-falls_sd_us"
+    ],
+    "2630": [
+      "skagway_ak_us"
+    ],
+    "2631": [
+      "springfield_il_us"
+    ],
+    "2632": [
+      "stanwood_wa_us"
+    ],
+    "2635": [
+      "syracuse_ny_us"
+    ],
+    "2636": [
+      "tallahassee_fl_us"
+    ],
+    "2637": [
+      "trenton_nj_us"
+    ],
+    "2639": [
+      "vieques_pr_pr"
+    ],
+    "2641": [
+      "washington_dc_us"
+    ],
+    "2645": [
+      "west-palm-beach_fl_us"
+    ],
+    "2646": [
+      "west-point_ak_us"
+    ],
+    "2647": [
+      "westchester-county_ny_us"
+    ],
+    "2648": [
+      "wilmington_nc_us"
+    ],
+    "2653": [
+      "bukhara_uz"
+    ],
+    "2654": [
+      "fergana_uz"
+    ],
+    "2655": [
+      "qarshi_uz"
+    ],
+    "2656": [
+      "namangan_uz"
+    ],
+    "2658": [
+      "nukus_uz"
+    ],
+    "2659": [
+      "samarkand_uz"
+    ],
+    "2660": [
+      "termez_uz"
+    ],
+    "2661": [
+      "urgench_uz"
+    ],
+    "2669": [
+      "buon-ma-thuot_vn"
+    ],
+    "2670": [
+      "can-tho_vn"
+    ],
+    "2671": [
+      "con-son-island_vn"
+    ],
+    "2672": [
+      "danang_vn"
+    ],
+    "2673": [
+      "da-lat_vn"
+    ],
+    "2674": [
+      "dien-khanh_vn"
+    ],
+    "2675": [
+      "dong-hoi_vn"
+    ],
+    "2676": [
+      "haiphong_vn"
+    ],
+    "2677": [
+      "hue_vn"
+    ],
+    "2678": [
+      "ca-mau-province_vn"
+    ],
+    "2679": [
+      "lao-cai_vn"
+    ],
+    "2680": [
+      "nha-trang_vn"
+    ],
+    "2681": [
+      "phu-quoc_vn"
+    ],
+    "2682": [
+      "pleiku_vn"
+    ],
+    "2683": [
+      "qui-nhon_vn"
+    ],
+    "2684": [
+      "rach-gia_vn"
+    ],
+    "2685": [
+      "sa-pa_vn"
+    ],
+    "2686": [
+      "chu-lai_vn"
+    ],
+    "2687": [
+      "thanh-hoa-province_vn"
+    ],
+    "2688": [
+      "tuy-hoa_vn"
+    ],
+    "2689": [
+      "ha-long_vn"
+    ],
+    "2690": [
+      "vinh_vn"
+    ],
+    "2692": [
+      "aden_ye"
+    ]
+  }
+]
+

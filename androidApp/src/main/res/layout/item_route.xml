@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="ru.z8.louttsev.cheaptripmobile.androidApp.model.data.DurationConverter" />
+
+        <variable
+            name="model"
+            type="ru.z8.louttsev.cheaptripmobile.androidApp.model.data.Route" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/route_main_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/route_item_background_2">
+
+        <HorizontalScrollView
+            android:id="@+id/transport_icon_container_scroll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fadeScrollbars="false"
+            android:padding="7dp"
+            android:scrollIndicators="start|end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_height="36dp">
+
+            <LinearLayout
+                android:id="@+id/transport_icon_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{model.routePlan}"
+            android:textColor="@color/colorTextPrimary"
+            app:layout_constraintEnd_toStartOf="@+id/open_indicator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/transport_icon_container_scroll"
+            tools:text="Muscat → Abu Dhabi" />
+
+        <TextView
+            android:id="@+id/storeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/rubik_medium"
+            android:gravity="center"
+            android:text="@{model.routeDuration}"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/actionButton"
+            app:layout_constraintStart_toEndOf="@+id/actionButton"
+            app:layout_constraintTop_toTopOf="@id/actionButton"
+            tools:text="1 d 16 h 39 min" />
+
+        <TextView
+            android:id="@+id/actionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/rounded_right_background"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:text="@{`€\u2009` + String.valueOf(model.euroPrice) + '0'}"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleTextView"
+            tools:text="€ 125.30" />
+
+        <CheckBox
+            android:id="@+id/open_indicator"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:button="@drawable/route_item_opening_selector"
+            app:layout_constraintBottom_toBottomOf="@+id/titleTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/titleTextView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/path_list"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actionButton"
+            tools:listitem="@layout/item_path"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
