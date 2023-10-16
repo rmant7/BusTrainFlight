@@ -29,7 +29,8 @@
     <string name="clear_button_text">Clear form</string>
     <string name="go_button_text">Let\'s go</string>
     <string name="no_data_error_message">Sorry, the data we have accumulated is not enough to build a route between the indicated cities. Try changing your request.</string>
-    <string name="invalid_selection_error_message">Destination and point of departure cannot be the same.</string>
+    <!-- <string name="invalid_selection_error_message">Destination and point of departure cannot be the same.</string>   -->
+    <string name="invalid_selection_error_message">The origin and destination points cannot match.</string>
     <string name="not_allowable_character_error_message">Sorry, for now, we support only English input.</string>
     <string name="action_button_text">Buy ticket</string>
     <string name="clause_duration_included_airport_transfer_text">duration includes transfer to/from airport</string>
