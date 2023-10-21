@@ -46,8 +46,8 @@ android {
         applicationId = "ru.z8.louttsev.bustrainflightmobile.androidApp"
         minSdkVersion(21)
         targetSdkVersion(33)
-        versionCode = 8
-        versionName = "1.1.6"
+        versionCode = 9
+        versionName = "1.1.7"
     }
     buildTypes {
         getByName("release") {

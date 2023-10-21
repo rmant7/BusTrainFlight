@@ -124,7 +124,7 @@ class MainViewModel(
         override fun onAnywhereSelected() {
 //            if (isFirstTimeRun) {
                 isAnywhereSelected.value = true
-                val result = routeRepository.getPackOfRoutesFromLocation(selectedOrigin!!)
+                val result = routeRepository.getPackOfRoutesFromLocation(selectedOrigin!!, newList = true) //////
                 anywhereNearestRoutes.value = result
 //                isFirstTimeRun = false
             }

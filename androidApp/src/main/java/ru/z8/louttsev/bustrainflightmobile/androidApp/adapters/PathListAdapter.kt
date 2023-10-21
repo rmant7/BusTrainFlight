@@ -8,7 +8,6 @@ import android.content.Intent
 import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.View.*
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
@@ -26,14 +25,11 @@ import io.github.aakira.napier.Napier
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ItemPathBinding
-import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ItemRouteBinding
 import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.NativeAdViewRouteBinding
-import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Country
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Path
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.LocationRepository
 import kotlinx.coroutines.launch
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.TransportationType
-import kotlin.io.path.Path
 
 /**
  * Declares adapter for path list as part of route view.
@@ -121,7 +117,9 @@ class PathListAdapter(
                     }
                 }
                 with(bookingButton) {
-                    val affiliateUrl =
+                    var affiliateUrl = ""
+                    if (path.to.country == "Russia") affiliateUrl = "https://ostrovok.ru/"
+                    else affiliateUrl =
                         "https://www.booking.com/searchresults.en.html?aid=7920152&city=" +
 //                                locationRepository.getBookingId(
 //                                    locationRepository.searchLocationsByName(path.to)[0].id
@@ -149,26 +147,45 @@ class PathListAdapter(
         }
 
         private fun getAffiliateUrlForBuyTicket(path: Path): String {
+            val qiwiCityId = locationRepository.kiwiCityIds
+
+            if (path.from.country == "Russia" || path.to.country == "Russia") {
+                return when (path.transportationType) {
+                    TransportationType.FERRY -> "https://www.aferry.com/"
+                    TransportationType.RIDE_SHARE -> "https://www.blablacar.co.uk/"
+                    TransportationType.BUS -> "https://bus.tutu.ru/"
+                    TransportationType.TRAIN -> "https://tutu.ru/poezda/"
+                    TransportationType.FLIGHT -> "https://www.aviasales.ru/?params=KWG1"
+                    else -> ""
+                }
+            }
+
+            if (path.from.country == "India" && path.to.country == "India" && path.transportationType != TransportationType.FLIGHT) {
+                return when (path.transportationType) {
+                    TransportationType.FERRY -> "https://www.aferry.com/"
+                    TransportationType.RIDE_SHARE -> "https://www.blablacar.co.uk/"
+                    TransportationType.BUS -> "https://www.makemytrip.com/bus-tickets/"
+                    TransportationType.TRAIN -> "https://www.makemytrip.com/railways/"
+                    else -> ""
+                }
+            }
+
             return when (path.transportationType) {
                 TransportationType.FERRY -> "https://www.aferry.com/"
                 TransportationType.RIDE_SHARE -> "https://www.blablacar.co.uk/"
                 else -> {
-                    val qiwiCityId = locationRepository.kiwiCityIds
-                    ///////////////////////////////////////////////
                     if (qiwiCityId[path.to.id] == null || qiwiCityId[path.from.id] == null) {
-                        return when (path.transportationType) {
-                            TransportationType.BUS -> "https://www.aviasales.ru/?params=KWG1"
-                            TransportationType.TRAIN -> "https://www.aviasales.ru/?params=KWG1"
-                            else -> "https://www.aviasales.ru/?params=KWG1"
-                        }
+                        return "https://omio.sjv.io/XxEWmb"
                     }
-                    //////////////////////////////////////////////////
+
                     if (qiwiCityId[path.to.id]!![0] != null && qiwiCityId[path.from.id]!![0] != null) {
                         val transport = when (path.transportationType) {
                             TransportationType.BUS -> "bus"
                             TransportationType.TRAIN -> "train"
                             else -> ""
                         }
+                        qiwiCityId[path.from.id]!![0]?.let { Log.d("asdfg", it) }
+                        qiwiCityId[path.to.id]!![0]?.let { Log.d("asdfg", it) }
                         "http://www.kiwi.com/deep?affilid=cheaptripcheaptrip&currency=EUR" +
                                 "&departure=anytime" +
                                 "&destination=" +
