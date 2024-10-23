@@ -140,7 +140,8 @@ class AppOpenManager(private val myApplication: App) : LifecycleObserver,
     companion object {
         private const val LOG_TAG = "AppOpenManager"
 //        private const val AD_UNIT_ID = "ca-app-pub-3940256099942544/3419835294"
-        private const val AD_UNIT_ID = "ca-app-pub-7574006463043131/9295024520"
+//        private const val AD_UNIT_ID = "ca-app-pub-7574006463043131/9295024520"
+        private const val AD_UNIT_ID = "ca-app-pub-7574006463043131/6600658902"
         private var isShowingAd = false
     }
 

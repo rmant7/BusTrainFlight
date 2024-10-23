@@ -4,8 +4,8 @@
  */
 package ru.z8.louttsev.bustrainflightmobile.androidApp.model.data
 
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
+import javax.inject.Inject
+
 
 /**
  * Declares particular section (path) within aggregate route.
@@ -16,15 +16,16 @@ import org.koin.core.component.inject
  * @property from Origin name.
  * @property to Destination name.
  */
-data class Path(
+data class Path @Inject constructor(
+    private val durationConverter: DurationConverter,
     val transportationType: TransportationType,
     val euroPrice: Float,
     val durationMinutes: Int,
-    val from: Location,
-    val to: Location
-): KoinComponent {
+    val from: LocationData,
+    val to: LocationData
+) {
     private val pointsDelimiter = "\u2009\u2794\u2009"
-    private val durationConverter: DurationConverter by inject()
+
 
     /**
      * String representation of path plan, eg. 'Muscat → Abu Dhabi'

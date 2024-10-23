@@ -15,7 +15,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.LiveData
 import io.github.aakira.napier.Napier
 import ru.z8.louttsev.bustrainflightmobile.androidApp.R
-import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Location
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.LocationData
 
 /**
  * Declares adapter for location list as base for autocomplete input fields.
@@ -23,9 +23,9 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Location
  * @param liveData Observable source of locations data
  */
 class AutoCompleteLocationsListAdapter(
-    liveData: LiveData<List<Location>>
+    liveData: LiveData<List<LocationData>>
 ) : BaseAdapter(), Filterable {
-    private var mLocations: List<Location>
+    private var mLocations: List<LocationData>
 
     init {
         mLocations = liveData.value!!

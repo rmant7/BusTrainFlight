@@ -1,12 +1,12 @@
 package ru.z8.louttsev.bustrainflightmobile.androidApp.infrastructure.persistence
 
 import android.content.Context
-import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import ru.z8.louttsev.bustrainflightmobile.androidApp.R
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.DirectRouteJson
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.RouteJson
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Transport
+
 
 class RoutesDbJson(private val context: Context) {
 

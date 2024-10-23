@@ -4,9 +4,7 @@
  */
 package ru.z8.louttsev.bustrainflightmobile.androidApp.adapters
 
-import android.annotation.SuppressLint
 import android.os.Build
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -14,7 +12,6 @@ import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import androidx.annotation.RequiresApi
-import androidx.core.view.get
 import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,24 +32,22 @@ import io.github.aakira.napier.Napier
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
+import ru.z8.louttsev.bustrainflightmobile.androidApp.ui.Constants
+import javax.inject.Inject
 
-class AnywhereListAdapter(
-    liveData: MutableLiveData<MutableList<Pair<Int, MutableList<Route>>>>,
-    nestedScrollView: NestedScrollView,
+
+class AnywhereListAdapter @Inject constructor(
+    private val locationRepository: LocationRepository,
 //    val handler: DestinationSelectedHandler
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var mDestinationRoutes: MutableList<Pair<Int, MutableList<Route>>>
+    private lateinit var mDestinationRoutes: MutableList<Pair<Int, MutableList<Route>>>
+    private lateinit var nestedScrollView: NestedScrollView
 
-    private val nestedScrollView: NestedScrollView
-
-    private val AD_ITEM_INTERVAL = 5
-    private val AD_VIEW_TYPE = 1
-    private val DATA_VIEW_TYPE = 2
-
-    init {
+    fun initialize(
+        liveData: MutableLiveData<MutableList<Pair<Int, MutableList<Route>>>>,
+        nestedScrollView: NestedScrollView
+    ) {
         mDestinationRoutes = liveData.value!!
         liveData.observeForever {
             mDestinationRoutes = it
@@ -60,6 +55,10 @@ class AnywhereListAdapter(
         }
         this.nestedScrollView = nestedScrollView
     }
+
+    private val AD_ITEM_INTERVAL = 5
+    private val AD_VIEW_TYPE = 1
+    private val DATA_VIEW_TYPE = 2
 
     private lateinit var mRecyclerView: RecyclerView
 
@@ -105,7 +104,12 @@ class AnywhereListAdapter(
         Napier.d("$mDestinationRoutes")
         return if (viewType == DATA_VIEW_TYPE) {
             val binding = ItemRouteAnywhereBinding.inflate(LayoutInflater.from(parent.context))
-            RouteViewHolder(binding, nestedScrollView)
+            RouteViewHolder(
+                nestedScrollView = nestedScrollView,
+                binding = binding,
+                locationRepository = locationRepository,
+                routeListAdapter = RouteListAdapter(locationRepository)
+            )
         } else {
             val binding = NativeAdViewAnywhereBinding.inflate(LayoutInflater.from(parent.context))
             AdViewHolder(binding)
@@ -130,13 +134,12 @@ class AnywhereListAdapter(
     }
 
     class RouteViewHolder(
+        val locationRepository: LocationRepository,
         val binding: ItemRouteAnywhereBinding,
-        val nestedScrollView: NestedScrollView
-    ) :
-        RecyclerView.ViewHolder(binding.root),
-        KoinComponent {
+        val nestedScrollView: NestedScrollView,
+        val routeListAdapter: RouteListAdapter
+    ) : RecyclerView.ViewHolder(binding.root) {
 
-        private val locationRepository: LocationRepository by inject()
 
         @RequiresApi(Build.VERSION_CODES.M)
         fun bind(currentDestination: Pair<Int, MutableList<Route>>) {
@@ -150,13 +153,12 @@ class AnywhereListAdapter(
                 price = currentDestination.second.minByOrNull { it.euroPrice }!!.euroPrice
                 routeDestination =
                     locationRepository.searchLocationById(currentDestination.first)!!.getLocation()
-                routeList.adapter =
-                    RouteListAdapter(
-                        MutableLiveData(currentDestination.second),
-                        nestedScrollView,
-                        true
-                    )
-
+                routeList.adapter = routeListAdapter
+                routeListAdapter.initialize(
+                    liveData = MutableLiveData(currentDestination.second),
+                    nestedScrollView = nestedScrollView,
+                    isNested = true
+                )
                 executePendingBindings()
 //            destinationMainView.setOnClickListener {
 //                handler.onItemClicked(currentDestination)
@@ -243,9 +245,9 @@ class AnywhereListAdapter(
             binding.root.autoDisposeScope.launch {
                 withContext(Dispatchers.IO) {
                     val id = if (BuildConfig.DEBUG) {
-                        "ca-app-pub-3940256099942544/2247696110"
+                        Constants.NATIVE_AD_ID_SAMPLE
                     } else {
-                        "ca-app-pub-7574006463043131/4046840341"
+                        Constants.NATIVE_AD_ID_VER_3
                     }
                     val adLoader =
                         AdLoader.Builder(

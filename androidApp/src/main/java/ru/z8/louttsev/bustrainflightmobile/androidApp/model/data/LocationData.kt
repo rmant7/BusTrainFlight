@@ -10,7 +10,7 @@ package ru.z8.louttsev.bustrainflightmobile.androidApp.model.data
  * @property id Location ID.
  * @property name Location name.
  */
-data class Location(
+data class LocationData(
     val id: Int,
     val name: String,
     val country: String

@@ -35,39 +35,50 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Path
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Route
 import io.github.aakira.napier.Napier
 import kotlinx.coroutines.launch
-import org.koin.core.component.getScopeName
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.LocationRepository
+import ru.z8.louttsev.bustrainflightmobile.androidApp.ui.Constants
+import javax.inject.Inject
+
 
 /**
  * Declares adapter for route list as result of searching.
  *
  * @param liveData Observable source of routes data
  */
-class RouteListAdapter(
-    liveData: LiveData<List<Route>>,
-    nestedScrollView: NestedScrollView,
-    val isNested: Boolean = false
+class RouteListAdapter @Inject constructor(
+    private val locationRepository: LocationRepository,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var mRoutes: List<Route>
 
-    private val nestedScrollView: NestedScrollView
+    private var mRoutes: List<Route> = emptyList()
+    private lateinit var nestedScrollView: NestedScrollView
+    private var isNested: Boolean = false
 
-    private val AD_VIEW_TYPE = 1
-    private val DATA_VIEW_TYPE = 2
-
-    init {
+    fun initialize(
+        liveData: LiveData<List<Route>>,
+        nestedScrollView: NestedScrollView,
+        isNested: Boolean
+    ) {
         mRoutes = liveData.value!!
         liveData.observeForever {
             mRoutes = it
             notifyDataSetChanged()
         }
+        isNested
         this.nestedScrollView = nestedScrollView
     }
+
+    private val AD_VIEW_TYPE = 1
+    private val DATA_VIEW_TYPE = 2
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
         return if (viewType == DATA_VIEW_TYPE) {
             val binding = ItemRouteBinding.inflate(LayoutInflater.from(parent.context))
-            RouteViewHolder(binding, nestedScrollView)
+            RouteViewHolder(
+                binding = binding,
+                locationRepository = locationRepository,
+            )
         } else {
             val binding = NativeAdViewRouteBinding.inflate(LayoutInflater.from(parent.context))
             AdViewHolder(binding)
@@ -116,15 +127,22 @@ class RouteListAdapter(
         }
     }
 
-    class RouteViewHolder(val binding: ItemRouteBinding, val nestedScrollView: NestedScrollView) :
-        RecyclerView.ViewHolder(binding.root) {
+    class RouteViewHolder (
+        val locationRepository: LocationRepository,
+        val binding: ItemRouteBinding,
+//        val nestedScrollView: NestedScrollView
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(currentRoute: Route) {
+
+            val pathListAdapter = PathListAdapter(locationRepository)
+            pathListAdapter.initialize(currentRoute.directPaths)
+
             with(binding) {
                 val context = root.context
 
                 model =
                     currentRoute // ignore probably IDE error message "Cannot access class..."
-                pathList.adapter = PathListAdapter(currentRoute.directPaths)
+                pathList.adapter = pathListAdapter
                 executePendingBindings()
 
                 root.setOnClickListener { openIndicator.isChecked = !openIndicator.isChecked }
@@ -181,9 +199,9 @@ class RouteListAdapter(
 
             binding.root.autoDisposeScope.launch {
                 val id = if (BuildConfig.DEBUG) {
-                    "ca-app-pub-3940256099942544/2247696110"
+                    Constants.NATIVE_AD_ID_SAMPLE
                 } else {
-                    "ca-app-pub-7574006463043131/4046840341"
+                    Constants.NATIVE_AD_ID_VER_3
                 }
                 val adLoader =
                     AdLoader.Builder(binding.root.context, id)

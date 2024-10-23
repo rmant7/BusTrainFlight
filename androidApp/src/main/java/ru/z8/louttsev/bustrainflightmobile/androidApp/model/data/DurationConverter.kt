@@ -6,10 +6,14 @@ package ru.z8.louttsev.bustrainflightmobile.androidApp.model.data
 
 import android.content.Context
 import ru.z8.louttsev.bustrainflightmobile.androidApp.R
+import javax.inject.Singleton
 
 /**
  * Provides a duration conversion to string representations.
  */
+
+
+@Singleton
 class DurationConverter(private val context: Context) {
     /**
      * Converts duration in minutes to string representation based on days, hours and minutes.

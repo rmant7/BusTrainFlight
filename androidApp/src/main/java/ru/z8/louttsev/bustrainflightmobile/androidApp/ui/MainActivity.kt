@@ -1,12 +1,21 @@
 package ru.z8.louttsev.bustrainflightmobile.androidApp.ui
 
+import android.Manifest
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
+import android.content.pm.PackageManager
 import android.graphics.Rect
+import android.location.Address
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.text.Editable
 import android.text.InputFilter
 import android.text.Spanned
@@ -16,50 +25,75 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.view.inputmethod.InputMethodManager.*
 import android.widget.*
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar.*
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.doOnPreDraw
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
 import androidx.core.widget.doBeforeTextChanged
-import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.setViewTreeLifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.yandex.metrica.impl.ob.fa
+import dagger.hilt.android.AndroidEntryPoint
 import ru.z8.louttsev.bustrainflightmobile.androidApp.R
 import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.AnywhereListAdapter
 import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.AutoCompleteLocationsListAdapter
 import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.RouteListAdapter
 import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ActivityMainBinding
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Locale
-import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Location
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.LocationData
 import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.AutoCompleteHandler
 import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.MainViewModel
 import io.github.aakira.napier.Napier
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.LocationRepository
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.LocationJson
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.isCheapTripGuruReachable
 import java.util.*
+import javax.inject.Inject
 import kotlin.text.RegexOption.*
 
 
 /**
  * Declares main UI controller.
  */
+
+@AndroidEntryPoint
 class MainActivity : DrawerBaseActivity() {
+    //}, LocationListener {
     private lateinit var mInputMethodManager: InputMethodManager
 
-    private val model: MainViewModel by viewModel()
+    
+    private val model: MainViewModel by viewModels()
     private lateinit var binding: ActivityMainBinding
     private lateinit var preferences: SharedPreferences
+
+    private lateinit var mFusedLocationClient: FusedLocationProviderClient
+    private val permissionId = 2
+
+    @Inject
+    lateinit var locationRepository : LocationRepository
+    private var showLocation = true
+
+    @Inject
+    lateinit var anywhereListAdapter: AnywhereListAdapter
+    @Inject
+    lateinit var routeListAdapter: RouteListAdapter
+
 
     override fun onResume() {
         super.onResume()
         model.updateReadiness()
+        if (showLocation) getLocation()
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -72,7 +106,8 @@ class MainActivity : DrawerBaseActivity() {
 
 //        loadAppOpenAd()
 
-        preferences = getSharedPreferences("PREFERENCES", Context.MODE_PRIVATE)
+
+        preferences = getSharedPreferences("PREFERENCES", MODE_PRIVATE)
 
         model.isFirstTimeRun = preferences.getBoolean("isFirstTimeRun", true)
         preferences.edit().putBoolean("isFirstTimeRun", false).apply()
@@ -83,6 +118,8 @@ class MainActivity : DrawerBaseActivity() {
             viewModel = model // ignore probably IDE error message "Cannot access class..."
         }
         setContentView(binding.root)
+
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
 //        val toolbar = binding.root.findViewById<Toolbar>(R.id.toolBar)
 //        setSupportActionBar(toolbar)
@@ -109,7 +146,8 @@ class MainActivity : DrawerBaseActivity() {
             originTextView.setup(
                 handler = model.origins,
                 inputLayout = binding.originInputLayout,
-                false
+                false,
+                originClearIcon
             )
 
             originClearIcon.setOnClickListener {
@@ -122,12 +160,14 @@ class MainActivity : DrawerBaseActivity() {
             destinationTextView.setup(
                 handler = model.destinations,
                 inputLayout = binding.destinationInputLayout,
-                true
+                true,
+                destinationClearIcon
             )
 
             destinationClearIcon.setOnClickListener {
                 model.destinations.onItemReset()
                 destinationTextView.clearText()
+                destinationTextView.clearFocus()
                 destinationTextView.requestFocus()
                 mInputMethodManager.showSoftInput(destinationTextView, SHOW_IMPLICIT)
             }
@@ -146,27 +186,18 @@ class MainActivity : DrawerBaseActivity() {
                     val destinationLocation = model.destinations.data.value!!.first()
                     val originLocation = model.origins.data.value!!.first()
                     originTextView.setText("")
-                    //model.origins.onItemReset()
-                    //originTextView.clearText()
-                    //model.destinations.onItemReset()
-                    //destinationTextView.clearText()
-                    //originTextView.requestFocus()
-                    //mInputMethodManager.showSoftInput(originTextView, SHOW_IMPLICIT)
-                    //mInputMethodManager.showSoftInput(destinationTextView, SHOW_IMPLICIT)
 
                     destinationTextView.setText(originLocation.name)
                     model.destinations.onItemSelected(
                         originLocation,
                         invalidSelectionHandler = ::showWrongChoiceError
                     )
-                    destinationTextView.performCompletion()
 
                     originTextView.setText(destinationLocation.name)
                     model.origins.onItemSelected(
                         destinationLocation,
                         invalidSelectionHandler = ::showWrongChoiceError
                     )
-                    originTextView.performCompletion()
                 }
             }
 
@@ -192,7 +223,13 @@ class MainActivity : DrawerBaseActivity() {
 
             with(routeListRecyclerView) {
                 layoutManager = LinearLayoutManager(this@MainActivity)
-                adapter = RouteListAdapter(model.currentRoutes, nestedScrollView)
+                adapter = routeListAdapter
+//                    RouteListAdapter(
+////                    nestedScrollView = nestedScrollView,
+//                    isNested = true,  // TODO { not sure here }
+////                    liveData = model.currentRoutes,
+//                    locationRepository = locationRepository,
+//                )
                 addItemDecoration(object : RecyclerView.ItemDecoration() {
                     override fun getItemOffsets(
                         outRect: Rect,
@@ -210,12 +247,15 @@ class MainActivity : DrawerBaseActivity() {
                             500
                         )
                 }
+                routeListAdapter.initialize(liveData = model.currentRoutes, nestedScrollView = nestedScrollView, isNested = true)
             }
             with(routeListAnywhereRecyclerView) {
-                val anywhereListAdapter = AnywhereListAdapter(
-                    model.anywhereNearestRoutes, nestedScrollView
+//                val anywhereListAdapter = AnywhereListAdapter(  // TODO { commented out }
+//                    nestedScrollView = nestedScrollView,
+//                    liveData = model.anywhereNearestRoutes,
+//                    locationRepository = locationRepository,
 //                    model.destinationSelectedHandler
-                )
+//                )
                 layoutManager = LinearLayoutManager(this@MainActivity)
                 adapter = anywhereListAdapter
                 addItemDecoration(object : RecyclerView.ItemDecoration() {
@@ -246,6 +286,10 @@ class MainActivity : DrawerBaseActivity() {
                         fab.visibility = View.GONE
                     }
                 }
+                anywhereListAdapter.initialize(
+                    liveData = model.anywhereNearestRoutes,
+                    nestedScrollView = nestedScrollView
+                )
             }
         }
     }
@@ -260,9 +304,10 @@ class MainActivity : DrawerBaseActivity() {
 //    }
 
     private fun AutoCompleteTextView.setup(
-        handler: AutoCompleteHandler<Location>,
+        handler: AutoCompleteHandler<LocationData>,
         inputLayout: TextInputLayout,
-        isDestination: Boolean
+        isDestination: Boolean,
+        clearIcon: AppCompatImageView
     ) {
         threshold = 1
 
@@ -339,8 +384,8 @@ class MainActivity : DrawerBaseActivity() {
                         }
                     }
                 )
+                showButton()
             }
-            showButton()
         }
 
         setOnEditorActionListener { _, actionId, _ ->
@@ -359,10 +404,10 @@ class MainActivity : DrawerBaseActivity() {
 
             Napier.d("OnItemClicked")
 
-            val selectedLocation = parent.getItemAtPosition(position) as Location
+            val selectedLocation = parent.getItemAtPosition(position) as LocationData
 
             val inputMethodManager =
-                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(rootView.windowToken, 0)
 
             if (selectedLocation.name == "Anywhere") {
@@ -375,7 +420,6 @@ class MainActivity : DrawerBaseActivity() {
                     selectedLocation,
                     invalidSelectionHandler = ::showWrongChoiceError
                 )
-
             }
             performCompletion()
         }
@@ -395,9 +439,10 @@ class MainActivity : DrawerBaseActivity() {
         }
 
         setOnFocusChangeListener { _, hasFocus ->
+            inputLayout.hideErrorMessage()
             if (!model.isAnywhereSelected.value!!) {
                 if (!hasFocus) {
-                    inputLayout.hideErrorMessage()
+                    //inputLayout.hideErrorMessage()
                     if (checkTheCorrectnessOfTheInput()) showWrongChoiceError()
                     else inputLayout.hideInvalidInputMessage()
                 } else if (hasFocus && text.isEmpty() && isDestination && model.selectedOrigin != null) {
@@ -457,7 +502,7 @@ class MainActivity : DrawerBaseActivity() {
         text.clear()
     }
 
-    private fun AutoCompleteTextView.selectSuitableLocation(handler: AutoCompleteHandler<Location>) {
+    private fun AutoCompleteTextView.selectSuitableLocation(handler: AutoCompleteHandler<LocationData>) {
         if (handler.data.value!!.isNotEmpty()) {
             val suitableLocation = handler.data.value!!.first()
 
@@ -497,11 +542,12 @@ class MainActivity : DrawerBaseActivity() {
     }
 
     private fun TextInputLayout.showErrorMessage(message: String) {
-        error = message
+        helperText = message
+        //error = message
     }
 
     private fun TextInputLayout.hideErrorMessage() {
-        error = null
+        helperText = null
     }
 
     private fun TextInputLayout.hideInvalidInputMessage() {
@@ -521,7 +567,6 @@ class MainActivity : DrawerBaseActivity() {
         return checkForCoincidenceOfPoints() && checkForEmptyString()
     }
 
-    /////
     private fun checkForCoincidenceOfPoints(): Boolean {
         return binding.originTextView.text.toString() ==
                 binding.destinationTextView.text.toString()
@@ -539,5 +584,87 @@ class MainActivity : DrawerBaseActivity() {
         if (binding.destinationTextView.text.toString().isNotEmpty())
             binding.destinationClearIcon.visibility = View.VISIBLE
         else binding.destinationClearIcon.visibility = View.GONE
+    }
+
+    @SuppressLint("MissingPermission", "SetTextI18n")
+    private fun getLocation() {
+        if (showLocation && checkPermissions()) {
+            if (isLocationEnabled()) {
+                mFusedLocationClient.lastLocation.addOnCompleteListener(this) { task ->
+                    if (task.result != null) {
+                        val city: LocationData? =
+                            locationRepository.searchLocation(
+                                task.result!!.latitude,
+                                task.result!!.longitude
+                            )
+                        if (city != null) {
+                            showLocation = false
+                            binding.originTextView.setText(city.name)
+                            model.origins.onItemSelected(
+                                city,
+                                invalidSelectionHandler = ::showWrongChoiceError
+                            )
+                            //binding.originTextView.clearFocus()
+                            binding.destinationTextView.requestFocus()
+                            binding.destinationTextView.clearFocus()
+                            //model.destinations.onItemReset()
+                        }
+                    }
+                }
+            } else if (showLocation) {
+                showLocation = false
+                Toast.makeText(this, "Please turn on location", Toast.LENGTH_LONG).show()
+                //val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                //startActivity(intent)
+            }
+        } else {
+            requestPermissions()
+        }
+    }
+
+    private fun isLocationEnabled(): Boolean {
+        val locationManager: LocationManager =
+            getSystemService(LOCATION_SERVICE) as LocationManager
+        return locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+        //|| locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+    }
+
+    private fun checkPermissions(): Boolean {
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED //&&
+        // ActivityCompat.checkSelfPermission(
+        //   this,
+        // Manifest.permission.ACCESS_FINE_LOCATION
+        // ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            return true
+        }
+        return false
+    }
+
+    private fun requestPermissions() {
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                //Manifest.permission.ACCESS_FINE_LOCATION
+            ),
+            permissionId
+        )
+    }
+
+    @SuppressLint("MissingSuperCall")
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == permissionId) {
+            if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                getLocation()
+            } else showLocation = false
+        }
     }
 }
