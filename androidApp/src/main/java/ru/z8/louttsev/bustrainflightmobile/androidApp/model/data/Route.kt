@@ -4,10 +4,9 @@
  */
 package ru.z8.louttsev.bustrainflightmobile.androidApp.model.data
 
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.get
-import org.koin.core.component.inject
+
 import ru.z8.louttsev.bustrainflightmobile.androidApp.R
+import javax.inject.Inject
 
 /**
  * Declares aggregate route between selected locations.
@@ -17,18 +16,19 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.R
  * @property durationMinutes Total route duration in minutes.
  * @property directPaths Particular sections (paths) within aggregate route.
  */
-data class Route(
+data class Route @Inject constructor(
+    private val durationConverter: DurationConverter,
     val routeType: Type,
     val euroPrice: Float,
     val durationMinutes: Int,
     val directPaths: List<Path>
-): KoinComponent {
+){
     /**
      * Declares route type in relation to ways of moving.
      *
      * @property value String representation for JSON conversion
      */
-    private val durationConverter: DurationConverter by inject()
+
 
     enum class Type(val value: String, private val stringResourceId: Int) {
         GROUND("ground_routes", R.string.route_type_ground),

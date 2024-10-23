@@ -4,19 +4,16 @@ import android.app.Application
 import com.google.android.gms.ads.MobileAds
 import com.yandex.metrica.YandexMetrica
 import com.yandex.metrica.YandexMetricaConfig
-import ru.z8.louttsev.bustrainflightmobile.androidApp.ads.AppOpenManager
-import ru.z8.louttsev.bustrainflightmobile.androidApp.di.repositoryModule
-import ru.z8.louttsev.bustrainflightmobile.androidApp.di.utilsModule
-import ru.z8.louttsev.bustrainflightmobile.androidApp.di.viewModelModule
+import dagger.hilt.android.HiltAndroidApp
 import io.github.aakira.napier.DebugAntilog
 import io.github.aakira.napier.Napier
-import org.koin.android.ext.koin.androidContext
-import org.koin.core.context.startKoin
+import ru.z8.louttsev.bustrainflightmobile.androidApp.ads.AppOpenManager
 
 
 /**
  * Declares DI container.
  */
+@HiltAndroidApp
 class App : Application(){
 
     override fun onCreate() {
@@ -26,16 +23,10 @@ class App : Application(){
         ) { }
         appOpenManager = AppOpenManager(this)
 
-        startKoin {
-            androidContext(this@App)
-            modules(
-                listOf(
-                    repositoryModule,
-                    viewModelModule,
-                    utilsModule
-                )
-            )
-        }
+//        startKoin {
+//            androidLogger()
+//            androidContext(this@App)
+//        }
 
         Napier.base(DebugAntilog())
 

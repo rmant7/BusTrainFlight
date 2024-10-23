@@ -24,6 +24,7 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.view.inputmethod.InputMethodManager.*
 import android.widget.*
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar.*
 import androidx.appcompat.widget.AppCompatImageView
@@ -41,7 +42,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import dagger.hilt.android.AndroidEntryPoint
 import ru.z8.louttsev.bustrainflightmobile.androidApp.R
 import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.AnywhereListAdapter
 import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.AutoCompleteLocationsListAdapter
@@ -52,28 +53,38 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.LocationData
 import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.AutoCompleteHandler
 import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.MainViewModel
 import io.github.aakira.napier.Napier
-import org.koin.android.ext.android.inject
-import org.koin.core.component.inject
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.LocationRepository
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.LocationJson
 import java.util.*
+import javax.inject.Inject
 import kotlin.text.RegexOption.*
 
 
 /**
  * Declares main UI controller.
  */
+
+@AndroidEntryPoint
 class MainActivity : DrawerBaseActivity() {
     //}, LocationListener {
     private lateinit var mInputMethodManager: InputMethodManager
 
-    private val model: MainViewModel by viewModel()
+    
+    private val model: MainViewModel by viewModels()
     private lateinit var binding: ActivityMainBinding
     private lateinit var preferences: SharedPreferences
 
     private lateinit var mFusedLocationClient: FusedLocationProviderClient
     private val permissionId = 2
-    private val locationRepository: LocationRepository by inject()
+
+    @Inject
+    lateinit var locationRepository : LocationRepository
     private var showLocation = true
+
+    @Inject
+    lateinit var anywhereListAdapter: AnywhereListAdapter
+    @Inject
+    lateinit var routeListAdapter: RouteListAdapter
 
     override fun onResume() {
         super.onResume()
@@ -207,7 +218,13 @@ class MainActivity : DrawerBaseActivity() {
 
             with(routeListRecyclerView) {
                 layoutManager = LinearLayoutManager(this@MainActivity)
-                adapter = RouteListAdapter(model.currentRoutes, nestedScrollView)
+                adapter = routeListAdapter
+//                    RouteListAdapter(
+////                    nestedScrollView = nestedScrollView,
+//                    isNested = true,  // TODO { not sure here }
+////                    liveData = model.currentRoutes,
+//                    locationRepository = locationRepository,
+//                )
                 addItemDecoration(object : RecyclerView.ItemDecoration() {
                     override fun getItemOffsets(
                         outRect: Rect,
@@ -225,12 +242,15 @@ class MainActivity : DrawerBaseActivity() {
                             500
                         )
                 }
+                routeListAdapter.initialize(liveData = model.currentRoutes, nestedScrollView = nestedScrollView, isNested = true)
             }
             with(routeListAnywhereRecyclerView) {
-                val anywhereListAdapter = AnywhereListAdapter(
-                    model.anywhereNearestRoutes, nestedScrollView
+//                val anywhereListAdapter = AnywhereListAdapter(  // TODO { commented out }
+//                    nestedScrollView = nestedScrollView,
+//                    liveData = model.anywhereNearestRoutes,
+//                    locationRepository = locationRepository,
 //                    model.destinationSelectedHandler
-                )
+//                )
                 layoutManager = LinearLayoutManager(this@MainActivity)
                 adapter = anywhereListAdapter
                 addItemDecoration(object : RecyclerView.ItemDecoration() {
@@ -261,6 +281,10 @@ class MainActivity : DrawerBaseActivity() {
                         fab.visibility = View.GONE
                     }
                 }
+                anywhereListAdapter.initialize(
+                    liveData = model.anywhereNearestRoutes,
+                    nestedScrollView = nestedScrollView
+                )
             }
         }
     }

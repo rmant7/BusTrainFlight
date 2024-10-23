@@ -22,23 +22,30 @@ import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.nativead.NativeAdView
 import io.github.aakira.napier.BuildConfig
 import io.github.aakira.napier.Napier
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
 import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ItemPathBinding
 import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.NativeAdViewRouteBinding
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Path
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.LocationRepository
 import kotlinx.coroutines.launch
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.TransportationType
+import ru.z8.louttsev.bustrainflightmobile.androidApp.ui.Constants
+import javax.inject.Inject
 
 /**
  * Declares adapter for path list as part of route view.
  *
  * @param mPaths Source of paths data
  */
-class PathListAdapter(
-    private val mPaths: List<Path>
+class PathListAdapter @Inject constructor(
+    private val locationRepository: LocationRepository
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    private lateinit var mPaths: List<Path>
+
+    fun initialize(paths: List<Path>) {
+        this.mPaths = paths
+        notifyDataSetChanged()
+    }
 
     private val AD_VIEW_TYPE = 1
     private val DATA_VIEW_TYPE = 2
@@ -46,7 +53,10 @@ class PathListAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == DATA_VIEW_TYPE) {
             val binding = ItemPathBinding.inflate(LayoutInflater.from(parent.context))
-            PathViewHolder(binding)
+            PathViewHolder(
+                binding = binding,
+                locationRepository = locationRepository
+            )
         } else {
             val binding = NativeAdViewRouteBinding.inflate(LayoutInflater.from(parent.context))
             AdViewHolder(binding)
@@ -81,9 +91,11 @@ class PathListAdapter(
         }
     }
 
-    class PathViewHolder(val binding: ItemPathBinding) : RecyclerView.ViewHolder(binding.root),
-        KoinComponent {
-        private val locationRepository: LocationRepository by inject()
+    class PathViewHolder (
+        val locationRepository: LocationRepository,
+        val binding: ItemPathBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
+
 
         fun bind(path: Path) {
             with(binding) {
@@ -218,9 +230,9 @@ class PathListAdapter(
         fun bind() {
             binding.root.autoDisposeScope.launch {
                 val id = if (BuildConfig.DEBUG) {
-                    "ca-app-pub-3940256099942544/2247696110"
+                    Constants.NATIVE_AD_ID_SAMPLE
                 } else {
-                    "ca-app-pub-7574006463043131/4046840341"
+                    Constants.NATIVE_AD_ID_VER_3
                 }
                 val adLoader =
                     AdLoader.Builder(binding.root.context, id)

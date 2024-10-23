@@ -8,11 +8,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.aakira.napier.Napier
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.koin.core.component.KoinComponent
 import ru.z8.louttsev.bustrainflightmobile.androidApp.currentLocale
 import ru.z8.louttsev.bustrainflightmobile.androidApp.ioDispatcher
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.LocationRepository
@@ -22,6 +22,7 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.LocationData
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.LocationData.Type
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Route
 import ru.z8.louttsev.bustrainflightmobile.androidApp.uiDispatcher
+import javax.inject.Inject
 
 
 /**
@@ -33,10 +34,12 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.uiDispatcher
  * @property destinations Available destination locations
  * @property routes Found routes
  */
-class MainViewModel(
+
+@HiltViewModel
+class MainViewModel @Inject constructor(
     private val locationRepository: LocationRepository,
     private val routeRepository: RouteRepository
-) : ViewModel(), KoinComponent {
+) : ViewModel() {
     private var inputLocale = currentLocale
 
     var selectedOrigin: LocationData? = null

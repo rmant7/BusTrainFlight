@@ -1,16 +1,20 @@
 package ru.z8.louttsev.bustrainflightmobile.androidApp.model
 
-import android.util.Log
+import dagger.hilt.android.scopes.ActivityScoped
+import dagger.hilt.android.scopes.ViewModelScoped
 import ru.z8.louttsev.bustrainflightmobile.androidApp.currentLocale
 import ru.z8.louttsev.bustrainflightmobile.androidApp.infrastructure.persistence.LocationsDbJson
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Locale
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.LocationData
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.LocationJson
+import javax.inject.Inject
+import javax.inject.Singleton
 import kotlin.math.abs
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-class LocationRepository(db: LocationsDbJson) {
+
+class LocationRepository @Inject constructor(private val db: LocationsDbJson) {
 
     private val locations: Map<Int, LocationJson> = db.locationsData
 

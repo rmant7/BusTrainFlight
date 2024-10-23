@@ -1,10 +1,20 @@
 package ru.z8.louttsev.bustrainflightmobile.androidApp.model
 
+import dagger.hilt.android.scopes.ActivityScoped
+import dagger.hilt.android.scopes.ViewModelScoped
+import io.github.aakira.napier.Napier
 import ru.z8.louttsev.bustrainflightmobile.androidApp.infrastructure.persistence.RoutesDbJson
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.*
-import io.github.aakira.napier.Napier
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class RouteRepository(db: RoutesDbJson, private val locationRepository: LocationRepository) {
+
+
+class RouteRepository @Inject constructor(
+    private val durationConverter: DurationConverter,
+    private val db: RoutesDbJson,
+    private val locationRepository: LocationRepository
+) {
 
     private val directRoutes = db.getDirectRoutes()
 
@@ -37,7 +47,8 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                             euroPrice = directRoutes[path]?.price!!.toFloat(),
                             durationMinutes = directRoutes[path]?.duration!!,
                             from = locationRepository.searchLocationById(directRoutes[path]!!.from)!!,
-                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!
+                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!,
+                            durationConverter = durationConverter
                         )
                     )
                 }
@@ -48,7 +59,8 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                             routeType = Route.Type.FIXED_WITHOUT_RIDE_SHARE,
                             euroPrice = route.price.toFloat(),
                             durationMinutes = route.duration,
-                            directPaths = pathList
+                            directPaths = pathList,
+                            durationConverter = durationConverter
                         )
                     )
                 }
@@ -67,7 +79,8 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                             euroPrice = directRoutes[path]?.price!!.toFloat(),
                             durationMinutes = directRoutes[path]?.duration!!,
                             from = locationRepository.searchLocationById(directRoutes[path]!!.from)!!,
-                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!
+                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!,
+                            durationConverter = durationConverter
                         )
                     )
                 }
@@ -78,7 +91,8 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                             routeType = Route.Type.FLYING,
                             euroPrice = route.price.toFloat(),
                             durationMinutes = route.duration,
-                            directPaths = pathList
+                            directPaths = pathList,
+                            durationConverter = durationConverter
                         )
                     )
                 }
@@ -92,15 +106,18 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                         routeType = Route.Type.DIRECT,
                         euroPrice = route.price.toFloat(),
                         durationMinutes = route.duration,
+                        durationConverter = durationConverter,
                         directPaths = listOf(
                             Path(
                                 transportationType = (TransportationType fromValue transport[route.transport]?.name),
                                 euroPrice = route.price.toFloat(),
                                 durationMinutes = route.duration,
                                 from = originLocation,
-                                to = locationRepository.searchLocationById(route.to)!!
+                                to = locationRepository.searchLocationById(route.to)!!,
+                                durationConverter = durationConverter
                             )
-                        )
+                        ),
+
                     )
                 )
             }
@@ -118,7 +135,8 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                             euroPrice = directRoutes[path]?.price!!.toFloat(),
                             durationMinutes = directRoutes[path]?.duration!!,
                             from = locationRepository.searchLocationById(directRoutes[path]!!.from)!!,
-                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!
+                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!,
+                            durationConverter = durationConverter
                         )
                     )
                 }
@@ -129,7 +147,8 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                             routeType = Route.Type.MIXED,
                             euroPrice = route.price.toFloat(),
                             durationMinutes = route.duration,
-                            directPaths = pathList
+                            directPaths = pathList,
+                            durationConverter = durationConverter
                         )
                     )
                 }
@@ -218,7 +237,8 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                             euroPrice = directRoutes[path]?.price!!.toFloat(),
                             durationMinutes = directRoutes[path]?.duration!!,
                             from = locationRepository.searchLocationById(directRoutes[path]!!.from)!!,
-                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!
+                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!,
+                            durationConverter = durationConverter
                         )
                     )
                 }
@@ -227,7 +247,8 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                         routeType = Route.Type.FIXED_WITHOUT_RIDE_SHARE,
                         euroPrice = route.price.toFloat(),
                         durationMinutes = route.duration,
-                        directPaths = pathList
+                        directPaths = pathList,
+                        durationConverter = durationConverter
                     )
                 )
                 break
@@ -247,7 +268,8 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                             euroPrice = directRoutes[path]?.price!!.toFloat(),
                             durationMinutes = directRoutes[path]?.duration!!,
                             from = locationRepository.searchLocationById(directRoutes[path]!!.from)!!,
-                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!
+                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!,
+                            durationConverter = durationConverter
                         )
                     )
                 }
@@ -256,7 +278,8 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                         routeType = Route.Type.FLYING,
                         euroPrice = route.price.toFloat(),
                         durationMinutes = route.duration,
-                        directPaths = pathList
+                        directPaths = pathList,
+                        durationConverter = durationConverter
                     )
                 )
                 break
@@ -271,15 +294,17 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                         routeType = Route.Type.DIRECT,
                         euroPrice = route.price.toFloat(),
                         durationMinutes = route.duration,
+                        durationConverter = durationConverter,
                         directPaths = listOf(
                             Path(
                                 transportationType = (TransportationType fromValue transport[route.transport]?.name),
                                 euroPrice = route.price.toFloat(),
                                 durationMinutes = route.duration,
                                 from = from,
-                                to = to
+                                to = to,
+                                durationConverter = durationConverter
                             )
-                        )
+                        ),
                     )
                 )
             }
@@ -297,7 +322,8 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                             euroPrice = directRoutes[path]?.price!!.toFloat(),
                             durationMinutes = directRoutes[path]?.duration!!,
                             from = locationRepository.searchLocationById(directRoutes[path]!!.from)!!,
-                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!
+                            to = locationRepository.searchLocationById(directRoutes[path]!!.to)!!,
+                            durationConverter = durationConverter
                         )
                     )
                 }
@@ -306,7 +332,8 @@ class RouteRepository(db: RoutesDbJson, private val locationRepository: Location
                         routeType = Route.Type.MIXED,
                         euroPrice = route.price.toFloat(),
                         durationMinutes = route.duration,
-                        directPaths = pathList
+                        directPaths = pathList,
+                        durationConverter = durationConverter
                     )
                 )
                 break
