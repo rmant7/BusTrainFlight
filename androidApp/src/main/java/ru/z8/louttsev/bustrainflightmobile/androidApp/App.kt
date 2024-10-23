@@ -23,10 +23,6 @@ class App : Application(){
         ) { }
         appOpenManager = AppOpenManager(this)
 
-//        startKoin {
-//            androidLogger()
-//            androidContext(this@App)
-//        }
 
         Napier.base(DebugAntilog())
 

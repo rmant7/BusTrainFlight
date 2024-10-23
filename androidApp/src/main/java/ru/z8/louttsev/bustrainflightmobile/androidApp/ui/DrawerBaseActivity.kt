@@ -13,8 +13,10 @@ import androidx.core.view.GravityCompat
 import io.github.aakira.napier.Napier
 import ru.z8.louttsev.bustrainflightmobile.androidApp.R
 import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.ActivityDrawerBaseBinding
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.isCheapTripGuruReachable
 
-open class DrawerBaseActivity : AppCompatActivity() {
+open class
+DrawerBaseActivity : AppCompatActivity() {
 
     protected lateinit var drawerBaseBinding: ActivityDrawerBaseBinding
 
@@ -34,7 +36,7 @@ open class DrawerBaseActivity : AppCompatActivity() {
             drawerBaseBinding.drawerLayout.openDrawer(GravityCompat.END)
         }
 
-        with(drawerBaseBinding){
+        with(drawerBaseBinding) {
             closeDrawerButton.setOnClickListener {
                 drawerLayout.closeDrawer(GravityCompat.END)
             }
@@ -63,61 +65,79 @@ open class DrawerBaseActivity : AppCompatActivity() {
         var intent: Intent? = null
         try {
             try {
-                applicationContext.packageManager.getPackageInfo("org.telegram.messenger", 0)//Check for Telegram Messenger App
-            } catch (e : Exception){
-                applicationContext.packageManager.getPackageInfo("org.thunderdog.challegram", 0)//Check for Telegram X App
+                applicationContext.packageManager.getPackageInfo(
+                    "org.telegram.messenger",
+                    0
+                )//Check for Telegram Messenger App
+            } catch (e: Exception) {
+                applicationContext.packageManager.getPackageInfo(
+                    "org.thunderdog.challegram",
+                    0
+                )//Check for Telegram X App
             }
             intent = Intent(Intent.ACTION_VIEW, Uri.parse("tg://resolve?domain=${pageId}"))
-        }catch (e : Exception){ //App not found open in browser
+        } catch (e: Exception) { //App not found open in browser
             intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.telegram.me/$pageId"))
         }
         return intent!!
     }
 
     private fun openBudgetTravelTips() {
-        // Open Telegram
-        val telegramAppPackage = "org.telegram.messenger"
-        val telegramChannelUri = "https://t.me/bustrainflightferry"
-        val telegramIntent = Intent(Intent.ACTION_VIEW, Uri.parse(telegramChannelUri))
-//        val telegramIntent = telegramIntent()
-        telegramIntent.setPackage(telegramAppPackage)
-
-        val packageManager = applicationContext.packageManager
-        val activities =
-            packageManager.queryIntentActivities(telegramIntent, PackageManager.MATCH_DEFAULT_ONLY)
-
-        Napier.d(activities.toString())
-        if (activities.isNotEmpty()) {
-            startActivity(telegramIntent)
-        } else {
-            val facebookAppPackage = "com.facebook.katana"
-            val facebookPageUri = "fb://facewebmodal/f?href=https://m.facebook.com/cheaptripguru"
-            val facebookIntent = Intent(Intent.ACTION_VIEW, Uri.parse(facebookPageUri))
-            facebookIntent.setPackage(facebookAppPackage)
-
-            val packageManager = applicationContext.packageManager
-            val activities = packageManager.queryIntentActivities(
-                facebookIntent,
-                PackageManager.MATCH_DEFAULT_ONLY
-            )
-
-            Napier.d("$activities")
-            if (activities.isNotEmpty()) {
-                startActivity(facebookIntent)
+        val cheapTripGuruSite = "https://cheaptrip.guru/budgettraveltips/index.html"
+        isCheapTripGuruReachable(cheapTripGuruSite) { reachable ->
+            if (reachable) {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(cheapTripGuruSite))
+                startActivity(intent)
             } else {
-                val facebookIntent = Intent(
-                    Intent.ACTION_VIEW,
-                    Uri.parse("https://www.facebook.com/cheaptripguru?mibextid=ZbWKwL")
-                )
+                // Open Telegram
+                val telegramAppPackage = "org.telegram.messenger"
+                val telegramChannelUri = "https://t.me/bustrainflightferry"
+                val telegramIntent = Intent(Intent.ACTION_VIEW, Uri.parse(telegramChannelUri))
+//        val telegramIntent = telegramIntent()
+                telegramIntent.setPackage(telegramAppPackage)
 
                 val packageManager = applicationContext.packageManager
-                val activities = packageManager.queryIntentActivities(
-                    facebookIntent,
-                    PackageManager.MATCH_DEFAULT_ONLY
-                )
+                val activities =
+                    packageManager.queryIntentActivities(
+                        telegramIntent,
+                        PackageManager.MATCH_DEFAULT_ONLY
+                    )
 
+                Napier.d(activities.toString())
                 if (activities.isNotEmpty()) {
-                    startActivity(facebookIntent)
+                    startActivity(telegramIntent)
+                } else {
+                    val facebookAppPackage = "com.facebook.katana"
+                    val facebookPageUri =
+                        "fb://facewebmodal/f?href=https://m.facebook.com/cheaptripguru"
+                    val facebookIntent = Intent(Intent.ACTION_VIEW, Uri.parse(facebookPageUri))
+                    facebookIntent.setPackage(facebookAppPackage)
+
+                    val packageManager = applicationContext.packageManager
+                    val activities = packageManager.queryIntentActivities(
+                        facebookIntent,
+                        PackageManager.MATCH_DEFAULT_ONLY
+                    )
+
+                    Napier.d("$activities")
+                    if (activities.isNotEmpty()) {
+                        startActivity(facebookIntent)
+                    } else {
+                        val facebookIntent = Intent(
+                            Intent.ACTION_VIEW,
+                            Uri.parse("https://www.facebook.com/cheaptripguru?mibextid=ZbWKwL")
+                        )
+
+                        val packageManager = applicationContext.packageManager
+                        val activities = packageManager.queryIntentActivities(
+                            facebookIntent,
+                            PackageManager.MATCH_DEFAULT_ONLY
+                        )
+
+                        if (activities.isNotEmpty()) {
+                            startActivity(facebookIntent)
+                        }
+                    }
                 }
             }
         }

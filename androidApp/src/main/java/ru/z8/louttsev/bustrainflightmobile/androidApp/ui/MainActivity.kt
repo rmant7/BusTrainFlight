@@ -2,6 +2,7 @@ package ru.z8.louttsev.bustrainflightmobile.androidApp.ui
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -42,6 +43,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
+import com.yandex.metrica.impl.ob.fa
 import dagger.hilt.android.AndroidEntryPoint
 import ru.z8.louttsev.bustrainflightmobile.androidApp.R
 import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.AnywhereListAdapter
@@ -55,6 +57,7 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.MainViewModel
 import io.github.aakira.napier.Napier
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.LocationRepository
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.LocationJson
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.isCheapTripGuruReachable
 import java.util.*
 import javax.inject.Inject
 import kotlin.text.RegexOption.*
@@ -86,6 +89,7 @@ class MainActivity : DrawerBaseActivity() {
     @Inject
     lateinit var routeListAdapter: RouteListAdapter
 
+
     override fun onResume() {
         super.onResume()
         model.updateReadiness()
@@ -101,6 +105,7 @@ class MainActivity : DrawerBaseActivity() {
         super.onCreate(savedInstanceState)
 
 //        loadAppOpenAd()
+
 
         preferences = getSharedPreferences("PREFERENCES", MODE_PRIVATE)
 
