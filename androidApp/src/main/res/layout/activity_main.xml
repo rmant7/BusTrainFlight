@@ -81,6 +81,25 @@
                 android:paddingStart="12dp"
                 android:paddingEnd="8dp">
 
+
+<!--                <com.google.android.material.button.MaterialButton-->
+<!--                    android:id="@+id/cityTravelTipsButton"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_margin="16dp"-->
+<!--                    android:background="@drawable/orange_button_background"-->
+<!--                    android:focusable="true"-->
+<!--                    android:focusableInTouchMode="true"-->
+<!--                    android:fontFamily="@font/roboto"-->
+<!--                    android:textAllCaps="false"-->
+<!--                    android:textColor="@android:color/white"-->
+<!--                    android:textSize="15sp"-->
+<!--                    android:text=""-->
+<!--                    android:textStyle="bold"-->
+<!--                    app:backgroundTint="@null"-->
+<!--                    app:cornerRadius="8dp"-->
+<!--                    android:visibility="visible"/>-->
+
                 <TextView
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
@@ -216,6 +235,32 @@
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toEndOf="@+id/clearButton"
                         app:layout_constraintTop_toBottomOf="@+id/destination_input_layout" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/cityTravelTipsButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/orange_button_background"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:fontFamily="@font/roboto"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:text=""
+                    android:textStyle="bold"
+                    app:backgroundTint="@null"
+                    app:cornerRadius="8dp"
+                    android:visibility="gone"/>
                 </LinearLayout>
 
                 <!--        <TextView-->
@@ -301,10 +346,14 @@
                     app:layout_constraintTop_toBottomOf="@+id/clearButton"
                     tools:listitem="@layout/item_route" />
 
-
             </androidx.appcompat.widget.LinearLayoutCompat>
 
+
+
+
+
         </LinearLayout>
+
 
     </androidx.core.widget.NestedScrollView>
 

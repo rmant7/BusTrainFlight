@@ -100,9 +100,10 @@ class RouteListAdapter @Inject constructor(
         if (holder is RouteViewHolder) {
             val currentRoute = mRoutes[calculateDataIndex(position)]
             holder.bind(currentRoute)
-        } else if (holder is AdViewHolder) {
-            holder.bind()
         }
+//        else if (holder is AdViewHolder) {
+//            holder.bind()
+//        }
     }
 
     private fun calculateDataIndex(position: Int): Int {
@@ -195,40 +196,40 @@ class RouteListAdapter @Inject constructor(
             }
         }
 
-        fun bind() {
-
-            binding.root.autoDisposeScope.launch {
-                val id = if (BuildConfig.DEBUG) {
-                    Constants.NATIVE_AD_ID_SAMPLE
-                } else {
-                    Constants.NATIVE_AD_ID_VER_3
-                }
-                val adLoader =
-                    AdLoader.Builder(binding.root.context, id)
-                        .forNativeAd { ad: NativeAd ->
-                            with(binding) {
-                                bindingAd = ad
-
-                                val params: ViewGroup.LayoutParams = root.layoutParams
-                                params.height = WRAP_CONTENT
-                                params.width = MATCH_PARENT
-                                (root as NativeAdView).layoutParams = params
-
-                                root.visibility = View.VISIBLE
-                                routeMainView.callToActionView = root
-                                routeMainView.setNativeAd(ad)
-                            }
-                        }
-                        .withAdListener(object : AdListener() {
-                            override fun onAdFailedToLoad(adError: LoadAdError) {
-                                Napier.d("Ad Error: $adError")
-                                // Handle the failure by logging, altering the UI, and so on.
-                            }
-                        })
-                        .build()
-
-                adLoader.loadAd(AdRequest.Builder().build())
-            }
-        }
+//        fun bind() {
+//
+//            binding.root.autoDisposeScope.launch {
+//                val id = if (BuildConfig.DEBUG) {
+//                    Constants.NATIVE_AD_ID_SAMPLE
+//                } else {
+//                    Constants.NATIVE_AD_ID_VER_3
+//                }
+//                val adLoader =
+//                    AdLoader.Builder(binding.root.context, id)
+//                        .forNativeAd { ad: NativeAd ->
+//                            with(binding) {
+//                                bindingAd = ad
+//
+//                                val params: ViewGroup.LayoutParams = root.layoutParams
+//                                params.height = WRAP_CONTENT
+//                                params.width = MATCH_PARENT
+//                                (root as NativeAdView).layoutParams = params
+//
+//                                root.visibility = View.VISIBLE
+//                                routeMainView.callToActionView = root
+//                                routeMainView.setNativeAd(ad)
+//                            }
+//                        }
+//                        .withAdListener(object : AdListener() {
+//                            override fun onAdFailedToLoad(adError: LoadAdError) {
+//                                Napier.d("Ad Error: $adError")
+//                                // Handle the failure by logging, altering the UI, and so on.
+//                            }
+//                        })
+//                        .build()
+//
+//                adLoader.loadAd(AdRequest.Builder().build())
+//            }
+//        }
     }
 }

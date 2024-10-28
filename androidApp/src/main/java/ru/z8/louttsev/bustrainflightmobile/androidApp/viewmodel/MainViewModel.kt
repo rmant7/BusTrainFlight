@@ -4,6 +4,9 @@
  */
 package ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel
 
+import android.content.Intent
+import android.net.Uri
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,6 +16,7 @@ import io.github.aakira.napier.Napier
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.json.JSONObject
 import ru.z8.louttsev.bustrainflightmobile.androidApp.currentLocale
 import ru.z8.louttsev.bustrainflightmobile.androidApp.ioDispatcher
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.LocationRepository
@@ -47,8 +51,20 @@ class MainViewModel @Inject constructor(
 
     private var selectedDestination: LocationData? = null
 
+    private val _selectedCityName = MutableLiveData<LocationData?>(null)
+    val selectedCityName: LiveData<LocationData?> = _selectedCityName
+
+    private val _buttonCityNameLabel = MutableLiveData<String>("")
+    val buttonCityNameLabel: LiveData<String> = _buttonCityNameLabel
+
+    private val _goToSite = MutableLiveData<Boolean>(false)
+    val goToSite: LiveData<Boolean> = _goToSite
+
+    private val _budgetTipsUrl = MutableLiveData<String>("")
+    val budgetTipsUrl: LiveData<String> = _budgetTipsUrl
+
     private val routeBuildReadiness = MutableLiveData(isBothPointsSelected() && isPointsVarious())
-    val getRouteBuildReadiness : LiveData<Boolean> get() = routeBuildReadiness
+    val getRouteBuildReadiness: LiveData<Boolean> get() = routeBuildReadiness
 
     val currentRoutes = MutableLiveData<List<Route>>(emptyList())
 
@@ -126,11 +142,12 @@ class MainViewModel @Inject constructor(
 
         override fun onAnywhereSelected() {
 //            if (isFirstTimeRun) {
-                isAnywhereSelected.value = true
-                val result = routeRepository.getPackOfRoutesFromLocation(selectedOrigin!!, newList = true) //////
-                anywhereNearestRoutes.value = result
+            isAnywhereSelected.value = true
+            val result =
+                routeRepository.getPackOfRoutesFromLocation(selectedOrigin!!, newList = true) //////
+            anywhereNearestRoutes.value = result
 //                isFirstTimeRun = false
-            }
+        }
 //        }
     }
 
@@ -189,6 +206,7 @@ class MainViewModel @Inject constructor(
 
         override fun onItemSelected(item: LocationData, invalidSelectionHandler: () -> Unit) {
             selectedDestination = item
+            _selectedCityName.value = item
             updateReadiness()
             if (!isPointsVarious()) {
                 invalidSelectionHandler()
@@ -226,7 +244,10 @@ class MainViewModel @Inject constructor(
                 viewModelScope.launch(ioDispatcher) {
 
                     if (isAnywhereSelected.value!!) {
-                        val result = routeRepository.getPackOfRoutesFromLocation(selectedOrigin!!, newList = true)
+                        val result = routeRepository.getPackOfRoutesFromLocation(
+                            selectedOrigin!!,
+                            newList = true
+                        )
 
                         withContext(uiDispatcher) {
                             Napier.d("$result")
@@ -273,4 +294,39 @@ class MainViewModel @Inject constructor(
 
     private fun isOriginSelected() =
         selectedOrigin != null
+
+
+    fun updateButtonCityNameLabel(){
+        _buttonCityNameLabel.value = ""
+    }
+
+    fun updateGoToSite(goToSite: Boolean){
+        _goToSite.value = goToSite
+    }
+
+
+    fun budgetTravelTips(cityNamesJson: JSONObject) {
+        if (selectedCityName.value != null) {
+            val matchingCityKey = cityNamesJson.keys().asSequence().find { key ->
+                key == selectedCityName.value?.id.toString()
+            }
+            if (matchingCityKey != null) {
+                val cityName = cityNamesJson.getString(matchingCityKey)
+
+                var capitalizedCityName =
+                    cityName.replaceFirstChar { it.uppercase() }
+                if (cityName.contains("_")) {
+                    capitalizedCityName = cityName.split("_")
+                        .joinToString(" ") { it.replaceFirstChar { it.uppercase() } }
+                }
+                _buttonCityNameLabel.value = capitalizedCityName
+                val url =
+                    cityName?.let {
+                        "https://cheaptrip.guru/budgettraveltips/tree/city_descriptions/en/${it}"
+                    }
+                _budgetTipsUrl.value = url ?: ""
+            }
+        }
+    }
+
 }

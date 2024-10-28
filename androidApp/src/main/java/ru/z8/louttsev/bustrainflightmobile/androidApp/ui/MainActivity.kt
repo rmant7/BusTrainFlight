@@ -2,20 +2,16 @@ package ru.z8.louttsev.bustrainflightmobile.androidApp.ui
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 import android.graphics.Rect
-import android.location.Address
-import android.location.Location
-import android.location.LocationListener
 import android.location.LocationManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.provider.Settings
 import android.text.Editable
 import android.text.InputFilter
 import android.text.Spanned
@@ -27,23 +23,20 @@ import android.view.inputmethod.InputMethodManager.*
 import android.widget.*
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.ActionBar.*
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.view.doOnPreDraw
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
 import androidx.core.widget.doBeforeTextChanged
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.setViewTreeLifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
-import com.yandex.metrica.impl.ob.fa
 import dagger.hilt.android.AndroidEntryPoint
 import ru.z8.louttsev.bustrainflightmobile.androidApp.R
 import ru.z8.louttsev.bustrainflightmobile.androidApp.adapters.AnywhereListAdapter
@@ -55,10 +48,9 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.LocationData
 import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.AutoCompleteHandler
 import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.MainViewModel
 import io.github.aakira.napier.Napier
+import org.json.JSONObject
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.LocationRepository
-import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.LocationJson
-import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.isCheapTripGuruReachable
-import java.util.*
+import java.io.IOException
 import javax.inject.Inject
 import kotlin.text.RegexOption.*
 
@@ -72,7 +64,7 @@ class MainActivity : DrawerBaseActivity() {
     //}, LocationListener {
     private lateinit var mInputMethodManager: InputMethodManager
 
-    
+
     private val model: MainViewModel by viewModels()
     private lateinit var binding: ActivityMainBinding
     private lateinit var preferences: SharedPreferences
@@ -81,11 +73,12 @@ class MainActivity : DrawerBaseActivity() {
     private val permissionId = 2
 
     @Inject
-    lateinit var locationRepository : LocationRepository
+    lateinit var locationRepository: LocationRepository
     private var showLocation = true
 
     @Inject
     lateinit var anywhereListAdapter: AnywhereListAdapter
+
     @Inject
     lateinit var routeListAdapter: RouteListAdapter
 
@@ -135,9 +128,13 @@ class MainActivity : DrawerBaseActivity() {
                 if (selected) {
                     routeListAnywhereRecyclerView.visibility = View.VISIBLE
                     routeListRecyclerView.visibility = View.GONE
+                    model.updateButtonCityNameLabel()
+                    cityTravelTipsButton.visibility = View.GONE
                 } else {
                     routeListAnywhereRecyclerView.visibility = View.GONE
                     routeListRecyclerView.visibility = View.VISIBLE
+                    model.updateButtonCityNameLabel()
+                    cityTravelTipsButton.visibility = View.GONE
                 }
             }
         }
@@ -155,6 +152,8 @@ class MainActivity : DrawerBaseActivity() {
                 originTextView.clearText()
                 originTextView.requestFocus()
                 mInputMethodManager.showSoftInput(originTextView, SHOW_IMPLICIT)
+                model.updateButtonCityNameLabel()
+                cityTravelTipsButton.visibility = View.GONE
             }
 
             destinationTextView.setup(
@@ -170,6 +169,8 @@ class MainActivity : DrawerBaseActivity() {
                 destinationTextView.clearFocus()
                 destinationTextView.requestFocus()
                 mInputMethodManager.showSoftInput(destinationTextView, SHOW_IMPLICIT)
+                model.updateButtonCityNameLabel()
+                cityTravelTipsButton.visibility = View.GONE
             }
 
             clearButton.setOnClickListener {
@@ -179,6 +180,8 @@ class MainActivity : DrawerBaseActivity() {
                 destinationTextView.clearText()
                 originTextView.requestFocus()
                 mInputMethodManager.showSoftInput(originTextView, SHOW_IMPLICIT)
+                model.updateButtonCityNameLabel()
+                cityTravelTipsButton.visibility = View.GONE
             }
 
             reverse.setOnClickListener {
@@ -199,7 +202,10 @@ class MainActivity : DrawerBaseActivity() {
                         invalidSelectionHandler = ::showWrongChoiceError
                     )
                 }
+                model.updateButtonCityNameLabel()
+                cityTravelTipsButton.visibility = View.GONE
             }
+
 
             goButton.setup(
                 isReady = model.routes.isReadyToBuild,
@@ -218,18 +224,43 @@ class MainActivity : DrawerBaseActivity() {
                         it.windowToken,
                         HIDE_NOT_ALWAYS
                     )
+
+                    val cityNamesJson = JSONObject(loadCityNamesJsonFromRaw(this@MainActivity))
+                    model.budgetTravelTips(cityNamesJson)
+
+                    model.buttonCityNameLabel.observe(this@MainActivity) { selectedCityName ->
+                        if (selectedCityName.isNotBlank() ){
+                            cityTravelTipsButton.apply {
+                                visibility = View.VISIBLE
+                                text = getString(R.string.city_travel_tips, selectedCityName)
+                            }
+                        } else {
+                            cityTravelTipsButton.visibility = View.GONE
+                        }
+                    }
                 }
             )
+
+            model.goToSite.observe(this@MainActivity){ goToSite ->
+                if (goToSite){
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(model.budgetTipsUrl.value))
+                    startActivity(intent)
+                }
+            }
+
+            cityTravelTipsButton.setOnClickListener{
+                model.updateGoToSite(true)
+            }
+            cityTravelTipsButton.setOnFocusChangeListener { view, hasFocus ->
+                if (hasFocus) {
+                    view.performClick()
+                }
+            }
+
 
             with(routeListRecyclerView) {
                 layoutManager = LinearLayoutManager(this@MainActivity)
                 adapter = routeListAdapter
-//                    RouteListAdapter(
-////                    nestedScrollView = nestedScrollView,
-//                    isNested = true,  // TODO { not sure here }
-////                    liveData = model.currentRoutes,
-//                    locationRepository = locationRepository,
-//                )
                 addItemDecoration(object : RecyclerView.ItemDecoration() {
                     override fun getItemOffsets(
                         outRect: Rect,
@@ -247,15 +278,13 @@ class MainActivity : DrawerBaseActivity() {
                             500
                         )
                 }
-                routeListAdapter.initialize(liveData = model.currentRoutes, nestedScrollView = nestedScrollView, isNested = true)
+                routeListAdapter.initialize(
+                    liveData = model.currentRoutes,
+                    nestedScrollView = nestedScrollView,
+                    isNested = true
+                )
             }
             with(routeListAnywhereRecyclerView) {
-//                val anywhereListAdapter = AnywhereListAdapter(  // TODO { commented out }
-//                    nestedScrollView = nestedScrollView,
-//                    liveData = model.anywhereNearestRoutes,
-//                    locationRepository = locationRepository,
-//                    model.destinationSelectedHandler
-//                )
                 layoutManager = LinearLayoutManager(this@MainActivity)
                 adapter = anywhereListAdapter
                 addItemDecoration(object : RecyclerView.ItemDecoration() {
@@ -668,3 +697,31 @@ class MainActivity : DrawerBaseActivity() {
         }
     }
 }
+
+
+private fun loadCityNamesJsonFromRaw(context: Context): String {
+    try {
+        val inputStream = context.resources.openRawResource(R.raw.city_names_for_pathes)
+        val size = inputStream.available()
+        val buffer = ByteArray(size)
+        inputStream.read(buffer)
+        inputStream.close()
+        val jsonString = String(buffer, Charsets.UTF_8)
+        val cityNamesJson = JSONObject(jsonString)
+        for (key in cityNamesJson.keys()) {
+            val cityName = cityNamesJson.getString(key)
+            Log.d("JSON Iteration", "Key: $key, City: $cityName")
+        }
+
+        return jsonString
+//        return String(buffer, Charsets.UTF_8)
+
+    } catch (ex: IOException) {
+        ex.printStackTrace()
+
+        Toast.makeText(context, "Error loading city names", Toast.LENGTH_SHORT).show()
+        return ""
+    }
+}
+
+

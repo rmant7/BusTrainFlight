@@ -242,45 +242,46 @@ class AnywhereListAdapter @Inject constructor(
 
 //            val adLoader =
 //                AdLoader.Builder(binding.root.context, "ca-app-pub-3940256099942544/2247696110")
-            binding.root.autoDisposeScope.launch {
-                withContext(Dispatchers.IO) {
-                    val id = if (BuildConfig.DEBUG) {
-                        Constants.NATIVE_AD_ID_SAMPLE
-                    } else {
-                        Constants.NATIVE_AD_ID_VER_3
-                    }
-                    val adLoader =
-                        AdLoader.Builder(
-                            binding.root.context,
-                            id
-                        )
-                            .forNativeAd { ad: NativeAd ->
-                                with(binding) {
-                                    bindingAd = ad
-                                    Napier.d("${ad.icon}")
-                                    Napier.d("${ad.price}")
 
-                                    (root as NativeAdView).callToActionView = root
-                                    val params: ViewGroup.LayoutParams = root.layoutParams
-                                    params.height = WRAP_CONTENT
-                                    params.width = MATCH_PARENT
-                                    (root as NativeAdView).layoutParams = params
-                                    root.visibility = View.VISIBLE
-                                    (root as NativeAdView).setNativeAd(ad)
-//                                    recyclerView.smoothScrollToPosition(position)
-                                }
-                            }
-                            .withAdListener(object : AdListener() {
-                                override fun onAdFailedToLoad(adError: LoadAdError) {
-                                    Napier.d("Ad Error: $adError")
-                                    // Handle the failure by logging, altering the UI, and so on.
-                                }
-                            })
-                            .build()
-
-                    adLoader.loadAd(AdRequest.Builder().build())
-                }
-            }
+//            binding.root.autoDisposeScope.launch {
+//                withContext(Dispatchers.IO) {
+//                    val id = if (BuildConfig.DEBUG) {
+//                        Constants.NATIVE_AD_ID_SAMPLE
+//                    } else {
+//                        Constants.NATIVE_AD_ID_VER_3
+//                    }
+//                    val adLoader =
+//                        AdLoader.Builder(
+//                            binding.root.context,
+//                            id
+//                        )
+//                            .forNativeAd { ad: NativeAd ->
+//                                with(binding) {
+//                                    bindingAd = ad
+//                                    Napier.d("${ad.icon}")
+//                                    Napier.d("${ad.price}")
+//
+//                                    (root as NativeAdView).callToActionView = root
+//                                    val params: ViewGroup.LayoutParams = root.layoutParams
+//                                    params.height = WRAP_CONTENT
+//                                    params.width = MATCH_PARENT
+//                                    (root as NativeAdView).layoutParams = params
+//                                    root.visibility = View.VISIBLE
+//                                    (root as NativeAdView).setNativeAd(ad)
+////                                    recyclerView.smoothScrollToPosition(position)
+//                                }
+//                            }
+//                            .withAdListener(object : AdListener() {
+//                                override fun onAdFailedToLoad(adError: LoadAdError) {
+//                                    Napier.d("Ad Error: $adError")
+//                                    // Handle the failure by logging, altering the UI, and so on.
+//                                }
+//                            })
+//                            .build()
+//
+//                    adLoader.loadAd(AdRequest.Builder().build())
+//                }
+//            }
         }
     }
 }
