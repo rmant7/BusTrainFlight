@@ -160,9 +160,10 @@ class PathListAdapter @Inject constructor(
                 val citiesNameJson = JSONObject(loadCityNamesJsonFromRaw(root.context))
                 with(anywhereTravelTipsButton) {
                     var url: String? = ""
-                    if (citiesNameJson != null && path.to.name != null) {
+
                         val matchingCityKey = citiesNameJson.keys().asSequence().find { key ->
-                            citiesNameJson.optString(key).equals(path.to.name, ignoreCase = true)
+                            val cityNameFromJson = citiesNameJson.optString(key).replace("_", " ")
+                            cityNameFromJson.equals(path.to.name, ignoreCase = true)
                         }
                         if (matchingCityKey != null) {
                             visibility = View.VISIBLE
@@ -174,9 +175,7 @@ class PathListAdapter @Inject constructor(
                                     "https://cheaptrip.guru/budgettraveltips/tree/city_descriptions/en/${it}"
                                 }
                         }
-                    } else {
-                        visibility = View.GONE
-                    }
+
                     setOnClickListener {
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url ?: ""))
                         root.context.startActivity(intent)
