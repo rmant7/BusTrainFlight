@@ -8,10 +8,15 @@ import android.content.Intent
 import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.View.*
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import androidx.activity.viewModels
+import androidx.core.content.ContextCompat.getString
+import androidx.core.content.ContextCompat.startActivity
+import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.recyclerview.widget.RecyclerView
 import com.github.satoshun.coroutine.autodispose.view.autoDisposeScope
 import com.google.android.gms.ads.AdListener
@@ -27,9 +32,15 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.NativeAdViewRo
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Path
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.LocationRepository
 import kotlinx.coroutines.launch
+import org.json.JSONObject
+import ru.z8.louttsev.bustrainflightmobile.androidApp.R
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.TransportationType
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.loadCityNamesJsonFromRaw
 import ru.z8.louttsev.bustrainflightmobile.androidApp.ui.Constants
+import ru.z8.louttsev.bustrainflightmobile.androidApp.ui.MainActivity
+import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.MainViewModel
 import javax.inject.Inject
+import kotlin.getValue
 
 /**
  * Declares adapter for path list as part of route view.
@@ -142,6 +153,38 @@ class PathListAdapter @Inject constructor(
                     setOnClickListener {
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(affiliateUrl))
                         root.context.startActivity(intent)
+                    }
+                }
+
+
+                val citiesNameJson = JSONObject(loadCityNamesJsonFromRaw(root.context))
+                with(anywhereTravelTipsButton) {
+                    var url: String? = ""
+                    if (citiesNameJson != null && path.to.name != null) {
+                        val matchingCityKey = citiesNameJson.keys().asSequence().find { key ->
+                            citiesNameJson.optString(key).equals(path.to.name, ignoreCase = true)
+                        }
+                        if (matchingCityKey != null) {
+                            visibility = View.VISIBLE
+                            text =
+                                root.context.getString(R.string.city_travel_tips, model?.to?.name)
+                            val cityName = citiesNameJson.getString(matchingCityKey)
+                            url =
+                                cityName?.let {
+                                    "https://cheaptrip.guru/budgettraveltips/tree/city_descriptions/en/${it}"
+                                }
+                        }
+                    } else {
+                        visibility = View.GONE
+                    }
+                    setOnClickListener {
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url ?: ""))
+                        root.context.startActivity(intent)
+                    }
+                    setOnFocusChangeListener { view, hasFocus ->
+                        if (hasFocus) {
+                            view.performClick()
+                        }
                     }
                 }
 

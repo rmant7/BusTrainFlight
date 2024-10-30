@@ -24,6 +24,7 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.model.RouteRepository
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Locale
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.LocationData
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.LocationData.Type
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Path
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Route
 import ru.z8.louttsev.bustrainflightmobile.androidApp.uiDispatcher
 import javax.inject.Inject
@@ -57,11 +58,11 @@ class MainViewModel @Inject constructor(
     private val _buttonCityNameLabel = MutableLiveData<String>("")
     val buttonCityNameLabel: LiveData<String> = _buttonCityNameLabel
 
-    private val _goToSite = MutableLiveData<Boolean>(false)
-    val goToSite: LiveData<Boolean> = _goToSite
-
     private val _budgetTipsUrl = MutableLiveData<String>("")
     val budgetTipsUrl: LiveData<String> = _budgetTipsUrl
+
+    private val _citiesNameList = MutableLiveData<JSONObject?>(null)
+    val citiesNameList: LiveData<JSONObject?> = _citiesNameList
 
     private val routeBuildReadiness = MutableLiveData(isBothPointsSelected() && isPointsVarious())
     val getRouteBuildReadiness: LiveData<Boolean> get() = routeBuildReadiness
@@ -296,37 +297,64 @@ class MainViewModel @Inject constructor(
         selectedOrigin != null
 
 
-    fun updateButtonCityNameLabel(){
+    fun updateButtonCityNameLabel() {
         _buttonCityNameLabel.value = ""
     }
 
-    fun updateGoToSite(goToSite: Boolean){
-        _goToSite.value = goToSite
+    fun updateCitiesNameList(jsonObject: JSONObject) {
+        _citiesNameList.value = jsonObject
     }
 
 
-    fun budgetTravelTips(cityNamesJson: JSONObject) {
-        if (selectedCityName.value != null) {
-            val matchingCityKey = cityNamesJson.keys().asSequence().find { key ->
-                key == selectedCityName.value?.id.toString()
+    fun budgetTravelTips(cityNamesJson: JSONObject?) {
+        if (cityNamesJson != null) {
+            if (selectedCityName.value != null) {
+                val matchingCityKey = cityNamesJson.keys().asSequence().find { key ->
+                    key == selectedCityName.value?.id.toString()
+                }
+                if (matchingCityKey != null) {
+                    val cityName = cityNamesJson.getString(matchingCityKey)
+
+                    var capitalizedCityName =
+                        cityName.replaceFirstChar { it.uppercase() }
+                    if (cityName.contains("_")) {
+                        capitalizedCityName = cityName.split("_")
+                            .joinToString(" ") { it.replaceFirstChar { it.uppercase() } }
+                    }
+                    _buttonCityNameLabel.value = capitalizedCityName
+                    val url =
+                        cityName?.let {
+                            "https://cheaptrip.guru/budgettraveltips/tree/city_descriptions/en/${it}"
+                        }
+                    _budgetTipsUrl.value = url ?: ""
+                }
+            }
+        }
+    }
+
+    fun anywhereBudgetTravelTips(path: Path): String {
+        val citiesNameList = _citiesNameList.value
+        var url: String? = null
+        if (path.to.name != null && citiesNameList != null) {
+            val matchingCityKey = citiesNameList.keys().asSequence().find { key ->
+                citiesNameList.optString(key).equals(path.to.name, ignoreCase = true)
             }
             if (matchingCityKey != null) {
-                val cityName = cityNamesJson.getString(matchingCityKey)
+                val cityName = citiesNameList.getString(matchingCityKey)
 
-                var capitalizedCityName =
-                    cityName.replaceFirstChar { it.uppercase() }
-                if (cityName.contains("_")) {
-                    capitalizedCityName = cityName.split("_")
-                        .joinToString(" ") { it.replaceFirstChar { it.uppercase() } }
-                }
-                _buttonCityNameLabel.value = capitalizedCityName
-                val url =
+//                    var capitalizedCityName =
+//                        cityName.replaceFirstChar { it.uppercase() }
+//                    if (cityName.contains("_")) {
+//                        capitalizedCityName = cityName.split("_")
+//                            .joinToString(" ") { it.replaceFirstChar { it.uppercase() } }
+//                    }
+                url =
                     cityName?.let {
                         "https://cheaptrip.guru/budgettraveltips/tree/city_descriptions/en/${it}"
                     }
-                _budgetTipsUrl.value = url ?: ""
             }
         }
+        return url ?: ""
     }
 
 }

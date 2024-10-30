@@ -50,6 +50,7 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.MainViewModel
 import io.github.aakira.napier.Napier
 import org.json.JSONObject
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.LocationRepository
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.loadCityNamesJsonFromRaw
 import java.io.IOException
 import javax.inject.Inject
 import kotlin.text.RegexOption.*
@@ -71,6 +72,7 @@ class MainActivity : DrawerBaseActivity() {
 
     private lateinit var mFusedLocationClient: FusedLocationProviderClient
     private val permissionId = 2
+
 
     @Inject
     lateinit var locationRepository: LocationRepository
@@ -119,9 +121,12 @@ class MainActivity : DrawerBaseActivity() {
 
 //        drawerBaseBinding.root.findViewById<TextView>(R.id.appBarTitle).text = "BusTrainFlight"
 
+
         if (resources.getBoolean(R.bool.isPhone)) {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         }
+
+        model.updateCitiesNameList(JSONObject(loadCityNamesJsonFromRaw(this@MainActivity)))
 
         model.isAnywhereSelected.observe(this) { selected ->
             with(binding) {
@@ -225,13 +230,13 @@ class MainActivity : DrawerBaseActivity() {
                         HIDE_NOT_ALWAYS
                     )
 
-                    val cityNamesJson = JSONObject(loadCityNamesJsonFromRaw(this@MainActivity))
+                    val cityNamesJson = model.citiesNameList.value
                     model.budgetTravelTips(cityNamesJson)
 
                     model.buttonCityNameLabel.observe(this@MainActivity) { selectedCityName ->
-                        if (selectedCityName.isNotBlank() ){
+                        if (selectedCityName.isNotBlank()) {
                             cityTravelTipsButton.apply {
-                                visibility = View.VISIBLE
+                                visibility = if(!model.isAnywhereSelected.value!!) View.VISIBLE else View.GONE
                                 text = getString(R.string.city_travel_tips, selectedCityName)
                             }
                         } else {
@@ -241,15 +246,9 @@ class MainActivity : DrawerBaseActivity() {
                 }
             )
 
-            model.goToSite.observe(this@MainActivity){ goToSite ->
-                if (goToSite){
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(model.budgetTipsUrl.value))
-                    startActivity(intent)
-                }
-            }
-
-            cityTravelTipsButton.setOnClickListener{
-                model.updateGoToSite(true)
+            cityTravelTipsButton.setOnClickListener {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(model.budgetTipsUrl.value))
+                startActivity(intent)
             }
             cityTravelTipsButton.setOnFocusChangeListener { view, hasFocus ->
                 if (hasFocus) {
@@ -443,6 +442,7 @@ class MainActivity : DrawerBaseActivity() {
 //                handler.onItemReset()
                 handler.isBeingUpdated = true
                 handler.onAnywhereSelected()
+                binding.cityTravelTipsButton.visibility = View.GONE
 //                binding.resultsTextView.visibility = View.VISIBLE
             } else {
                 handler.onItemSelected(
@@ -476,6 +476,7 @@ class MainActivity : DrawerBaseActivity() {
                     else inputLayout.hideInvalidInputMessage()
                 } else if (hasFocus && text.isEmpty() && isDestination && model.selectedOrigin != null) {
                     handler.showAnywhereSelection()
+                    binding.cityTravelTipsButton.visibility = View.GONE
                     postDelayed({ showDropDown() }, 200)
                 }
             }
@@ -699,29 +700,6 @@ class MainActivity : DrawerBaseActivity() {
 }
 
 
-private fun loadCityNamesJsonFromRaw(context: Context): String {
-    try {
-        val inputStream = context.resources.openRawResource(R.raw.city_names_for_pathes)
-        val size = inputStream.available()
-        val buffer = ByteArray(size)
-        inputStream.read(buffer)
-        inputStream.close()
-        val jsonString = String(buffer, Charsets.UTF_8)
-        val cityNamesJson = JSONObject(jsonString)
-        for (key in cityNamesJson.keys()) {
-            val cityName = cityNamesJson.getString(key)
-            Log.d("JSON Iteration", "Key: $key, City: $cityName")
-        }
 
-        return jsonString
-//        return String(buffer, Charsets.UTF_8)
-
-    } catch (ex: IOException) {
-        ex.printStackTrace()
-
-        Toast.makeText(context, "Error loading city names", Toast.LENGTH_SHORT).show()
-        return ""
-    }
-}
 
 
