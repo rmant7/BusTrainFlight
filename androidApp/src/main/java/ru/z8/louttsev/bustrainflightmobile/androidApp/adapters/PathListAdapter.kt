@@ -8,10 +8,15 @@ import android.content.Intent
 import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.View.*
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import androidx.activity.viewModels
+import androidx.core.content.ContextCompat.getString
+import androidx.core.content.ContextCompat.startActivity
+import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.recyclerview.widget.RecyclerView
 import com.github.satoshun.coroutine.autodispose.view.autoDisposeScope
 import com.google.android.gms.ads.AdListener
@@ -27,9 +32,15 @@ import ru.z8.louttsev.bustrainflightmobile.androidApp.databinding.NativeAdViewRo
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.Path
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.LocationRepository
 import kotlinx.coroutines.launch
+import org.json.JSONObject
+import ru.z8.louttsev.bustrainflightmobile.androidApp.R
 import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.TransportationType
+import ru.z8.louttsev.bustrainflightmobile.androidApp.model.data.loadCityNamesJsonFromRaw
 import ru.z8.louttsev.bustrainflightmobile.androidApp.ui.Constants
+import ru.z8.louttsev.bustrainflightmobile.androidApp.ui.MainActivity
+import ru.z8.louttsev.bustrainflightmobile.androidApp.viewmodel.MainViewModel
 import javax.inject.Inject
+import kotlin.getValue
 
 /**
  * Declares adapter for path list as part of route view.
@@ -76,9 +87,10 @@ class PathListAdapter @Inject constructor(
         if (holder is PathViewHolder) {
             val currentRoute = mPaths[position]
             holder.bind(currentRoute)
-        } else if (holder is AdViewHolder) {
-            holder.bind()
         }
+//        else if (holder is AdViewHolder) {
+//            holder.bind()
+//        }
     }
 
     override fun getItemCount(): Int {
@@ -141,6 +153,37 @@ class PathListAdapter @Inject constructor(
                     setOnClickListener {
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(affiliateUrl))
                         root.context.startActivity(intent)
+                    }
+                }
+
+
+                val citiesNameJson = JSONObject(loadCityNamesJsonFromRaw(root.context))
+                with(anywhereTravelTipsButton) {
+                    var url: String? = ""
+
+                        val matchingCityKey = citiesNameJson.keys().asSequence().find { key ->
+                            val cityNameFromJson = citiesNameJson.optString(key).replace("_", " ")
+                            cityNameFromJson.equals(path.to.name, ignoreCase = true)
+                        }
+                        if (matchingCityKey != null) {
+                            visibility = View.VISIBLE
+                            text =
+                                root.context.getString(R.string.city_travel_tips, model?.to?.name)
+                            val cityName = citiesNameJson.getString(matchingCityKey)
+                            url =
+                                cityName?.let {
+                                    "https://cheaptrip.guru/budgettraveltips/tree/city_descriptions/en/${it}"
+                                }
+                        }
+
+                    setOnClickListener {
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url ?: ""))
+                        root.context.startActivity(intent)
+                    }
+                    setOnFocusChangeListener { view, hasFocus ->
+                        if (hasFocus) {
+                            view.performClick()
+                        }
                     }
                 }
 
@@ -227,39 +270,39 @@ class PathListAdapter @Inject constructor(
             }
         }
 
-        fun bind() {
-            binding.root.autoDisposeScope.launch {
-                val id = if (BuildConfig.DEBUG) {
-                    Constants.NATIVE_AD_ID_SAMPLE
-                } else {
-                    Constants.NATIVE_AD_ID_VER_3
-                }
-                val adLoader =
-                    AdLoader.Builder(binding.root.context, id)
-//                    AdLoader.Builder(binding.root.context, "ca-app-pub-3940256099942544/2247696110")
-                        .forNativeAd { ad: NativeAd ->
-                            with(binding) {
-                                bindingAd = ad
-                                val params: ViewGroup.LayoutParams = root.layoutParams
-                                params.height = WRAP_CONTENT
-                                params.width = MATCH_PARENT
-                                (root as NativeAdView).layoutParams = params
-                                routeMainView.callToActionView = root
-                                root.visibility = VISIBLE
-                                (root as NativeAdView).callToActionView = root
-                                routeMainView.setNativeAd(ad)
-                            }
-                        }
-                        .withAdListener(object : AdListener() {
-                            override fun onAdFailedToLoad(adError: LoadAdError) {
-                                Napier.d("Ad Error: $adError")
-                                // Handle the failure by logging, altering the UI, and so on.
-                            }
-                        })
-                        .build()
-
-                adLoader.loadAd(AdRequest.Builder().build())
-            }
-        }
+//        fun bind() {
+//            binding.root.autoDisposeScope.launch {
+//                val id = if (BuildConfig.DEBUG) {
+//                    Constants.NATIVE_AD_ID_SAMPLE
+//                } else {
+//                    Constants.NATIVE_AD_ID_VER_3
+//                }
+//                val adLoader =
+//                    AdLoader.Builder(binding.root.context, id)
+////                    AdLoader.Builder(binding.root.context, "ca-app-pub-3940256099942544/2247696110")
+//                        .forNativeAd { ad: NativeAd ->
+//                            with(binding) {
+//                                bindingAd = ad
+//                                val params: ViewGroup.LayoutParams = root.layoutParams
+//                                params.height = WRAP_CONTENT
+//                                params.width = MATCH_PARENT
+//                                (root as NativeAdView).layoutParams = params
+//                                routeMainView.callToActionView = root
+//                                root.visibility = VISIBLE
+//                                (root as NativeAdView).callToActionView = root
+//                                routeMainView.setNativeAd(ad)
+//                            }
+//                        }
+//                        .withAdListener(object : AdListener() {
+//                            override fun onAdFailedToLoad(adError: LoadAdError) {
+//                                Napier.d("Ad Error: $adError")
+//                                // Handle the failure by logging, altering the UI, and so on.
+//                            }
+//                        })
+//                        .build()
+//
+//                adLoader.loadAd(AdRequest.Builder().build())
+//            }
+//        }
     }
 }

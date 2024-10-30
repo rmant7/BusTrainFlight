@@ -10,7 +10,7 @@ dependencies {
 
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.constraintlayout:constraintlayout:2.2.0")
     implementation("androidx.activity:activity-ktx:1.9.3")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("com.yandex.android:mobmetricalib:5.3.0")
@@ -29,7 +29,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6")
 
     // Admob
-    implementation("com.google.android.gms:play-services-ads:23.4.0")
+    implementation("com.google.android.gms:play-services-ads:23.5.0")
 
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
     implementation("androidx.lifecycle:lifecycle-runtime:2.8.6")
@@ -52,8 +52,8 @@ android {
         applicationId = "ru.z8.louttsev.bustrainflightmobile.androidApp"
         minSdk = 21
         targetSdk = 34
-        versionCode = 10
-        versionName = "1.10"
+        versionCode = 13
+        versionName = "1.13"
     }
     buildTypes {
         getByName("release") {

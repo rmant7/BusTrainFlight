@@ -78,7 +78,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
                         android:paddingStart="15dp"
-                        android:text="BusTrainFlight"
+                        android:text="@string/cheap_trip_title"
                         android:textColor="@android:color/white"
                         android:textSize="18sp" />
                 </LinearLayout>
