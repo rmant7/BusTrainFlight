@@ -25,17 +25,17 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
 
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.6")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.7")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
 
     // Admob
     implementation("com.google.android.gms:play-services-ads:23.5.0")
 
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
-    implementation("androidx.lifecycle:lifecycle-runtime:2.8.6")
+    implementation("androidx.lifecycle:lifecycle-runtime:2.8.7")
     implementation("com.google.android.gms:play-services-location:21.3.0")
     //noinspection LifecycleAnnotationProcessorWithJava8
-    annotationProcessor("androidx.lifecycle:lifecycle-compiler:2.8.6")
+    annotationProcessor("androidx.lifecycle:lifecycle-compiler:2.8.7")
 
     implementation("com.github.satoshun.coroutine.autodispose:autodispose:0.3.1")
 
@@ -47,13 +47,13 @@ dependencies {
 
 android {
     namespace = "ru.z8.louttsev.bustrainflightmobile.androidApp"
-    compileSdk = 34
+    compileSdk = 35
     defaultConfig {
         applicationId = "ru.z8.louttsev.bustrainflightmobile.androidApp"
         minSdk = 21
-        targetSdk = 34
-        versionCode = 13
-        versionName = "1.13"
+        targetSdk = 35
+        versionCode = 14
+        versionName = "1.14"
     }
     buildTypes {
         getByName("release") {
