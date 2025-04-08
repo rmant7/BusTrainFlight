@@ -4,6 +4,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.serialization") version "2.1.0-Beta2"
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
 }
 
 dependencies {
@@ -52,9 +53,10 @@ android {
         applicationId = "ru.z8.louttsev.bustrainflightmobile.androidApp"
         minSdk = 21
         targetSdk = 35
-        versionCode = 14
-        versionName = "1.14"
+        versionCode = 15
+        versionName = "1.15"
     }
+
     buildTypes {
         getByName("release") {
             isDebuggable = false
