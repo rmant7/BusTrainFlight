@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Flyg</string>
+    <string name="transportation_type_bus">Buss</string>
+    <string name="transportation_type_train">Tåg</string>
+    <string name="transportation_type_car_drive">Bilresa</string>
+    <string name="transportation_type_taxi">Taxi</string>
+    <string name="transportation_type_walk">Promenad</string>
+    <string name="transportation_type_town_car">Privatbil</string>
+    <string name="transportation_type_ride_share">Samåkning</string>
+    <string name="transportation_type_shuttle">Skyttelbuss</string>
+    <string name="transportation_type_ferry">Färja</string>
+    <string name="transportation_type_subway">Tunnelbana</string>
+    <string name="transportation_type_undefined">Odefinierad</string>
+    <string name="route_type_ground">Mark</string>
+    <string name="route_type_mixed">Blandad</string>
+    <string name="route_type_flying">Flygande</string>
+    <string name="route_type_fixed_without_ride_share">Mark (ingen samåkning)</string>
+    <string name="route_type_without_ride_share">Ingen samåkning</string>
+    <string name="route_type_direct">Direkt</string>
+    <string name="formatted_days_time_component">%d d</string>
+    <string name="formatted_hours_time_component">%d h</string>
+    <string name="formatted_minutes_time_component">%d m</string>
+    <string name="from_location_input_field_hint">Från</string>
+    <string name="to_location_input_field_hint">Till</string>
+    <string name="clear_button_text">Rensa formulär</string>
+    <string name="go_button_text">Nu kör vi</string>
+    <string name="city_travel_tips">Budgetrese tips för %1$s</string>
+    <string name="no_data_error_message">Tyvärr, datan vi har samlat in räcker inte för att bygga en rutt mellan de angivna städerna. Försök att ändra din förfrågan.</string>
+    <string name="invalid_selection_error_message">Destination och avreseort får inte vara samma.</string>
+    <string name="not_allowable_character_error_message">Tyvärr, för tillfället stöder vi bara engelsk inmatning.</string>
+    <string name="action_button_text">Köp biljett</string>
+    <string name="clause_duration_included_airport_transfer_text">varaktighet inkluderar transfer till/från flygplatsen</string>
+
+    <string name="our_services">Våra tjänster</string>
+    <string name="contacts">Kontakter</string>
+    <string name="price_from">Från: €\u2009%s</string>
+    <string name="founder_and_ceo">Grundare och VD</string>
+    <string name="buy_ticket">Köp biljett</string>
+
+    <string name="budget_travel_tips">Tips för budgetresor</string>
+    <string name="duration_includes">varaktigheten inkluderar transport till/från flygplatsen</string>
+
+</resources>

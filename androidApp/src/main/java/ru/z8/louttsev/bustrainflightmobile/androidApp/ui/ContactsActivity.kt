@@ -18,7 +18,7 @@ class ContactsActivity : DrawerBaseActivity() {
         binding = ActivityContactsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        drawerBaseBinding.root.findViewById<TextView>(R.id.appBarTitle).text = "Contacts"
+        drawerBaseBinding.root.findViewById<TextView>(R.id.appBarTitle).text = drawerBaseBinding.root.context.getString(R.string.contacts)
 
         with(binding) {
             telegramImageView.setOnClickListener {

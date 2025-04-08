@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Lend</string>
+    <string name="transportation_type_bus">Buss</string>
+    <string name="transportation_type_train">Rong</string>
+    <string name="transportation_type_car_drive">Autosõit</string>
+    <string name="transportation_type_taxi">Takso</string>
+    <string name="transportation_type_walk">Jalgsi</string>
+    <string name="transportation_type_town_car">Linnamaastur</string>
+    <string name="transportation_type_ride_share">Sõidujagamine</string>
+    <string name="transportation_type_shuttle">Buss</string>
+    <string name="transportation_type_ferry">Praam</string>
+    <string name="transportation_type_subway">Metroo</string>
+    <string name="transportation_type_undefined">Määramata</string>
+    <string name="route_type_ground">Maa</string>
+    <string name="route_type_mixed">Segatud</string>
+    <string name="route_type_flying">Lendamine</string>
+    <string name="route_type_fixed_without_ride_share">Maa (ilma sõidujagamiseta)</string>
+    <string name="route_type_without_ride_share">Ilma sõidujagamiseta</string>
+    <string name="route_type_direct">Otsene</string>
+    <string name="formatted_days_time_component">%d p</string>
+    <string name="formatted_hours_time_component">%d t</string>
+    <string name="formatted_minutes_time_component">%d m</string>
+    <string name="from_location_input_field_hint">Kust</string>
+    <string name="to_location_input_field_hint">Kuhu</string>
+    <string name="clear_button_text">Tühista vorm</string>
+    <string name="go_button_text">Hakkame minema</string>
+    <string name="city_travel_tips">Soodsad reisinipped linnale %1$s</string>
+    <string name="no_data_error_message">Vabandust, andmeid, mida me oleme kogunud, ei piisa marsruudi loomiseks näidatud linnade vahel. Proovige oma taotlust muuta.</string>
+    <string name="invalid_selection_error_message">Sihtkoht ja lähtepunkt ei saa olla samad.</string>
+    <string name="not_allowable_character_error_message">Vabandust, hetkel toetame ainult ingliskeelset sisestust.</string>
+    <string name="action_button_text">Osta pilet</string>
+    <string name="clause_duration_included_airport_transfer_text">kestus sisaldab transfeeri lennujaama/lennujaamast</string>
+
+    <string name="our_services">Meie teenused</string>
+    <string name="contacts">Kontaktid</string>
+    <string name="price_from">Alates: €\u2009%s</string>
+    <string name="founder_and_ceo">Asutaja ja tegevjuht</string>
+    <string name="buy_ticket">Osta pilet</string>
+
+    <string name="budget_travel_tips">Soodsad reisisoovitused</string>
+    <string name="duration_includes">kestus sisaldab transporti lennujaama ja tagasi</string>
+
+</resources>

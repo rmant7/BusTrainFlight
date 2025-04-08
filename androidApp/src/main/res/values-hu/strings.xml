@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Repülő</string>
+    <string name="transportation_type_bus">Busz</string>
+    <string name="transportation_type_train">Vonat</string>
+    <string name="transportation_type_car_drive">Autóval</string>
+    <string name="transportation_type_taxi">Taxi</string>
+    <string name="transportation_type_walk">Gyalog</string>
+    <string name="transportation_type_town_car">Személyautó</string>
+    <string name="transportation_type_ride_share">Telekocsi</string>
+    <string name="transportation_type_shuttle">Transzfer</string>
+    <string name="transportation_type_ferry">Komp</string>
+    <string name="transportation_type_subway">Metró</string>
+    <string name="transportation_type_undefined">Meghatározatlan</string>
+    <string name="route_type_ground">Földi</string>
+    <string name="route_type_mixed">Vegyes</string>
+    <string name="route_type_flying">Légi</string>
+    <string name="route_type_fixed_without_ride_share">Földi (telekocsi nélkül)</string>
+    <string name="route_type_without_ride_share">Telekocsi nélkül</string>
+    <string name="route_type_direct">Közvetlen</string>
+    <string name="formatted_days_time_component">%d nap</string>
+    <string name="formatted_hours_time_component">%d ó</string>
+    <string name="formatted_minutes_time_component">%d p</string>
+    <string name="from_location_input_field_hint">Honnan</string>
+    <string name="to_location_input_field_hint">Hova</string>
+    <string name="clear_button_text">Űrlap törlése</string>
+    <string name="go_button_text">Indulás</string>
+    <string name="city_travel_tips">Olcsó utazási tippek ide: %1$s</string>
+    <string name="no_data_error_message">Sajnáljuk, a felhalmozott adatok nem elegendőek ahhoz, hogy útvonalat építsünk a megadott városok között. Próbálja meg módosítani a kérését.</string>
+    <string name="invalid_selection_error_message">A célállomás és az indulási pont nem lehet ugyanaz.</string>
+    <string name="not_allowable_character_error_message">Sajnáljuk, egyelőre csak az angol bevitelt támogatjuk.</string>
+    <string name="action_button_text">Jegyvásárlás</string>
+    <string name="clause_duration_included_airport_transfer_text">az időtartam tartalmazza a repülőtérre/repülőtérről történő transzfert</string>
+
+    <string name="our_services">Szolgáltatásaink</string>
+    <string name="contacts">Kapcsolatok</string>
+    <string name="price_from">Kezdőár: €\u2009%s</string>
+    <string name="founder_and_ceo">Alapító és vezérigazgató</string>
+    <string name="buy_ticket">Jegyvásárlás</string>
+
+    <string name="budget_travel_tips">Olcsó utazási tippek</string>
+    <string name="duration_includes">az időtartam tartalmazza a reptéri transzfert</string>
+
+</resources>

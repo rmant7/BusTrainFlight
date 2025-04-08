@@ -51,8 +51,8 @@
             android:background="@drawable/rounded_left_background"
             android:paddingHorizontal="5dp"
             android:paddingVertical="5dp"
-            android:text="@{`From: €\u2009` + String.valueOf(price) + '0'}"
-            android:textColor="@android:color/white"
+android:text='@{String.format(@string/price_from, String.format("%.2f", price))}'          
+android:textColor="@android:color/white"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"

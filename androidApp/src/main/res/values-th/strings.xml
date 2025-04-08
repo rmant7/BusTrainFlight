@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">เที่ยวบิน</string>
+    <string name="transportation_type_bus">รถโดยสาร</string>
+    <string name="transportation_type_train">รถไฟ</string>
+    <string name="transportation_type_car_drive">ขับรถ</string>
+    <string name="transportation_type_taxi">แท็กซี่</string>
+    <string name="transportation_type_walk">เดิน</string>
+    <string name="transportation_type_town_car">รถลีมูซีน</string>
+    <string name="transportation_type_ride_share">แชร์รถ</string>
+    <string name="transportation_type_shuttle">รถรับส่ง</string>
+    <string name="transportation_type_ferry">เรือข้ามฟาก</string>
+    <string name="transportation_type_subway">รถไฟใต้ดิน</string>
+    <string name="transportation_type_undefined">ไม่ได้กำหนด</string>
+    <string name="route_type_ground">ภาคพื้นดิน</string>
+    <string name="route_type_mixed">ผสม</string>
+    <string name="route_type_flying">ทางอากาศ</string>
+    <string name="route_type_fixed_without_ride_share">ภาคพื้นดิน (ไม่รวมแชร์รถ)</string>
+    <string name="route_type_without_ride_share">ไม่แชร์รถ</string>
+    <string name="route_type_direct">โดยตรง</string>
+    <string name="formatted_days_time_component">%d วัน</string>
+    <string name="formatted_hours_time_component">%d ชม.</string>
+    <string name="formatted_minutes_time_component">%d นาที</string>
+    <string name="from_location_input_field_hint">จาก</string>
+    <string name="to_location_input_field_hint">ไปยัง</string>
+    <string name="clear_button_text">ล้างแบบฟอร์ม</string>
+    <string name="go_button_text">ไปกันเลย</string>
+    <string name="city_travel_tips">เคล็ดลับการเดินทางราคาประหยัดสำหรับ %1$s</string>
+    <string name="no_data_error_message">ขออภัย ข้อมูลที่เราสะสมไว้ไม่เพียงพอที่จะสร้างเส้นทางระหว่างเมืองที่ระบุ โปรดลองเปลี่ยนคำขอของคุณ</string>
+    <string name="invalid_selection_error_message">จุดหมายปลายทางและจุดเริ่มต้นไม่สามารถเหมือนกัน</string>
+    <string name="not_allowable_character_error_message">ขออภัย ตอนนี้เรารองรับเฉพาะการป้อนข้อมูลภาษาอังกฤษเท่านั้น</string>
+    <string name="action_button_text">ซื้อตั๋ว</string>
+    <string name="clause_duration_included_airport_transfer_text">รวมระยะเวลาการเดินทางไป/กลับสนามบิน</string>
+
+    <string name="our_services">บริการของเรา</string>
+    <string name="contacts">ผู้ติดต่อ</string>
+    <string name="price_from">เริ่มต้นที่: €\u2009%s</string>
+    <string name="founder_and_ceo">ผู้ก่อตั้งและซีอีโอ</string>
+    <string name="buy_ticket">ซื้อตั๋ว</string>
+
+    <string name="budget_travel_tips">เคล็ดลับการเดินทางแบบประหยัด</string>
+    <string name="duration_includes">ระยะเวลารวมถึงการเดินทางไป/กลับสนามบิน</string>
+
+</resources>

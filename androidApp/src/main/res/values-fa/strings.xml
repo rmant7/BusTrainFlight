@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">سفر ارزان</string>
+    <string name="cheap_trip_title">سفر ارزان</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">پرواز</string>
+    <string name="transportation_type_bus">اتوبوس</string>
+    <string name="transportation_type_train">قطار</string>
+    <string name="transportation_type_car_drive">رانندگی با خودرو</string>
+    <string name="transportation_type_taxi">تاکسی</string>
+    <string name="transportation_type_walk">پیاده‌روی</string>
+    <string name="transportation_type_town_car">خودروی شهری</string>
+    <string name="transportation_type_ride_share">اشتراک خودرو</string>
+    <string name="transportation_type_shuttle">شاتل</string>
+    <string name="transportation_type_ferry">کشتی</string>
+    <string name="transportation_type_subway">مترو</string>
+    <string name="transportation_type_undefined">تعریف نشده</string>
+    <string name="route_type_ground">زمینی</string>
+    <string name="route_type_mixed">مخلوط</string>
+    <string name="route_type_flying">هوایی</string>
+    <string name="route_type_fixed_without_ride_share">زمینی (بدون اشتراک خودرو)</string>
+    <string name="route_type_without_ride_share">بدون اشتراک خودرو</string>
+    <string name="route_type_direct">مستقیم</string>
+    <string name="formatted_days_time_component">%d روز</string>
+    <string name="formatted_hours_time_component">%d ساعت</string>
+    <string name="formatted_minutes_time_component">%d دقیقه</string>
+    <string name="from_location_input_field_hint">از</string>
+    <string name="to_location_input_field_hint">به</string>
+    <string name="clear_button_text">پاک کردن فرم</string>
+    <string name="go_button_text">برو</string>
+    <string name="city_travel_tips">نکات سفر ارزان برای %1$s</string>
+    <string name="no_data_error_message">متاسفیم، اطلاعات جمع آوری شده ما برای ایجاد مسیر بین شهرهای مشخص شده کافی نیست. درخواست خود را تغییر دهید.</string>
+    <string name="invalid_selection_error_message">مقصد و مبدا نمی‌توانند یکسان باشند.</string>
+    <string name="not_allowable_character_error_message">متاسفیم، در حال حاضر فقط از ورودی انگلیسی پشتیبانی می کنیم.</string>
+    <string name="action_button_text">خرید بلیط</string>
+    <string name="clause_duration_included_airport_transfer_text">مدت زمان شامل انتقال به/از فرودگاه است</string>
+
+    <string name="our_services">خدمات ما</string>
+    <string name="contacts">تماس‌ها</string>
+    <string name="price_from">از: €\u2009%s</string>
+    <string name="founder_and_ceo">بنیان‌گذار و مدیرعامل</string>
+    <string name="buy_ticket">خرید بلیط</string>
+
+    <string name="budget_travel_tips">نکات سفر با بودجه کم</string>
+    <string name="duration_includes">مدت زمان شامل ترانسفر از/به فرودگاه است</string>
+
+</resources>

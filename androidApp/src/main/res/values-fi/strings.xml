@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Lento</string>
+    <string name="transportation_type_bus">Bussi</string>
+    <string name="transportation_type_train">Juna</string>
+    <string name="transportation_type_car_drive">Autokyyti</string>
+    <string name="transportation_type_taxi">Taksi</string>
+    <string name="transportation_type_walk">Kävely</string>
+    <string name="transportation_type_town_car">Kaupunkiauto</string>
+    <string name="transportation_type_ride_share">Kimppakyyti</string>
+    <string name="transportation_type_shuttle">Lentokenttäbussi</string>
+    <string name="transportation_type_ferry">Lautta</string>
+    <string name="transportation_type_subway">Metro</string>
+    <string name="transportation_type_undefined">Määrittelemätön</string>
+    <string name="route_type_ground">Maa</string>
+    <string name="route_type_mixed">Sekalainen</string>
+    <string name="route_type_flying">Lento</string>
+    <string name="route_type_fixed_without_ride_share">Maa (ei kimppakyytejä)</string>
+    <string name="route_type_without_ride_share">Ei kimppakyytejä</string>
+    <string name="route_type_direct">Suora</string>
+    <string name="formatted_days_time_component">%d p</string>
+    <string name="formatted_hours_time_component">%d t</string>
+    <string name="formatted_minutes_time_component">%d min</string>
+    <string name="from_location_input_field_hint">Mistä</string>
+    <string name="to_location_input_field_hint">Minne</string>
+    <string name="clear_button_text">Tyhjennä lomake</string>
+    <string name="go_button_text">Mennään</string>
+    <string name="city_travel_tips">Budjettimatkavinkkejä kohteeseen %1$s</string>
+    <string name="no_data_error_message">Valitettavasti keräämämme tiedot eivät riitä reitin luomiseen ilmoitettujen kaupunkien välille. Yritä muuttaa pyyntöäsi.</string>
+    <string name="invalid_selection_error_message">Määränpää ja lähtöpiste eivät voi olla samat.</string>
+    <string name="not_allowable_character_error_message">Valitettavasti tuemme tällä hetkellä vain englanninkielistä syöttöä.</string>
+    <string name="action_button_text">Osta lippu</string>
+    <string name="clause_duration_included_airport_transfer_text">kesto sisältää kuljetuksen lentoasemalle/lentoasemalta</string>
+
+    <string name="our_services">Palvelumme</string>
+    <string name="contacts">Yhteystiedot</string>
+    <string name="price_from">Alkaen: €\u2009%s</string>
+    <string name="founder_and_ceo">Perustaja ja toimitusjohtaja</string>
+    <string name="buy_ticket">Osta lippu</string>
+
+    <string name="budget_travel_tips">Edullisen matkailun vinkit</string>
+    <string name="duration_includes">kesto sisältää kuljetuksen lentoasemalle ja sieltä pois</string>
+
+</resources>

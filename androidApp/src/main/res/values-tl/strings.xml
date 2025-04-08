@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Paglipad</string>
+    <string name="transportation_type_bus">Bus</string>
+    <string name="transportation_type_train">Tren</string>
+    <string name="transportation_type_car_drive">Pagmamaneho ng Kotse</string>
+    <string name="transportation_type_taxi">Taxi</string>
+    <string name="transportation_type_walk">Lakad</string>
+    <string name="transportation_type_town_car">Town Car</string>
+    <string name="transportation_type_ride_share">Ride Share</string>
+    <string name="transportation_type_shuttle">Shuttle</string>
+    <string name="transportation_type_ferry">Ferry</string>
+    <string name="transportation_type_subway">Subway</string>
+    <string name="transportation_type_undefined">Hindi Tukoy</string>
+    <string name="route_type_ground">Lupa</string>
+    <string name="route_type_mixed">Halo</string>
+    <string name="route_type_flying">Lumilipad</string>
+    <string name="route_type_fixed_without_ride_share">Lupa (walang ride-share)</string>
+    <string name="route_type_without_ride_share">Walang ride share</string>
+    <string name="route_type_direct">Direkta</string>
+    <string name="formatted_days_time_component">%d araw</string>
+    <string name="formatted_hours_time_component">%d oras</string>
+    <string name="formatted_minutes_time_component">%d minuto</string>
+    <string name="from_location_input_field_hint">Mula sa</string>
+    <string name="to_location_input_field_hint">Patungo sa</string>
+    <string name="clear_button_text">I-clear ang form</string>
+    <string name="go_button_text">Tara na</string>
+    <string name="city_travel_tips">Mga tip sa paglalakbay na pang-budget para sa %1$s</string>
+    <string name="no_data_error_message">Paumanhin, ang data na aming naipon ay hindi sapat upang bumuo ng isang ruta sa pagitan ng mga ipinahiwatig na lungsod. Subukang baguhin ang iyong kahilingan.</string>
+    <string name="invalid_selection_error_message">Hindi maaaring pareho ang destinasyon at punto ng pag-alis.</string>
+    <string name="not_allowable_character_error_message">Paumanhin, sa ngayon, sinusuportahan lamang namin ang input sa Ingles.</string>
+    <string name="action_button_text">Bumili ng tiket</string>
+    <string name="clause_duration_included_airport_transfer_text">kasama sa tagal ang paglipat papunta/mula sa airport</string>
+
+    <string name="our_services">Aming mga Serbisyo</string>
+    <string name="contacts">Mga Contact</string>
+    <string name="price_from">Mula sa: €\u2009%s</string>
+    <string name="founder_and_ceo">Tagapagtatag at CEO</string>
+    <string name="buy_ticket">Bumili ng tiket</string>
+
+    <string name="budget_travel_tips">Mga Tip sa Badyet na Paglalakbay</string>
+    <string name="duration_includes">kasama sa tagal ang paglipat papunta/mula sa paliparan</string>
+
+</resources>

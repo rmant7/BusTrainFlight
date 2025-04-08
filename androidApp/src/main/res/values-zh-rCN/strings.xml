@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">航班</string>
+    <string name="transportation_type_bus">巴士</string>
+    <string name="transportation_type_train">火车</string>
+    <string name="transportation_type_car_drive">自驾</string>
+    <string name="transportation_type_taxi">出租车</string>
+    <string name="transportation_type_walk">步行</string>
+    <string name="transportation_type_town_car">豪华轿车</string>
+    <string name="transportation_type_ride_share">共享出行</string>
+    <string name="transportation_type_shuttle">班车</string>
+    <string name="transportation_type_ferry">渡轮</string>
+    <string name="transportation_type_subway">地铁</string>
+    <string name="transportation_type_undefined">未定义</string>
+    <string name="route_type_ground">地面</string>
+    <string name="route_type_mixed">混合</string>
+    <string name="route_type_flying">飞行</string>
+    <string name="route_type_fixed_without_ride_share">地面（无共享出行）</string>
+    <string name="route_type_without_ride_share">无共享出行</string>
+    <string name="route_type_direct">直达</string>
+    <string name="formatted_days_time_component">%d 天</string>
+    <string name="formatted_hours_time_component">%d 小时</string>
+    <string name="formatted_minutes_time_component">%d 分钟</string>
+    <string name="from_location_input_field_hint">从</string>
+    <string name="to_location_input_field_hint">到</string>
+    <string name="clear_button_text">清除表单</string>
+    <string name="go_button_text">开始</string>
+    <string name="city_travel_tips">%1$s的旅行预算小贴士</string>
+    <string name="no_data_error_message">抱歉，我们积累的数据不足以构建指示城市之间的路线。 请尝试更改您的请求。</string>
+    <string name="invalid_selection_error_message">目的地和出发地不能相同。</string>
+    <string name="not_allowable_character_error_message">抱歉，目前我们只支持英文输入。</string>
+    <string name="action_button_text">购买机票</string>
+    <string name="clause_duration_included_airport_transfer_text">持续时间包括往返机场的交通</string>
+
+    <string name="our_services">我们的服务</string>
+    <string name="contacts">联系方式</string>
+    <string name="price_from">起价: €\u2009%s</string>
+    <string name="founder_and_ceo">创始人兼首席执行官</string>
+    <string name="buy_ticket">购买票</string>
+
+    <string name="budget_travel_tips">预算旅行提示</string>
+    <string name="duration_includes">持续时间包括往返机场的接送</string>
+
+</resources>

@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Penerbangan</string>
+    <string name="transportation_type_bus">Bis</string>
+    <string name="transportation_type_train">Kereta</string>
+    <string name="transportation_type_car_drive">Berkendara Mobil</string>
+    <string name="transportation_type_taxi">Taksi</string>
+    <string name="transportation_type_walk">Jalan Kaki</string>
+    <string name="transportation_type_town_car">Mobil Kota</string>
+    <string name="transportation_type_ride_share">Nebeng</string>
+    <string name="transportation_type_shuttle">Shuttle</string>
+    <string name="transportation_type_ferry">Feri</string>
+    <string name="transportation_type_subway">Subway</string>
+    <string name="transportation_type_undefined">Tidak Terdefinisi</string>
+    <string name="route_type_ground">Darat</string>
+    <string name="route_type_mixed">Campuran</string>
+    <string name="route_type_flying">Udara</string>
+    <string name="route_type_fixed_without_ride_share">Darat (tanpa nebeng)</string>
+    <string name="route_type_without_ride_share">Tanpa nebeng</string>
+    <string name="route_type_direct">Langsung</string>
+    <string name="formatted_days_time_component">%d h</string>
+    <string name="formatted_hours_time_component">%d j</string>
+    <string name="formatted_minutes_time_component">%d m</string>
+    <string name="from_location_input_field_hint">Dari</string>
+    <string name="to_location_input_field_hint">Ke</string>
+    <string name="clear_button_text">Bersihkan formulir</string>
+    <string name="go_button_text">Ayo pergi</string>
+    <string name="city_travel_tips">Tips perjalanan hemat untuk %1$s</string>
+    <string name="no_data_error_message">Maaf, data yang kami kumpulkan tidak cukup untuk membuat rute antara kota yang ditunjukkan. Coba ubah permintaan Anda.</string>
+    <string name="invalid_selection_error_message">Tujuan dan titik keberangkatan tidak boleh sama.</string>
+    <string name="not_allowable_character_error_message">Maaf, untuk saat ini, kami hanya mendukung input Bahasa Inggris.</string>
+    <string name="action_button_text">Beli tiket</string>
+    <string name="clause_duration_included_airport_transfer_text">durasi termasuk transfer ke/dari bandara</string>
+
+    <string name="our_services">Layanan Kami</string>
+    <string name="contacts">Kontak</string>
+    <string name="price_from">Mulai dari: €\u2009%s</string>
+    <string name="founder_and_ceo">Pendiri dan CEO</string>
+    <string name="buy_ticket">Beli tiket</string>
+
+    <string name="budget_travel_tips">Tips Perjalanan Hemat</string>
+    <string name="duration_includes">durasi termasuk transfer ke/dari bandara</string>
+
+</resources>

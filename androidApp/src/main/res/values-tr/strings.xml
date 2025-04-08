@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Ucuz Seyahat</string>
+    <string name="cheap_trip_title">Ucuz Seyahat</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Uçak</string>
+    <string name="transportation_type_bus">Otobüs</string>
+    <string name="transportation_type_train">Tren</string>
+    <string name="transportation_type_car_drive">Araba Sürüşü</string>
+    <string name="transportation_type_taxi">Taksi</string>
+    <string name="transportation_type_walk">Yürüyüş</string>
+    <string name="transportation_type_town_car">Şehir İçi Araç</string>
+    <string name="transportation_type_ride_share">Araç Paylaşımı</string>
+    <string name="transportation_type_shuttle">Servis</string>
+    <string name="transportation_type_ferry">Feribot</string>
+    <string name="transportation_type_subway">Metro</string>
+    <string name="transportation_type_undefined">Tanımsız</string>
+    <string name="route_type_ground">Kara</string>
+    <string name="route_type_mixed">Karışık</string>
+    <string name="route_type_flying">Hava</string>
+    <string name="route_type_fixed_without_ride_share">Kara (araç paylaşımı yok)</string>
+    <string name="route_type_without_ride_share">Araç paylaşımı yok</string>
+    <string name="route_type_direct">Direkt</string>
+    <string name="formatted_days_time_component">%d gün</string>
+    <string name="formatted_hours_time_component">%d saat</string>
+    <string name="formatted_minutes_time_component">%d dakika</string>
+    <string name="from_location_input_field_hint">Nereden</string>
+    <string name="to_location_input_field_hint">Nereye</string>
+    <string name="clear_button_text">Formu temizle</string>
+    <string name="go_button_text">Başlayalım</string>
+    <string name="city_travel_tips">%1$s için bütçe seyahat ipuçları</string>
+    <string name="no_data_error_message">Üzgünüz, elimizdeki veriler belirtilen şehirler arasında bir rota oluşturmak için yeterli değil. Lütfen isteğinizi değiştirmeyi deneyin.</string>
+    <string name="invalid_selection_error_message">Varış noktası ve kalkış noktası aynı olamaz.</string>
+    <string name="not_allowable_character_error_message">Üzgünüz, şimdilik yalnızca İngilizce girişini destekliyoruz.</string>
+    <string name="action_button_text">Bilet al</string>
+    <string name="clause_duration_included_airport_transfer_text">süre, havaalanına/havaalanından transferi içerir</string>
+
+    <string name="our_services">Hizmetlerimiz</string>
+    <string name="contacts">Kişiler</string>
+    <string name="price_from">Başlangıç: €\u2009%s</string>
+    <string name="founder_and_ceo">Kurucu ve CEO</string>
+    <string name="buy_ticket">Bilet satın al</string>
+
+    <string name="budget_travel_tips">Bütçe Dostu Seyahat İpuçları</string>
+    <string name="duration_includes">süre havaalanına gidiş/dönüş transferini içerir</string>
+
+</resources>

@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Полет</string>
+    <string name="transportation_type_bus">Автобус</string>
+    <string name="transportation_type_train">Поезд</string>
+    <string name="transportation_type_car_drive">Поездка на машине</string>
+    <string name="transportation_type_taxi">Такси</string>
+    <string name="transportation_type_walk">Пешком</string>
+    <string name="transportation_type_town_car">Личный автомобиль</string>
+    <string name="transportation_type_ride_share">Попутчики</string>
+    <string name="transportation_type_shuttle">Маршрутка</string>
+    <string name="transportation_type_ferry">Паром</string>
+    <string name="transportation_type_subway">Метро</string>
+    <string name="transportation_type_undefined">Не определено</string>
+    <string name="route_type_ground">Наземный</string>
+    <string name="route_type_mixed">Смешанный</string>
+    <string name="route_type_flying">Воздушный</string>
+    <string name="route_type_fixed_without_ride_share">Наземный (без попутчиков)</string>
+    <string name="route_type_without_ride_share">Без попутчиков</string>
+    <string name="route_type_direct">Прямой</string>
+    <string name="formatted_days_time_component">%d д</string>
+    <string name="formatted_hours_time_component">%d ч</string>
+    <string name="formatted_minutes_time_component">%d м</string>
+    <string name="from_location_input_field_hint">Откуда</string>
+    <string name="to_location_input_field_hint">Куда</string>
+    <string name="clear_button_text">Очистить форму</string>
+    <string name="go_button_text">Поехали</string>
+    <string name="city_travel_tips">Советы по бюджетным путешествиям для %1$s</string>
+    <string name="no_data_error_message">К сожалению, накопленных нами данных недостаточно для построения маршрута между указанными городами. Попробуйте изменить свой запрос.</string>
+    <string name="invalid_selection_error_message">Пункт назначения и отправления не могут совпадать.</string>
+    <string name="not_allowable_character_error_message">К сожалению, на данный момент мы поддерживаем только ввод на английском языке.</string>
+    <string name="action_button_text">Купить билет</string>
+    <string name="clause_duration_included_airport_transfer_text">продолжительность включает трансфер в/из аэропорта</string>
+
+    <string name="our_services">Наши услуги</string>
+    <string name="contacts">Контакты</string>
+    <string name="price_from">От: €\u2009%s</string>
+    <string name="founder_and_ceo">Основатель и генеральный директор</string>
+    <string name="buy_ticket">Купить билет</string>
+
+    <string name="budget_travel_tips">Советы по бюджетным путешествиям</string>
+    <string name="duration_includes">время включает трансфер из/в аэропорт</string>
+</resources>

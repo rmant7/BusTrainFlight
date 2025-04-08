@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">طيران</string>
+    <string name="transportation_type_bus">حافلة</string>
+    <string name="transportation_type_train">قطار</string>
+    <string name="transportation_type_car_drive">قيادة سيارة</string>
+    <string name="transportation_type_taxi">سيارة أجرة</string>
+    <string name="transportation_type_walk">مشي</string>
+    <string name="transportation_type_town_car">سيارة خاصة</string>
+    <string name="transportation_type_ride_share">مشاركة الركوب</string>
+    <string name="transportation_type_shuttle">مكوك</string>
+    <string name="transportation_type_ferry">عبّارة</string>
+    <string name="transportation_type_subway">مترو الأنفاق</string>
+    <string name="transportation_type_undefined">غير محدد</string>
+    <string name="route_type_ground">أرضي</string>
+    <string name="route_type_mixed">مختلط</string>
+    <string name="route_type_flying">طيران</string>
+    <string name="route_type_fixed_without_ride_share">أرضي (بدون مشاركة الركوب)</string>
+    <string name="route_type_without_ride_share">بدون مشاركة الركوب</string>
+    <string name="route_type_direct">مباشر</string>
+    <string name="formatted_days_time_component">%d يوم</string>
+    <string name="formatted_hours_time_component">%d ساعة</string>
+    <string name="formatted_minutes_time_component">%d دقيقة</string>
+    <string name="from_location_input_field_hint">من</string>
+    <string name="to_location_input_field_hint">إلى</string>
+    <string name="clear_button_text">مسح النموذج</string>
+    <string name="go_button_text">هيا بنا</string>
+    <string name="city_travel_tips">نصائح السفر بميزانية محدودة إلى %1$s</string>
+    <string name="no_data_error_message">عذرًا، البيانات التي جمعناها غير كافية لبناء طريق بين المدن المحددة. حاول تغيير طلبك.</string>
+    <string name="invalid_selection_error_message">لا يمكن أن تكون الوجهة ونقطة المغادرة هي نفسها.</string>
+    <string name="not_allowable_character_error_message">عذرًا، في الوقت الحالي، ندعم الإدخال باللغة الإنجليزية فقط.</string>
+    <string name="action_button_text">شراء تذكرة</string>
+    <string name="clause_duration_included_airport_transfer_text">تشمل المدة النقل من / إلى المطار</string>
+
+    <string name="our_services">خدماتنا</string>
+    <string name="contacts">جهات الاتصال</string>
+    <string name="price_from">ابتداءً من: €\u2009%s</string>
+    <string name="founder_and_ceo">المؤسس والرئيس التنفيذي</string>
+    <string name="buy_ticket">اشتر تذكرة</string>
+
+    <string name="budget_travel_tips">نصائح للسفر بميزانية محدودة</string>
+    <string name="duration_includes">تشمل المدة النقل من/إلى المطار</string>
+</resources>

@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Літак</string>
+    <string name="transportation_type_bus">Автобус</string>
+    <string name="transportation_type_train">Потяг</string>
+    <string name="transportation_type_car_drive">Автомобіль</string>
+    <string name="transportation_type_taxi">Таксі</string>
+    <string name="transportation_type_walk">Пішки</string>
+    <string name="transportation_type_town_car">Автомобіль з водієм</string>
+    <string name="transportation_type_ride_share">Спільна поїздка</string>
+    <string name="transportation_type_shuttle">Маршрутка</string>
+    <string name="transportation_type_ferry">Пором</string>
+    <string name="transportation_type_subway">Метро</string>
+    <string name="transportation_type_undefined">Не визначено</string>
+    <string name="route_type_ground">Наземний</string>
+    <string name="route_type_mixed">Змішаний</string>
+    <string name="route_type_flying">Повітряний</string>
+    <string name="route_type_fixed_without_ride_share">Наземний (без спільних поїздок)</string>
+    <string name="route_type_without_ride_share">Без спільних поїздок</string>
+    <string name="route_type_direct">Прямий</string>
+    <string name="formatted_days_time_component">%d д</string>
+    <string name="formatted_hours_time_component">%d год</string>
+    <string name="formatted_minutes_time_component">%d хв</string>
+    <string name="from_location_input_field_hint">Звідки</string>
+    <string name="to_location_input_field_hint">Куди</string>
+    <string name="clear_button_text">Очистити форму</string>
+    <string name="go_button_text">Поїхали</string>
+    <string name="city_travel_tips">Поради для бюджетних подорожей до %1$s</string>
+    <string name="no_data_error_message">На жаль, даних, які ми зібрали, недостатньо для побудови маршруту між вказаними містами. Спробуйте змінити свій запит.</string>
+    <string name="invalid_selection_error_message">Пункт призначення та пункт відправлення не можуть бути однаковими.</string>
+    <string name="not_allowable_character_error_message">Вибачте, наразі ми підтримуємо лише введення англійською мовою.</string>
+    <string name="action_button_text">Купити квиток</string>
+    <string name="clause_duration_included_airport_transfer_text">тривалість включає трансфер до/з аеропорту</string>
+
+    <string name="our_services">Наші послуги</string>
+    <string name="contacts">Контакти</string>
+    <string name="price_from">Від: €\u2009%s</string>
+    <string name="founder_and_ceo">Засновник і генеральний директор</string>
+    <string name="buy_ticket">Купити квиток</string>
+
+    <string name="budget_travel_tips">Поради для подорожей з обмеженим бюджетом</string>
+    <string name="duration_includes">тривалість включає трансфер до/з аеропорту</string>
+
+</resources>

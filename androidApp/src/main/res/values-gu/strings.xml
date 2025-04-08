@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">ચીપટ્રીપ</string>
+    <string name="cheap_trip_title">ચીપટ્રીપ</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">ફ્લાઇટ</string>
+    <string name="transportation_type_bus">બસ</string>
+    <string name="transportation_type_train">ટ્રેન</string>
+    <string name="transportation_type_car_drive">કાર ડ્રાઇવ</string>
+    <string name="transportation_type_taxi">ટેક્સી</string>
+    <string name="transportation_type_walk">ચાલવું</string>
+    <string name="transportation_type_town_car">ટાઉન કાર</string>
+    <string name="transportation_type_ride_share">રાઇડ શેર</string>
+    <string name="transportation_type_shuttle">શટલ</string>
+    <string name="transportation_type_ferry">ફેરી</string>
+    <string name="transportation_type_subway">સબવે</string>
+    <string name="transportation_type_undefined">અવ્યાખ્યાયિત</string>
+    <string name="route_type_ground">ગ્રાઉન્ડ</string>
+    <string name="route_type_mixed">મિક્સ્ડ</string>
+    <string name="route_type_flying">ફ્લાઇંગ</string>
+    <string name="route_type_fixed_without_ride_share">ગ્રાઉન્ડ (કોઈ રાઈડ-શેર નહીં)</string>
+    <string name="route_type_without_ride_share">કોઈ રાઈડ શેર નહીં</string>
+    <string name="route_type_direct">ડાયરેક્ટ</string>
+    <string name="formatted_days_time_component">%d દિવસ</string>
+    <string name="formatted_hours_time_component">%d કલાક</string>
+    <string name="formatted_minutes_time_component">%d મિનિટ</string>
+    <string name="from_location_input_field_hint">ક્યાંથી</string>
+    <string name="to_location_input_field_hint">ક્યાં સુધી</string>
+    <string name="clear_button_text">ફોર્મ સાફ કરો</string>
+    <string name="go_button_text">ચાલો જઈએ</string>
+    <string name="city_travel_tips">%1$s માટે બજેટ મુસાફરી ટીપ્સ</string>
+    <string name="no_data_error_message">માફ કરશો, અમારી પાસે એકત્રિત કરેલો ડેટા દર્શાવેલા શહેરો વચ્ચેનો રૂટ બનાવવા માટે પૂરતો નથી. કૃપા કરીને તમારી વિનંતી બદલવાનો પ્રયાસ કરો.</string>
+    <string name="invalid_selection_error_message">ગંતવ્ય અને પ્રસ્થાન સ્થળ સમાન હોઈ શકે નહીં.</string>
+    <string name="not_allowable_character_error_message">માફ કરશો, હાલ માટે, અમે ફક્ત અંગ્રેજી ઇનપુટને સપોર્ટ કરીએ છીએ.</string>
+    <string name="action_button_text">ટિકિટ ખરીદો</string>
+    <string name="clause_duration_included_airport_transfer_text">સમયગાળામાં એરપોર્ટ પર જવા/આવવા માટેનો સમાવેશ થાય છે</string>
+
+    <string name="our_services">અમારી સેવાઓ</string>
+    <string name="contacts">સંપર્કો</string>
+    <string name="price_from">શરૂઆતથી: €\u2009%s</string>
+    <string name="founder_and_ceo">સ્થાપક અને સીઇઓ</string>
+    <string name="buy_ticket">ટિકિટ ખરીદો</string>
+
+    <string name="budget_travel_tips">બજેટ મુસાફરીની ટીપ્સ</string>
+    <string name="duration_includes">અવધિમાં એરપોર્ટથી/એરપોર્ટ સુધીનું પરિવહન شامેલ છે</string>
+
+</resources>

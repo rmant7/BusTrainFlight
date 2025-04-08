@@ -42,7 +42,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="4"
                         android:paddingStart="18dp"
-                        android:text="Our Services"
+                        android:text="@string/our_services"
                         android:textColor="@android:color/white"
                         android:textSize="24sp" />
 
@@ -106,7 +106,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="4"
                         android:paddingStart="15dp"
-                        android:text="BudgetTravelTips"
+                        android:text="@string/budget_travel_tips"
                         android:textColor="@android:color/white"
                         android:textSize="18sp" />
                 </LinearLayout>
@@ -134,7 +134,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="7"
                         android:paddingStart="15dp"
-                        android:text="Contacts"
+                        android:text="@string/contacts"
                         android:textColor="@android:color/white"
                         android:textSize="18sp" />
                 </LinearLayout>

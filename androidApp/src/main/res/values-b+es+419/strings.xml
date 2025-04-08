@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Vuelo</string>
+    <string name="transportation_type_bus">Autobús</string>
+    <string name="transportation_type_train">Tren</string>
+    <string name="transportation_type_car_drive">Conducir coche</string>
+    <string name="transportation_type_taxi">Taxi</string>
+    <string name="transportation_type_walk">Caminar</string>
+    <string name="transportation_type_town_car">Coche de ciudad</string>
+    <string name="transportation_type_ride_share">Viaje compartido</string>
+    <string name="transportation_type_shuttle">Transporte</string>
+    <string name="transportation_type_ferry">Ferry</string>
+    <string name="transportation_type_subway">Metro</string>
+    <string name="transportation_type_undefined">Indefinido</string>
+    <string name="route_type_ground">Tierra</string>
+    <string name="route_type_mixed">Mixto</string>
+    <string name="route_type_flying">Volando</string>
+    <string name="route_type_fixed_without_ride_share">Tierra (sin viaje compartido)</string>
+    <string name="route_type_without_ride_share">Sin viaje compartido</string>
+    <string name="route_type_direct">Directo</string>
+    <string name="formatted_days_time_component">%d d</string>
+    <string name="formatted_hours_time_component">%d h</string>
+    <string name="formatted_minutes_time_component">%d m</string>
+    <string name="from_location_input_field_hint">Desde</string>
+    <string name="to_location_input_field_hint">A</string>
+    <string name="clear_button_text">Borrar formulario</string>
+    <string name="go_button_text">Vamos</string>
+    <string name="city_travel_tips">Consejos de viaje económico para %1$s</string>
+    <string name="no_data_error_message">Lo sentimos, los datos que hemos acumulado no son suficientes para construir una ruta entre las ciudades indicadas. Intenta cambiar tu solicitud.</string>
+    <string name="invalid_selection_error_message">El destino y el punto de partida no pueden ser los mismos.</string>
+    <string name="not_allowable_character_error_message">Lo sentimos, por ahora, solo admitimos entradas en inglés.</string>
+    <string name="action_button_text">Comprar boleto</string>
+    <string name="clause_duration_included_airport_transfer_text">la duración incluye el traslado desde/hacia el aeropuerto</string>
+
+    <string name="our_services">Nuestros servicios</string>
+    <string name="contacts">Contactos</string>
+    <string name="price_from">Desde: €\u2009%s</string>
+    <string name="founder_and_ceo">Fundador y Director General</string>
+    <string name="buy_ticket">Comprar boleto</string>
+
+    <string name="budget_travel_tips">Consejos para viajar con poco presupuesto</string>
+    <string name="duration_includes">la duración incluye traslado desde/hacia el aeropuerto</string>
+
+</resources>

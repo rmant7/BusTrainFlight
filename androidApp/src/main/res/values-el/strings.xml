@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Αεροπλάνο</string>
+    <string name="transportation_type_bus">Λεωφορείο</string>
+    <string name="transportation_type_train">Τρένο</string>
+    <string name="transportation_type_car_drive">Οδήγηση αυτοκινήτου</string>
+    <string name="transportation_type_taxi">Ταξί</string>
+    <string name="transportation_type_walk">Περπάτημα</string>
+    <string name="transportation_type_town_car">Πολυτελές αυτοκίνητο</string>
+    <string name="transportation_type_ride_share">Κοινόχρηστο μέσο</string>
+    <string name="transportation_type_shuttle">Λεωφορείο μεταφοράς</string>
+    <string name="transportation_type_ferry">Πλοίο</string>
+    <string name="transportation_type_subway">Μετρό</string>
+    <string name="transportation_type_undefined">Μη καθορισμένο</string>
+    <string name="route_type_ground">Επίγειο</string>
+    <string name="route_type_mixed">Μικτό</string>
+    <string name="route_type_flying">Αεροπορικό</string>
+    <string name="route_type_fixed_without_ride_share">Επίγειο (χωρίς κοινόχρηστο μέσο)</string>
+    <string name="route_type_without_ride_share">Χωρίς κοινόχρηστο μέσο</string>
+    <string name="route_type_direct">Άμεσο</string>
+    <string name="formatted_days_time_component">%d μ</string>
+    <string name="formatted_hours_time_component">%d ώ</string>
+    <string name="formatted_minutes_time_component">%d λ</string>
+    <string name="from_location_input_field_hint">Από</string>
+    <string name="to_location_input_field_hint">Προς</string>
+    <string name="clear_button_text">Εκκαθάριση φόρμας</string>
+    <string name="go_button_text">Πάμε!</string>
+    <string name="city_travel_tips">Συμβουλές οικονομικών ταξιδιών για %1$s</string>
+    <string name="no_data_error_message">Λυπούμαστε, τα δεδομένα που έχουμε συγκεντρώσει δεν επαρκούν για να δημιουργήσουμε μια διαδρομή μεταξύ των υποδεικνυόμενων πόλεων. Δοκιμάστε να αλλάξετε το αίτημά σας.</string>
+    <string name="invalid_selection_error_message">Ο προορισμός και το σημείο αναχώρησης δεν μπορούν να είναι τα ίδια.</string>
+    <string name="not_allowable_character_error_message">Λυπούμαστε, προς το παρόν υποστηρίζουμε μόνο αγγλική εισαγωγή.</string>
+    <string name="action_button_text">Αγορά εισιτηρίου</string>
+    <string name="clause_duration_included_airport_transfer_text">η διάρκεια περιλαμβάνει μεταφορά προς/από το αεροδρόμιο</string>
+
+    <string name="our_services">Οι υπηρεσίες μας</string>
+    <string name="contacts">Επαφές</string>
+    <string name="price_from">Από: €\u2009%s</string>
+    <string name="founder_and_ceo">Ιδρυτής και Διευθύνων Σύμβουλος</string>
+    <string name="buy_ticket">Αγορά εισιτηρίου</string>
+
+    <string name="budget_travel_tips">Συμβουλές για οικονομικά ταξίδια</string>
+    <string name="duration_includes">η διάρκεια περιλαμβάνει μεταφορά από/προς το αεροδρόμιο</string>
+
+</resources>
