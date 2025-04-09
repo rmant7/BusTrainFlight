@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">טיסה</string>
+    <string name="transportation_type_bus">אוטובוס</string>
+    <string name="transportation_type_train">רכבת</string>
+    <string name="transportation_type_car_drive">נסיעה ברכב</string>
+    <string name="transportation_type_taxi">מונית</string>
+    <string name="transportation_type_walk">הליכה</string>
+    <string name="transportation_type_town_car">רכב פרטי</string>
+    <string name="transportation_type_ride_share">נסיעה משותפת</string>
+    <string name="transportation_type_shuttle">שאטל</string>
+    <string name="transportation_type_ferry">מעבורת</string>
+    <string name="transportation_type_subway">רכבת תחתית</string>
+    <string name="transportation_type_undefined">לא מוגדר</string>
+    <string name="route_type_ground">יבשתי</string>
+    <string name="route_type_mixed">מעורב</string>
+    <string name="route_type_flying">אווירי</string>
+    <string name="route_type_fixed_without_ride_share">יבשתי (ללא שיתוף נסיעות)</string>
+    <string name="route_type_without_ride_share">ללא שיתוף נסיעות</string>
+    <string name="route_type_direct">ישיר</string>
+    <string name="formatted_days_time_component">%d ימים</string>
+    <string name="formatted_hours_time_component">%d שעות</string>
+    <string name="formatted_minutes_time_component">%d דקות</string>
+    <string name="from_location_input_field_hint">מ</string>
+    <string name="to_location_input_field_hint">ל</string>
+    <string name="clear_button_text">נקה טופס</string>
+    <string name="go_button_text">בוא נלך</string>
+    <string name="city_travel_tips">טיפים לטיול בתקציב נמוך עבור %1$s</string>
+    <string name="no_data_error_message">מצטערים, הנתונים שאספנו אינם מספיקים לבניית מסלול בין הערים שצוינו. נסה לשנות את בקשתך.</string>
+    <string name="invalid_selection_error_message">יעד ונקודת יציאה לא יכולים להיות זהים.</string>
+    <string name="not_allowable_character_error_message">מצטערים, לעת עתה, אנו תומכים רק בקלט באנגלית.</string>
+    <string name="action_button_text">קנה כרטיס</string>
+    <string name="clause_duration_included_airport_transfer_text">המשך כולל העברה לשדה התעופה וממנו</string>
+
+    <string name="our_services">השירותים שלנו</string>
+    <string name="contacts">אנשי קשר</string>
+    <string name="price_from">החל מ: €\u2009%s</string>
+    <string name="founder_and_ceo">מייסד ומנכ"ל</string>
+    <string name="buy_ticket">קנה כרטיס</string>
+
+    <string name="budget_travel_tips">טיפים לטיולים בתקציב נמוך</string>
+    <string name="duration_includes">הזמן כולל העברה אל/מנמל התעופה</string>
+
+</resources>

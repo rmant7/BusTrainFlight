@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Samolot</string>
+    <string name="transportation_type_bus">Autobus</string>
+    <string name="transportation_type_train">Pociąg</string>
+    <string name="transportation_type_car_drive">Jazda samochodem</string>
+    <string name="transportation_type_taxi">Taxi</string>
+    <string name="transportation_type_walk">Spacer</string>
+    <string name="transportation_type_town_car">Limuzyna</string>
+    <string name="transportation_type_ride_share">Wspólny przejazd</string>
+    <string name="transportation_type_shuttle">Shuttle</string>
+    <string name="transportation_type_ferry">Prom</string>
+    <string name="transportation_type_subway">Metro</string>
+    <string name="transportation_type_undefined">Niezdefiniowane</string>
+    <string name="route_type_ground">Naziemny</string>
+    <string name="route_type_mixed">Mieszany</string>
+    <string name="route_type_flying">Lotniczy</string>
+    <string name="route_type_fixed_without_ride_share">Naziemny (bez współdzielenia przejazdu)</string>
+    <string name="route_type_without_ride_share">Brak współdzielenia przejazdu</string>
+    <string name="route_type_direct">Bezpośredni</string>
+    <string name="formatted_days_time_component">%d d</string>
+    <string name="formatted_hours_time_component">%d g</string>
+    <string name="formatted_minutes_time_component">%d m</string>
+    <string name="from_location_input_field_hint">Z</string>
+    <string name="to_location_input_field_hint">Do</string>
+    <string name="clear_button_text">Wyczyść formularz</string>
+    <string name="go_button_text">Zaczynajmy</string>
+    <string name="city_travel_tips">Porady dotyczące taniego podróżowania po %1$s</string>
+    <string name="no_data_error_message">Przepraszamy, zgromadzone dane są niewystarczające, aby zbudować trasę między wskazanymi miastami. Spróbuj zmienić zapytanie.</string>
+    <string name="invalid_selection_error_message">Miejsce docelowe i punkt wyjazdu nie mogą być takie same.</string>
+    <string name="not_allowable_character_error_message">Przepraszamy, na razie obsługujemy tylko wprowadzanie danych w języku angielskim.</string>
+    <string name="action_button_text">Kup bilet</string>
+    <string name="clause_duration_included_airport_transfer_text">czas trwania obejmuje transfer na/z lotniska</string>
+
+    <string name="our_services">Nasze usługi</string>
+    <string name="contacts">Kontakty</string>
+    <string name="price_from">Od: €\u2009%s</string>
+    <string name="founder_and_ceo">Założyciel i CEO</string>
+    <string name="buy_ticket">Kup bilet</string>
+
+    <string name="budget_travel_tips">Porady dotyczące podróżowania z ograniczonym budżetem</string>
+    <string name="duration_includes">czas trwania obejmuje transfer z/do lotniska</string>
+
+</resources>

@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">비행기</string>
+    <string name="transportation_type_bus">버스</string>
+    <string name="transportation_type_train">기차</string>
+    <string name="transportation_type_car_drive">자동차 운전</string>
+    <string name="transportation_type_taxi">택시</string>
+    <string name="transportation_type_walk">걷기</string>
+    <string name="transportation_type_town_car">타운 카</string>
+    <string name="transportation_type_ride_share">승차 공유</string>
+    <string name="transportation_type_shuttle">셔틀</string>
+    <string name="transportation_type_ferry">페리</string>
+    <string name="transportation_type_subway">지하철</string>
+    <string name="transportation_type_undefined">정의되지 않음</string>
+    <string name="route_type_ground">지상</string>
+    <string name="route_type_mixed">혼합</string>
+    <string name="route_type_flying">비행</string>
+    <string name="route_type_fixed_without_ride_share">지상 (승차 공유 없음)</string>
+    <string name="route_type_without_ride_share">승차 공유 없음</string>
+    <string name="route_type_direct">직행</string>
+    <string name="formatted_days_time_component">%d 일</string>
+    <string name="formatted_hours_time_component">%d 시간</string>
+    <string name="formatted_minutes_time_component">%d 분</string>
+    <string name="from_location_input_field_hint">출발지</string>
+    <string name="to_location_input_field_hint">도착지</string>
+    <string name="clear_button_text">양식 지우기</string>
+    <string name="go_button_text">가자</string>
+    <string name="city_travel_tips">%1$s의 저예산 여행 팁</string>
+    <string name="no_data_error_message">죄송합니다. 저희가 축적한 데이터로는 해당 도시 간의 경로를 구축하기에 충분하지 않습니다. 요청을 변경해 보세요.</string>
+    <string name="invalid_selection_error_message">출발지와 목적지는 동일할 수 없습니다.</string>
+    <string name="not_allowable_character_error_message">죄송합니다. 현재는 영어 입력만 지원합니다.</string>
+    <string name="action_button_text">티켓 구매</string>
+    <string name="clause_duration_included_airport_transfer_text">소요 시간에는 공항 이동이 포함됩니다</string>
+
+    <string name="our_services">우리의 서비스</string>
+    <string name="contacts">연락처</string>
+    <string name="price_from">시작 가격: €\u2009%s</string>
+    <string name="founder_and_ceo">설립자 및 CEO</string>
+    <string name="buy_ticket">티켓 구매</string>
+
+    <string name="budget_travel_tips">저예산 여행 팁</string>
+    <string name="duration_includes">소요 시간에는 공항 왕복 이동이 포함됩니다</string>
+
+</resources>

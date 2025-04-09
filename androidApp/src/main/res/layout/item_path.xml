@@ -46,11 +46,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@{model.transportationType.toString()}"
+           app:transportationText="@{model.transportationType}"
             android:textColor="@color/colorTextPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Bus" />
+            tools:text="@string/bus" />
 
         <TextView
             android:id="@+id/storeTextView"
@@ -103,7 +103,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="5dp"
-            android:text="Buy ticket"
+            android:text="@string/buy_ticket"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/buyTicketButton"
@@ -156,7 +156,7 @@
             android:id="@+id/actionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{`\u2009€ ` + String.valueOf(model.euroPrice) + '0'}"
+           android:text='@{String.format("\u2009€ %.2f", model.euroPrice)}'
             android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/path_plan"
@@ -176,7 +176,7 @@
         <!--            app:layout_constraintEnd_toEndOf="@id/euro_price"-->
         <!--            app:layout_constraintStart_toStartOf="@id/duration"-->
         <!--            app:layout_constraintTop_toBottomOf="@id/euro_price"-->
-        <!--            tools:text="duration includes transfer to/from airport"-->
+        <!--            tools:text="@string/duration_includes"-->
         <!--            tools:visibility="visible" />-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

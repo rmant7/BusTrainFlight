@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">ہوائی جہاز</string>
+    <string name="transportation_type_bus">بس</string>
+    <string name="transportation_type_train">ٹرین</string>
+    <string name="transportation_type_car_drive">کار ڈرائیو</string>
+    <string name="transportation_type_taxi">ٹیکسی</string>
+    <string name="transportation_type_walk">پیدل</string>
+    <string name="transportation_type_town_car">ٹاؤن کار</string>
+    <string name="transportation_type_ride_share">رائیڈ شیئر</string>
+    <string name="transportation_type_shuttle">شٹل</string>
+    <string name="transportation_type_ferry">فیری</string>
+    <string name="transportation_type_subway">سب وے</string>
+    <string name="transportation_type_undefined">غیر متعین</string>
+    <string name="route_type_ground">زمینی</string>
+    <string name="route_type_mixed">مخلوط</string>
+    <string name="route_type_flying">اڑتی ہوئی</string>
+    <string name="route_type_fixed_without_ride_share">زمینی (بغیر رائیڈ شیئر کے)</string>
+    <string name="route_type_without_ride_share">رائیڈ شیئر نہیں</string>
+    <string name="route_type_direct">براہ راست</string>
+    <string name="formatted_days_time_component">%d دن</string>
+    <string name="formatted_hours_time_component">%d گھنٹے</string>
+    <string name="formatted_minutes_time_component">%d منٹ</string>
+    <string name="from_location_input_field_hint">سے</string>
+    <string name="to_location_input_field_hint">تک</string>
+    <string name="clear_button_text">فارم صاف کریں</string>
+    <string name="go_button_text">چلو چلتے ہیں</string>
+    <string name="city_travel_tips">%1$s کے لیے بجٹ سفری تجاویز</string>
+    <string name="no_data_error_message">معاف کیجیے، ہمارے پاس اتنا ڈیٹا جمع نہیں ہوا کہ اشارہ کردہ شہروں کے درمیان ایک روٹ بنایا جا سکے۔ براہ کرم اپنی درخواست تبدیل کرنے کی کوشش کریں۔</string>
+    <string name="invalid_selection_error_message">منزل اور روانگی کا مقام ایک ہی نہیں ہو سکتا۔</string>
+    <string name="not_allowable_character_error_message">معاف کیجیے، ابھی کے لیے، ہم صرف انگریزی ان پٹ کو سپورٹ کرتے ہیں۔</string>
+    <string name="action_button_text">ٹکٹ خریدیں</string>
+    <string name="clause_duration_included_airport_transfer_text">دورانیہ میں ایئرپورٹ منتقلی شامل ہے</string>
+
+    <string name="our_services">ہماری خدمات</string>
+    <string name="contacts">رابطے</string>
+    <string name="price_from">سے: €\u2009%s</string>
+    <string name="founder_and_ceo">بانی اور سی ای او</string>
+    <string name="buy_ticket">ٹکٹ خریدیں</string>
+
+    <string name="budget_travel_tips">بجٹ سفر کے مشورے</string>
+    <string name="duration_includes">دورانیے میں ایئرپورٹ سے/تک منتقلی شامل ہے</string>
+
+</resources>

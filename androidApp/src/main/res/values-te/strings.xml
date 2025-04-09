@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">విమానం</string>
+    <string name="transportation_type_bus">బస్సు</string>
+    <string name="transportation_type_train">రైలు</string>
+    <string name="transportation_type_car_drive">కారు డ్రైవ్</string>
+    <string name="transportation_type_taxi">టాక్సీ</string>
+    <string name="transportation_type_walk">నడక</string>
+    <string name="transportation_type_town_car">టౌన్ కార్</string>
+    <string name="transportation_type_ride_share">రైడ్ షేర్</string>
+    <string name="transportation_type_shuttle">షటిల్</string>
+    <string name="transportation_type_ferry">ఫెర్రీ</string>
+    <string name="transportation_type_subway">సబ్‌వే</string>
+    <string name="transportation_type_undefined">నిర్వచించబడలేదు</string>
+    <string name="route_type_ground">నేల</string>
+    <string name="route_type_mixed">మిశ్రమ</string>
+    <string name="route_type_flying">ఎగురుతూ</string>
+    <string name="route_type_fixed_without_ride_share">నేల (రైడ్-షేర్ లేదు)</string>
+    <string name="route_type_without_ride_share">రైడ్ షేర్ లేదు</string>
+    <string name="route_type_direct">నేరుగా</string>
+    <string name="formatted_days_time_component">%d రోజులు</string>
+    <string name="formatted_hours_time_component">%d గం</string>
+    <string name="formatted_minutes_time_component">%d నిమి</string>
+    <string name="from_location_input_field_hint">నుండి</string>
+    <string name="to_location_input_field_hint">కు</string>
+    <string name="clear_button_text">ఫారం క్లియర్ చేయండి</string>
+    <string name="go_button_text">వెళ్దాం</string>
+    <string name="city_travel_tips">%1$s కోసం బడ్జెట్ ప్రయాణ చిట్కాలు</string>
+    <string name="no_data_error_message">క్షమించండి, సూచించిన నగరాల మధ్య మార్గాన్ని నిర్మించడానికి మేము సేకరించిన డేటా సరిపోదు. మీ అభ్యర్థనను మార్చడానికి ప్రయత్నించండి.</string>
+    <string name="invalid_selection_error_message">గమ్యస్థానం మరియు బయలుదేరే స్థానం ఒకేలా ఉండకూడదు.</string>
+    <string name="not_allowable_character_error_message">క్షమించండి, ప్రస్తుతానికి, మేము ఆంగ్ల ఇన్పుట్‌కు మాత్రమే మద్దతు ఇస్తున్నాము.</string>
+    <string name="action_button_text">టికెట్ కొనండి</string>
+    <string name="clause_duration_included_airport_transfer_text">వ్యవధిలో విమానాశ్రయానికి/నుండి బదిలీ ఉంటుంది</string>
+
+    <string name="our_services">మా సేవలు</string>
+    <string name="contacts">సంప్రదింపులు</string>
+    <string name="price_from">ప్రారంభ ధర: €\u2009%s</string>
+    <string name="founder_and_ceo">స్థాపకుడు మరియు సీఈఓ</string>
+    <string name="buy_ticket">టికెట్ కొనండి</string>
+
+    <string name="budget_travel_tips">బడ్జెట్ ట్రావెల్ సూచనలు</string>
+    <string name="duration_includes">విమానాశ్రయానికి/నుండి బదిలీ కాల వ్యవధిలో కలుపుకుంటారు</string>
+
+</resources>

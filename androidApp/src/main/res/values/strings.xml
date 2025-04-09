@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <resources>
     <string name="app_name">CheapTrip</string>
     <string name="cheap_trip_title">CheapTrip</string>
     <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
-    <string name="action_bar_tagline">Pay less,­ visit more!</string>
+    <string name="action_bar_tagline" translatable="false">Pay less, visit more!</string>
     <string name="transportation_type_flight">Flight</string>
     <string name="transportation_type_bus">Bus</string>
     <string name="transportation_type_train">Train</string>
@@ -19,7 +18,7 @@
     <string name="route_type_ground">Ground</string>
     <string name="route_type_mixed">Mixed</string>
     <string name="route_type_flying">Flying</string>
-    <string name="route_type_fixed_without_ride_share">Ground (no ride share)</string>
+    <string name="route_type_fixed_without_ride_share">Ground (no ride-share)</string>
     <string name="route_type_without_ride_share">No ride share</string>
     <string name="route_type_direct">Direct</string>
     <string name="formatted_days_time_component">%d d</string>
@@ -35,4 +34,14 @@
     <string name="not_allowable_character_error_message">Sorry, for now, we support only English input.</string>
     <string name="action_button_text">Buy ticket</string>
     <string name="clause_duration_included_airport_transfer_text">duration includes transfer to/from airport</string>
+
+    <string name="our_services">Our Services</string>
+    <string name="contacts">Contacts</string>
+    <string name="price_from">From: €\u2009%s</string>
+    <string name="founder_and_ceo">Founder and CEO</string>
+    <string name="buy_ticket">Buy ticket</string>
+
+    <string name="budget_travel_tips">Budget Travel Tips</string>
+    <string name="duration_includes">duration includes transfer to/from airport</string>
+
 </resources>

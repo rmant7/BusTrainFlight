@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Flug</string>
+    <string name="transportation_type_bus">Bus</string>
+    <string name="transportation_type_train">Zug</string>
+    <string name="transportation_type_car_drive">Autofahrt</string>
+    <string name="transportation_type_taxi">Taxi</string>
+    <string name="transportation_type_walk">Zu Fuß</string>
+    <string name="transportation_type_town_car">Limousine</string>
+    <string name="transportation_type_ride_share">Mitfahrgelegenheit</string>
+    <string name="transportation_type_shuttle">Shuttle</string>
+    <string name="transportation_type_ferry">Fähre</string>
+    <string name="transportation_type_subway">U-Bahn</string>
+    <string name="transportation_type_undefined">Undefiniert</string>
+    <string name="route_type_ground">Boden</string>
+    <string name="route_type_mixed">Gemischt</string>
+    <string name="route_type_flying">Fliegend</string>
+    <string name="route_type_fixed_without_ride_share">Boden (ohne Mitfahrgelegenheit)</string>
+    <string name="route_type_without_ride_share">Keine Mitfahrgelegenheit</string>
+    <string name="route_type_direct">Direkt</string>
+    <string name="formatted_days_time_component">%d T</string>
+    <string name="formatted_hours_time_component">%d Std.</string>
+    <string name="formatted_minutes_time_component">%d Min.</string>
+    <string name="from_location_input_field_hint">Von</string>
+    <string name="to_location_input_field_hint">Nach</string>
+    <string name="clear_button_text">Formular löschen</string>
+    <string name="go_button_text">Los geht\'s</string>
+    <string name="city_travel_tips">Budget-Reisetipps für %1$s</string>
+    <string name="no_data_error_message">Leider reichen die von uns gesammelten Daten nicht aus, um eine Route zwischen den angegebenen Städten zu erstellen. Bitte ändern Sie Ihre Anfrage.</string>
+    <string name="invalid_selection_error_message">Ziel und Ausgangspunkt dürfen nicht identisch sein.</string>
+    <string name="not_allowable_character_error_message">Sorry, im Moment unterstützen wir nur englische Eingabe.</string>
+    <string name="action_button_text">Ticket kaufen</string>
+    <string name="clause_duration_included_airport_transfer_text">Dauer beinhaltet Transfer zum/vom Flughafen</string>
+
+    <string name="our_services">Unsere Dienstleistungen</string>
+    <string name="contacts">Kontakte</string>
+    <string name="price_from">Ab: €\u2009%s</string>
+    <string name="founder_and_ceo">Gründer und Geschäftsführer</string>
+    <string name="buy_ticket">Ticket kaufen</string>
+
+    <string name="budget_travel_tips">Tipps für preiswertes Reisen</string>
+    <string name="duration_includes">Dauer beinhaltet Transfer vom/zum Flughafen</string>
+
+</resources>

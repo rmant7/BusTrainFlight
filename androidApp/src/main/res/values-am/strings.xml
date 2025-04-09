@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">በረራ</string>
+    <string name="transportation_type_bus">አውቶቡስ</string>
+    <string name="transportation_type_train">ባቡር</string>
+    <string name="transportation_type_car_drive">መኪና መንዳት</string>
+    <string name="transportation_type_taxi">ታክሲ</string>
+    <string name="transportation_type_walk">በእግር</string>
+    <string name="transportation_type_town_car">የከተማ መኪና</string>
+    <string name="transportation_type_ride_share">የጋራ መጓጓዣ</string>
+    <string name="transportation_type_shuttle">ሸትል</string>
+    <string name="transportation_type_ferry">ጀልባ</string>
+    <string name="transportation_type_subway">የምድር ውስጥ ባቡር</string>
+    <string name="transportation_type_undefined">ያልተገለጸ</string>
+    <string name="route_type_ground">ምድር</string>
+    <string name="route_type_mixed">ቅልቅል</string>
+    <string name="route_type_flying">መብረር</string>
+    <string name="route_type_fixed_without_ride_share">ምድር (የጋራ መጓጓዣ የለም)</string>
+    <string name="route_type_without_ride_share">የጋራ መጓጓዣ የለም</string>
+    <string name="route_type_direct">ቀጥታ</string>
+    <string name="formatted_days_time_component">%d ቀን</string>
+    <string name="formatted_hours_time_component">%d ሰዓት</string>
+    <string name="formatted_minutes_time_component">%d ደቂቃ</string>
+    <string name="from_location_input_field_hint">ከ</string>
+    <string name="to_location_input_field_hint">ወደ</string>
+    <string name="clear_button_text">ቅጹን አጽዳ</string>
+    <string name="go_button_text">እንሂድ</string>
+    <string name="city_travel_tips">%1$s በጀት የጉዞ ምክሮች</string>
+    <string name="no_data_error_message">ይቅርታ፣ በእጃችን ያለን መረጃ በተጠቀሱት ከተሞች መካከል መስመር ለመገንባት በቂ አይደለም። ጥያቄዎን ለመቀየር ይሞክሩ።</string>
+    <string name="invalid_selection_error_message">መድረሻ እና መነሻ ቦታ አንድ ሊሆኑ አይችሉም።</string>
+    <string name="not_allowable_character_error_message">ይቅርታ፣ ለአሁን የእንግሊዝኛ ግቤትን ብቻ ነው የምንደግፈው።</string>
+    <string name="action_button_text">ትኬት ይግዙ</string>
+    <string name="clause_duration_included_airport_transfer_text">የቆይታ ጊዜ ወደ/ከ አውሮፕላን ማረፊያ ማስተላለፍን ያካትታል</string>
+
+    <string name="our_services">አገልግሎቶቻችን</string>
+    <string name="contacts">እውቂያዎች</string>
+    <string name="price_from">ከፍ: €\u2009%s</string>
+    <string name="founder_and_ceo">ተመሳሳይ እና ዋና ስራ አስኪያጅ</string>
+    <string name="buy_ticket">ትኬት ግዢ</string>
+
+    <string name="budget_travel_tips">Budget ጉዞ ምክሮች</string>
+    <string name="duration_includes">ቆይታው የአየር ማረፊያ መሃል ማስተላለፍን ያካትታል</string>
+</resources>

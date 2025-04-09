@@ -166,12 +166,12 @@ class PathListAdapter @Inject constructor(
                             cityNameFromJson.equals(path.to.name, ignoreCase = true)
                         }
                         if (matchingCityKey != null) {
-                            visibility = View.VISIBLE
+                            visibility = VISIBLE
                             text =
                                 root.context.getString(R.string.city_travel_tips, model?.to?.name)
                             val cityName = citiesNameJson.getString(matchingCityKey)
                             url =
-                                cityName?.let {
+                                cityName.let {
                                     "https://cheaptrip.guru/budgettraveltips/tree/city_descriptions/en/${it}"
                                 }
                         }

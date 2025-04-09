@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Самолет</string>
+    <string name="transportation_type_bus">Автобус</string>
+    <string name="transportation_type_train">Влак</string>
+    <string name="transportation_type_car_drive">Шофиране с кола</string>
+    <string name="transportation_type_taxi">Такси</string>
+    <string name="transportation_type_walk">Пеша</string>
+    <string name="transportation_type_town_car">Луксозен автомобил</string>
+    <string name="transportation_type_ride_share">Споделено пътуване</string>
+    <string name="transportation_type_shuttle">Совалка</string>
+    <string name="transportation_type_ferry">Ферибот</string>
+    <string name="transportation_type_subway">Метро</string>
+    <string name="transportation_type_undefined">Неопределено</string>
+    <string name="route_type_ground">Наземен</string>
+    <string name="route_type_mixed">Смесен</string>
+    <string name="route_type_flying">Въздушен</string>
+    <string name="route_type_fixed_without_ride_share">Наземен (без споделено пътуване)</string>
+    <string name="route_type_without_ride_share">Без споделено пътуване</string>
+    <string name="route_type_direct">Директен</string>
+    <string name="formatted_days_time_component">%d д</string>
+    <string name="formatted_hours_time_component">%d ч</string>
+    <string name="formatted_minutes_time_component">%d м</string>
+    <string name="from_location_input_field_hint">От</string>
+    <string name="to_location_input_field_hint">До</string>
+    <string name="clear_button_text">Изчисти формата</string>
+    <string name="go_button_text">Да тръгваме</string>
+    <string name="city_travel_tips">Съвети за бюджетни пътувания за %1$s</string>
+    <string name="no_data_error_message">Съжаляваме, данните, които сме събрали, не са достатъчни, за да изградим маршрут между посочените градове. Опитайте да промените заявката си.</string>
+    <string name="invalid_selection_error_message">Дестинацията и началната точка не могат да бъдат еднакви.</string>
+    <string name="not_allowable_character_error_message">Съжаляваме, засега поддържаме само въвеждане на английски език.</string>
+    <string name="action_button_text">Купи билет</string>
+    <string name="clause_duration_included_airport_transfer_text">продължителността включва трансфер до/от летището</string>
+
+    <string name="our_services">Нашите услуги</string>
+    <string name="contacts">Контакти</string>
+    <string name="price_from">От: €\u2009%s</string>
+    <string name="founder_and_ceo">Основател и изпълнителен директор</string>
+    <string name="buy_ticket">Купи билет</string>
+
+    <string name="budget_travel_tips">Съвети за пътуване с бюджет</string>
+    <string name="duration_includes">продължителността включва трансфер до/от летището</string>
+
+</resources>

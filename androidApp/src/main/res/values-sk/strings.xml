@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Let</string>
+    <string name="transportation_type_bus">Autobus</string>
+    <string name="transportation_type_train">Vlak</string>
+    <string name="transportation_type_car_drive">Jazda autom</string>
+    <string name="transportation_type_taxi">Taxi</string>
+    <string name="transportation_type_walk">Pešo</string>
+    <string name="transportation_type_town_car">Limuzína</string>
+    <string name="transportation_type_ride_share">Zdieľaná jazda</string>
+    <string name="transportation_type_shuttle">Kyvadlová doprava</string>
+    <string name="transportation_type_ferry">Trajekt</string>
+    <string name="transportation_type_subway">Metro</string>
+    <string name="transportation_type_undefined">Nedefinované</string>
+    <string name="route_type_ground">Pozemná</string>
+    <string name="route_type_mixed">Zmiešaná</string>
+    <string name="route_type_flying">Lietajúca</string>
+    <string name="route_type_fixed_without_ride_share">Pozemná (bez zdieľanej jazdy)</string>
+    <string name="route_type_without_ride_share">Bez zdieľanej jazdy</string>
+    <string name="route_type_direct">Priama</string>
+    <string name="formatted_days_time_component">%d d</string>
+    <string name="formatted_hours_time_component">%d h</string>
+    <string name="formatted_minutes_time_component">%d m</string>
+    <string name="from_location_input_field_hint">Odkiaľ</string>
+    <string name="to_location_input_field_hint">Kam</string>
+    <string name="clear_button_text">Vyčistiť formulár</string>
+    <string name="go_button_text">Ideme na to</string>
+    <string name="city_travel_tips">Tipy na lacné cestovanie pre %1$s</string>
+    <string name="no_data_error_message">Prepáčte, dáta, ktoré sme nazhromaždili, nie sú dostatočné na vytvorenie trasy medzi uvedenými mestami. Skúste zmeniť svoju požiadavku.</string>
+    <string name="invalid_selection_error_message">Cieľ a miesto odchodu nemôžu byť rovnaké.</string>
+    <string name="not_allowable_character_error_message">Prepáčte, zatiaľ podporujeme iba anglický vstup.</string>
+    <string name="action_button_text">Kúpiť lístok</string>
+    <string name="clause_duration_included_airport_transfer_text">trvanie zahŕňa transfer na/z letiska</string>
+
+    <string name="our_services">Naše služby</string>
+    <string name="contacts">Kontakty</string>
+    <string name="price_from">Od: €\u2009%s</string>
+    <string name="founder_and_ceo">Zakladateľ a generálny riaditeľ</string>
+    <string name="buy_ticket">Kúpiť lístok</string>
+
+    <string name="budget_travel_tips">Tipy na cestovanie s obmedzeným rozpočtom</string>
+    <string name="duration_includes">trvanie zahŕňa transfer na/z letiska</string>
+
+</resources>

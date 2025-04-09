@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">விமானம்</string>
+    <string name="transportation_type_bus">பேருந்து</string>
+    <string name="transportation_type_train">ரயில்</string>
+    <string name="transportation_type_car_drive">கார் ஓட்டுதல்</string>
+    <string name="transportation_type_taxi">டாக்சி</string>
+    <string name="transportation_type_walk">நடை</string>
+    <string name="transportation_type_town_car">டவுன் கார்</string>
+    <string name="transportation_type_ride_share">ரைட் ஷேர்</string>
+    <string name="transportation_type_shuttle">ஷட்டில்</string>
+    <string name="transportation_type_ferry">படகு</string>
+    <string name="transportation_type_subway">மெட்ரோ</string>
+    <string name="transportation_type_undefined">வரையறுக்கப்படவில்லை</string>
+    <string name="route_type_ground">தரைவழி</string>
+    <string name="route_type_mixed">கலப்பு</string>
+    <string name="route_type_flying">பறத்தல்</string>
+    <string name="route_type_fixed_without_ride_share">தரைவழி (பகிர்வு சவாரி இல்லை)</string>
+    <string name="route_type_without_ride_share">பகிர்வு சவாரி இல்லை</string>
+    <string name="route_type_direct">நேரடி</string>
+    <string name="formatted_days_time_component">%d நாள்</string>
+    <string name="formatted_hours_time_component">%d மணி</string>
+    <string name="formatted_minutes_time_component">%d நிமி</string>
+    <string name="from_location_input_field_hint">இங்கிருந்து</string>
+    <string name="to_location_input_field_hint">எங்கே போகனும்</string>
+    <string name="clear_button_text">படிவத்தை அழி</string>
+    <string name="go_button_text">போகலாம்</string>
+    <string name="city_travel_tips">%1$s க்கான சிக்கன பயண உதவிக்குறிப்புகள்</string>
+    <string name="no_data_error_message">மன்னிக்கவும், எங்களிடம் உள்ள தரவு, சுட்டிக்காட்டப்பட்ட நகரங்களுக்கு இடையே ஒரு வழியை உருவாக்க போதுமானதாக இல்லை. உங்கள் கோரிக்கையை மாற்ற முயற்சிக்கவும்.</string>
+    <string name="invalid_selection_error_message">புறப்படும் இடமும், சேருமிடமும் ஒரே மாதிரியாக இருக்க முடியாது.</string>
+    <string name="not_allowable_character_error_message">மன்னிக்கவும், இப்போது, ​​நாங்கள் ஆங்கில உள்ளீட்டை மட்டுமே ஆதரிக்கிறோம்.</string>
+    <string name="action_button_text">டிக்கெட் வாங்க</string>
+    <string name="clause_duration_included_airport_transfer_text">கால அளவு விமான நிலையத்திற்கு / இருந்து பரிமாற்றத்தை உள்ளடக்கியது</string>
+
+    <string name="our_services">எங்கள் சேவைகள்</string>
+    <string name="contacts">தொடர்புகள்</string>
+    <string name="price_from">தொடக்கம்: €\u2009%s</string>
+    <string name="founder_and_ceo">நிறுவனர் மற்றும் தலைமை நிர்வாக அதிகாரி</string>
+    <string name="buy_ticket">டிக்கெட் வாங்கவும்</string>
+
+    <string name="budget_travel_tips">சிற்றோர்வு பயண குறிப்புகள்</string>
+    <string name="duration_includes">விமான நிலையத்திற்கு/இருந்து மாற்றம் அடங்கும்</string>
+
+</resources>

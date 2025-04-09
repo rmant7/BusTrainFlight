@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">الوتکه</string>
+    <string name="transportation_type_bus">بس</string>
+    <string name="transportation_type_train">اورګاډی</string>
+    <string name="transportation_type_car_drive">موټر چلول</string>
+    <string name="transportation_type_taxi">ټکسي</string>
+    <string name="transportation_type_walk">تګ</string>
+    <string name="transportation_type_town_car">ښاري موټر</string>
+    <string name="transportation_type_ride_share">د موټر شریکول</string>
+    <string name="transportation_type_shuttle">شټل</string>
+    <string name="transportation_type_ferry">بېړۍ</string>
+    <string name="transportation_type_subway">سب وے</string>
+    <string name="transportation_type_undefined">ناڅرګنده</string>
+    <string name="route_type_ground">ځمکنی</string>
+    <string name="route_type_mixed">ګډ</string>
+    <string name="route_type_flying">الوتنه</string>
+    <string name="route_type_fixed_without_ride_share">ځمکنی (د موټر شریکولو پرته)</string>
+    <string name="route_type_without_ride_share">د موټر شریکول نشته</string>
+    <string name="route_type_direct">مستقیم</string>
+    <string name="formatted_days_time_component">%d ورځ</string>
+    <string name="formatted_hours_time_component">%d ساعت</string>
+    <string name="formatted_minutes_time_component">%d دقیقه</string>
+    <string name="from_location_input_field_hint">څخه</string>
+    <string name="to_location_input_field_hint">ته</string>
+    <string name="clear_button_text">فورمه پاکول</string>
+    <string name="go_button_text">راځئ چې لاړ شو</string>
+    <string name="city_travel_tips">د %1$s لپاره د بودیجې سفر لارښوونې</string>
+    <string name="no_data_error_message">بخښنه غواړو، هغه معلومات چې موږ راټول کړي دي د ښودل شویو ښارونو ترمنځ د لارې جوړولو لپاره کافي ندي. خپله غوښتنه بدله کړئ.</string>
+    <string name="invalid_selection_error_message">منزل او د تګ ځای نشي کولی یو شان وي.</string>
+    <string name="not_allowable_character_error_message">بخښنه غواړو، اوس مهال، موږ یوازې د انګلیسي ژبې داخلول ملاتړ کوو.</string>
+    <string name="action_button_text">ټکټ اخیستل</string>
+    <string name="clause_duration_included_airport_transfer_text">موده کې هوایی ډګر ته / له هوایی ډګر څخه لیږد شامل دی</string>
+
+    <string name="our_services">زموږ خدمتونه</string>
+    <string name="contacts">اړیکې</string>
+    <string name="price_from">له: €\u2009%s</string>
+    <string name="founder_and_ceo">بنسټ ایښودونکی او اجرائیه رئیس</string>
+    <string name="buy_ticket">ټکټ واخلئ</string>
+
+    <string name="budget_travel_tips">د بودیجې سفر لپاره لارښوونې</string>
+    <string name="duration_includes">موده د هوایي ډګر ته/څخه لیږد پکې شامله ده</string>
+
+</resources>

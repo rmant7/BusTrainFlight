@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">ವಿಮಾನ</string>
+    <string name="transportation_type_bus">ಬಸ್</string>
+    <string name="transportation_type_train">ರೈಲು</string>
+    <string name="transportation_type_car_drive">ಕಾರು ಚಾಲನೆ</string>
+    <string name="transportation_type_taxi">ಟ್ಯಾಕ್ಸಿ</string>
+    <string name="transportation_type_walk">ನಡೆ</string>
+    <string name="transportation_type_town_car">ಟೌನ್ ಕಾರ್</string>
+    <string name="transportation_type_ride_share">ರೈಡ್ ಹಂಚಿಕೆ</string>
+    <string name="transportation_type_shuttle">ಶಟಲ್</string>
+    <string name="transportation_type_ferry">ಫೆರಿ</string>
+    <string name="transportation_type_subway">ಸಬ್ವೇ</string>
+    <string name="transportation_type_undefined">ನಿರ್ದಿಷ್ಟಪಡಿಸದ</string>
+    <string name="route_type_ground">ನೆಲ</string>
+    <string name="route_type_mixed">ಮಿಶ್ರ</string>
+    <string name="route_type_flying">ಹಾರುವ</string>
+    <string name="route_type_fixed_without_ride_share">ನೆಲ (ರೈಡ್-ಹಂಚಿಕೆ ಇಲ್ಲ)</string>
+    <string name="route_type_without_ride_share">ರೈಡ್ ಹಂಚಿಕೆ ಇಲ್ಲ</string>
+    <string name="route_type_direct">ನೇರ</string>
+    <string name="formatted_days_time_component">%d ದಿನ</string>
+    <string name="formatted_hours_time_component">%d ಗಂ</string>
+    <string name="formatted_minutes_time_component">%d ನಿ</string>
+    <string name="from_location_input_field_hint">ಇಲ್ಲಿಂದ</string>
+    <string name="to_location_input_field_hint">ಇಲ್ಲಿಗೆ</string>
+    <string name="clear_button_text">ಫಾರ್ಮ್ ತೆರವುಗೊಳಿಸಿ</string>
+    <string name="go_button_text">ಹೋಗೋಣ</string>
+    <string name="city_travel_tips">%1$s ಗಾಗಿ ಬಜೆಟ್ ಪ್ರವಾಸ ಸಲಹೆಗಳು</string>
+    <string name="no_data_error_message">ಕ್ಷಮಿಸಿ, ಸೂಚಿಸಲಾದ ನಗರಗಳ ನಡುವೆ ಮಾರ್ಗವನ್ನು ನಿರ್ಮಿಸಲು ನಾವು ಸಂಗ್ರಹಿಸಿದ ಡೇಟಾ ಸಾಕಾಗುವುದಿಲ್ಲ. ನಿಮ್ಮ ವಿನಂತಿಯನ್ನು ಬದಲಾಯಿಸಲು ಪ್ರಯತ್ನಿಸಿ.</string>
+    <string name="invalid_selection_error_message">ಗಮ್ಯಸ್ಥಾನ ಮತ್ತು ನಿರ್ಗಮನ ಸ್ಥಳವು ಒಂದೇ ಆಗಿರಲು ಸಾಧ್ಯವಿಲ್ಲ.</string>
+    <string name="not_allowable_character_error_message">ಕ್ಷಮಿಸಿ, ಸದ್ಯಕ್ಕೆ, ನಾವು ಇಂಗ್ಲಿಷ್ ಇನ್‌ಪುಟ್ ಅನ್ನು ಮಾತ್ರ ಬೆಂಬಲಿಸುತ್ತೇವೆ.</string>
+    <string name="action_button_text">ಟಿಕೆಟ್ ಖರೀದಿಸಿ</string>
+    <string name="clause_duration_included_airport_transfer_text">ಅವಧಿಯು ವಿಮಾನ ನಿಲ್ದಾಣಕ್ಕೆ/ನಿಂದ ವರ್ಗಾವಣೆಯನ್ನು ಒಳಗೊಂಡಿದೆ</string>
+
+    <string name="our_services">ನಮ್ಮ ಸೇವೆಗಳು</string>
+    <string name="contacts">ಸಂಪರ್ಕಗಳು</string>
+    <string name="price_from">ಇಂದ ಆರಂಭ: €\u2009%s</string>
+    <string name="founder_and_ceo">ಸ್ಥಾಪಕ ಮತ್ತು ಸಿಇಒ</string>
+    <string name="buy_ticket">ಟಿಕೆಟ್ ಖರೀದಿಸಿ</string>
+
+    <string name="budget_travel_tips">ಬಜೆಟ್ ಪ್ರಯಾಣ ಸಲಹೆಗಳು</string>
+    <string name="duration_includes">ಅವಧಿಯಲ್ಲಿ ವಿಮಾನ ನಿಲ್ದಾಣದ ಸ್ಥಳಾಂತರವನ್ನು ಒಳಗೊಂಡಿದೆ</string>
+
+</resources>

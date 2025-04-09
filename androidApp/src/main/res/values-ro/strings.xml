@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Zbor</string>
+    <string name="transportation_type_bus">Autobuz</string>
+    <string name="transportation_type_train">Tren</string>
+    <string name="transportation_type_car_drive">Călătorie cu mașina</string>
+    <string name="transportation_type_taxi">Taxi</string>
+    <string name="transportation_type_walk">Mers pe jos</string>
+    <string name="transportation_type_town_car">Limuzină</string>
+    <string name="transportation_type_ride_share">Ride Share</string>
+    <string name="transportation_type_shuttle">Navetă</string>
+    <string name="transportation_type_ferry">Feribot</string>
+    <string name="transportation_type_subway">Metrou</string>
+    <string name="transportation_type_undefined">Nedefinit</string>
+    <string name="route_type_ground">Terestru</string>
+    <string name="route_type_mixed">Mixt</string>
+    <string name="route_type_flying">Aerian</string>
+    <string name="route_type_fixed_without_ride_share">Terestru (fără ride-share)</string>
+    <string name="route_type_without_ride_share">Fără ride share</string>
+    <string name="route_type_direct">Direct</string>
+    <string name="formatted_days_time_component">%d z</string>
+    <string name="formatted_hours_time_component">%d h</string>
+    <string name="formatted_minutes_time_component">%d m</string>
+    <string name="from_location_input_field_hint">De la</string>
+    <string name="to_location_input_field_hint">Către</string>
+    <string name="clear_button_text">Șterge formularul</string>
+    <string name="go_button_text">Să mergem</string>
+    <string name="city_travel_tips">Sfaturi de călătorie cu buget redus pentru %1$s</string>
+    <string name="no_data_error_message">Ne pare rău, datele pe care le-am acumulat nu sunt suficiente pentru a construi o rută între orașele indicate. Încearcă să-ți schimbi cererea.</string>
+    <string name="invalid_selection_error_message">Destinația și punctul de plecare nu pot fi aceleași.</string>
+    <string name="not_allowable_character_error_message">Ne pare rău, deocamdată, acceptăm doar introducere în engleză.</string>
+    <string name="action_button_text">Cumpară bilet</string>
+    <string name="clause_duration_included_airport_transfer_text">durata include transferul la/de la aeroport</string>
+
+    <string name="our_services">Serviciile noastre</string>
+    <string name="contacts">Contacte</string>
+    <string name="price_from">De la: €\u2009%s</string>
+    <string name="founder_and_ceo">Fondator și CEO</string>
+    <string name="buy_ticket">Cumpără bilet</string>
+
+    <string name="budget_travel_tips">Sfaturi pentru călătorii cu buget redus</string>
+    <string name="duration_includes">durata include transferul de la/la aeroport</string>
+
+</resources>

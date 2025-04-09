@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Ndege</string>
+    <string name="transportation_type_bus">Basi</string>
+    <string name="transportation_type_train">Treni</string>
+    <string name="transportation_type_car_drive">Gari</string>
+    <string name="transportation_type_taxi">Teksi</string>
+    <string name="transportation_type_walk">Tembea</string>
+    <string name="transportation_type_town_car">Gari la Mjini</string>
+    <string name="transportation_type_ride_share">Gari la Kukodisha</string>
+    <string name="transportation_type_shuttle">Shuttle</string>
+    <string name="transportation_type_ferry">Feri</string>
+    <string name="transportation_type_subway">Subway</string>
+    <string name="transportation_type_undefined">Haijafafanuliwa</string>
+    <string name="route_type_ground">Ardhini</string>
+    <string name="route_type_mixed">Mchanganyiko</string>
+    <string name="route_type_flying">Angani</string>
+    <string name="route_type_fixed_without_ride_share">Ardhini (bila gari la kukodisha)</string>
+    <string name="route_type_without_ride_share">Hakuna gari la kukodisha</string>
+    <string name="route_type_direct">Moja kwa moja</string>
+    <string name="formatted_days_time_component">%d d</string>
+    <string name="formatted_hours_time_component">%d h</string>
+    <string name="formatted_minutes_time_component">%d m</string>
+    <string name="from_location_input_field_hint">Kutoka</string>
+    <string name="to_location_input_field_hint">Kwenda</string>
+    <string name="clear_button_text">Futa fomu</string>
+    <string name="go_button_text">Twende</string>
+    <string name="city_travel_tips">Vidokezo vya safari ya bajeti kwa %1$s</string>
+    <string name="no_data_error_message">Samahani, data tuliyokusanya haitoshi kujenga njia kati ya miji iliyoonyeshwa. Jaribu kubadilisha ombi lako.</string>
+    <string name="invalid_selection_error_message">Unakoenda na sehemu ya kuondoka haziwezi kuwa sawa.</string>
+    <string name="not_allowable_character_error_message">Samahani, kwa sasa, tunasaidia ingizo la Kiingereza pekee.</string>
+    <string name="action_button_text">Nunua tiketi</string>
+    <string name="clause_duration_included_airport_transfer_text">muda unajumuisha usafiri kwenda/kutoka uwanja wa ndege</string>
+
+    <string name="our_services">Huduma Zetu</string>
+    <string name="contacts">Mawasiliano</string>
+    <string name="price_from">Kuanzia: €\u2009%s</string>
+    <string name="founder_and_ceo">Mwanzilishi na Mkurugenzi Mtendaji</string>
+    <string name="buy_ticket">Nunua tiketi</string>
+
+    <string name="budget_travel_tips">Vidokezo vya kusafiri kwa bajeti ndogo</string>
+    <string name="duration_includes">muda unajumuisha usafiri kwenda/kutoka uwanja wa ndege</string>
+
+</resources>

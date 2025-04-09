@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Máy bay</string>
+    <string name="transportation_type_bus">Xe buýt</string>
+    <string name="transportation_type_train">Tàu hỏa</string>
+    <string name="transportation_type_car_drive">Lái xe ô tô</string>
+    <string name="transportation_type_taxi">Taxi</string>
+    <string name="transportation_type_walk">Đi bộ</string>
+    <string name="transportation_type_town_car">Xe riêng</string>
+    <string name="transportation_type_ride_share">Đi chung xe</string>
+    <string name="transportation_type_shuttle">Xe đưa đón</string>
+    <string name="transportation_type_ferry">Phà</string>
+    <string name="transportation_type_subway">Tàu điện ngầm</string>
+    <string name="transportation_type_undefined">Chưa xác định</string>
+    <string name="route_type_ground">Đường bộ</string>
+    <string name="route_type_mixed">Hỗn hợp</string>
+    <string name="route_type_flying">Đường hàng không</string>
+    <string name="route_type_fixed_without_ride_share">Đường bộ (không đi chung xe)</string>
+    <string name="route_type_without_ride_share">Không đi chung xe</string>
+    <string name="route_type_direct">Trực tiếp</string>
+    <string name="formatted_days_time_component">%d ngày</string>
+    <string name="formatted_hours_time_component">%d giờ</string>
+    <string name="formatted_minutes_time_component">%d phút</string>
+    <string name="from_location_input_field_hint">Từ</string>
+    <string name="to_location_input_field_hint">Đến</string>
+    <string name="clear_button_text">Xóa biểu mẫu</string>
+    <string name="go_button_text">Đi thôi</string>
+    <string name="city_travel_tips">Mẹo du lịch tiết kiệm cho %1$s</string>
+    <string name="no_data_error_message">Xin lỗi, dữ liệu chúng tôi thu thập được không đủ để xây dựng lộ trình giữa các thành phố được chỉ định. Hãy thử thay đổi yêu cầu của bạn.</string>
+    <string name="invalid_selection_error_message">Điểm đến và điểm khởi hành không được giống nhau.</string>
+    <string name="not_allowable_character_error_message">Xin lỗi, hiện tại chúng tôi chỉ hỗ trợ nhập bằng tiếng Anh.</string>
+    <string name="action_button_text">Mua vé</string>
+    <string name="clause_duration_included_airport_transfer_text">thời lượng bao gồm di chuyển đến/từ sân bay</string>
+
+    <string name="our_services">Dịch vụ của chúng tôi</string>
+    <string name="contacts">Liên hệ</string>
+    <string name="price_from">Từ: €\u2009%s</string>
+    <string name="founder_and_ceo">Người sáng lập và Giám đốc điều hành</string>
+    <string name="buy_ticket">Mua vé</string>
+
+    <string name="budget_travel_tips">Mẹo du lịch tiết kiệm</string>
+    <string name="duration_includes">thời gian bao gồm đưa đón đến/từ sân bay</string>
+
+</resources>

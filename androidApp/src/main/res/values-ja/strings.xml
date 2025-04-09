@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">フライト</string>
+    <string name="transportation_type_bus">バス</string>
+    <string name="transportation_type_train">電車</string>
+    <string name="transportation_type_car_drive">車の運転</string>
+    <string name="transportation_type_taxi">タクシー</string>
+    <string name="transportation_type_walk">徒歩</string>
+    <string name="transportation_type_town_car">タウンカー</string>
+    <string name="transportation_type_ride_share">ライドシェア</string>
+    <string name="transportation_type_shuttle">シャトル</string>
+    <string name="transportation_type_ferry">フェリー</string>
+    <string name="transportation_type_subway">地下鉄</string>
+    <string name="transportation_type_undefined">未定義</string>
+    <string name="route_type_ground">地上</string>
+    <string name="route_type_mixed">混合</string>
+    <string name="route_type_flying">空路</string>
+    <string name="route_type_fixed_without_ride_share">地上（ライドシェアなし）</string>
+    <string name="route_type_without_ride_share">ライドシェアなし</string>
+    <string name="route_type_direct">直行</string>
+    <string name="formatted_days_time_component">%d日</string>
+    <string name="formatted_hours_time_component">%d時間</string>
+    <string name="formatted_minutes_time_component">%d分</string>
+    <string name="from_location_input_field_hint">出発地</string>
+    <string name="to_location_input_field_hint">目的地</string>
+    <string name="clear_button_text">フォームをクリア</string>
+    <string name="go_button_text">さあ、出発</string>
+    <string name="city_travel_tips">%1$sの節約旅行術</string>
+    <string name="no_data_error_message">申し訳ありません。蓄積されたデータが不足しており、指定された都市間のルートを構築できません。リクエストを変更してみてください。</string>
+    <string name="invalid_selection_error_message">目的地と出発地を同じにすることはできません。</string>
+    <string name="not_allowable_character_error_message">申し訳ありませんが、現在、英語入力のみをサポートしています。</string>
+    <string name="action_button_text">チケットを購入</string>
+    <string name="clause_duration_included_airport_transfer_text">所要時間には空港への送迎が含まれています</string>
+
+    <string name="our_services">当社のサービス</string>
+    <string name="contacts">連絡先</string>
+    <string name="price_from">から: €\u2009%s</string>
+    <string name="founder_and_ceo">創業者兼CEO</string>
+    <string name="buy_ticket">チケットを購入</string>
+
+    <string name="budget_travel_tips">格安旅行のヒント</string>
+    <string name="duration_includes">所要時間には空港への送迎が含まれます</string>
+
+</resources>

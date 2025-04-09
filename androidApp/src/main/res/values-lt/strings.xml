@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Skrydis</string>
+    <string name="transportation_type_bus">Autobusas</string>
+    <string name="transportation_type_train">Traukinys</string>
+    <string name="transportation_type_car_drive">Važiavimas automobiliu</string>
+    <string name="transportation_type_taxi">Taxi</string>
+    <string name="transportation_type_walk">Ėjimas pėsčiomis</string>
+    <string name="transportation_type_town_car">Privatus automobilis</string>
+    <string name="transportation_type_ride_share">Pavėžėjimas</string>
+    <string name="transportation_type_shuttle">Maršrutinis autobusas</string>
+    <string name="transportation_type_ferry">Keltas</string>
+    <string name="transportation_type_subway">Metropolitenas</string>
+    <string name="transportation_type_undefined">Neapibrėžta</string>
+    <string name="route_type_ground">Žemės</string>
+    <string name="route_type_mixed">Mišrus</string>
+    <string name="route_type_flying">Skraidymas</string>
+    <string name="route_type_fixed_without_ride_share">Žemės (be pavėžėjimo)</string>
+    <string name="route_type_without_ride_share">Be pavėžėjimo</string>
+    <string name="route_type_direct">Tiesioginis</string>
+    <string name="formatted_days_time_component">%d d.</string>
+    <string name="formatted_hours_time_component">%d val.</string>
+    <string name="formatted_minutes_time_component">%d min.</string>
+    <string name="from_location_input_field_hint">Iš kur</string>
+    <string name="to_location_input_field_hint">Į kur</string>
+    <string name="clear_button_text">Išvalyti formą</string>
+    <string name="go_button_text">Pirmyn</string>
+    <string name="city_travel_tips">Ekonomiškos kelionės patarimai į %1$s</string>
+    <string name="no_data_error_message">Atsiprašome, sukauptų duomenų nepakanka maršrutui tarp nurodytų miestų sudaryti. Pabandykite pakeisti užklausą.</string>
+    <string name="invalid_selection_error_message">Keliavimo tikslas ir išvykimo vieta negali būti vienodi.</string>
+    <string name="not_allowable_character_error_message">Atsiprašome, kol kas palaikome tik įvestį anglų kalba.</string>
+    <string name="action_button_text">Pirkti bilietą</string>
+    <string name="clause_duration_included_airport_transfer_text">trukmė apima pervežimą į/iš oro uosto</string>
+
+    <string name="our_services">Mūsų paslaugos</string>
+    <string name="contacts">Kontaktai</string>
+    <string name="price_from">Nuo: €\u2009%s</string>
+    <string name="founder_and_ceo">Įkūrėjas ir generalinis direktorius</string>
+    <string name="buy_ticket">Pirkti bilietą</string>
+
+    <string name="budget_travel_tips">Kelionių patarimai su biudžetu</string>
+    <string name="duration_includes">trukmė apima pervežimą į/iš oro uosto</string>
+
+</resources>

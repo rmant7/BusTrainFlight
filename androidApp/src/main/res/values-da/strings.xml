@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Fly</string>
+    <string name="transportation_type_bus">Bus</string>
+    <string name="transportation_type_train">Tog</string>
+    <string name="transportation_type_car_drive">Bilkørsel</string>
+    <string name="transportation_type_taxi">Taxa</string>
+    <string name="transportation_type_walk">Gå</string>
+    <string name="transportation_type_town_car">Privat Chauffør</string>
+    <string name="transportation_type_ride_share">Samkørsel</string>
+    <string name="transportation_type_shuttle">Shuttle</string>
+    <string name="transportation_type_ferry">Færge</string>
+    <string name="transportation_type_subway">Metro</string>
+    <string name="transportation_type_undefined">Udefineret</string>
+    <string name="route_type_ground">Land</string>
+    <string name="route_type_mixed">Blandet</string>
+    <string name="route_type_flying">Flyvende</string>
+    <string name="route_type_fixed_without_ride_share">Land (uden samkørsel)</string>
+    <string name="route_type_without_ride_share">Ingen samkørsel</string>
+    <string name="route_type_direct">Direkte</string>
+    <string name="formatted_days_time_component">%d d</string>
+    <string name="formatted_hours_time_component">%d t</string>
+    <string name="formatted_minutes_time_component">%d m</string>
+    <string name="from_location_input_field_hint">Fra</string>
+    <string name="to_location_input_field_hint">Til</string>
+    <string name="clear_button_text">Ryd form</string>
+    <string name="go_button_text">Lad os tage afsted</string>
+    <string name="city_travel_tips">Budget rejsetips til %1$s</string>
+    <string name="no_data_error_message">Beklager, de data, vi har akkumuleret, er ikke nok til at bygge en rute mellem de angivne byer. Prøv at ændre din anmodning.</string>
+    <string name="invalid_selection_error_message">Destination og afgangssted kan ikke være det samme.</string>
+    <string name="not_allowable_character_error_message">Beklager, indtil videre understøtter vi kun engelsk input.</string>
+    <string name="action_button_text">Køb billet</string>
+    <string name="clause_duration_included_airport_transfer_text">varighed inkluderer transport til/fra lufthavn</string>
+
+    <string name="our_services">Vores tjenester</string>
+    <string name="contacts">Kontakter</string>
+    <string name="price_from">Fra: €\u2009%s</string>
+    <string name="founder_and_ceo">Grundlægger og direktør</string>
+    <string name="buy_ticket">Køb billet</string>
+
+    <string name="budget_travel_tips">Budgetrejsetips</string>
+    <string name="duration_includes">varigheden inkluderer transfer til/fra lufthavn</string>
+
+</resources>

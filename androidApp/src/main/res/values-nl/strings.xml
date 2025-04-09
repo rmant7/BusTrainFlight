@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Vlucht</string>
+    <string name="transportation_type_bus">Bus</string>
+    <string name="transportation_type_train">Trein</string>
+    <string name="transportation_type_car_drive">Autorit</string>
+    <string name="transportation_type_taxi">Taxi</string>
+    <string name="transportation_type_walk">Lopen</string>
+    <string name="transportation_type_town_car">Privéauto</string>
+    <string name="transportation_type_ride_share">Carpoolen</string>
+    <string name="transportation_type_shuttle">Shuttle</string>
+    <string name="transportation_type_ferry">Veerboot</string>
+    <string name="transportation_type_subway">Metro</string>
+    <string name="transportation_type_undefined">Niet gedefinieerd</string>
+    <string name="route_type_ground">Grond</string>
+    <string name="route_type_mixed">Gemengd</string>
+    <string name="route_type_flying">Vliegen</string>
+    <string name="route_type_fixed_without_ride_share">Grond (geen carpoolen)</string>
+    <string name="route_type_without_ride_share">Geen carpoolen</string>
+    <string name="route_type_direct">Direct</string>
+    <string name="formatted_days_time_component">%d d</string>
+    <string name="formatted_hours_time_component">%d u</string>
+    <string name="formatted_minutes_time_component">%d m</string>
+    <string name="from_location_input_field_hint">Van</string>
+    <string name="to_location_input_field_hint">Naar</string>
+    <string name="clear_button_text">Formulier wissen</string>
+    <string name="go_button_text">Laten we gaan</string>
+    <string name="city_travel_tips">Budgetreistips voor %1$s</string>
+    <string name="no_data_error_message">Sorry, de gegevens die we hebben verzameld, zijn niet voldoende om een route tussen de aangegeven steden te bouwen. Probeer uw verzoek te wijzigen.</string>
+    <string name="invalid_selection_error_message">Bestemming en vertrekpunt kunnen niet hetzelfde zijn.</string>
+    <string name="not_allowable_character_error_message">Sorry, voorlopig ondersteunen we alleen Engelse invoer.</string>
+    <string name="action_button_text">Koop ticket</string>
+    <string name="clause_duration_included_airport_transfer_text">duur is inclusief transfer van/naar luchthaven</string>
+
+    <string name="our_services">Onze diensten</string>
+    <string name="contacts">Contacten</string>
+    <string name="price_from">Vanaf: €\u2009%s</string>
+    <string name="founder_and_ceo">Oprichter en CEO</string>
+    <string name="buy_ticket">Koop ticket</string>
+
+    <string name="budget_travel_tips">Budget reistips</string>
+    <string name="duration_includes">duur omvat transfer van/naar luchthaven</string>
+</resources>

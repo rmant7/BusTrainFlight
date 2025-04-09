@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">ফ্লাইট</string>
+    <string name="transportation_type_bus">বাস</string>
+    <string name="transportation_type_train">ট্রেন</string>
+    <string name="transportation_type_car_drive">গাড়ি ড্রাইভ</string>
+    <string name="transportation_type_taxi">ট্যাক্সি</string>
+    <string name="transportation_type_walk">হাঁটা</string>
+    <string name="transportation_type_town_car">টাউন কার</string>
+    <string name="transportation_type_ride_share">রাইড শেয়ার</string>
+    <string name="transportation_type_shuttle">শাটল</string>
+    <string name="transportation_type_ferry">ফেরি</string>
+    <string name="transportation_type_subway">সাবওয়ে</string>
+    <string name="transportation_type_undefined">অনির্ধারিত</string>
+    <string name="route_type_ground">স্থল</string>
+    <string name="route_type_mixed">মিশ্র</string>
+    <string name="route_type_flying">উড়ন্ত</string>
+    <string name="route_type_fixed_without_ride_share">স্থল (রাইড-শেয়ার ছাড়া)</string>
+    <string name="route_type_without_ride_share">রাইড শেয়ার নেই</string>
+    <string name="route_type_direct">সরাসরি</string>
+    <string name="formatted_days_time_component">%d দিন</string>
+    <string name="formatted_hours_time_component">%d ঘণ্টা</string>
+    <string name="formatted_minutes_time_component">%d মিনিট</string>
+    <string name="from_location_input_field_hint">থেকে</string>
+    <string name="to_location_input_field_hint">গন্তব্য</string>
+    <string name="clear_button_text">ফর্ম সাফ করুন</string>
+    <string name="go_button_text">চলো যাই</string>
+    <string name="city_travel_tips">%1$s এর জন্য বাজেট ভ্রমণ টিপস</string>
+    <string name="no_data_error_message">দুঃখিত, আমাদের কাছে নির্দেশিত শহরগুলির মধ্যে একটি রুট তৈরি করার জন্য পর্যাপ্ত ডেটা নেই। আপনার অনুরোধ পরিবর্তন করার চেষ্টা করুন।</string>
+    <string name="invalid_selection_error_message">গন্তব্য এবং отправления এর স্থান একই হতে পারে না।</string>
+    <string name="not_allowable_character_error_message">দুঃখিত, আপাতত, আমরা কেবল ইংরেজি ইনপুট সমর্থন করি।</string>
+    <string name="action_button_text">টিকিট কিনুন</string>
+    <string name="clause_duration_included_airport_transfer_text">সময়কাল বিমানবন্দরে স্থানান্তর অন্তর্ভুক্ত</string>
+
+    <string name="our_services">আমাদের সেবাসমূহ</string>
+    <string name="contacts">যোগাযোগ</string>
+    <string name="price_from">শুরু: €\u2009%s</string>
+    <string name="founder_and_ceo">প্রতিষ্ঠাতা ও সিইও</string>
+    <string name="buy_ticket">টিকিট কিনুন</string>
+
+    <string name="budget_travel_tips">বাজেট ট্র্যাভেল টিপস</string>
+    <string name="duration_includes">সময়সীমায় বিমানবন্দর থেকে/পর্যন্ত স্থানান্তর অন্তর্ভুক্ত</string>
+
+</resources>

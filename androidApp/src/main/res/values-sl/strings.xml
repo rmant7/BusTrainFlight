@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">CheapTrip</string>
+    <string name="cheap_trip_title">CheapTrip</string>
+    <string name="email"><u>roman.mantelmakher@gmail.com</u></string>
+    <string name="transportation_type_flight">Letalo</string>
+    <string name="transportation_type_bus">Avtobus</string>
+    <string name="transportation_type_train">Vlak</string>
+    <string name="transportation_type_car_drive">Vožnja z avtomobilom</string>
+    <string name="transportation_type_taxi">Taksi</string>
+    <string name="transportation_type_walk">Hoja</string>
+    <string name="transportation_type_town_car">Osebni avtomobil</string>
+    <string name="transportation_type_ride_share">Deljenje prevoza</string>
+    <string name="transportation_type_shuttle">Prevoz</string>
+    <string name="transportation_type_ferry">Trajekt</string>
+    <string name="transportation_type_subway">Podzemna železnica</string>
+    <string name="transportation_type_undefined">Nedefinirano</string>
+    <string name="route_type_ground">Po tleh</string>
+    <string name="route_type_mixed">Mešano</string>
+    <string name="route_type_flying">Z letalom</string>
+    <string name="route_type_fixed_without_ride_share">Po tleh (brez deljenja prevoza)</string>
+    <string name="route_type_without_ride_share">Brez deljenja prevoza</string>
+    <string name="route_type_direct">Direktno</string>
+    <string name="formatted_days_time_component">%d d</string>
+    <string name="formatted_hours_time_component">%d h</string>
+    <string name="formatted_minutes_time_component">%d m</string>
+    <string name="from_location_input_field_hint">Od kod</string>
+    <string name="to_location_input_field_hint">Kam</string>
+    <string name="clear_button_text">Počisti obrazec</string>
+    <string name="go_button_text">Gremo</string>
+    <string name="city_travel_tips">Nasveti za poceni potovanje za %1$s</string>
+    <string name="no_data_error_message">Žal podatki, ki smo jih zbrali, ne zadostujejo za izgradnjo poti med označenimi mesti. Poskusite spremeniti zahtevo.</string>
+    <string name="invalid_selection_error_message">Cilj in izhodišče ne moreta biti enaka.</string>
+    <string name="not_allowable_character_error_message">Žal, zaenkrat podpiramo samo vnos v angleščini.</string>
+    <string name="action_button_text">Kupi vozovnico</string>
+    <string name="clause_duration_included_airport_transfer_text">trajanje vključuje prevoz na/z letališča</string>
+
+    <string name="our_services">Naše storitve</string>
+    <string name="contacts">Stiki</string>
+    <string name="price_from">Od: €\u2009%s</string>
+    <string name="founder_and_ceo">Ustanovitelj in direktor</string>
+    <string name="buy_ticket">Kupi vstopnico</string>
+
+    <string name="budget_travel_tips">Nasveti za potovanje z nizkim proračunom</string>
+    <string name="duration_includes">trajanje vključuje prevoz do/iz letališča</string>
+
+</resources>
